@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2018-10-16"
+lastupdated: "2019-06-10"
 
 keywords: mobile foundation security, MIM attack, certificate pinning
 
@@ -35,7 +35,8 @@ Il processo di associazione di certificati consiste nei passi di seguito indicat
 
 Durante l'handshake SSL (prima richiesta al server), l'SDK client Mobile Foundation verifica che la chiave pubblica del certificato server corrisponda alla chiave pubblica del certificato archiviato nell'applicazione.
 
->**Nota**: devi utilizzare un certificato acquistato da un'autorità di certificazione (CA, Certificate Authority). I certificati autofirmati **non sono supportati**.
+Devi utilizzare un certificato acquistato da un'autorità di certificazione (CA, Certificate Authority). I certificati autofirmati **non sono supportati**.
+{: note}
 
 ## Associazione di certificato
 {: #cert_pinning}
@@ -52,11 +53,10 @@ L'associazione di certificato è il processo di associazione di un host alla sua
 Puoi anche associare più certificati alla tua applicazione client. Inserisci una copia di tutti i certificati nella tua applicazione client. Durante l'handshake SSL (prima richiesta al server), l'SDK client MobileFirst verifica che la chiave pubblica del certificato server corrisponda alla chiave pubblica di uno dei certificati archiviati nell'applicazione.
 {: note}
 
-**Importante**
-
-* Alcuni sistemi operativi mobili potrebbero memorizzare in cache il risultato del controllo della convalida del certificato. Pertanto, il tuo codice richiama il metodo API di associazione del certificato **prima** che venga effettuata una richiesta protetta. In caso contrario, eventuali richieste successive potrebbero tralasciare il controllo della convalida e dell'associazione del certificato.
-* Assicurati di utilizzare solo le API Mobile Foundation per tutte le comunicazioni con l'host correlato, anche dopo l'associazione di certificato. L'utilizzo di API di terze parti per interagire con lo stesso host potrebbe portare a una modalità di funzionamento imprevista, come ad esempio la memorizzazione in cache di un certificato non verificato da parte del sistema operativo mobile.
-* Il richiamo del metodo API di associazione di certificato una seconda volta sovrascrive la precedente operazione di associazione.
+* **Importante**
+    * Alcuni sistemi operativi mobili potrebbero memorizzare in cache il risultato del controllo della convalida del certificato. Pertanto, il tuo codice richiama il metodo API di associazione del certificato **prima** che venga effettuata una richiesta protetta. In caso contrario, eventuali richieste successive potrebbero tralasciare il controllo della convalida e dell'associazione del certificato.
+    * Assicurati di utilizzare solo le API Mobile Foundation per tutte le comunicazioni con l'host correlato, anche dopo l'associazione di certificato. L'utilizzo di API di terze parti per interagire con lo stesso host potrebbe portare a una modalità di funzionamento imprevista, come ad esempio la memorizzazione in cache di un certificato non verificato da parte del sistema operativo mobile.
+    * Il richiamo del metodo API di associazione di certificato una seconda volta sovrascrive la precedente operazione di associazione.
 
 Se il processo di associazione viene eseguito con esito positivo, la chiave pubblica all'interno del certificato fornito viene utilizzata per verificare l'integrità del certificato MobileFirst Server durante l'handshake SSL/TLS della richiesta protetta. Se il processo di associazione non riesce, tutte le richieste SSL/TLS al server vengono rifiutate dall'applicazione client.
 
@@ -65,13 +65,13 @@ Se il processo di associazione viene eseguito con esito positivo, la chiave pubb
 
 Devi utilizzare un certificato acquistato da un'autorità di certificazione (CA, Certificate Authority). I certificati autofirmati **non sono supportati**. Per compatibilità con gli ambienti supportati, assicurati di utilizzare un certificato codificato in formato **DER** (Distinguished Encoding Rules, come definito dallo standard International Telecommunications Union X.690).
 
-Il certificato deve essere inserito sia in MobileFirst Server sia nella tua applicazione Inserisci il certificato nel seguente modo: 
+Il certificato deve essere inserito sia in MobileFirst Server sia nella tua applicazione Inserisci il certificato nel seguente modo:
 
-* In MobileFirst Server (WebSphere Application Server, WebSphere Application Server Liberty o Apache Tomcat), consulta la documentazione per il tuo server delle applicazioni specifico per informazioni su come configurare SSL/TLS e i certificati. 
-* Nella tua applicazione: 
+* In MobileFirst Server (WebSphere Application Server, WebSphere Application Server Liberty o Apache Tomcat), consulta la documentazione per il tuo server delle applicazioni specifico per informazioni su come configurare SSL/TLS e i certificati.
+* Nella tua applicazione:
     * Per iOS nativa, aggiungi il certificato al **bundle** dell'applicazione
     * Per Android nativa, inserisci il certificato nella cartella **assets**
-    * Per Cordova, inserisci il certificato nella cartella **app-name\www\certificates** (se la cartella non è già presente, procedi a crearla). 
+    * Per Cordova, inserisci il certificato nella cartella **app-name\www\certificates** (se la cartella non è già presente, procedi a crearla).
 
 ## API di associazione di certificato
 {: #certpinapi}
@@ -180,10 +180,10 @@ Il metodo di associazione di certificato genererà un'eccezione in due casi:
 
 Il metodo di associazione di certificato restituisce una promessa:
 
-* Il metodo di associazione di certificato richiama il metodo `onSuccess` se l'associazione ha esito positivo. 
-* Il metodo di associazione di certificato attiva il callback `onFailure` nei seguenti due casi: 
-  * Il file non esiste. 
-  * Il file è nel formato errato. 
+* Il metodo di associazione di certificato richiama il metodo `onSuccess` se l'associazione ha esito positivo.
+* Il metodo di associazione di certificato attiva il callback `onFailure` nei seguenti due casi:
+  * Il file non esiste.
+  * Il file è nel formato errato.
 
 Successivamente, se viene effettuata una richiesta protetta a un server il cui certificato non è associato, viene richiamato il callback `onFailure` della richiesta specifica (ad esempio `obtainAccessToken` o `WLResourceRequest`).
 

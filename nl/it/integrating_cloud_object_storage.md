@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-03-13"
+lastupdated: "2019-06-24"
 
 keywords: mobile foundation, integration, cloud object storage, COS, ibm cloud
 
@@ -43,7 +43,7 @@ subcollection:  mobilefoundation
 
 1. Installa [mfpdev-cli](https://www.ibm.com/support/knowledgecenter/en/SSHS8R_8.0.0/com.ibm.worklight.dev.doc/dev/c_wl_cli_description.html) eseguendo `npm install -g mfpdev-cli`. Questa cli viene utilizzata per registrare l'applicazione Ionic e distribuire l'adattatore nel server MF. In alternativa, queste attività possono essere eseguite dal dashboard del server MF.
 
-2. Installa la [{{ site.data.keyword.cloud_notm}} CLI](https://console.bluemix.net/docs/cli/index.html#overview) sulla tua macchina.
+2. Installa la [{{ site.data.keyword.cloud_notm}} CLI](https://cloud.ibm.com/docs/cli?topic=cloud-cli-ibmcloud-cli) sulla tua macchina.
 
 3. Installa Ionic cli eseguendo `npm install -g ionic`
 
@@ -55,7 +55,7 @@ subcollection:  mobilefoundation
 
 Il server {{ site.data.keyword.mobilefoundation_short}} viene configurato su {{ site.data.keyword.cloud_notm}}. Configura un'istanza {{ site.data.keyword.cloud_notm}} del server {{ site.data.keyword.mobilefoundation_short}} nel seguente modo:
 
-* Nel catalogo {{ site.data.keyword.cloud_notm}}, ricerca "{{ site.data.keyword.mobilefoundation_short}}". Fai clic sul tile **{{ site.data.keyword.mobilefoundation_short}}**.
+* Nel catalogo {{ site.data.keyword.cloud_notm}}, ricerca *{{ site.data.keyword.mobilefoundation_short}}*. Fai clic sul tile **{{ site.data.keyword.mobilefoundation_short}}**.
 
     ![MFPCatalog](images/mfp_catalog.png)
 
@@ -67,7 +67,7 @@ Il server {{ site.data.keyword.mobilefoundation_short}} viene configurato su {{ 
 
     ![MFPLogin](images/mfp_login.png)
 
-* Le credenziali per accedere al server MF possono essere trovate nella scheda **Credenziali** nel menu a sinistra.
+* Le credenziali per accedere al server MF possono essere trovate nella scheda **Credentials** nel menu.
 
     ![MFPcredentials](images/mfp_credentials.png)
 
@@ -79,7 +79,7 @@ Il server {{ site.data.keyword.mobilefoundation_short}} viene configurato su {{ 
 ## Configurazione di Cloud Object Storage
 {: #cloud-object-storage-setup}
 
-* Nel catalogo {{ site.data.keyword.cloud_notm}}, ricerca "Cloud Object Storage". Fai clic sul tile **Object Storage**.
+* Nel catalogo {{ site.data.keyword.cloud_notm}}, ricerca *Cloud Object Storage*. Fai clic sul tile **Object Storage**.
 
     ![Catalogo](images/catalog.png)
 
@@ -87,7 +87,7 @@ Il server {{ site.data.keyword.mobilefoundation_short}} viene configurato su {{ 
 
     ![Crea COS](images/cos_create.png)
 
-* Successivamente, fai clic su **Buckets** nelle opzioni del menu a sinistra. Specifica un nome adatto (in questo esempio abbiamo scelto di denominare il bucket `sharedgallery`) per il tuo bucket e fai clic su **Create**.
+* Successivamente, fai clic su **Buckets** nelle opzioni del menu. Specifica un nome adatto (in questo esempio abbiamo scelto di denominare il bucket `sharedgallery`) per il tuo bucket e fai clic su **Create**.
 
     ![Crea il bucket](images/bucketcreate.png)
 
@@ -166,7 +166,7 @@ Server profile 'mfpserver' added successfully.
 
 Per collegarti alla tua istanza COS, devi fornire alcuni dettagli della tua istanza COS nel file `adapter.xml`. Specifica i valori per i seguenti campi:
 
-1. **endpointURL**: questo campo è l'url dell'endpoint pubblico per il tuo oggetto COS. Puoi trovare questo URL nel dashboard del tuo COS, in **Buckets (nelle opzioni del menu a sinistra) -> <your-bucket-name> (`sharedgallery` in questo esempio) -> Configuration -> Endpoints -> Public**
+1. **endpointURL**: questo campo è l'url dell'endpoint pubblico per il tuo oggetto COS. Puoi trovare questo URL nel dashboard del tuo COS, in **Buckets (nelle opzioni del menu) -> <your-bucket-name> (`sharedgallery` in questo esempio) -> Configuration -> Endpoints -> Public**
 2. **AuthToken**: in questa esercitazione, stiamo utilizzando l'autenticazione IAM.
 
 Affinché l'adattatore java si colleghi alla tua istanza di COS, è necessaria l'autenticazione che utilizza IAM o HMAC. Di seguito viene riportata la procedura per ottenere il token IAM. Per ulteriori dettagli sui processi di autenticazione IAM e HMAC, fai clic [qui](https://cloud.ibm.com/docs/services/cloud-object-storage/api-reference/api-reference-buckets.html#bucket-operations#AuthenticationOptions).
@@ -191,7 +191,7 @@ Affinché l'adattatore java si colleghi alla tua istanza di COS, è necessaria l
 
 	Targeted resource group default
 
-	API endpoint:     https://api.ng.bluemix.net (API version: 	2.75.0)
+	API endpoint:     https://api.us-south.cf.cloud.ibm.com (API version: 	2.128.0)
 	Region:           us-south
 	User:             <email-address>
 	Account:          <account-name> (<account-id>)
@@ -265,7 +265,7 @@ mfpdev adapter deploy
 
 L'adattatore viene distribuito nell'istanza MF.
 
-In alternativa, l'adattatore può essere distribuito sul dashboard del server MF. Apri il dashboard del server MF, nel menu a sinistra, fai clic su **Adapters -> New** per aprire la pagina che mostra la seguente immagine.
+In alternativa, l'adattatore può essere distribuito sul dashboard del server MF. Apri il dashboard del server MF, nel menu, fai clic su **Adapters -> New** per aprire la pagina come mostrato nella seguente immagine.
 
 ![MFPNewAdapterRegister](images/mfp_new_adapter_register.png)
 
@@ -302,7 +302,7 @@ Nell'applicazione, esegui questi passi:
 	mfpdev app register
 	```
 
-	In alternativa, l'applicazione può essere registrata nel dashboard del server MF. Apri il dashboard del server MF e, nel menu a sinistra, fai clic su **Applications -> New**.
+	In alternativa, l'applicazione può essere registrata nel dashboard del server MF. Apri il dashboard del server MF e, nel menu, fai clic su **Applications -> New**.
 
 	Viene caricata la pagina mostrata nella seguente immagine.
 
@@ -340,15 +340,15 @@ Nell'applicazione, esegui questi passi:
 
 L'applicazione Ionic visualizza un elenco di storie brevi che sono state caricate in precedenza (come ultimo passo nella sezione [Configurazione di Cloud Object Storage](#cloud-object-storage-setup)), dalla tua istanza COS creata. Alla selezione di una particolare opzione di storia, la storia selezionata viene caricata e visualizzata. Viene fornita anche un'opzione per aggiungere una storia che viene poi caricata nell'istanza COS.
 
-L'elenco degli oggetti COS iniziali ha un aspetto simile a quello della seguente immagine. 
+L'elenco degli oggetti COS iniziali ha un aspetto simile a quello della seguente immagine.
 
 ![COS iniziali](images/cos_before.png)
 
-La home page dell'applicazione offre un'opzione per eseguire "Get all stories" o "Add story"
+La home page dell'applicazione offre un'opzione per eseguire *Get all stories* o *Add story*
 
 ![Schermata iniziale dell'applicazione](images/app-home-screen.png)
 
-Facendo clic su **Get all stories**, vengono visualizzate le storie disponibili in COS. 
+Facendo clic su **Get all stories**, vengono visualizzate le storie disponibili in COS.
 
 ![Selezione storia dell'applicazione](images/app-select-story.png)
 
@@ -360,11 +360,11 @@ Successivamente, fai clic sul pulsante **Add story** per aggiungere una tua stor
 
 ![Aggiunto input dell'applicazione](images/app-add-input.png)
 
-Una volta aggiunta la storia, viene visualizzato un messaggio indicante l'esito positivo dell'aggiunta della storia. 
+Una volta aggiunta la storia, viene visualizzato un messaggio indicante l'esito positivo dell'aggiunta della storia.
 
 ![Storia dell'applicazione aggiunta](images/app-story-added.png)
 
-Ora nel dashboard COS è presente anche la storia aggiunta dall'applicazione. 
+Ora nel dashboard COS è presente anche la storia aggiunta dall'applicazione.
 
 ![COS aggiunto](images/cos_added.png)
 

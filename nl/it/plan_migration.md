@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated:  "2018-12-20"
+lastupdated: "2019-06-06"
 
 keywords: mobile foundation plans, migration of plans
 
@@ -24,13 +24,13 @@ Le istanze di Mobile Foundation create utilizzando i piani obsoleti devono esser
 ## Scenario di esempio: Esegui la migrazione dal piano Professional Per Device al piano Professional 1 Application
 
 1. Dal dashboard, IBM Cloud, seleziona l'istanza di IBM Mobile Foundation di cui vuoi eseguire la migrazione.
-2. Seleziona **Piano** dalla navigazione di sinistra.
+2. Seleziona **Piano** dalla navigazione.
    ![Piano Mobile Foundation esistente](images/existing-plan.png)
 3. Dai piani dei prezzi elencati, seleziona Professional 1 Application.
    ![Nuovo piano Mobile Foundation](images/new-plan.png)
 4. Fai clic sul pulsante **Salva** e conferma la migrazione del piano.
      La migrazione a Professional 1 Application è ora completata e tutti i dati esistenti vengono conservati. La fatturazione viene modificata e non si verifica alcun tempo di inattività.
-5. Dopo la migrazione del piano, l'istanza di Mobile Foundation deve essere creata nuovamente dal dashboard del servizio perché la corretta configurazione diventi effettiva. Questo aggiornamento richiede un breve tempo di inattività. Dovrai programmare le tue attività per tenere conto di questo tempo di inattività. Seleziona **Gestisci** dalla navigazione di sinistra e fai clic su **Ricrea**.
+5. Dopo la migrazione del piano, l'istanza di Mobile Foundation deve essere creata nuovamente dal dashboard del servizio perché la corretta configurazione diventi effettiva. Questo aggiornamento richiede un breve tempo di inattività. Dovrai programmare le tue attività per tenere conto di questo tempo di inattività. Seleziona **Gestisci** dalla navigazione e fai clic su **Ricrea**.
 
 Se usi uno dei piani obsoleti, devi eseguire la migrazione a un nuovo piano.
 {: note}

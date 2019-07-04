@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2018-02-12"
+lastupdated: "2019-06-10"
 
 keywords: troubleshooting techniques
 
@@ -39,7 +39,7 @@ Rispondendo a queste domande si ottiene una descrizione chiara del problema che 
 
 ### Quali sono i sintomi del problema?
 
-Quando inizi a descrivere un problema, la domanda più ovvia è "Qual è il problema?" Questa domanda potrebbe sembrare diretta, tuttavia è possibile suddividerla in alcune domande più mirate che creano un quadro più descrittivo del problema. Queste domande includono quanto segue: 
+Quando si inizia a descrivere un problema, la domanda più ovvia è **Qual è il problema?** Questa domanda potrebbe sembrare diretta, tuttavia è possibile suddividerla in alcune domande più mirate che creano un quadro più descrittivo del problema. Queste domande includono quanto segue:
 
 - Chi o cosa sta notificando il problema?
 - Quali sono i messaggi e i codici di errore?
@@ -56,7 +56,7 @@ Le domande seguenti aiutano a individuare il punto esatto in cui si verifica il 
 - Tutti gli utenti riscontrano questo problema?
 - (Per le installazioni su più siti). Il problema si verifica su tutti i siti?
 
-Se il problema viene segnalato da un livello, non necessariamente il problema ha origine in quel livello. Parte dell'identificazione del punto in cui ha origine un problema è capire l'ambiente in cui esiste. È sempre utile dedicare tempo alla descrizione completa dell'ambiente del problema indicando sistema operativo e versione, tutti i software corrispondenti e relative versioni e le informazioni sull'hardware. Accertarsi che l'applicazione venga eseguita in un ambiente costituito da una configurazione supportata, molti problemi sono riconducibili a livelli di software incompatibili, non concepiti per essere eseguiti insieme o non collaudati completamente insieme. 
+Se il problema viene segnalato da un livello, non necessariamente il problema ha origine in quel livello. Parte dell'identificazione del punto in cui ha origine un problema è capire l'ambiente in cui esiste. È sempre utile dedicare tempo alla descrizione completa dell'ambiente del problema indicando sistema operativo e versione, tutti i software corrispondenti e relative versioni e le informazioni sull'hardware. Accertarsi che l'applicazione venga eseguita in un ambiente costituito da una configurazione supportata, molti problemi sono riconducibili a livelli di software incompatibili, non concepiti per essere eseguiti insieme o non collaudati completamente insieme.
 
 ### Quando si presenta il problema?
 
@@ -79,11 +79,11 @@ Per risolvere un problema, è importante sapere quali sistemi e applicazioni son
 - È necessario che si verifichi una certa sequenza di eventi perché si riscontri il problema?
 - Si verifica contemporaneamente un malfunzionamento di altre applicazioni?
 
-Rispondere a questo tipo di domande può facilitare l'illustrazione dell'ambiente in cui si verifica il problema e a correlare eventuali dipendenze. Solo perché più problemi si verificano contemporaneamente, non vuol dire che sono necessariamente correlati. 
+Rispondere a questo tipo di domande può facilitare l'illustrazione dell'ambiente in cui si verifica il problema e a correlare eventuali dipendenze. Solo perché più problemi si verificano contemporaneamente, non vuol dire che sono necessariamente correlati.
 
 ### Il problema può essere riprodotto?
 
-Da un punto di vista della risoluzione dei problemi, il problema ideale è quello che può essere riprodotto. Di solito, potendo riprodurre un problema, si può fare ricorso ad un insieme più vasto di strumenti e procedure per svolgere le indagini. Di conseguenza, i problemi che possono essere riprodotti sono spesso più facili da risolvere. 
+Da un punto di vista della risoluzione dei problemi, il problema ideale è quello che può essere riprodotto. Di solito, potendo riprodurre un problema, si può fare ricorso ad un insieme più vasto di strumenti e procedure per svolgere le indagini. Di conseguenza, i problemi che possono essere riprodotti sono spesso più facili da risolvere.
 
 Tuttavia, i problemi che è possibile riprodurre possono presentare uno svantaggio: se il problema impatta l'attività di business in modo significativo, non si desidera che si verifichi. Se possibile, ricreare il problema in un ambiente di test o di sviluppo che offre in genere una maggiore flessibilità e un maggiore controllo durante l'analisi.
 
@@ -95,17 +95,17 @@ Tuttavia, i problemi che è possibile riprodurre possono presentare uno svantagg
 ##  Limitazioni note
 {: #knownlimitations_mfp}
 
-* La IU del servizio {{site.data.keyword.mobilefoundation_short}} non utilizza il modello specifico della locale selezionato dall'utente per visualizzare i numeri. 
+* La IU del servizio {{site.data.keyword.mobilefoundation_short}} non utilizza il modello specifico della locale selezionato dall'utente per visualizzare i numeri.
 
 ## Come ottenere aiuto e supporto per Mobile Foundation
 {: #getting_help_mobilefoundation}
 
 Se hai dei problemi o delle domande quando utilizzi {{site.data.keyword.mobilefoundation_short}}, puoi ottenere aiuto ricercando le informazioni o facendo delle domande in un forum. Puoi inoltre aprire un ticket di supporto.
 
-Quando utilizzi i forum per fare una domanda, contrassegna con una tag la tua domanda in modo che venga individuata dai team di sviluppo {{site.data.keyword.Bluemix_notm}}. 
+Quando utilizzi i forum per fare una domanda, contrassegna con una tag la tua domanda in modo che venga individuata dai team di sviluppo {{site.data.keyword.Bluemix_notm}}.
 
 Se hai domande tecniche sullo sviluppo o sulla distribuzione di un'applicazione con {{site.data.keyword.mobilefoundation_short}}, inserisci la tua domanda in [Stack Overflow ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](http://stackoverflow.com/search?q=ibm-mobilefirst+bluemix){:new_window} e contrassegnala con le tag `bluemix` e `ibm-mobilefirst`.
 
 Per domande sul servizio e sulle istruzioni per l'utilizzo iniziale, utilizza il forum [IBM developerWorks dW Answers ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://developer.ibm.com/answers/topics/mobilefirst/?smartspace=bluemix){:new_window}. Includi le tag `bluemix` e  `mobilefirst`.
 
-Per ulteriori informazioni sull'apertura di un ticket di supporto IBM o sui livelli di supporto e sulle gravità del ticket, vedi [Come contattare il supporto](/docs/get-support?topic=get-support-getstarttssup#typesofsupport){: new_window}.
+Per ulteriori informazioni sull'apertura di un ticket di supporto IBM o sui livelli di supporto e sulle gravità del ticket, vedi [Come contattare il supporto](https://cloud.ibm.com/docs/get-support?topic=get-support-getting-customer-support){: new_window}.

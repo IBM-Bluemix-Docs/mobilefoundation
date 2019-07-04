@@ -2,7 +2,7 @@
 {: navgroup: .navgroup}
 {: topicgroup: .topicgroup}
 
-{: .toc subcollection="mobilefoundation" service-name="Mobile Foundation" audience="service" arm="3663370" href="/docs/services/mobilefoundation?topic=mobilefoundation-getting-started-tutorial#getting-started-tutorial" path="services/mobilefoundation"}
+{: .toc subcollection="mobilefoundation" category="mobile" audience="service" arm="3663370" href="/docs/services/mobilefoundation?topic=mobilefoundation-getting-started#getting-started" path="services/mobilefoundation"}
 Mobile
 Foundation
 
@@ -27,7 +27,7 @@ Foundation
     {: .topicgroup}
     Aggiornamento diretto
         advanced_direct_update_configuration.md
-        alternate_steps_to_update_app_web_content_in_app.md   
+        alternate_steps_to_update_app_web_content_in_app.md
     {: .navgroup-end}
 
     {: .navgroup id="howto"}
@@ -82,8 +82,8 @@ Foundation
     {: .topicgroup}
     Esegui l'integrazione con altri servizi IBM Cloud
         integrate_secure_gateway.md
-        delivering_mfp_apps_using_ibm_cloud_devops.md
-		integrating_cloud_object_storage.md
+		    delivering_mfp_apps_using_ibm_cloud_devops.md
+		    integrating_cloud_object_storage.md
     {: .navgroup-end}
 
     {: .navgroup id="reference"}
@@ -129,7 +129,7 @@ Foundation
     {: .navgroup id="help"}
     faq.md
     troubleshooting.md
-    [Come contattare il supporto](/docs/get-support?topic=get-support-howtogetsupport#getting-customer-support)
+    [Come contattare il supporto](https://cloud.ibm.com/docs/get-support?topic=get-support-getting-customer-support)
 
     {: .topicgroup}
     Community degli sviluppatori

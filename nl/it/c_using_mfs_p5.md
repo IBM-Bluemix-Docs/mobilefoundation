@@ -2,7 +2,7 @@
 
 copyright:
   years: 2016, 2019
-lastupdated:  "2019-02-12"
+lastupdated: "2019-06-06"
 
 keywords: mobile foundation, mobile analytics, professional plan, configure database
 
@@ -28,7 +28,7 @@ Dopo che hai creato l'istanza del servizio {{site.data.keyword.mobilefoundation_
 Tieni conto di quanto segue, prima di configurare l'istanza del servizio {{site.data.keyword.mobilefoundation_short}}: Professional Per Device
 * {{site.data.keyword.mobilefoundation_short}}: Professional Per Device è supportato solo con i piani di {{site.data.keyword.Db2_on_Cloud_short}} (qualsiasi piano diverso dal piano **Lite**) o {{site.data.keyword.composeForPostgreSQL}} {{site.data.keyword.Bluemix_notm}}.
 
-* Devi avere accesso alle credenziali dell'istanza del servizio {{site.data.keyword.Db2_on_Cloud_short}} (qualsiasi piano diverso dal piano **Lite**) o {{site.data.keyword.composeForPostgreSQL}} prima di poter configurare le impostazioni della tua istanza del servizio {{site.data.keyword.mobilefoundation_short}}. 
+* Devi avere accesso alle credenziali dell'istanza del servizio {{site.data.keyword.Db2_on_Cloud_short}} (qualsiasi piano diverso dal piano **Lite**) o {{site.data.keyword.composeForPostgreSQL}} prima di poter configurare le impostazioni della tua istanza del servizio {{site.data.keyword.mobilefoundation_short}}.
 
 L'istanza del servizio {{site.data.keyword.Db2_on_Cloud_short}} (qualsiasi piano diverso dal piano **Lite**) o {{site.data.keyword.composeForPostgreSQL}} può esistere in qualsiasi `Spazio` all'intero della tua `Organizzazione` {{site.data.keyword.Bluemix_notm}} o in qualsiasi altra `Organizzazione` a cui hai accesso. Assicurati di disporre delle autorizzazioni per accedere allo `Spazio` in cui è presente l'istanza del servizio {{site.data.keyword.Db2_on_Cloud_short}} o {{site.data.keyword.composeForPostgreSQL}}.
 {: note}
@@ -44,7 +44,7 @@ Dopo che hai creato l'istanza del servizio {{site.data.keyword.mobilefoundation_
 ### Configurazione della connessione al database
 {: #connect_dashdb_p5}
 
-Dopo che l'istanza del servizio {{site.data.keyword.mobilefoundation_short}}: Professional Per Device è stata creata, vedrai la pagina *Panoramica* dove dovrai specificare le informazioni di connessione per l'istanza del servizio {{site.data.keyword.Db2_on_Cloud_short}} (qualsiasi piano diverso dal piano **Lite**) o {{site.data.keyword.composeForPostgreSQL}}, a cui deve connettersi l'istanza del servizio {{site.data.keyword.mobilefoundation_short}}. 
+Dopo che l'istanza del servizio {{site.data.keyword.mobilefoundation_short}}: Professional Per Device è stata creata, vedrai la pagina *Panoramica* dove dovrai specificare le informazioni di connessione per l'istanza del servizio {{site.data.keyword.Db2_on_Cloud_short}} (qualsiasi piano diverso dal piano **Lite**) o {{site.data.keyword.composeForPostgreSQL}}, a cui deve connettersi l'istanza del servizio {{site.data.keyword.mobilefoundation_short}}.
 
 Puoi anche creare una nuova istanza del servizio {{site.data.keyword.Db2_on_Cloud_short}} (qualsiasi piano diverso dal piano **Lite**) o {{site.data.keyword.composeForPostgreSQL}}, se non ne hai una già esistente.
 
@@ -84,7 +84,7 @@ Non puoi modificare l'istanza del servizio {{site.data.keyword.Db2_on_Cloud_shor
 * Per avviare {{site.data.keyword.mfserver_short_notm}}, con le impostazioni predefinite, fai clic su **Avvia server di base**.
 
 * Questa selezione crea un {{site.data.keyword.mfserver_long_notm}} con le seguenti impostazioni:
-    -  Due nodi con 1 GB di memoria ciascuno. Questa dimensione è buona per lo sviluppo, per delle attività moderate di test e i carichi di lavoro di produzione su piccola scala. 
+    -  Due nodi con 1 GB di memoria ciascuno. Questa dimensione è buona per lo sviluppo, per delle attività moderate di test e i carichi di lavoro di produzione su piccola scala.
 
     -	Il `nome utente` e la `password` ti vengono generati automaticamente. Disporrai dell'accesso ad essi quando il server è avviato e in esecuzione.
 

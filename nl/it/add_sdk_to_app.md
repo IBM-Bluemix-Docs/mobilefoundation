@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated:  "2019-01-04"
+lastupdated: "2019-06-06"
 
 keywords: Mobile Foundation SDK, android sdk, iOS sdk, cordova sdk, react native sdk
 

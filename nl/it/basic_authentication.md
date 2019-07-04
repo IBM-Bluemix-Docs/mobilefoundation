@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2018-11-19"
+lastupdated: "2019-06-10"
 
 keywords: security, basic authentication, protecting resources, tokens, scopemapping
 
@@ -53,10 +53,11 @@ Il token di accesso MobileFirst contiene le seguenti informazioni:
 * **Tempo di scadenza del token**: il tempo dopo il quale il token diventa non valido (scade), in secondi.
 
 #### Scadenza del token
+{: #token-expiration}
 
 Il token di accesso concesso rimane valido finché non trascorre il suo tempo di scadenza. Il tempo di scadenza del token di accesso è impostato sul tempo di scadenza più breve tra i tempi di scadenza di tutti i controlli di sicurezza nell'ambito. Se però il periodo fino al tempo di scadenza più breve è più lungo del periodo di scadenza del token massimo dell'applicazione, il tempo di scadenza del token viene impostato sul tempo corrente più il periodo di scadenza massimo. Il periodo di scadenza del token massimo predefinito (durata di validità) è 3.600 secondi (1 ora) ma può essere configurato impostando il valore della proprietà ``maxTokenExpiration``.
 
-**Configurazione del periodo di scadenza del token di accesso massimo**
+##### Configurazione del periodo di scadenza del token di accesso massimo 
 {: #acs_config-max-access-tokens}
 
 Configura il periodo di scadenza del token di accesso massimo dell'applicazione utilizzando uno dei seguenti metodi alternativi:
@@ -82,7 +83,7 @@ Configura il periodo di scadenza del token di accesso massimo dell'applicazione 
         {: codeblock}
     4. Distribuisci il file JSON di configurazione aggiornato eseguendo il comando: ``mfpdev app push``.
 
-**Struttura della risposta del token di accesso**
+##### Struttura della risposta del token di accesso 
 {: #acs_access-tokens-structure}
 
 Una risposta HTTP con esito positivo a una richiesta di token di accesso contiene un oggetto JSON con il token di accesso e i dati supplementari. Il seguente è un esempio di una risposta del token di accesso valida dal server di autorizzazione:
@@ -110,7 +111,7 @@ L'oggetto JSON di risposta del token ha questi oggetti di proprietà.
 
 Le informazioni **expires_in** e **scope** sono contenute anche nel token stesso (**access_token**).
 
->**Nota**: la struttura di una risposta del token di accesso valida è pertinente se usi la classe `WLAuthorizationManager` di basso livello e gestisci l'interazione OAuth tra il client e i server di autorizzazione e di risorse personalmente oppure se utilizzi un client riservato. Se stai utilizzando la classe `WLResourceRequest` di alto livello, che racchiude il flusso OAuth per l'accesso alle risorse protette, il framework di sicurezza gestisce l'elaborazione delle risposte del token di accesso per tuo conto. Vedi [Client security APIs](http://www.ibm.com/support/knowledgecenter/en/SSHS8R_8.0.0/com.ibm.worklight.dev.doc/dev/c_oauth_client_apis.html?view=kc#c_oauth_client_apis) e [Confidential Clients](https://mobilefirstplatform.ibmcloud.com/tutorials/en/foundation/8.0/authentication-and-security/confidential-clients/).
+**Nota**: la struttura di una risposta del token di accesso valida è pertinente se usi la classe `WLAuthorizationManager` di basso livello e gestisci l'interazione OAuth tra il client e i server di autorizzazione e di risorse personalmente oppure se utilizzi un client riservato. Se stai utilizzando la classe `WLResourceRequest` di alto livello, che racchiude il flusso OAuth per l'accesso alle risorse protette, il framework di sicurezza gestisce l'elaborazione delle risposte del token di accesso per tuo conto. Vedi [Client security APIs](http://www.ibm.com/support/knowledgecenter/en/SSHS8R_8.0.0/com.ibm.worklight.dev.doc/dev/c_oauth_client_apis.html?view=kc#c_oauth_client_apis) e [Confidential Clients](https://mobilefirstplatform.ibmcloud.com/tutorials/en/foundation/8.0/authentication-and-security/confidential-clients/).
 
 ### Token di aggiornamento
 {: #acs_refresh_tokens}
@@ -123,6 +124,7 @@ Token di aggiornamento MobileFirst
 Un token di aggiornamento MobileFirst è un'entità firmata digitalmente come un token di accesso che descrive i permessi di autorizzazione di un client. Il token di aggiornamento può essere utilizzato per ottenere un nuovo token di accesso dello stesso ambito. Dopo che la richiesta di autorizzazione del client per un ambito specifico è stata concessa e il client è stato autenticato, l'endpoint del token del server di autorizzazione invia al client una risposta HTTP che contiene il token di accesso e quello di aggiornamento richiesti. Quando il token di accesso scade, il client invia il token di aggiornamento all'endpoint del token del server di autorizzazione per ottenere una nuova serie di token di accesso e token di aggiornamento.
 
 #### Struttura del token di aggiornamento
+{: #structure_refresh_tokens}
 
 Simile al token di accesso MobileFirst, il token di aggiornamento MobileFirst contiene le seguenti informazioni:
 
@@ -130,30 +132,31 @@ Simile al token di accesso MobileFirst, il token di aggiornamento MobileFirst co
 * **Ambito**: l'ambito per il quale il token è stato concesso (vedi gli ambiti OAuth). Questo ambito non include l'ambito dell'applicazione obbligatorio.
 * **Tempo di scadenza del token**: il tempo dopo il quale il token diventa non valido (scade), in secondi.
 
-**Scadenza del token**
+##### Scadenza del token
+{: #str-token-expiration}
 
 Il periodo di scadenza del token per il token di aggiornamento è più lungo del tipico periodo di scadenza del token di accesso. Il token di aggiornamento, una volta concesso, rimane valido finché non trascorre il suo tempo di scadenza. Entro questo periodo di validità, un client può utilizzare il token di aggiornamento per ottenere una nuova serie di token di accesso e token di aggiornamento. Il token di aggiornamento ha un periodo di scadenza fisso di 30 giorni. Ogni volta che il client riceve correttamente una nuova serie di token di accesso e token di aggiornamento, la scadenza del token di aggiornamento viene reimpostata, dando così al client un'esperienza di un token che non scade mai. Le regole di scadenza del token di accesso rimangono identiche a quanto spiegato nella sezione **Token di accesso**.
 
-**Abilitazione della funzione di token di aggiornamento**
+##### Abilitazione della funzione di token di aggiornamento 
 {: #acs_enable-refresh-token}
 
-La funzione di token di aggiornamento può essere abilitata utilizzando le seguenti proprietà rispettivamente sul lato client e sul lato server. 
+La funzione di token di aggiornamento può essere abilitata utilizzando le seguenti proprietà rispettivamente sul lato client e sul lato server.
 
-**Proprietà lato client (Android)**
+Proprietà lato client (Android):
 *Nome file*: mfpclient.properties
 *Nome proprietà*: wlEnableRefreshToken
 *Valore proprietà*: true
 Ad esempio,
 *wlEnableRefreshToken*=true
 
-**Proprietà lato client (iOS)**
+Proprietà lato client (iOS):
 *Nome file*: mfpclient.plist
 *Nome proprietà*: wlEnableRefreshToken
 *Valore proprietà*: true
 Ad esempio,
 *wlEnableRefreshToken*=true
 
-**Proprietà lato server**
+Proprietà lato server:
 *Nome file*: server.xml
 *Nome proprietà*: mfp.security.refreshtoken.enabled.apps
 *Valore proprietà*: application bundle id separated by ‘;’
@@ -166,7 +169,8 @@ Ad esempio,
 {: codeblock}
 Utilizza ID bundle differenti per le differenti piattaforme.
 
-**Struttura della risposta del token di aggiornamento**
+##### Struttura della risposta del token di aggiornamento 
+{: #refresh-token-response-structure}
 
 Il seguente è un esempio di una risposta del token di aggiornamento valida dal server di autorizzazione:
 
@@ -185,11 +189,11 @@ Il seguente è un esempio di una risposta del token di aggiornamento valida dal 
 ```        
 {: codeblock}
 
-La risposta del token di aggiornamento ha un oggetto di proprietà aggiuntivo `refresh_token` oltre agli altri oggetti di proprietà spiegati come parte della struttura della risposta del token di accesso. 
+La risposta del token di aggiornamento ha un oggetto di proprietà aggiuntivo `refresh_token` oltre agli altri oggetti di proprietà spiegati come parte della struttura della risposta del token di accesso.
 
->**Nota**: i token di aggiornamento sono di lunga durata rispetto ai token di accesso. Pertanto, la funzione di token di aggiornamento deve essere utilizzata con cautela. Le applicazioni in cui l'autenticazione utente periodica non è necessaria sono i candidati ideali per l'utilizzo della funzione di token di aggiornamento.
+**Nota**: i token di aggiornamento sono di lunga durata rispetto ai token di accesso. Pertanto, la funzione di token di aggiornamento deve essere utilizzata con cautela. Le applicazioni in cui l'autenticazione utente periodica non è necessaria sono i candidati ideali per l'utilizzo della funzione di token di aggiornamento.
 
->MobileFirst supporta la funzione di token di aggiornamento su iOS a partire da CD Update 3.
+MobileFirst supporta la funzione di token di aggiornamento su iOS a partire da CD Update 3.
 
 #### Controlli di sicurezza
 {: #acs_securitychecks}
@@ -198,7 +202,8 @@ Un controllo di sicurezza è un'entità lato server che implementa la logica di 
 
 Un controllo di sicurezza di norma emette verifiche di sicurezza che richiedono che il client risponda in un modo specifico per superare il controllo. Questo handshake si verifica come parte del flusso di acquisizione del token di accesso OAuth. Il client utilizza i **gestori delle verifiche** per gestire le verifiche dai controlli di sicurezza.
 
-**Controlli di sicurezza integrati**
+##### Controlli di sicurezza integrati 
+{: #builtin-sec-checks}
 
 Sono disponibili i seguenti controlli di sicurezza predefiniti:
 
@@ -213,7 +218,7 @@ Quando provi ad accedere a una risorsa protetta, al client potrebbe essere prese
 
 Un gestore delle verifiche è un'entità lato client che implementa la logica di sicurezza lato client e l'interazione utente correlata.
 
->**Importante**: dopo essere stata ricevuta, una verifica non può essere ignorata. Devi rispondere o annullarla. Ignorare una verifica può causare una modalità di funzionamento imprevista.
+**Importante**: dopo essere stata ricevuta, una verifica non può essere ignorata. Devi rispondere o annullarla. Ignorare una verifica può causare una modalità di funzionamento imprevista.
 
 ### Ambiti
 {: #scopes}
@@ -233,7 +238,7 @@ Un elemento di ambito può essere uno dei seguenti:
 #### Associazione dell'ambito
 {: #scopemapping}
 
-Per impostazione predefinita, gli **elementi di ambito** che scrivi nel tuo **ambito** sono associati a un **controllo di sicurezza** con lo stesso nome. Ad esempio, se scrivi un controllo di sicurezza denominato `PinCodeAttempts`, puoi utilizzare un elemento di ambito con lo stesso nome all'interno del tuo ambito. 
+Per impostazione predefinita, gli **elementi di ambito** che scrivi nel tuo **ambito** sono associati a un **controllo di sicurezza** con lo stesso nome. Ad esempio, se scrivi un controllo di sicurezza denominato `PinCodeAttempts`, puoi utilizzare un elemento di ambito con lo stesso nome all'interno del tuo ambito.
 
 L'associazione dell'ambito consente l'associazione di elementi di ambito ai controlli di sicurezza. Quando il client chiede un elemento di ambito, questa configurazione definisce quali controlli di sicurezza devono essere applicati. Ad esempio, puoi associare l'elemento di ambito `access-restricted` al tuo controllo di sicurezza `PinCodeAttempts`.
 
@@ -248,9 +253,9 @@ Ad esempio: scope = `access-restricted deletePrivilege`
     * `access-restricted` è associato a `PinCodeAttempts`.
     * `deletePrivilege` è associato a `UserLogin`.
 
->Per associare il tuo elemento di ambito a una stringa vuota, non selezionare alcun controllo di sicurezza nel menu a comparsa **Add New Scope Element Mapping**.
+Per associare il tuo elemento di ambito a una stringa vuota, non selezionare alcun controllo di sicurezza nel menu a comparsa **Add New Scope Element Mapping**.
 
-![Associazione di ambito](/images/scope_mapping.png)
+![Associazione ambito](/images/scope_mapping.png "Schermata Add new scope element mapping")
 
 Puoi anche modificare manualmente il file JSON di configurazione dell'applicazione con la configurazione richiesta ed eseguire nuovamente il push delle modifiche a un MobileFirst Server.
 
@@ -264,7 +269,7 @@ Puoi anche modificare manualmente il file JSON di configurazione dell'applicazio
          "SSOUserValidation": "LtpaBasedSSO CredentialsValidation"
      }
 ```
-4. Distribuisci il file JSON di configurazione aggiornato eseguendo il seguente comando: 
+4. Distribuisci il file JSON di configurazione aggiornato eseguendo il seguente comando:
   ```bash
   mfpdev app push
   ```
@@ -282,15 +287,15 @@ Puoi proteggere le tue risorse in vari modi:
 #### Ambito dell'applicazione obbligatorio
 {: #mandatoryappscope}
 
-A livello dell'applicazione, puoi definire un ambito che si applica a tutte le risorse utilizzate dall'applicazione.  Il framework di sicurezza esegue questi controlli (se esistono) in aggiunta ai controlli di sicurezza dell'ambito di risorsa richiesto.
+A livello dell'applicazione, puoi definire un ambito che si applica a tutte le risorse utilizzate dall'applicazione. Il framework di sicurezza esegue questi controlli (se esistono) in aggiunta ai controlli di sicurezza dell'ambito di risorsa richiesto.
 
->**Nota**:
->* L'ambito dell'applicazione obbligatorio non viene applicato quando accedi a una risorsa non protetta. 
->* Il token di accesso concesso per l'ambito della risorsa non contiene l'ambito dell'applicazione obbligatorio.
+**Nota**:
+   * L'ambito dell'applicazione obbligatorio non viene applicato quando accedi a una risorsa non protetta.
+   * Il token di accesso concesso per l'ambito della risorsa non contiene l'ambito dell'applicazione obbligatorio.
 
 Nella MobileFirst Operations Console, seleziona la tua applicazione dalla sezione **Applications** della barra laterale di navigazione e seleziona quindi la scheda **Security**. In **Mandatory Application Scope**, seleziona **Add to Scope**.
 
-![Ambito dell'applicazione obbligatorio](/images/mandatory-application-scope.png)
+![Ambito dell'applicazione obbligatorio](/images/mandatory-application-scope.png "Schermata Configure mandatory application scope")
 
 Puoi anche modificare manualmente il file JSON di configurazione dell'applicazione con la configurazione richiesta ed eseguire nuovamente il push delle modifiche a un MobileFirst Server.
 
@@ -303,7 +308,7 @@ Puoi anche modificare manualmente il file JSON di configurazione dell'applicazio
     ```
 4. Distribuisci il file JSON di configurazione aggiornato eseguendo il comando: mfpdev app push.
 
->Puoi anche eseguire il push delle configurazioni aggiornate ai server remoti.
+Puoi anche eseguire il push delle configurazioni aggiornate ai server remoti.
 
 #### Protezione delle risorse dell'adattatore
 {: #protectadapterres}
@@ -326,9 +331,9 @@ Per disabilitare completamente la protezione OAuth per un metodo di risorsa o un
 
 Il valore predefinito dell'elemento `enabled` dell'annotazione è `true`. Quando l'elemento `enabled` è impostato su `false`, l'elemento `scope` viene ignorato e la risorsa o la classe di risorse non sono protette.
 
->**Nota**: quando assegni un ambito a un metodo di una classe non protetta, il metodo viene protetto indipendentemente dall'annotazione della classe a meno che tu non imposti l'elemento `enabled` dell'annotazione della risorsa su `false`.
+**Nota**: quando assegni un ambito a un metodo di una classe non protetta, il metodo viene protetto indipendentemente dall'annotazione della classe a meno che tu non imposti l'elemento `enabled` dell'annotazione della risorsa su `false`.
 
-**Esempi**
+Controlla i seguenti esempi: 
 
 Il seguente codice disabilita la protezione delle risorse per un metodo `helloUser`:
 
@@ -362,7 +367,7 @@ Per disabilitare completamente la protezione OAuth per una risorsa dell'adattato
 
 Quando l'attributo `secured` è impostato su `false`, l'attributo `scope` viene ignorato e la risorsa non è protetta.
 
-**Esempio**
+Controlla il seguente esempio:
 
 Il seguente codice disabilita la protezione delle risorse per una procedura `userName`:
 

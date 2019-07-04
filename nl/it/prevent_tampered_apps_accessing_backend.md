@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2018-11-19"
+lastupdated: "2019-06-06"
 
 keywords: mobile foundation security, restrict backend access, tampered apps
 
@@ -27,15 +27,14 @@ L'autenticità dell'applicazione aiuta a controllarne la validità prima di abil
 
 Per proteggere adeguatamente la tua applicazione, abilita il controllo di sicurezza dell'autenticità dell'applicazione di MobileFirst predefinito (``appAuthenticity``). Quando è abilitato, questo controllo convalida l'autenticità dell'applicazione prima di fornirle qualsiasi servizio. Le applicazioni nell'ambiente di produzione devono avere questa funzione abilitata.
 
-Per abilitare l'autenticità dell'applicazione, puoi attenerti alle istruzioni a schermo in **MobileFirst Operations Console → [la-tua-applicazione] → Authenticity** o riesaminare le informazioni di seguito.
+Per abilitare l'autenticità dell'applicazione, puoi attenerti alle istruzioni a schermo in **MobileFirst Operations Console → [la-tua-applicazione] → Authenticity** o riesaminare le seguenti informazioni.
 
-* **Disponibilità**
-
-    L'autenticità dell'applicazione è disponibile in tutte le piattaforme supportate (iOS, Android, Windows 8.1 Universal, Windows 10 UWP) sia nelle applicazioni Cordova sia in quelle native.
-
-* **Limitazioni**
-
-    L'autenticità dell'applicazione non supporta **Bitcode** in iOS. Pertanto, prima di utilizzare l'autenticità dell'applicazione, disabilita Bitcode nelle proprietà del progetto Xcode.
+<dl>
+  <dt>Disponibilità</dt>
+  <dd>L'autenticità dell'applicazione è disponibile in tutte le piattaforme supportate (iOS, Android, Windows 8.1 Universal, Windows 10 UWP) sia nelle applicazioni Cordova sia in quelle native.</dd>
+  <dt>Limitazioni</dt>
+  <dd>L'autenticità dell'applicazione non supporta **Bitcode** in iOS. Pertanto, prima di utilizzare l'autenticità dell'applicazione, disabilita Bitcode nelle proprietà del progetto Xcode.</dd>
+</dl>
 
 ## Flusso di autenticità dell'applicazione
 {: #appauthenticityflow}
@@ -96,7 +95,7 @@ Per utilizzare lo strumento BTS in Xcode:
 
 1. Nella scheda **Build Phases**, fai clic sul pulsante **+** e crea una nuova **Run Script Phase**.
 2. Copia il percorso dello strumento BTS e incollalo nella nuova “Run Script Phase” che hai creato.
-3. Trascina la fase di script di esecuzione sopra alla **Compile sources phase**.
+3. Trascina la fase di script di esecuzione prima di **Compile sources phase**.
 
 Lo strumento deve essere utilizzato quando si crea una versione di produzione dell'applicazione.
 

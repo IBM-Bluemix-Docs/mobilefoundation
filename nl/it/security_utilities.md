@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated:  "2018-11-19"
+lastupdated: "2019-06-06"
 
 keywords: security
 
@@ -18,7 +18,7 @@ subcollection:  mobilefoundation
 #	Programmi di utilità di sicurezza
 {: #security_utilities}
 
-L'API lato client di Mobile Foundation fornisce alcuni programmi di utilità di sicurezza per proteggere i dati dell'utente. Funzioni come JSONStore sono ottime se vuoi proteggere gli oggetti JSON. Ti consigliamo di non archiviare blob binari in una raccolta JSONStore. 
+L'API lato client di Mobile Foundation fornisce alcuni programmi di utilità di sicurezza per proteggere i dati dell'utente. Funzioni come JSONStore sono ottime se vuoi proteggere gli oggetti JSON. Ti consigliamo di non archiviare blob binari in una raccolta JSONStore.
 
 Invece, archivia i dati binari sul file system e archivia i percorsi di file e altri metadati all'interno di una raccolta JSONStore. Se vuoi proteggere file come, ad esempio, le immagini, puoi codificarli come stringhe in base64, crittografarli e scrivere l'output sul disco. Per decrittografare i dati, puoi cercare i metadati in una raccolta JSONStore. Leggi quindi i dati crittografati dal disco e decrittografali utilizzando i metadati archiviati. Questi metadati possono includere la chiave, salt, il vettore di inizializzazione (IV), il tipo di file, il percorso del file e altro.
 

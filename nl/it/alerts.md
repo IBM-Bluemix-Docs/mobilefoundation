@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2018-11-23"
+lastupdated: "2019-06-06"
 
 keywords: mobile analytics, set up alerts, alert definitions
 
@@ -32,7 +32,7 @@ Le seguenti sezioni descrivono la creazione, la gestione degli avvisi e la loro 
 ## Creazione di una definizione di avviso per i log dell'applicazione (Log applicazione)
 {: #creating_alert_def}
 
-Puoi creare una definizione di avviso basata sui log applicazione.  Ad esempio, se vuoi monitorare i tuoi log dell'applicazione ogni 5 minuti per controllare se la tua applicazione di una versione specifica ha registrato degli errori più di tre volte, questo è il modo con cui puoi configurare questa impostazione. 
+Puoi creare una definizione di avviso basata sui log applicazione.  Ad esempio, se vuoi monitorare i tuoi log dell'applicazione ogni 5 minuti per controllare se la tua applicazione di una versione specifica ha registrato degli errori più di tre volte, questo è il modo con cui puoi configurare questa impostazione.
 
 1.  Nella console Mobile Analytics, fai clic su **Definizioni** per passare alla pagina delle definizioni di avviso.
 2.  Fai clic su **Crea avviso**.
@@ -57,7 +57,7 @@ Puoi creare una definizione di avviso basata sui log applicazione.  Ad esempio, 
       * **Corpo richiesta POST**
 5. Fai clic su **Salva**.  
 
-Hai appena creato una definizione di avviso per attivare un avviso al termine di ogni intervallo di 5 minuti quando il numero di log applicazione supera la soglia di 3 o più log di errori. 
+Hai appena creato una definizione di avviso per attivare un avviso al termine di ogni intervallo di 5 minuti quando il numero di log applicazione supera la soglia di 3 o più log di errori.
 
 Questo avviso rimane attivo, monitorato dalla frequenza di configurazione finché la definizione di avviso non viene disabilitata o eliminata.
 {: note}
@@ -65,7 +65,7 @@ Questo avviso rimane attivo, monitorato dalla frequenza di configurazione finch�
 ## Creazione di una definizione di avviso per gli arresti anomali delle applicazioni
 {: #creating_alert_crashes}
 
-Quello che segue è un esempio di configurazione degli avvisi sugli arresti anomali dell'applicazione. Questo avviso esegue il monitoraggio ogni 2 minuti, tutti gli arresti anomali dell'applicazione attivano un avviso se il numero di arresti anomali riscontrati raggiunge i 5. 
+Quello che segue è un esempio di configurazione degli avvisi sugli arresti anomali dell'applicazione.  Questo avviso esegue il monitoraggio ogni 2 minuti, tutti gli arresti anomali dell'applicazione attivano un avviso se il numero di arresti anomali riscontrati raggiunge i 5.
 
 1.  Nella console Mobile Analytics, fai clic su **Definizioni** per passare alla pagina delle definizioni di avviso.
 2.  Fai clic su **Crea avviso**.
@@ -96,7 +96,7 @@ Questo avviso rimane attivo, monitorato dalla frequenza di configurazione finch�
 
 Gestisci le tue definizioni di avviso dalla pagina **Definizioni** dell'avviso.
 
-Per ogni definizione di avviso puoi effettuare le seguenti operazioni: 
+Per ogni definizione di avviso puoi effettuare le seguenti operazioni:
 * Attiva/disattiva la casella di spunta sotto la colonna **Abilitato** per abilitare o disabilitare una specifica definizione di avviso.
 * Se vuoi creare una copia di una definizione di avviso e modificare alcuni valore, fai clic sull'icona duplicato.
 * Fai clic sull'icona matita, se vuoi modificare una definizione di avviso.

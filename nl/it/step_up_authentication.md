@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2018-11-19"
+lastupdated: "2019-06-06"
 
 keywords: mobile foundation security, authentication, using challenge handlers
 
@@ -50,7 +50,7 @@ private transient StepUpUserLogin userLogin;
 ```
 {: codeblock}
 
->**Importante**: entrambe le implementazioni di controllo di sicurezza devono essere raggruppate all'interno dello stesso adattatore.
+**Importante**: entrambe le implementazioni di controllo di sicurezza devono essere raggruppate all'interno dello stesso adattatore.
 {.important}
 
 Per risolvere questo riferimento, il framework cerca un controllo di sicurezza con la classe appropriata e inserisce il suo riferimento nel controllo di sicurezza dipendente.

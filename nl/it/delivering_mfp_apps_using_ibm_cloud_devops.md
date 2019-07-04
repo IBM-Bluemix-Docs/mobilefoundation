@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-03-13"
+lastupdated: "2019-06-10"
 
 keywords: mobile foundation, integration, devops, ibmcloud, pipeline
 
@@ -40,7 +40,7 @@ Questa esercitazione ti consente di automatizzare la fornitura delle applicazion
 
 La seguente immagine fornisce una panoramica della pipeline.
 
-![overview_of_pipeline](images/p00_overview_of_pipeline.png)
+![overview_of_pipeline](images/p00_overview_of_pipeline.png "Sei fasi della pipeline DevOps")
 
 
 ## Prerequisiti
@@ -50,7 +50,7 @@ La seguente immagine fornisce una panoramica della pipeline.
 * [mfpdev-cli](https://www.npmjs.com/package/mfpdev-cli)
 * Un'applicazione di esempio e un [adattatore MFP](https://mobilefirstplatform.ibmcloud.com/tutorials/en/foundation/8.0/adapters/)
 * Un account [GitHub](http://github.com/)
-* **Facoltativo:** l'istanza [Bitbar](https://bitbar.com/testing/) e la chiave API Bitbar (Puoi utilizzare qualsiasi servizio in base ai tuoi requisiti).
+* *Facoltativo:* l'istanza [Bitbar](https://bitbar.com/testing/) e la chiave API Bitbar (Puoi utilizzare qualsiasi servizio in base ai tuoi requisiti).
 
 
 ## Creazione del servizio Continuous Delivery e della toolchain
@@ -59,14 +59,13 @@ La seguente immagine fornisce una panoramica della pipeline.
 * Ricerca "Continuous Delivery" nel catalogo {{ site.data.keyword.cloud_notm }} (oppure [fai clic qui](https://cloud.ibm.com/catalog/services/continuous-delivery)).
 * Crea il servizio fornendo il nome servizio, la regione e così via.
 
-    Nel seguente esempio, utilizziamo il nome servizio "MFP App/Adapter delivery Test", la regione/località "London" e il gruppo di risorse "Default".
+    Nel seguente esempio, utilizziamo il nome servizio *MFP App/Adapter delivery Test*, la regione/località *London* e il gruppo di risorse *Default*.
 
-    ![configuring_continuous_delivery_service](images/p01_configuring_continuous_delivery_service.png)
+    ![configuring_continuous_delivery_service](images/p01_configuring_continuous_delivery_service.png "Pagina Catalog create per l'istanza del servizio Mobile Foundation")
 
-* Dalla sezione {{ site.data.keyword.jazzhub_title }}
- nel menu hamburger a sinistra, crea una toolchain e ricerca “Build your own toolchain” per creare una toolchain da zero.
+* Dal menu di navigazione, seleziona **DevOps**, quindi fai clic su **Create a toolchain** e ricerca “Build your own toolchain” per creare una toolchain da zero.
 
-    ![search_build_your_own_toolchain](images/p02_search_build_your_own_toolchain.png)
+    ![search_build_your_own_toolchain](images/p02_search_build_your_own_toolchain.png "Pagina Create your own toolchain con il risultato della ricerca per la creazione della tua toolchain")
 
 * Specifica il nome toolchain, la regione e così via per eseguire la configurazione.
 
@@ -74,13 +73,13 @@ La seguente immagine fornisce una panoramica della pipeline.
 ## Integrazione di GitHub con la toolchain per il controllo della versione e l'attivazione della pipeline
 {: #integrating-github-with-the-toolchain}
 
-* Nella panoramica della toolchain dal menu a sinistra. Fai clic su **Add a Tool** e ricerca GitHub.
+* Dalla pagina **Overview** nella navigazione, fai clic su **Add a Tool** e ricerca GitHub.
 * Configura lo strumento GitHub per i valori di **indirizzo server GitHub**, **tipo di repository** e **URL del repository**.
 * Puoi creare un nuovo repository, una nuova biforcazione, un nuovo clone oppure utilizzare un repository esistente.
 
-    Nel seguente esempio, utilizziamo il server GitHub "[https://github.com](http://github.com/)", il tipo di repository "Existing" e l'URL del repository "https://github.com/sagar20896/mfp-devops-20181210030116092".
+    Nel seguente esempio, utilizziamo il server GitHub "[https://github.com](http://github.com/)", il tipo di repository *Existing* e l'URL del repository *https://github.com/sagar20896/mfp-devops-20181210030116092*.
 
-    ![configuring_toolchain](images/p03_configuring_toolchain.png)
+    ![configuring_toolchain](images/p03_configuring_toolchain.png "Schermata Configure the Integration che mostra i campi GitHub server, Repository type e Repository URL")
 
 ### Aggiunta della Delivery Pipeline alla toolchain
 {: #adding-the-delivery-pipeline-to-the-toolchain}
@@ -98,9 +97,9 @@ In questa fase, effettueremo lo spin-up di un'istanza di {{ site.data.keyword.mo
 
 Nel seguente esempio, impostiamo Input Type come *Git repository*, Git repository come *mfp-devops-20181210030116092* e Git URL come *https://github.com/sagar20896/mfp-devops-20181210030116092* e il ramo come *master*.
 
-![first_stage_git_input](images/p4_first_stage_git_input.png)
+![first_stage_git_input](images/p4_first_stage_git_input.png "Schermata Set up Mobile Foundation con la scheda Input selezionata")
 
-- Fai clic su **Add stage** e configura la scheda **Input** in modo che punti al repository GitHub come mostrato nell'immagine. 
+- Fai clic su **Add stage** e configura la scheda **Input** in modo che punti al repository GitHub come mostrato nell'immagine.
 - Nella scheda **Jobs**, fai clic su **ADD JOB** e seleziona *Deploy* come tipo di lavoro. Seleziona **Deployer type** come *Cloud Foundry*.
 - Se non hai una chiave API, puoi crearne una per il tuo account {{ site.data.keyword.cloud_notm }} [qui](https://cloud.ibm.com/iam/#/apikeys).
 
@@ -134,22 +133,22 @@ Seleziona/riempi gli altri campi come richiesto. Aggiungi le seguenti righe nell
 ```
 {: codeblock}
 
-Nello script sopra riportato, utilizziamo la CLI di Cloud Foundry per creare un'istanza del servizio {{ site.data.keyword.mobilefoundation_short }}.
+Nel precedente script, utilizziamo la CLI di Cloud Foundry per creare un'istanza del servizio {{ site.data.keyword.mobilefoundation_short }}.
 
-![stage1_jobs_tab_config](images/p05_stage1_jobs_tab_config.png)
+![stage1_jobs_tab_config](images/p05_stage1_jobs_tab_config.png "Schermata Set up Mobile Foundation con la scheda Jobs selezionata")
 
 Nella scheda **Environment properties**, aggiungi la proprietà *INSTANCE\_NAME* (come proprietà di testo) indicando quale desideri sia il nome dell'istanza MobileFoundation. Verrà utilizzato come identificativo in molte fasi.
 
-![stage1_environment_properties](images/p06_stage1_environment_properties.png)
+![stage1_environment_properties](images/p06_stage1_environment_properties.png "Schermata Set up Mobile Foundation con la scheda Environment properties selezionata")
 
 #### Fase 2 - Creazione di un adattatore
 {: #stage2-building-an-adapter}
 
-In questa fase, eseguiremo il pull del codice sorgente dell'adattatore e lo creeremo. 
+In questa fase, eseguiremo il pull del codice sorgente dell'adattatore e lo creeremo.
 
 - Fai clic su **Add stage** e configura la fase in base alle tue preferenze per aggiungere il repository GitHub come input. **Stage trigger** deve essere impostato su *Run jobs when the previous stage is completed*.
 
-- Passa alla scheda **Jobs** e aggiungi un lavoro di build. Seleziona il tipo di builder come *Maven* e aggiungi le seguenti righe negli script di build. 
+- Passa alla scheda **Jobs** e aggiungi un lavoro di build. Seleziona il tipo di builder come *Maven* e aggiungi le seguenti righe negli script di build.
 
 ```
 	#!/bin/bash
@@ -166,27 +165,27 @@ In questa fase, eseguiremo il pull del codice sorgente dell'adattatore e lo cree
 ```
 {: codeblock}
 
-Nello script sopra riportato, installiamo [mfpdev-cli](https://www.npmjs.com/package/mfpdev-cli) per creare gli adattatori utilizzando il comando dell'adattatore nell'`adapters/JavaAdapter` del nostro repository.
+Nel precedente script, installiamo [mfpdev-cli](https://www.npmjs.com/package/mfpdev-cli) per creare gli adattatori utilizzando il comando dell'adattatore nell'`adapters/JavaAdapter` del nostro repository.
 
 Nel seguente esempio, utilizziamo **Builder type** come *npm* e utilizziamo lo script che viene fornito nello script di build. Lasciamo vuoti i parametri **Working directory** e **Build archive directory**.
 
-![build_adapter_stage_jobs_config](images/p07_build_adapter_stage_jobs_config.png)
+![build_adapter_stage_jobs_config](images/p07_build_adapter_stage_jobs_config.png "Schermata BuildAdapter con la scheda Jobs selezionata")
 
 #### Fase 3 - Distribuzione di un adattatore
 {: #stage3-deploying-an-adapter}
 
 In questa fase, distribuiamo l'adattatore nell'istanza {{ site.data.keyword.mobilefoundation_short }} che abbiamo creato nella prima fase.
 
-- Aggiungi una fase. 
+- Aggiungi una fase.
 - Configura l'input.
-- Imposta il tipo di input su **Build Artifacts**, **Stage** come il nome della fase in cui viene creato l'adattatore e il lavoro che crea l'adattatore nella fase di creazione dell'adattatore. 
+- Imposta il tipo di input su **Build Artifacts**, **Stage** come il nome della fase in cui viene creato l'adattatore e il lavoro che crea l'adattatore nella fase di creazione dell'adattatore.
 - **Stage trigger** deve essere impostato su *Run jobs when the previous stage is completed*.
 - Aggiungi un lavoro di distribuzione dalla scheda **Jobs**.
 - Seleziona **Deployer type** come *Cloud Foundry* e configura il resto in base alle tue preferenze.
 
-Nel seguente esempio, utilizziamo **Deployer type** come *Cloud Foundry*, **{{ site.data.keyword.cloud_notm }} Region** come *Dallas*, la chiave API come la stessa chiave che abbiamo creato nella prima fase. 
+Nel seguente esempio, utilizziamo **Deployer type** come *Cloud Foundry*, **{{ site.data.keyword.cloud_notm }} Region** come *Dallas*, la chiave API come la stessa chiave che abbiamo creato nella prima fase.
 
-![deploy_adapter](images/p08_deploy_adapter.png)
+![deploy_adapter](images/p08_deploy_adapter.png "Schermata Deploy con la scheda Jobs selezionata")
 
 
 Utilizza lo **script di distribuzione** riportato di seguito:
@@ -233,11 +232,11 @@ Lo script utilizza il comando di distribuzione dell'adattatore della mfpdev-cli 
 
 In questa fase, intendiamo verificare l'adattatore che è stato creato e distribuito nelle fasi precedenti. Nel nostro repository di adattatori di esempio, abbiamo gli script in ‘adapters/JavaAdapter/tests’ per verificare gli endpoint dell'adattatore.
 
-- Imposta **Input** con lo stesso valore *GitHub repository* delle configurazioni degli adattatori di build. 
+- Imposta **Input** con lo stesso valore *GitHub repository* delle configurazioni degli adattatori di build.
 
-- Aggiungi il *lavoro di distribuzione* nella scheda **Jobs**. Seleziona **Deployer type** come *Cloud Foundry*. Utilizziamo un lavoro di distribuzione invece che uno di test perché la distribuzione offre due opzioni per eseguire facilmente l'integrazione con cloud foundry. 
+- Aggiungi il *lavoro di distribuzione* nella scheda **Jobs**. Seleziona **Deployer type** come *Cloud Foundry*. Utilizziamo un lavoro di distribuzione invece che uno di test perché la distribuzione offre due opzioni per eseguire facilmente l'integrazione con cloud foundry.
 
-Utilizza i seguenti script per verificare gli adattatori. 
+Utilizza i seguenti script per verificare gli adattatori.
 
 ```
 	#!/bin/bash
@@ -280,7 +279,7 @@ Utilizza i seguenti script per verificare gli adattatori.
 
 - Aggiungi *INSTANCE_NAME* nelle proprietà dell'ambiente, gli stessi valori che abbiamo aggiunto nelle fasi precedenti.
 
-Puoi utilizzare il framework di test API per verificare gli adattatori. In questo esempio, abbiamo script shell che richiamano l'adattatore e verificano la correttezza. 
+Puoi utilizzare il framework di test API per verificare gli adattatori. In questo esempio, abbiamo script shell che richiamano l'adattatore e verificano la correttezza.
 
 
 #### Fase 5 - Creazione di applicazioni con Fastlane
@@ -368,12 +367,12 @@ Utilizza il seguente script per creare l'applicazione:
 ```
 {: codeblock}
 
-Nello script sopra riportato, utilizziamo `mfpdev-cli` per registrare l'applicazione in {{ site.data.keyword.mobilefoundation_short }}
+Nel precedente script, utilizziamo `mfpdev-cli` per registrare l'applicazione in {{ site.data.keyword.mobilefoundation_short }}
  [Fastlane](https://fastlane.tools/) per creare e rilasciare l'applicazione. 
 
 Le variabili di ambiente utilizzate nello script sono definite nella prossima scheda relativa alle **proprietà dell'ambiente**.
 
-Nelle proprietà dell'ambiente, aggiungi le seguenti proprietà: 
+Nelle proprietà dell'ambiente, aggiungi le seguenti proprietà:
 
 - *INSTANCE_NAME* come il **nome istanza mfp**
 - *appPublishUrl* come **Repository** in cui deve essere pubblicata l'applicazione in modo che la fase di test possa eseguirne il pull.
@@ -393,7 +392,7 @@ Anche questa fase è di tipo aperto. Puoi utilizzare qualsiasi framework di test
 
 - Per Bitbar, aggiungi un lavoro di build nella scheda **Jobs** e seleziona **Builder type** come *Maven*.
 
-Utilizza uno script di build simile al seguente: 
+Utilizza uno script di build simile al seguente:
 
 ```
 	#!/bin/bash
@@ -402,10 +401,10 @@ Utilizza uno script di build simile al seguente:
 ```
 {: codeblock}
 
-Per lo script sopra riportato, hai bisogno di alcune variabili di ambiente. 
+Per il precedente script, hai bisogno di alcune variabili di ambiente. 
 
 - *screenshot\_dir* come **/home/pipeline/home/pipeline/$BUILD\_ID/target**
-- *applicationPath* come il **percorso GitHub** all'applicazione che vuoi verificare 
+- *applicationPath* come il **percorso GitHub** all'applicazione che vuoi verificare
 - *executionType* come il **tipo di esecuzione**
 - *test* come il **Test** che desideri eseguire
 - *bitbarApiKey* come la **chiave API Bitbar**
@@ -415,12 +414,12 @@ Per lo script sopra riportato, hai bisogno di alcune variabili di ambiente.
 #### Fase 7 - Rimozione di {{ site.data.keyword.mobilefoundation_short }}
 {: #stage7-tearing-down-mobile-foundation}
 
-In questa fase, rimuoveremo l'istanza {{ site.data.keyword.mobilefoundation_short }} creata nella prima fase per la creazione, la distribuzione e la verifica nelle fasi precedenti. 
+In questa fase, rimuoveremo l'istanza {{ site.data.keyword.mobilefoundation_short }} creata nella prima fase per la creazione, la distribuzione e la verifica nelle fasi precedenti.
 
-Per questa fase non è previsto input. 
+Per questa fase non è previsto input.
 
 - Crea un *lavoro di distribuzione* nella scheda **Jobs**.
-- Utilizza il seguente script: 
+- Utilizza il seguente script:
 
 ```
 	#!/bin/bash

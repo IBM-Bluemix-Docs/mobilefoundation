@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-01-30"
+lastupdated: "2019-06-10"
 
 keywords: mobile analytics, instrumenting cordova app, instrumenting iOS app, instrumenting android app
 
@@ -328,7 +328,7 @@ L'SDK Swift è disponibile per iOS e watchOS.
    Prima di richiamare il metodo init, devi assicurarti che la tua applicazione integri il codice richiesto per autenticare e autorizzare il dispositivo con il servizio MobileFoundation.  Questo passo è un passo comune richiesto da tutte le applicazioni di servizi Mobile Foundation e non è specifico per l'acquisizione di dati di analisi. <!--  Refer <need to link doc that talks about auth> -->
    {: ios}
 
-   Con l'inizializzazione completa, la tua applicazione è ora abilitata ad acquisire le informazioni sui dispositivi e i log di SDK di Mobile Analytics senza ulteriore codice aggiunto. Eventuali ulteriori API e codice trattati nelle seguenti sezioni sono facoltativi e possono essere aggiunti in base al tipo di dati di analisi che desideri acquisire.
+   Con l'inizializzazione completa, la tua applicazione è ora abilitata ad acquisire le informazioni sui dispositivi e i log di SDK di Mobile Analytics senza ulteriore codice aggiunto.  Eventuali ulteriori API e codice trattati nelle seguenti sezioni sono facoltativi e possono essere aggiunti in base al tipo di dati di analisi che desideri acquisire.
    {: ios}
 
 2. Per acquisire gli eventi del ciclo di vita dell'applicazione come ad esempio le informazioni sulle sessioni e sugli arresti anomali di un'applicazione, configura la tua applicazione aggiungendo la seguente riga di codice:
@@ -367,7 +367,7 @@ L'SDK Swift è disponibile per iOS e watchOS.
    {: note}
    {: ios}
 
-    Attieniti all'[esercitazione ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://mobilefirstplatform.ibmcloud.com/tutorials/en/foundation/8.0/application-development/client-side-log-collection/ios/) per i frammenti di codice per il Logger per aggiungere le funzionalità di registrazione nelle applicazioni iOS. 
+    Attieniti all'[esercitazione ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://mobilefirstplatform.ibmcloud.com/tutorials/en/foundation/8.0/application-development/client-side-log-collection/ios/) per i frammenti di codice per il Logger per aggiungere le funzionalità di registrazione nelle applicazioni iOS.
 
 6.  Per ottenere informazioni approfondite sui modelli di onboarding degli utenti (nuovi utenti rispetto a quelli che ritornano), devi associare un'identità utente alla tua sessione dell'applicazione.  Questa associazione può essere eseguita richiamando la seguente API
     ```Swift
@@ -379,7 +379,7 @@ L'SDK Swift è disponibile per iOS e watchOS.
     Tutti i dati di analisi acquisiti e archiviati localmente vengono inviati al servizio Mobile Analytics solo quando viene richiamata l'API `WLAnalytics.sharedInstance().send()`.
     {: ios}
 
-7.  Per ottenere informazioni approfondite sui modelli di interazione della rete HTTP delle tue applicazioni, come ad esempio le API HTTP richiamate, il numero di richieste e i tempi di risposta medi, devi utilizzare la classe WLResourceRequest dell'SDK client del servizio Mobile Foundation per effettuare le chiamate HTTP.  Anche se hai inizializzato l'analisi per l'acquisizione degli eventi di rete, l'utilizzo di  `WLResourceRequest` abilita Mobile Analytics ad agganciarsi alle chiamate di rete e ad acquisire i dati pertinenti. Effettua le tue chiamate HTTP come nel seguente codice.
+7.  Per ottenere informazioni approfondite sui modelli di interazione della rete HTTP delle tue applicazioni, come ad esempio le API HTTP richiamate, il numero di richieste e i tempi di risposta medi, devi utilizzare la classe WLResourceRequest dell'SDK client del servizio Mobile Foundation per effettuare le chiamate HTTP.  Anche se hai inizializzato l'analisi per l'acquisizione degli eventi di rete, l'utilizzo di  `WLResourceRequest` abilita Mobile Analytics ad agganciarsi alle chiamate di rete e ad acquisire i dati pertinenti.  Effettua le tue chiamate HTTP come nel seguente codice.
     ```Swift
       let request = WLResourceRequest( url: URL(string: "/adapters/JavaAdapter/users"), method: WLHttpMethodGet )
 
@@ -423,7 +423,7 @@ L'SDK Swift è disponibile per iOS e watchOS.
     I dati personalizzati registrati possono essere tracciati su grafici personalizzati che puoi definire nella console Mobile Analytics per ricavare informazioni approfondite personalizzate.
     {: ios}
 
-10. Utilizza il feedback degli utenti all'interno dell'applicazione per approfondire la tua analisi delle prestazioni dell'applicazione.   Puoi abilitare **utenti e tester** della tua applicazione a fornire un feedback contestuale completo ai proprietari dell'applicazione. I **proprietari dell'applicazione** ottengono un feedback in tempo reale dai loro utenti sull'esperienza di utilizzo dell'applicazione su cui i **proprietari dell'applicazione** e gli **sviluppatori** possono intervenire ulteriormente.  Questa funzione porta una notevole agilità nella manutenzione dell'applicazione. Utilizza la seguente API per passare la tua applicazione alla modalità di feedback interattiva in qualsiasi gestore dell'azione nella tua applicazione, ad esempio quando gestisci il clic di un pulsante o la selezione di una voce di menu.
+10. Utilizza il feedback degli utenti all'interno dell'applicazione per approfondire la tua analisi delle prestazioni dell'applicazione.   Puoi abilitare **utenti e tester** della tua applicazione a fornire un feedback contestuale completo ai proprietari dell'applicazione. I **proprietari dell'applicazione** ottengono un feedback in tempo reale dai loro utenti sull'esperienza di utilizzo dell'applicazione su cui i **proprietari dell'applicazione** e gli **sviluppatori** possono intervenire ulteriormente.  Questa funzione porta una notevole agilità nella manutenzione dell'applicazione.  Utilizza la seguente API per passare la tua applicazione alla modalità di feedback interattiva in qualsiasi gestore dell'azione nella tua applicazione, ad esempio quando gestisci il clic di un pulsante o la selezione di una voce di menu.
     ```Swift
         WLAnalytics.sharedInstance().triggerFeedbackMode();
     ```
@@ -448,7 +448,7 @@ Il plug-in Cordova Mobile Analytics ti consente di dotare di strumentazione la t
 1. Crea un progetto [Cordova ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](http://cordova.apache.org/#getstarted){: new_window} oppure apri un progetto esistente.
     {: cordova}
 
-2. Aggiungi le piattaforme Android o iOS di tua scelta alla tua applicazione Cordova. Esegui uno o entrambi i comandi di seguito indicati dalla riga di comando.<br/>
+2. Aggiungi le piattaforme Android o iOS di tua scelta alla tua applicazione Cordova. Esegui uno o entrambi i seguenti comandi dalla riga di comando.<br/>
     **Android**:
     ```
     cordova platform add android
@@ -488,12 +488,12 @@ Il plug-in Cordova Mobile Analytics ti consente di dotare di strumentazione la t
 {: #instrument_app_based_on_data_cordova }
 {: cordova}
 
-1. Nelle applicazioni Cordova, non è richiesta alcuna configurazione e l'inizializzazione è integrata. 
+1. Nelle applicazioni Cordova, non è richiesta alcuna configurazione e l'inizializzazione è integrata.
 
-   Prima di richiamare uno qualsiasi dei metodi di analisi di seguito indicati, devi assicurarti che la tua applicazione integri il codice necessario per autenticare e autorizzare il dispositivo presso il servizio MobileFoundation. Questo passo è un passo comune richiesto da tutte le applicazioni di servizi Mobile Foundation e non è specifico per l'acquisizione di dati di analisi. <!--  Refer <need to link doc that talks about auth> -->
+   Prima di richiamare uno qualsiasi dei seguenti metodi di analisi, devi assicurarti che la tua applicazione integri il codice necessario per autenticare e autorizzare il dispositivo presso il servizio MobileFoundation. Questo passo è un passo comune richiesto da tutte le applicazioni di servizi Mobile Foundation e non è specifico per l'acquisizione di dati di analisi. <!--  Refer <need to link doc that talks about auth> -->
    {: cordova}
 
-   Con l'inizializzazione completa, la tua applicazione è ora abilitata ad acquisire le informazioni sui dispositivi e i log di SDK di Mobile Analytics senza ulteriore codice aggiunto. Eventuali ulteriori API e codice trattati nelle seguenti sezioni sono facoltativi e possono essere aggiunti in base al tipo di dati di analisi che desideri acquisire.
+   Con l'inizializzazione completa, la tua applicazione è ora abilitata ad acquisire le informazioni sui dispositivi e i log di SDK di Mobile Analytics senza ulteriore codice aggiunto.  Eventuali ulteriori API e codice trattati nelle seguenti sezioni sono facoltativi e possono essere aggiunti in base al tipo di dati di analisi che desideri acquisire.
    {: cordova}
 
 2. Per abilitare l'acquisizione degli eventi del ciclo di vita, è necessario eseguirne l'inizializzazione nella piattaforma nativa dell'applicazione Cordova.
@@ -593,7 +593,7 @@ Il plug-in Cordova Mobile Analytics ti consente di dotare di strumentazione la t
     Tutti i dati di analisi acquisiti e archiviati localmente vengono inviati al servizio Mobile Analytics solo quando viene richiamata l'API WL.Analytics.send() nel livello javascript [oppure] l'API WLAnalytics.send() in android nativa [oppure] l'API WLAnalytics.sharedInstance().send() in iOS nativa.
     {: cordova}
 
-6. Per ottenere informazioni approfondite sui modelli di interazione della rete HTTP delle tue applicazioni, come ad esempio le API HTTP richiamate, il numero di richieste e i tempi di risposta medi, devi utilizzare la classe WLResourceRequest dell'SDK client del servizio Mobile Foundation per effettuare le chiamate HTTP.  Anche se hai inizializzato l'analisi per l'acquisizione degli eventi di rete, l'utilizzo di  `WLResourceRequest` abilita Mobile Analytics ad agganciarsi alle chiamate di rete e ad acquisire i dati pertinenti. Effettua le tue chiamate HTTP utilizzando il seguente codice.
+6. Per ottenere informazioni approfondite sui modelli di interazione della rete HTTP delle tue applicazioni, come ad esempio le API HTTP richiamate, il numero di richieste e i tempi di risposta medi, devi utilizzare la classe WLResourceRequest dell'SDK client del servizio Mobile Foundation per effettuare le chiamate HTTP.  Anche se hai inizializzato l'analisi per l'acquisizione degli eventi di rete, l'utilizzo di  `WLResourceRequest` abilita Mobile Analytics ad agganciarsi alle chiamate di rete e ad acquisire i dati pertinenti.  Effettua le tue chiamate HTTP utilizzando il seguente codice.
     ```Javascript
       var resourceRequest = new WLResourceRequest("url-path", WLResourceRequest.GET);
       resourceRequest.send().then(
@@ -623,7 +623,7 @@ Il plug-in Cordova Mobile Analytics ti consente di dotare di strumentazione la t
     I dati personalizzati registrati possono essere tracciati su grafici personalizzati che puoi definire nella console Mobile Analytics per ricavare informazioni approfondite personalizzate.
     {: cordova}
 
-8. Utilizza il feedback degli utenti all'interno dell'applicazione per approfondire la tua analisi delle prestazioni dell'applicazione.   Puoi abilitare **utenti e tester** della tua applicazione a fornire un feedback contestuale completo ai proprietari dell'applicazione. I **proprietari dell'applicazione** ottengono un feedback in tempo reale dai loro utenti sull'esperienza di utilizzo dell'applicazione su cui i **proprietari dell'applicazione** e gli **sviluppatori** possono intervenire ulteriormente.  Questo passo porta una notevole agilità nella manutenzione dell'applicazione. Utilizza la seguente API per passare la tua applicazione alla modalità di feedback interattiva in qualsiasi gestore dell'azione nella tua applicazione, ad esempio quando gestisci il clic di un pulsante o la selezione di una voce di menu.
+8. Utilizza il feedback degli utenti all'interno dell'applicazione per approfondire la tua analisi delle prestazioni dell'applicazione.   Puoi abilitare **utenti e tester** della tua applicazione a fornire un feedback contestuale completo ai proprietari dell'applicazione. I **proprietari dell'applicazione** ottengono un feedback in tempo reale dai loro utenti sull'esperienza di utilizzo dell'applicazione su cui i **proprietari dell'applicazione** e gli **sviluppatori** possono intervenire ulteriormente.  Questo passo porta una notevole agilità nella manutenzione dell'applicazione.  Utilizza la seguente API per passare la tua applicazione alla modalità di feedback interattiva in qualsiasi gestore dell'azione nella tua applicazione, ad esempio quando gestisci il clic di un pulsante o la selezione di una voce di menu.
     ```Javascript
         WL.Analytics.triggerFeedbackMode();
     ```
@@ -687,7 +687,7 @@ L'SDK Mobile Analytics ti consente di dotare di strumentazione la tua applicazio
     {: codeblock}
     {: web}
 
-   Prima di richiamare uno qualsiasi dei metodi di analisi di seguito indicati, devi assicurarti che la tua applicazione integri il codice necessario per autenticare e autorizzare il dispositivo presso il servizio MobileFoundation. Questo passo è un passo comune richiesto da tutte le applicazioni di servizi Mobile Foundation e non è specifico per l'acquisizione di dati di analisi. <!--  Refer <need to link doc that talks about auth> -->
+   Prima di richiamare uno qualsiasi dei seguenti metodi di analisi, devi assicurarti che la tua applicazione integri il codice necessario per autenticare e autorizzare il dispositivo presso il servizio MobileFoundation. Questo passo è un passo comune richiesto da tutte le applicazioni di servizi Mobile Foundation e non è specifico per l'acquisizione di dati di analisi. <!--  Refer <need to link doc that talks about auth> -->
    {: web}
 
    Con l'inizializzazione completa, la tua applicazione è ora abilitata ad acquisire le informazioni sui dispositivi e i log di SDK di Mobile Analytics senza ulteriore codice aggiunto.  Eventuali ulteriori API e codice trattati nelle seguenti sezioni sono facoltativi e possono essere aggiunti in base al tipo di dati di analisi che desideri acquisire.
@@ -755,7 +755,7 @@ L'SDK Mobile Analytics ti consente di dotare di strumentazione la tua applicazio
     Tutti i dati di analisi acquisiti e archiviati localmente vengono inviati al servizio Mobile Analytics solo quando viene richiamata l'API ibmmfpfanalytics.send().
     {: web}
 
-7.  Per ottenere informazioni approfondite sui modelli di interazione della rete HTTP delle tue applicazioni, come ad esempio le API HTTP richiamate, il numero di richieste e i tempi di risposta medi, devi utilizzare la classe WLResourceRequest dell'SDK client del servizio Mobile Foundation per effettuare le chiamate HTTP.  Anche se hai inizializzato l'analisi per l'acquisizione degli eventi di rete, l'utilizzo di  `WLResourceRequest` abilita Mobile Analytics ad agganciarsi alle chiamate di rete e ad acquisire i dati pertinenti. Effettua le tue chiamate HTTP utilizzando il seguente codice.
+7.  Per ottenere informazioni approfondite sui modelli di interazione della rete HTTP delle tue applicazioni, come ad esempio le API HTTP richiamate, il numero di richieste e i tempi di risposta medi, devi utilizzare la classe WLResourceRequest dell'SDK client del servizio Mobile Foundation per effettuare le chiamate HTTP.  Anche se hai inizializzato l'analisi per l'acquisizione degli eventi di rete, l'utilizzo di  `WLResourceRequest` abilita Mobile Analytics ad agganciarsi alle chiamate di rete e ad acquisire i dati pertinenti.  Effettua le tue chiamate HTTP utilizzando il seguente codice.
     ```Javascript
       var resourceRequest = new WL.ResourceRequest("url_path", WLResourceRequest.GET);
       resourceRequest.send().then(function(response) {
@@ -785,8 +785,8 @@ L'SDK Mobile Analytics ti consente di dotare di strumentazione la tua applicazio
 ## Cosa fare ora?
 {: #next_steps_analytics}
 
-Prova un facile esempio da [qui](https://github.com/MobileFirst-Platform-Developer-Center/mfp-analytics-samples).  In meno di 5 minuti puoi eseguire l'applicazione di esempio e farti un'idea di cosa fa l'API. Puoi anche vedere come vengono mostrate le analisi come informazioni approfondite diverse nella console Analytics.   
+Prova un facile esempio da [qui](https://github.com/MobileFirst-Platform-Developer-Center/mfp-analytics-samples).  In meno di 5 minuti puoi eseguire l'applicazione di esempio e farti un'idea di cosa fa l'API. Puoi anche vedere come vengono mostrate le analisi come informazioni approfondite diverse nella console Analytics.  
 
 Mobile Foundation Analytics Service fornisce le API REST per aiutare gli sviluppatori con l'importazione (POST) e l'esportazione (GET) di dati di analisi.
 
-Prova l'API REST di analisi sui documenti Swagger da [qui](https://mobile-analytics-dashboard.ng.bluemix.net/analytics-service/).
+Prova l'API REST di analisi sui documenti Swagger da [qui](https://ma-server.us-south.mobile-analytics-prod.cloud.ibm.com/analytics-service/).

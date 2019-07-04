@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-02-28"
+lastupdated: "2019-06-06"
 
 keywords: push notifications, notification, sending silent notifications
 
@@ -44,7 +44,7 @@ Prepara la notifica e inviala. Per ulteriori informazioni, vedi [Invio delle not
 
 I tre tipi di notifiche supportati per iOS sono rappresentati dalle costanti `DEFAULT`, `SILENT` e `MIXED`. Quando il tipo non viene specificato esplicitamente, si presuppone il tipo `DEFAULT`.
 
-Per le notifiche di tipo `MIXED`, viene visualizzato un messaggio sul dispositivo mentre, in background, l'applicazione si attiva ed elabora la notifica silenziosa. Il metodo di callback per le notifiche di tipo `MIXED` viene richiamato due volte - una quando la notifica silenziosa raggiunge il dispositivo e un'altra quando l'applicazione viene aperta toccando la notifica. 
+Per le notifiche di tipo `MIXED`, viene visualizzato un messaggio sul dispositivo mentre, in background, l'applicazione si attiva ed elabora la notifica silenziosa. Il metodo di callback per le notifiche di tipo `MIXED` viene richiamato due volte - una quando la notifica silenziosa raggiunge il dispositivo e un'altra quando l'applicazione viene aperta toccando la notifica.
 
 In base al requisito, scegli il tipo appropriato in **{{ site.data.keyword.mfp_oc_short_notm }} → [tua applicazione] → Push → Send Notifications → iOS custom settings**.
 
@@ -56,7 +56,7 @@ Se la notifica è silenziosa, le proprietà **alert**, **sound** e **badge** ven
 ## Gestione delle notifiche di push silenziose nelle applicazioni Cordova
 {: #handling-silent-push-notifications-in-cordova-applications }
 
-Nel metodo di callback della notifica di push JavaScript, devi eseguire questi passi: 
+Nel metodo di callback della notifica di push JavaScript, devi eseguire questi passi:
 
 1. Controlla il tipo di notifica. Ad esempio,
 
@@ -74,8 +74,8 @@ Nel metodo di callback della notifica di push JavaScript, devi eseguire questi p
 ## Gestione delle notifiche di push silenziose nelle applicazioni iOS native
 {: #handling-silent-push-notifications-in-native-ios-applications }
 
-Devi seguire questi passi per ricevere le notifiche silenziose: 
+Devi seguire questi passi per ricevere le notifiche silenziose:
 
 1. Abilita la funzionalità dell'applicazione ad eseguire attività in background per la ricezione di notifiche remote.
 2. Controlla se la notifica è silenziosa oppure no verificando che la chiave `content-available` sia impostata su **1**.
-3. Una volta completata l'elaborazione della notifica, devi richiamare immediatamente il blocco nel parametro del gestore altrimenti la tua applicazione verrà terminata. La tua applicazione ha fino a 30 secondi per elaborare la notifica e richiamare il blocco del gestore di completamento specificato. 
+3. Una volta completata l'elaborazione della notifica, devi richiamare immediatamente il blocco nel parametro del gestore altrimenti la tua applicazione verrà terminata. La tua applicazione ha fino a 30 secondi per elaborare la notifica e richiamare il blocco del gestore di completamento specificato.

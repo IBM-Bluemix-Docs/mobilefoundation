@@ -2,7 +2,7 @@
 
 copyright:
   years: 2016, 2019
-lastupdated:  "2019-02-12"
+lastupdated: "2019-06-06"
 
 keywords: mobile foundation, mobile analytics, professional plan, configure database
 
@@ -28,9 +28,10 @@ Dopo che hai creato l'istanza del servizio {{site.data.keyword.mobilefoundation_
 Tieni conto di quanto segue, prima di configurare l'istanza del servizio {{site.data.keyword.mobilefoundation_short}}: Professional 1 Application
 * {{site.data.keyword.mobilefoundation_short}}: Professional 1 Application è supportato solo con i piani {{site.data.keyword.Db2_on_Cloud_short}} e {{site.data.keyword.composeForPostgreSQL}} {{site.data.keyword.Bluemix_notm}}.
 
-* Devi avere accesso alle credenziali dell'istanza del servizio {{site.data.keyword.Db2_on_Cloud_short}} o {{site.data.keyword.composeForPostgreSQL}} prima di poter configurare le impostazioni della tua istanza del servizio {{site.data.keyword.mobilefoundation_short}}. 
+* Devi avere accesso alle credenziali dell'istanza del servizio {{site.data.keyword.Db2_on_Cloud_short}} o {{site.data.keyword.composeForPostgreSQL}} prima di poter configurare le impostazioni della tua istanza del servizio {{site.data.keyword.mobilefoundation_short}}.
 
-> **Nota**: l'istanza del servizio {{site.data.keyword.Db2_on_Cloud_short}} (qualsiasi piano diverso dal piano **Lite**) o {{site.data.keyword.composeForPostgreSQL}} può esistere in qualsiasi `Spazio` all'interno della tua `Organizzazione` {{site.data.keyword.Bluemix_notm}} o in qualsiasi altra `Organizzazione` a cui hai accesso. Assicurati di disporre delle autorizzazioni per accedere allo `Spazio` in cui è presente l'istanza del servizio {{site.data.keyword.Db2_on_Cloud_short}} o {{site.data.keyword.composeForPostgreSQL}}.
+L'istanza del servizio {{site.data.keyword.Db2_on_Cloud_short}} (qualsiasi piano diverso dal piano **Lite**) o {{site.data.keyword.composeForPostgreSQL}} può esistere in qualsiasi `Spazio` all'intero della tua `Organizzazione` {{site.data.keyword.Bluemix_notm}} o in qualsiasi altra `Organizzazione` a cui hai accesso. Assicurati di disporre delle autorizzazioni per accedere allo `Spazio` in cui è presente l'istanza del servizio {{site.data.keyword.Db2_on_Cloud_short}} o {{site.data.keyword.composeForPostgreSQL}}.
+{: note}
 
 
 ## Configura la connessione al database
@@ -44,7 +45,7 @@ Dopo che hai creato l'istanza del servizio {{site.data.keyword.mobilefoundation_
 ### Impostazione della connessione all'istanza del servizio Db2 on Cloud
 {: #connect_dashdb_p2}
 
-Una volta creata l'istanza del servizio {{site.data.keyword.mobilefoundation_short}}: Professional 1 Application, vedrai la pagina *Panoramica*. Qui devi specificare le informazioni di connessione per l'istanza del servizio {{site.data.keyword.Db2_on_Cloud_short}} (qualsiasi piano diverso dal piano **Lite**) o {{site.data.keyword.composeForPostgreSQL}} a cui deve connettersi l'istanza del servizio {{site.data.keyword.mobilefoundation_short}}. 
+Una volta creata l'istanza del servizio {{site.data.keyword.mobilefoundation_short}}: Professional 1 Application, vedrai la pagina *Panoramica*. Qui devi specificare le informazioni di connessione per l'istanza del servizio {{site.data.keyword.Db2_on_Cloud_short}} (qualsiasi piano diverso dal piano **Lite**) o {{site.data.keyword.composeForPostgreSQL}} a cui deve connettersi l'istanza del servizio {{site.data.keyword.mobilefoundation_short}}.
 
 Se non hai un'istanza Db2 on Cloud esistente, puoi creare una nuova istanza del servizio {{site.data.keyword.Db2_on_Cloud_short}} (qualsiasi piano diverso dal piano **Lite**) o {{site.data.keyword.composeForPostgreSQL}}.
 
@@ -65,7 +66,8 @@ Utilizza la seguente procedura per stabilire una connessione a un'istanza del se
 1. Seleziona l'`Organizzazione` {{site.data.keyword.Bluemix_notm}} dove è presente l'istanza del servizio {{site.data.keyword.Db2_on_Cloud_short}}.
 
 + Seleziona lo `Spazio` {{site.data.keyword.Bluemix_notm}} in cui è presente l'istanza del servizio {{site.data.keyword.Db2_on_Cloud_short}}, dall'elenco di spazi disponibili nell'`Organizzazione` selezionata.   
-> **Nota:** se non vedi elencati l'`Organizzazione` e lo `Spazio`, in cui è presente la tua istanza del servizio {{site.data.keyword.Db2_on_Cloud_short}}, verifica di essere un membro di tale `Organizzazione` e `Spazio`. Devi avere un ruolo di *Sviluppatore* per l'accesso all'organizzazione e allo spazio. Il servizio {{site.data.keyword.mobilefoundation_short}} accede alle credenziali dal servizio {{site.data.keyword.Db2_on_Cloud_short}}.
+Se non vedi elencati l'`Organizzazione` e lo `Spazio`, in cui è presente la tua istanza del servizio {{site.data.keyword.Db2_on_Cloud_short}}, verifica di essere un membro di tale `Organizzazione` e `Spazio`. Devi avere un ruolo di *Sviluppatore* per l'accesso all'organizzazione e allo spazio. Il servizio {{site.data.keyword.mobilefoundation_short}} accede alle credenziali dal servizio {{site.data.keyword.Db2_on_Cloud_short}}.
+{: note}
 
 + Seleziona il `Nome servizio` e le `Credenziali` {{site.data.keyword.Db2_on_Cloud_short}} per connetterti all'istanza del servizio {{site.data.keyword.Db2_on_Cloud_short}} esistente.
 

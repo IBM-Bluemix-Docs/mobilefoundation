@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-02-28"
+lastupdated: "2019-06-10"
 
 keywords: push notifications, sending interactive notification
 
@@ -51,7 +51,7 @@ Puoi impostare una stringa per indicare la categoria della notifica con l'oggett
 ## Gestione delle notifiche di push interattive nelle applicazioni Cordova
 {: #handling-interactive-push-notifications-in-cordova-applications }
 
-Per ricevere le notifiche interattive, segui questi passi: 
+Per ricevere le notifiche interattive, segui questi passi:
 
 1. Nel JavaScript principale, definisci le categorie registrate per la notifica interattiva e passalo alla chiamata di registrazione del dispositivo `MFPPush.registerDevice`.
 
@@ -103,7 +103,7 @@ Per ricevere le notifiche interattive, segui questi passi:
    }
    ```
 
-2. Passa l'oggetto `options` mentre registri il dispositivo per le notifiche di push. 
+2. Passa l'oggetto `options` mentre registri il dispositivo per le notifiche di push.
 
    ```javascript
    MFPPush.registerDevice(options, function(successResponse) {
@@ -117,7 +117,7 @@ Per ricevere le notifiche interattive, segui questi passi:
 
 Segui questi passi per ricevere le notifiche interattive:
 
-1. Abilita la funzionalità dell'applicazione ad eseguire attività in background per la ricezione di notifiche remote. Questo passo è obbligatorio se alcune delle azioni sono abilitate in background. 
+1. Abilita la funzionalità dell'applicazione ad eseguire attività in background per la ricezione di notifiche remote. Questo passo è obbligatorio se alcune delle azioni sono abilitate in background.
 2. Definisci le categorie registrate per le notifiche interattive e passale come opzioni a `MFPPush.registerDevice`.
 
    ```swift

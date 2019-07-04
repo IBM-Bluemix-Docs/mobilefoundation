@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2018-11-22"
+lastupdated: "2019-06-06"
 
 keywords: mobile analytics, charts, app sessions, crashes, graph
 
@@ -22,17 +22,17 @@ subcollection:  mobilefoundation
 # Crea grafici personalizzati
 {: #build_custom_charts}
 
-La vista Custom Charts nella console Mobile Analytics ti fornisce la flessibilità per creare le tue visualizzazioni dei dati di analisi acquisiti e archiviati. I grafici personalizzati ti sono utili nell'approfondimento di ulteriori informazioni rispetto a quelle preconfigurate o anche estendendole senza problemi nelle analisi di business formulate sui dati del cliente. 
+La vista Custom Charts nella console Mobile Analytics ti fornisce la flessibilità per creare le tue visualizzazioni dei dati di analisi acquisiti e archiviati.  I grafici personalizzati ti sono utili nell'approfondimento di ulteriori informazioni rispetto a quelle preconfigurate o anche estendendole senza problemi nelle analisi di business formulate sui dati del cliente.
 
-In questa vista, puoi scegliere uno qualsiasi dei dataset di analisi supportati e poi selezionare uno dei tipi di grafico supportati per tracciare il dataset. Puoi anche ridurre ulteriormente la visualizzazione definendo dei filtri da applicare sui dati che vengono tracciati.   
+In questa vista, puoi scegliere uno qualsiasi dei dataset di analisi supportati e poi selezionare uno dei tipi di grafico supportati per tracciare il dataset.  Puoi anche ridurre ulteriormente la visualizzazione definendo dei filtri da applicare sui dati che vengono tracciati.  
 
-I dataset supportati sono: 
+I dataset supportati sono:
  * Log applicazione
  * Sessioni applicazione
  * Dati personalizzati
  * Transazioni di rete
 
-I tipi di grafici supportati sono: 
+I tipi di grafici supportati sono:
  * Grafico a barre
  * Diagramma di flusso
  * Grafico a linee
@@ -45,13 +45,13 @@ La selezione del dataset, il tipo di grafico da tracciare, la definizione delle 
 ## Creazione di un grafico personalizzato
 {: #creating_custom_chart}
 
-Crea un grafico personalizzato utilizzando le seguenti istruzioni: 
+Crea un grafico personalizzato utilizzando le seguenti istruzioni:
 
 1.  Fai clic sul pulsante **Create Chart** nella scheda **Custom Charts** dal dashboard Mobile Analytics.
 2.  Nella scheda **General Settings**, seleziona **Chart Title**, **Event Type** e **Chart Type**.
 3.  Alla selezione di *Event Type* e *Chart Type*, viene visualizzata la scheda **Chart Definition**. Utilizza la scheda *Chart Definition* per definire il grafico per il tipo di grafico specificato che hai precedentemente selezionato. Dopo aver definito il grafico, puoi configurare i filtri e le proprietà del grafico.
 4.  I filtri del grafico (**Chart Filters**) vengono utilizzati per ottimizzare il grafico personalizzato. Può essere definito più di un filtro per un grafico.
-    Ad esempio, dopo che hai definito un grafico per visualizzare la durata della sessione dell'applicazione media, se desideri visualizzare questo grafico solo per un'applicazione specifica puoi creare un filtro nel seguente modo: 
+    Ad esempio, dopo che hai definito un grafico per visualizzare la durata della sessione dell'applicazione media, se desideri visualizzare questo grafico solo per un'applicazione specifica puoi creare un filtro nel seguente modo:
     * Seleziona **Application Name** per **Property**.
     * Seleziona **Equals** per **Operator**.
     * Seleziona il nome della tua applicazione per **Value**.
@@ -64,9 +64,9 @@ Crea un grafico personalizzato utilizzando le seguenti istruzioni:
 ## Ottenimento di informazioni approfondite personalizzate dai log di dati personalizzati
 {: #creating_custom_chart_for_client_logs}    
 
-Se desideri ottenere informazioni personalizzate più approfondite su come ad esempio gli utenti traccino l'applicazione, devi prima acquisire le informazioni di traccia dell'utente pertinenti come la pagina scelta o l'opzione selezionata o il pulsante su cui è stato fatto clic come dati personalizzati e registrarli. Consulta l'argomento sulla [strumentazione della tua applicazione](/docs/services/mobilefoundation?topic=mobilefoundation-instrument_your_app#instrument_your_app), su come registrare i dati personalizzati.
+Se desideri ottenere informazioni personalizzate più approfondite su come ad esempio gli utenti traccino l'applicazione, devi prima acquisire le informazioni di traccia dell'utente pertinenti come la pagina scelta o l'opzione selezionata o il pulsante su cui è stato fatto clic come dati personalizzati e registrarli.  Consulta l'argomento sulla [strumentazione della tua applicazione](/docs/services/mobilefoundation?topic=mobilefoundation-instrument_your_app#instrument_your_app), su come registrare i dati personalizzati.
 
-Successivamente, crea una definizione di grafico personalizzata con dei dati personalizzati come il tipo di evento e scegli il tipo di grafico. Procedendo con la definizione delle proprietà del grafico (**Chart Properties**) o dei filtri del grafico (**Chart Filters**), noterai che i valori e i tipi di dati personalizzati verranno visualizzati nelle caselle a discesa. Effettua le selezioni importanti per il tipo di informazione approfondita che stai cercando.  
+Successivamente, crea una definizione di grafico personalizzata con dei dati personalizzati come il tipo di evento e scegli il tipo di grafico. Procedendo con la definizione delle proprietà del grafico (**Chart Properties**) o dei filtri del grafico (**Chart Filters**), noterai che i valori e i tipi di dati personalizzati verranno visualizzati nelle caselle a discesa.  Effettua le selezioni importanti per il tipo di informazione approfondita che stai cercando.  
 
 La profondità e l'utilità delle informazioni approfondite personalizzate dipende interamente da quanto efficacemente e in modo pertinente vengono definiti e acquisiti i dati personalizzati nelle tue applicazioni.
 {: note}

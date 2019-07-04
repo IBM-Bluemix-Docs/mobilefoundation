@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2018-11-29"
+lastupdated: "2019-06-06"
 
 keywords: disable apps, remote disabling of apps
 
@@ -19,7 +19,7 @@ subcollection:  mobilefoundation
 # Disabilita in remoto una versione dell'applicazione
 {: #remotely_disable_an_app_version}
 
-In questa sezione, discutiamo di come disabilitare l'accesso utente a una specifica versione di un'applicazione su uno specifico sistema operativo mobile e di come fornire un messaggio personalizzato all'utente. 
+In questa sezione, discutiamo di come disabilitare l'accesso utente a una specifica versione di un'applicazione su uno specifico sistema operativo mobile e di come fornire un messaggio personalizzato all'utente.
 
 Puoi utilizzare la Mobile Foundation Operations Console per gestire l'accesso all'applicazione.
 

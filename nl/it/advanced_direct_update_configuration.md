@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-02-14"
+lastupdated: "2019-06-06"
 
 keywords: Direct Update, CDN support, secure direct update
 
@@ -39,7 +39,7 @@ wl_DirectUpdateChallengeHandler.handleDirectUpdate = function(directUpdateData, 
 
 Se le risorse web sono più recenti nel server Mobile Foundation che nell'applicazione, vengono aggiunti dati di verifica dell'aggiornamento diretto alla risposta del server. Quando il framework lato client di Mobile Foundation rileva questa verifica dell'aggiornamento diretto, richiama la funzione `wl_directUpdateChallengeHandler.handleDirectUpdate`.
 
-La funzione fornisce una progettazione dell'aggiornamento diretto predefinita: viene visualizzata una finestra di dialogo del messaggio predefinita quando un aggiornamento diretto è disponibile e viene visualizzata una schermata di avanzamento predefinita quando viene avviato il processo di aggiornamento diretto. Puoi implementare il comportamento dell'interfaccia utente dell'aggiornamento diretto personalizzato o personalizzare la casella di dialogo dell'aggiornamento diretto sovrascrivendo questa funzione e implementando la tua logica. 
+La funzione fornisce una progettazione dell'aggiornamento diretto predefinita: viene visualizzata una finestra di dialogo del messaggio predefinita quando un aggiornamento diretto è disponibile e viene visualizzata una schermata di avanzamento predefinita quando viene avviato il processo di aggiornamento diretto. Puoi implementare il comportamento dell'interfaccia utente dell'aggiornamento diretto personalizzato o personalizzare la casella di dialogo dell'aggiornamento diretto sovrascrivendo questa funzione e implementando la tua logica.
 
 Nel seguente codice di esempio, una funzione `handleDirectUpdate` implementa un messaggio personalizzato nella finestra di dialogo dell'aggiornamento diretto. Aggiungi questo codice al file `www/js/index.js` del progetto Cordova.
 Ulteriori esempi di una IU dell'aggiornamento diretto personalizzata:
@@ -94,6 +94,7 @@ I metodi del listener vengono avviati durante il processo di aggiornamento diret
 | `FAILURE_ALREADY_IN_PROGRESS` | Il metodo start è stato richiamato mentre l'aggiornamento diretto era ancora in esecuzione. |
 | `FAILURE_INTEGRITY` | L'autenticità del file di aggiornamento non può essere verificata. |
 | `FAILURE_UNKNOWN` | Errore interno non previsto. |
+{: caption="Tabella 1. Codici di stato" caption-side="top"}
 
 Se implementi un listener di aggiornamento diretto personalizzato, devi assicurarti che l'applicazione venga ricaricata quando il processo di aggiornamento diretto viene completato e il metodo `onFinish()` è stato richiamato. Devi anche richiamare `wl_directUpdateChalengeHandler.submitFailure()` se l'aggiornamento diretto non viene completato correttamente.
 
@@ -294,42 +295,44 @@ Imposta il nuovo dominio `cdn.yourcompany.com` come URL del server Mobile Founda
 {: #akamai-administrator }
 1. Apre il gestore delle proprietà Akamai e imposta la proprietà **nome host** sul valore del nuovo dominio.
 
-    ![Imposta la proprietà nome host sul valore del nuovo dominio](images/direct_update_cdn_3.jpg)
+    ![Imposta la proprietà nome host sul valore del nuovo dominio](images/direct_update_cdn_3.jpg "Imposta la proprietà nome host sul valore del nuovo dominio")
 
 2. Nella scheda Default Rule, configura l'host e la porta originali del server Mobile Foundation e imposta il valore **Custom Forward Host Header** sul dominio appena creato.
 
-    ![Imposta il valore Custom Forward Host Header sul dominio appena creato](images/direct_update_cdn_4.jpg)
+    ![Imposta il valore Custom Forward Host Header sul dominio appena creato](images/direct_update_cdn_4.jpg "Imposta il valore Custom Forward Host Header sul dominio appena creato")
 
 3. Dall'elenco **Caching Option**, seleziona **No Store**.
 
-    ![Dall'elenco Caching Option, seleziona No Store](images/direct_update_cdn_5.jpg)
+    ![Dall'elenco Caching Option, seleziona No Store](images/direct_update_cdn_5.jpg "Dall'elenco Caching Option, seleziona No Store")
 
 4. Dalla scheda **Static Content configuration**, configura i criteri corrispondenti in base all'URL di aggiornamento diretto dell'applicazione. Ad esempio, crea una condizione che indica `If Path matches one of direct_update_URL`.
 
-    ![Configura i criteri corrispondenti in base all'URL di aggiornamento diretto dell'applicazione](images/direct_update_cdn_6.jpg)
+    ![Configura i criteri corrispondenti in base all'URL di aggiornamento diretto dell'applicazione](images/direct_update_cdn_6.jpg "Configura i criteri corrispondenti in base all'URL di aggiornamento diretto dell'applicazione")
 
 5. Configura il comportamento della chiave della cache per utilizzare tutti i parametri di richiesta nella chiave della cache (devi far ciò per memorizzare nella cache diversi archivi di aggiornamento diretto per versioni o applicazioni differenti). Ad esempio, dall'elenco **Behavior**, seleziona `Include all parameters (preserve order from request)`.
 
-    ![Configura il comportamento della chiave della cache per utilizzare tutti i parametri di richiesta nella chiave della cache](images/direct_update_cdn_8.jpg)
+    ![Configura il comportamento della chiave della cache per utilizzare tutti i parametri di richiesta nella chiave della cache](images/direct_update_cdn_8.jpg "Configura il comportamento della chiave della cache per utilizzare tutti i parametri di richiesta nella chiave della cache")
 
 6. Imposta dei valori simili ai seguenti per configurare il comportamento della cache per memorizzare l'URL di aggiornamento diretto e per impostare TTL.
 
-      ![Imposta i valori per configurare il comportamento della memorizzazione nella cache](images/direct_update_cdn_7.jpg)
+      ![Imposta i valori per configurare il comportamento della memorizzazione nella cache](images/direct_update_cdn_7.jpg "Imposta i valori per configurare il comportamento della memorizzazione nella cache")
 
 | Campo | Valore |
 |:------|:------|
 | Opzione di memorizzazione nella cache | Cache |
 | Applica la rivalutazione degli oggetti obsoleti | Fornire obsoleto se è impossibile la convalida |
 | Durata massima | 3 minuti |
+{: caption="Tabella 2. Campi e valori per la configurazione del comportamento della memorizzazione nella cache" caption-side="top"}
 
 ## Aggiornamento diretto sicuro
 {: #secure-dc }
 
 Disabilitato per impostazione predefinita, l'aggiornamento diretto sicuro evita ad aggressori di terze parti di modificare le risorse web che vengono trasmesse dal server Mobile Foundation (o da un CDN (Content Delivery Network)) all'applicazione client.
 
-**Per abilitare l'autenticità dell'aggiornamento diretto:**  
+### Abilitazione dell'autenticità dell'aggiornamento diretto
+{: #enable-direct-update-authenticity}
 Utilizzando uno strumento preferito, estrai la chiave pubblica dal keystore del server Mobile Foundation e convertila in base64.  
-Il valore prodotto dovrebbe essere poi utilizzato come indicato di seguito:
+Il valore prodotto dovrebbe essere poi utilizzato come indicato nella seguente procedura:
 
 1. Apri una finestra **Riga di comando** e passa alla root del progetto Cordova.
 2. Esegui il comando: `mfpdev app config` e seleziona l'opzione **Chiave pubblica dell'autenticità dell'aggiornamento diretto**.
