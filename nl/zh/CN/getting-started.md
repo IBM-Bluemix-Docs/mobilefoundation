@@ -2,7 +2,7 @@
 
 copyright:
   years: 2016, 2019
-lastupdated:  "2019-03-14"
+lastupdated: "2019-06-06"
 
 keywords: getting started, mobile foundation, plans, configure mobile foundation server, sample app, setup
 
@@ -17,10 +17,9 @@ subcollection:  mobilefoundation
 {:note: .note}
 
 # 入门教程
-{: #getting-started-tutorial}
+{: #getting-started}
 
 {{site.data.keyword.mobilefoundation_long}} 加快设置 {{site.data.keyword.mfp_full}} 环境，您可使用此环境开发、测试和运行企业移动应用程序。{{site.data.keyword.mobilefoundation_short}} 提供以下不同的服务套餐：
-* **轻量**：供应受内存和 CPU 限制的 Foundation Server 的托管实例。允许任意数量的应用程序，所有应用程序上连接设备的总数限制为 10。免费，只能用于试用目的。
 * **Developer**：在用户帐户中供应 Foundation Server 的实例。允许任意数量的应用程序，所有应用程序上连接设备的总数限制为 10。免费，只能用于开发和测试目的。
 * **Professional Per Device**：在用户帐户中供应 Foundation Server 的实例，并按主动连接的设备数量收费。
 * **Professional 1 Application**：在用户帐户中供应 Foundation Server 的实例，并且允许仅针对单个应用程序主动连接任意数量的用户和设备。    
@@ -48,18 +47,6 @@ subcollection:  mobilefoundation
 {: #buildmobilechannel}
 
 
-### 对于 {{site.data.keyword.mobilefoundation_short}}：轻量套餐
-{: #buildchannelliteplan}
-创建“{{site.data.keyword.mobilefoundation_short}}：轻量”的实例后，可以通过完成以下步骤开始构建移动通道。
-
-* 您可以立即访问和使用 Mobile Foundation 服务器的托管实例。
-
-  此选择将创建具有以下设置的 {{site.data.keyword.mfserver_long_notm}} 的托管实例：
-  *	1 GB 内存，足够用于试用 {{site.data.keyword.mfserver_long_notm}} 的功能。  
-
-  * 要使用 CLI 访问 Mobile Foundation 服务器，您将需要凭证。在 IBM Cloud 控制台的左侧导航窗格中单击**服务凭证**即可获取凭证。
-
-
 ### 对于 {{site.data.keyword.mobilefoundation_short}}: Developer 套餐
 {: #buildchanneldevplan}
 
@@ -68,9 +55,9 @@ subcollection:  mobilefoundation
 * 您可以立即访问和使用 Mobile Foundation 服务器。
 
   此选择将创建具有以下设置的 {{site.data.keyword.mfserver_long_notm}}：
-  *	1 GB 内存。此大小足够用于开发、轻量测试活动和小规模生产工作负载。
+  *	1 GB 内存。此大小足够开发和轻量测试活动使用。
 
-  * 要使用 CLI 访问 Mobile Foundation 服务器，您将需要凭证。在 IBM Cloud 控制台的左侧导航窗格中单击**服务凭证**即可获取凭证。
+  * 要使用 CLI 访问 Mobile Foundation 服务器，您将需要凭证。在 IBM Cloud 控制台的导航窗格中单击**服务凭证**即可获取凭证。
 
 ### 对于 {{site.data.keyword.mobilefoundation_short}}: Professional Per Device 套餐
 {: #buildchannelprofdeviceplan}
@@ -107,7 +94,7 @@ subcollection:  mobilefoundation
 
       +	单击**启动控制台**以打开 {{site.data.keyword.mfp_oc_short_notm}}。      
 
-      要使用拓扑、安全性和其他服务器配置的高级配置来创建 {{site.data.keyword.mobilefirst_notm}} 服务器实例，请单击**使用高级配置启动服务器**。有关更多信息，请参阅[设置高级配置](/docs/services/mobilefoundation?topic=mobilefoundation-c_using_mfs_p5#using_mfs_advanced_p5)。
+      要使用拓扑、安全性和其他服务器配置的高级配置来创建 {{site.data.keyword.mobilefirst_notm}} 服务器实例，请单击**使用高级配置启动服务器**。有关更多信息，请参阅[设置高级配置](/docs/services/mobilefoundation?topic=mobilefoundation-using_mobilefoundation_p5#using_mfs_advanced_p5)。
       {: tip}
 
 ### 对于 {{site.data.keyword.mobilefoundation_short}}: Professional 1 Application 套餐
@@ -145,10 +132,10 @@ subcollection:  mobilefoundation
 
       +  单击**启动控制台**以打开 {{site.data.keyword.mfp_oc_short_notm}}。  
 
-      要使用拓扑、安全性和其他服务器配置的高级配置来创建 {{site.data.keyword.mobilefirst_notm}} 服务器实例，请单击**使用高级配置启动服务器**。有关更多信息，请参阅[设置高级配置](/docs/services/mobilefoundation?topic=mobilefoundation-c_using_mfs_p2#using_mfs_advanced_p2)。
+      要使用拓扑、安全性和其他服务器配置的高级配置来创建 {{site.data.keyword.mobilefirst_notm}} 服务器实例，请单击**使用高级配置启动服务器**。有关更多信息，请参阅[设置高级配置](/docs/services/mobilefoundation?topic=mobilefoundation-using_mobilefoundation_p2#using_mfs_advanced_p2)。
       {: tip}
 
-转至[使用 Mobile Foundation 服务设置 MobileFirst 服务器 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://mobilefirstplatform.ibmcloud.com/tutorials/en/foundation/8.0/bluemix/using-mobile-foundation/){: new_window}，以了解有关开始使用 {{site.data.keyword.mobilefoundation_short}} 的更多信息。
+转至[使用 Mobile Foundation 服务设置 MobileFirst 服务器 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://mobilefirstplatform.ibmcloud.com/tutorials/en/foundation/8.0/ibmcloud/using-mobile-foundation/){: new_window}，以了解有关开始使用 {{site.data.keyword.mobilefoundation_short}} 的更多信息。
 {: note}
 
 ## 步骤 3：在 {{site.data.keyword.mobilefoundation_short}} 中注册应用程序
@@ -224,8 +211,6 @@ subcollection:  mobilefoundation
                         Log.i("MobileFirst Quick Start", "Success: " + wlResponse.getResponseText());
                     }
 
-                    
-
                     @Override
             public void onFailure(WLFailResponse wlFailResponse) {
                 Log.i("MobileFirst Quick Start", "Failure: " + wlFailResponse.getErrorMsg());
@@ -234,8 +219,8 @@ subcollection:  mobilefoundation
             }
 
             @Override
-                    public void onFailure(WLFailResponse wlFailResponse) {
-                        System.out.println("Did not receive an access token from server: " + wlFailResponse.getErrorMsg());
+            public void onFailure(WLFailResponse wlFailResponse) {
+                System.out.println("Did not receive an access token from server: " + wlFailResponse.getErrorMsg());
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {

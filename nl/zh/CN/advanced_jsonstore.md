@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-02-12"
+lastupdated: "2019-06-06"
 
 keywords: JSONStore, advanced jsonstore, Cordova secure jsonstore, iOS secure jsonstore, android jsonstore, adapter integration
 
@@ -39,10 +39,10 @@ subcollection:  mobilefoundation
 <!--### Cordova
 {: #security_jsonstore_cordova}-->
 
-您可以通过将密码传递到 `init` 函数来保护存储区中的所有集合。如果未传递密码，那么不会加密存储区中所有集合的文档。
+您可以通过将密码传递到 `init` 函数来保护存储器中的所有集合。如果未传递密码，那么不会加密存储器中所有集合的文档。
 {: cordova}
 
-数据加密仅适用于 Android、iOS、Windows 8.1 Universal 和 Windows 10 UWP 环境。某些安全元数据存储在密钥链 (iOS)、共享首选项 (Android) 或凭据保险箱 (Windows8.1) 中。存储区利用 256 位高级加密标准 (AES) 密钥进行加密。所有密钥通过基于密码的密钥派生函数 2 (PBKDF2) 进行增强。
+数据加密仅适用于 Android、iOS、Windows 8.1 Universal 和 Windows 10 UWP 环境。某些安全元数据存储在密钥链 (iOS)、共享首选项 (Android) 或凭据保险箱 (Windows8.1) 中。存储器利用 256 位高级加密标准 (AES) 密钥进行加密。所有密钥通过基于密码的密钥派生函数 2 (PBKDF2) 进行增强。
 {: cordova}
 
 使用 `closeAll` 可锁定对所有集合的访问，直至再次调用 `init`。如果将 `init` 当作登录函数，那么可将 `closeAll` 当作对应的注销函数。使用 `changePassword` 可更改密码。
@@ -61,10 +61,10 @@ subcollection:  mobilefoundation
 <!--### iOS
 {: #security_jsonstore_ios} -->
 
-您可以通过将包含密码的 `JSONStoreOpenOptions` 对象传递到 `openCollections` 函数来保护存储区中的所有集合。如果未传递密码，那么不会加密存储区中所有集合的文档。
+您可以通过将包含密码的 `JSONStoreOpenOptions` 对象传递到 `openCollections` 函数来保护存储器中的所有集合。如果未传递密码，那么不会加密存储器中所有集合的文档。
 {: ios}
 
-某些安全元数据存储在密钥链 (iOS) 中。存储区利用 256 位高级加密标准 (AES) 密钥进行加密。所有密钥通过基于密码的密钥派生函数 2 (PBKDF2) 进行增强。
+某些安全元数据存储在密钥链 (iOS) 中。存储器利用 256 位高级加密标准 (AES) 密钥进行加密。所有密钥通过基于密码的密钥派生函数 2 (PBKDF2) 进行增强。
 {: ios}
 
 使用 `closeAllCollections` 可锁定对所有集合的访问，直至再次调用 `openCollections`。如果将 `openCollections` 当作登录函数，那么可将 `closeAllCollections` 当作对应的注销函数。
@@ -93,10 +93,10 @@ do {
 <!--### Android
 {: #security_jsonstore_android} -->
 
-您可以通过将包含密码的 `JSONStoreInitOptions` 对象传递到 `openCollections` 函数来保护存储区中的所有集合。如果未传递密码，那么不会加密存储区中所有集合的文档。
+您可以通过将包含密码的 `JSONStoreInitOptions` 对象传递到 `openCollections` 函数来保护存储器中的所有集合。如果未传递密码，那么不会加密存储器中所有集合的文档。
 {: android}
 
-某些安全元数据存储在共享首选项 (Android) 中。存储区利用 256 位高级加密标准 (AES) 密钥进行加密。所有密钥通过基于密码的密钥派生函数 2 (PBKDF2) 进行增强。
+某些安全元数据存储在共享首选项 (Android) 中。存储器利用 256 位高级加密标准 (AES) 密钥进行加密。所有密钥通过基于密码的密钥派生函数 2 (PBKDF2) 进行增强。
 {: android}
 
 使用 `closeAllCollections` 可锁定对所有集合的访问，直至再次调用 `openCollections`。如果将 `openCollections` 当作登录函数，那么可将 `closeAllCollections` 当作对应的注销函数。
@@ -119,8 +119,8 @@ try {
   // handle success
 } catch(JSONStoreException e) {
   // handle failure
-    }
-   ```
+}
+```
 {: codeblock}
 {: android}
 
@@ -130,7 +130,7 @@ try {
 <!--### Cordova
 {: #multiple_user_jsonstore_cordova} -->
 
-您可以在单个 MobileFirst 应用程序中创建包含不同集合的多个存储区。`init` 函数可接受包含用户名的 options 对象。如果未提供任何用户名，那么缺省用户名为 *jsonstore*。
+您可以在单个 MobileFirst 应用程序中创建包含不同集合的多个存储器。`init` 函数可使用包含用户名的 options 对象。如果未提供任何用户名，那么缺省用户名为 *jsonstore*。
 {: cordova}
 
 ```javascript
@@ -152,7 +152,7 @@ WL.JSONStore.init(collections, options).then(function () {
 <!--### iOS
 {: #multiple_user_jsonstore_ios} -->
 
-您可以在单个 MobileFirst 应用程序中创建包含不同集合的多个存储区。`init` 函数可接受包含用户名的 options 对象。如果未提供任何用户名，那么缺省用户名为 *jsonstore*。
+您可以在单个 MobileFirst 应用程序中创建包含不同集合的多个存储器。`init` 函数可使用包含用户名的 options 对象。如果未提供任何用户名，那么缺省用户名为 *jsonstore*。
 {: ios}
 
 ```swift
@@ -175,7 +175,7 @@ do {
 <!--### Android
 {: #multiple_user_jsonstore_android} -->
 
-您可以在单个 Mobile Foundation 应用程序中创建包含不同集合的多个存储区。`openCollections` 函数可接受包含用户名的 options 对象。如果未提供任何用户名，那么缺省用户名为 *jsonstore*。
+您可以在单个 Mobile Foundation 应用程序中创建包含不同集合的多个存储器。`openCollections` 函数可使用包含用户名的 options 对象。如果未提供任何用户名，那么缺省用户名为 *jsonstore*。
 {: android}
 
 ```java
@@ -192,8 +192,8 @@ try {
   // handle success
 } catch(JSONStoreException e) {
   // handle failure
-    }
-   ```
+}
+```
 {: codeblock}
 {: android}
 

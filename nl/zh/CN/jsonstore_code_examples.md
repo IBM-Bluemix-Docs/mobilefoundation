@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated:  "2019-02-13"
+lastupdated: "2019-06-10"
 
 keywords: jsonstore, code samples, offline storage
 
@@ -18,14 +18,14 @@ subcollection:  mobilefoundation
 {:android: .ph data-hd-programlang='Android'}
 {:cordova: .ph data-hd-programlang='Cordova'}
 
-#	JSONStore 代码样本
+# JSONStore 代码样本
 {: #code_samples}
 
-### Cordova 的样本
+## Cordova 的样本
 {: #samples_cordova }
 {: cordova}
 
-#### 在 Cordova 中初始化并打开连接，获取存取器，以及添加数据
+### 在 Cordova 中初始化并打开连接，获取存取器，以及添加数据
 {: #initialize-and-open-connections-get-an-accessor-and-add-data-cordova }
 {: cordova}
 
@@ -86,7 +86,7 @@ WL.JSONStore.init(collections, options)
 {: codeblock}
 {: cordova}
 
-#### 查找 - 找到存储区中的文档
+### 查找 - 找到存储器中的文档
 {: #find-locate-documents-inside-the-store }
 {: cordova}
 
@@ -132,7 +132,7 @@ WL.JSONStore.get(collectionName)
 {: codeblock}
 {: cordova}
 
-#### 替换 - 在 Cordova 中更改已存储在集合中的文档
+### 替换 - 在 Cordova 中更改已存储在集合中的文档
 {: cordova}
 
 ```javascript
@@ -163,7 +163,7 @@ WL.JSONStore.get(collectionName)
 {: codeblock}
 {: cordova}
 
-#### 除去 - 在 Cordova 中删除与查询匹配的所有文档
+### 除去 - 在 Cordova 中删除与查询匹配的所有文档
 {: cordova}
 
 ```javascript
@@ -196,7 +196,7 @@ WL.JSONStore.get(collectionName)
 {: codeblock}
 {: cordova}
 
-#### 计数 - 在 Cordova 中获取与查询匹配的文档总数
+### 计数 - 在 Cordova 中获取与查询匹配的文档总数
 {: cordova}
 
 ```javascript
@@ -227,7 +227,7 @@ WL.JSONStore.get(collectionName)
 {: codeblock}
 {: cordova}
 
-#### 销毁 - 在 Cordova 中擦除所有用户的数据，销毁内部存储器并清除安全工件
+### 销毁 - 在 Cordova 中擦除所有用户的数据，销毁内部存储器并清除安全工件
 {: cordova}
 
 ```javascript
@@ -244,7 +244,7 @@ WL.JSONStore.destroy()
 {: codeblock}
 {: cordova}
 
-#### 安全性 - 在 Cordova 中关闭当前用户对所有打开的集合的访问权
+### 安全性 - 在 Cordova 中关闭当前用户对所有打开的集合的访问权
 {: cordova}
 
 ```javascript
@@ -261,7 +261,7 @@ WL.JSONStore.closeAll()
 {: codeblock}
 {: cordova}
 
-#### 安全性 - 在 Cordova 中更改用于访问存储区的密码
+### 安全性 - 在 Cordova 中更改用于访问存储器的密码
 {: cordova}
 
 ```javascript
@@ -299,7 +299,7 @@ WL.JSONStore.changePassword(oldPassword, newPassword, username)
 {: codeblock}
 {: cordova}
 
-#### 推送 - 在 Cordova 中获取标记为“脏”的所有文档，将其发送到适配器，然后将其标记为“干净”
+### 推送 - 在 Cordova 中获取标记为“脏”的所有文档，将其发送到适配器，然后将其标记为“干净”
 {: cordova}
 
 ```javascript
@@ -342,7 +342,7 @@ WL.JSONStore.get(collectionName)
 {: codeblock}
 {: cordova}
 
-#### 拉取 - 在 Cordova 中从适配器获取新数据
+### 拉取 - 在 Cordova 中从适配器获取新数据
 {: cordova}
 
 ```javascript
@@ -395,7 +395,7 @@ resource.send()
 {: codeblock}
 {: cordova}
 
-#### 在 Cordova 中检查文档是否为脏文档
+### 在 Cordova 中检查文档是否为脏文档
 {: cordova}
 
 ```javascript
@@ -418,7 +418,7 @@ WL.JSONStore.get(collectionName)
 {: codeblock}
 {: cordova}
 
-#### 在 Cordova 中检查脏文档数
+### 在 Cordova 中检查脏文档数
 {: cordova}
 
 ```javascript
@@ -439,7 +439,7 @@ WL.JSONStore.get(collectionName)
 {: codeblock}
 {: cordova}
 
-#### 在 Cordova 中除去集合
+### 在 Cordova 中除去集合
 {: cordova}
 
 ```javascript
@@ -462,7 +462,7 @@ WL.JSONStore.get(collectionName)
 {: codeblock}
 {: cordova}
 
-#### 在 Cordova 中清除集合中的所有数据
+### 在 Cordova 中清除集合中的所有数据
 {: cordova}
 
 ```javascript
@@ -485,7 +485,7 @@ WL.JSONStore.get(collectionName)
 {: codeblock}
 {: cordova}
 
-#### 在 Cordova 中启动事务，添加一些数据，除去文档，落实事务，并在发生故障时回滚事务
+### 在 Cordova 中启动事务，添加一些数据，除去文档，落实事务，并在发生故障时回滚事务
 {: #cordova-transaction }
 {: cordova}
 
@@ -533,7 +533,7 @@ WL.JSONStore.startTransaction()
 {: codeblock}
 {: cordova}
 
-#### 在 Cordova 中获取文件信息
+### 在 Cordova 中获取文件信息
 
 ```javascript
 WL.JSONStore.fileInfo()
@@ -548,7 +548,7 @@ WL.JSONStore.fileInfo()
 {: codeblock}
 {: cordova}
 
-#### 在 Cordova 中使用 like、rightLike 和 leftLike 执行搜索
+### 在 Cordova 中使用 like、rightLike 和 leftLike 执行搜索
 {: cordova}
 
 ```javascript
@@ -557,12 +557,12 @@ WL.JSONStore.fileInfo()
 var arr1 = WL.JSONStore.QueryPart().like('name', 'ca');  // returns {name: 'carlos', age: 10}
 var arr2 = WL.JSONStore.QueryPart().like('name', 'los');  // returns {name: 'carlos', age: 10}
 
-// Match all records that contain the search string on the left side and anything on the right side.
+// Match all records that contain the search string on the left hand side and anything on the right hand side.
 // searchString%
 var arr1 = WL.JSONStore.QueryPart().rightLike('name', 'ca');  // returns {name: 'carlos', age: 10}
 var arr2 = WL.JSONStore.QueryPart().rightLike('name', 'los');  // returns nothing
 
-// Match all records that contain the search string on the right side and anything on the left side.
+// Match all records that contain the search string on the right hand side and anything on the left hand side.
 // %searchString
 var arr = WL.JSONStore.QueryPart().leftLike('name', 'ca');  // returns nothing
 var arr2 = WL.JSONStore.QueryPart().leftLike('name', 'los');  // returns {name: 'carlos', age: 10}
@@ -570,11 +570,11 @@ var arr2 = WL.JSONStore.QueryPart().leftLike('name', 'los');  // returns {name: 
 {: codeblock}
 {: cordova}
 
-### iOS 的样本
+## iOS 的样本
 {: #samples-ios }
 {: ios}
 
-#### 在 iOS 中初始化并打开连接，获取存取器，以及添加数据
+### 在 iOS 中初始化并打开连接，获取存取器，以及添加数据
 {: ios}
 
 ```objc
@@ -632,7 +632,7 @@ Initialize with a secure random token from the server
 {: codeblock}
 {: ios}
 
-#### 查找 - 在 iOS 中找到存储区中的文档
+### 查找 - 在 iOS 中找到存储器中的文档
 {: ios}
 
 ```objc
@@ -674,7 +674,7 @@ for (NSDictionary* result in results) {
 {: codeblock}
 {: ios}
 
-#### 替换 - 在 iOS 中更改已存储在集合中的文档
+### 替换 - 在 iOS 中更改已存储在集合中的文档
 {: ios}
 
 ```objc
@@ -694,7 +694,7 @@ int docsReplaced = [[people replaceDocuments:docs andMarkDirty:NO error:&error] 
 {: codeblock}
 {: ios}
 
-#### 除去 - 在 iOS 中删除与查询匹配的所有文档
+### 除去 - 在 iOS 中删除与查询匹配的所有文档
 {: ios}
 
 ```objc
@@ -710,7 +710,7 @@ int docsRemoved = [[people removeWithIds:@[@1] andMarkDirty:NO error:&error] int
 {: codeblock}
 {: ios}
 
-#### 计数 - 在 iOS 中获取与查询匹配的文档总数
+### 计数 - 在 iOS 中获取与查询匹配的文档总数
 {: ios}
 
 ```objc
@@ -732,7 +732,7 @@ int countResult = [[people countWithQueryParts:@[queryPart] error:&error] intVal
 {: codeblock}
 {: ios}
 
-#### 销毁 - 在 iOS 中擦除所有用户的数据，销毁内部存储器并清除安全工件
+### 销毁 - 在 iOS 中擦除所有用户的数据，销毁内部存储器并清除安全工件
 {: ios}
 
 ```objc
@@ -745,7 +745,7 @@ NSError* error = nil;
 {: codeblock}
 {: ios}
 
-#### 安全性 - 在 iOS 中关闭当前用户对所有打开的集合的访问权
+### 安全性 - 在 iOS 中关闭当前用户对所有打开的集合的访问权
 {: ios}
 
 ```objc
@@ -758,7 +758,7 @@ NSError* error = nil;
 {: codeblock}
 {: ios}
 
-#### 安全性 - 在 iOS 中更改用于访问存储区的密码
+### 安全性 - 在 iOS 中更改用于访问存储器的密码
 {: ios}
 
 ```objc
@@ -781,7 +781,7 @@ newPassword = nil;
 {: codeblock}
 {: ios}
 
-#### 推送 - 在 iOS 中获取标记为“脏”的所有文档，将其发送到适配器，然后将其标记为“干净”
+### 推送 - 在 iOS 中获取标记为“脏”的所有文档，将其发送到适配器，然后将其标记为“干净”
 {: ios}
 
 ```objc
@@ -803,7 +803,7 @@ int numCleaned = [[people markDocumentsClean:dirtyDocs error:&error] intValue];
 {: codeblock}
 {: ios}
 
-#### 拉取 - 在 iOS 中从适配器获取新数据
+### 拉取 - 在 iOS 中从适配器获取新数据
 {: ios}
 
 ```objc
@@ -823,7 +823,7 @@ int numChanged = [[people changeData:data withReplaceCriteria:@[@"id", @"ssn"] a
 {: codeblock}
 {: ios}
 
-#### 在 iOS 中检查文档是否为脏文档
+### 在 iOS 中检查文档是否为脏文档
 {: ios}
 
 ```objc
@@ -839,7 +839,7 @@ BOOL isDirtyResult = [people isDirtyWithDocumentId:1 error:&error];
 {: codeblock}
 {: ios}
 
-#### 在 iOS 中检查脏文档数
+### 在 iOS 中检查脏文档数
 {: ios}
 
 ```objc
@@ -855,7 +855,7 @@ int dirtyDocsCount = [[people countAllDirtyDocumentsWithError:&error] intValue];
 {: codeblock}
 {: ios}
 
-#### 在 iOS 中除去集合
+### 在 iOS 中除去集合
 {: ios}
 
 ```objc
@@ -871,7 +871,7 @@ NSError* error = nil;
 {: codeblock}
 {: ios}
 
-#### 在 iOS 中清除集合中的所有数据
+### 在 iOS 中清除集合中的所有数据
 {: ios}
 
 ```objc
@@ -920,7 +920,7 @@ if (addError != nil || removeError != nil) {
 {: codeblock}
 {: ios}
 
-#### 在 iOS 中获取文件信息
+### 在 iOS 中获取文件信息
 {: ios}
 
 ```objc
@@ -934,11 +934,11 @@ NSArray* results = [[JSONStore sharedInstance] fileInfoAndReturnError:&error];
 {: codeblock}
 {: ios}
 
-### Android 的样本
+## Android 的样本
 {: #samples_android }
 {: android}
 
-#### 在 Android 中初始化并打开连接，获取存取器，以及添加数据
+### 在 Android 中初始化并打开连接，获取存取器，以及添加数据
 {: android}
 
 ```java
@@ -981,7 +981,7 @@ throw ex;
 {: codeblock}
 {: android}
 
-#### 在 Android 中使用来自服务器的安全随机令牌进行初始化
+### 在 Android 中使用来自服务器的安全随机令牌进行初始化
 {: android}
 
 ```java
@@ -1045,7 +1045,7 @@ aTask.execute(ctx);
 {: codeblock}
 {: android}
 
-#### 查找 - 在 Android 中找到存储区中的文档
+### 查找 - 在 Android 中找到存储器中的文档
 {: android}
 
 ```java
@@ -1089,7 +1089,7 @@ catch (JSONStoreException ex) {
 {: codeblock}
 {: android}
 
-#### 替换 - 在 Android 中更改已存储在集合中的文档
+### 替换 - 在 Android 中更改已存储在集合中的文档
 {: android}
 
 ```java
@@ -1119,7 +1119,7 @@ catch (JSONStoreException ex) {
 {: codeblock}
 {: android}
 
-#### 除去 - 在 Android 中删除与查询匹配的所有文档
+### 除去 - 在 Android 中删除与查询匹配的所有文档
 {: android}
 
 ```java
@@ -1153,7 +1153,7 @@ catch (JSONException ex) {
 {: codeblock}
 {: android}
 
-#### 计数 - 在 Android 中获取与查询匹配的文档总数
+### 计数 - 在 Android 中获取与查询匹配的文档总数
 {: android}
 
 ```java
@@ -1184,7 +1184,7 @@ catch (JSONStoreException ex) {
 {: codeblock}
 {: android}
 
-#### 销毁 - 在 Android 中擦除所有用户的数据，销毁内部存储器并清除安全工件
+### 销毁 - 在 Android 中擦除所有用户的数据，销毁内部存储器并清除安全工件
 {: android}
 
 ```java
@@ -1203,7 +1203,7 @@ catch (JSONStoreException ex) {
 {: codeblock}
 {: android}
 
-#### 安全性 - 在 Android 中关闭当前用户对所有打开的集合的访问权
+### 安全性 - 在 Android 中关闭当前用户对所有打开的集合的访问权
 {: android}
 
 ```java
@@ -1222,7 +1222,7 @@ catch (JSONStoreException ex) {
 {: codeblock}
 {: android}
 
-#### 安全性 - 在 Android 中更改用于访问存储区的密码
+### 安全性 - 在 Android 中更改用于访问存储器的密码
 {: android}
 
 ```java
@@ -1251,7 +1251,7 @@ finally {
 {: codeblock}
 {: android}
 
-#### 推送 - 在 Android 中获取标记为“脏”的所有文档，将其发送到适配器，然后将其标记为“干净”
+### 推送 - 在 Android 中获取标记为“脏”的所有文档，将其发送到适配器，然后将其标记为“干净”
 {: android}
 
 ```java
@@ -1276,7 +1276,7 @@ try {
 {: codeblock}
 {: android}
 
-#### 拉取 - 在 Android 中从适配器获取新数据
+### 拉取 - 在 Android 中从适配器获取新数据
 {: android}
 
 ```java
@@ -1320,7 +1320,7 @@ catch (JSONException ex) {
 {: codeblock}
 {: android}
 
-#### 在 Android 中检查文档是否为脏文档
+### 在 Android 中检查文档是否为脏文档
 {: android}
 
 ```java
@@ -1342,7 +1342,7 @@ catch (JSONStoreException ex) {
 {: codeblock}
 {: android}
 
-#### 在 Android 中检查脏文档数
+### 在 Android 中检查脏文档数
 {: android}
 
 ```java
@@ -1364,7 +1364,7 @@ catch (JSONStoreException ex) {
 {: codeblock}
 {: android}
 
-#### 在 Android 中除去集合
+### 在 Android 中除去集合
 {: android}
 
 ```java
@@ -1387,7 +1387,7 @@ catch (JSONStoreException ex) {
 {: codeblock}
 {: android}
 
-#### 在 Android 中清除集合中的所有数据
+### 在 Android 中清除集合中的所有数据
 {: android}
 
 ```java
@@ -1409,7 +1409,7 @@ catch (JSONStoreException ex) {
 {: codeblock}
 {: android}
 
-#### 在 Android 中启动事务，添加一些数据，除去文档，落实事务，并在发生故障时回滚事务
+### 在 Android 中启动事务，添加一些数据，除去文档，落实事务，并在发生故障时回滚事务
 {: #android-transaction }
 {: android}
 
@@ -1454,7 +1454,7 @@ catch (JSONException ex) {
 {: codeblock}
 {: android}
 
-#### 在 Android 中获取文件信息
+### 在 Android 中获取文件信息
 {: android}
 
 ```java

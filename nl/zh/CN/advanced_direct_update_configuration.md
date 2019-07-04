@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-02-14"
+lastupdated: "2019-06-06"
 
 keywords: Direct Update, CDN support, secure direct update
 
@@ -41,9 +41,9 @@ wl_DirectUpdateChallengeHandler.handleDirectUpdate = function(directUpdateData, 
 
 该函数提供缺省的 Direct Update 设计：在 Direct Update 可用时显示的缺省消息对话框，以及启动 Direct Update 进程时显示的缺省进度屏幕。您可以通过覆盖此函数并实施自己的逻辑来实施定制 Direct Update 用户界面行为或定制 Direct Update 对话框。
 
-在下面的示例代码中，`handleDirectUpdate` 函数在 Direct Update 对话框中实现定制消息。将此代码添加到 Cordova 项目的 `www/js/index.js` 文件中。
+在以下示例代码中，`handleDirectUpdate` 函数在 Direct Update 对话框中实现定制消息。将此代码添加到 Cordova 项目的 `www/js/index.js` 文件中。
 定制 Direct Update UI 的其他示例：
-* 使用第三方 JavaScript 框架（例如，Dojo 或 jQuery Mobile、Ionic...）创建的对话框
+* 使用第三方 JavaScript 框架（例如，Dojo 或 jQuery Mobile、Ionic 等等）创建的对话框
 * 执行 Cordova 插件的完全本机 UI
 * 向用户显示的备用 HTML 以及选项等。
 
@@ -93,6 +93,7 @@ Direct Update 进程执行期间，根据以下规则启动侦听器方法：
 | `FAILURE_ALREADY_IN_PROGRESS`|Direct Update 已经在运行时调用了启动方法。|
 | `FAILURE_INTEGRITY`| 无法验证更新文件的真实性。|
 | `FAILURE_UNKNOWN`|意外内部错误。|
+{: caption="表 1. 状态码" caption-side="top"}
 
 如果您实现了定制的 Direct Update 侦听器，那么必须确保在 Direct Update 进程完成并且已调用了 `onFinish()` 方法时，重新装入应用程序。如果 Direct Update 进程未能成功完成，那么还必须调用 `wl_directUpdateChalengeHandler.submitFailure()`。
 
@@ -190,19 +191,15 @@ wl_directUpdateChallengeHandler.handleDirectUpdate = function(directUpdateData, 
 
       savedDirectUpdateContext = directUpdateContext; // save direct update context
 
-  
-
       var downloadSizeInMB = (directUpdateData.downloadSize / 1048576).toFixed(1).replace(".", WL.App.getDecimalSeparator());
-  var directUpdateMsg = WL.Utils.formatString(WL.ClientMessages.directUpdateNotificationMessage, downloadSizeInMB);
-
-  
+      var directUpdateMsg = WL.Utils.formatString(WL.ClientMessages.directUpdateNotificationMessage, downloadSizeInMB);
 
       WL.SimpleDialog.show(WL.ClientMessages.directUpdateNotificationTitle, directUpdateMsg, [{
     text : WL.ClientMessages.update,
     handler : function() {
       directUpdateContext.start(directUpdateCustomListener);
-    }
-  }]);
+        }
+      }]);
     };
     ```
     {: codeblock}
@@ -297,42 +294,44 @@ wl_directUpdateChallengeHandler.handleDirectUpdate = function(directUpdateData, 
 {: #akamai-administrator }
 1. 打开 Akamai 属性管理器，将**主机名**属性设置为新域的值。
 
-    ![将“主机名”属性设置为新域的值](images/direct_update_cdn_3.jpg)
+    ![将“主机名”属性设置为新域的值](images/direct_update_cdn_3.jpg "将“主机名”属性设置为新域的值")
 
 2. 在“缺省规则”选项卡上，配置原始 Mobile Foundation 服务器主机和端口，并将**定制转发主机头**值设置为新创建的域。
 
-    ![将“定制转发主机头”值设置为新创建的域](images/direct_update_cdn_4.jpg)
+    ![将“定制转发主机头”值设置为新创建的域](images/direct_update_cdn_4.jpg "将“定制转发主机头”值设置为新创建的域")
 
 3. 从**高速缓存选项**列表中，选择**无存储**。
 
-    ![从“高速缓存选项”列表中，选择“无存储”](images/direct_update_cdn_5.jpg)
+    ![从“高速缓存选项”列表中，选择“无存储”](images/direct_update_cdn_5.jpg "从“高速缓存选项”列表中，选择“无存储”")
 
 4. 在**静态内容配置**选项卡中，根据应用程序的 Direct Update URL 来配置匹配条件。例如，创建条件：`IF“路径”“匹配以下其中一项”direct_update_URL`。
 
-    ![根据应用程序的 Direct Update URL 来配置匹配条件](images/direct_update_cdn_6.jpg)
+    ![根据应用程序的 Direct Update URL 来配置匹配条件](images/direct_update_cdn_6.jpg "根据应用程序的 Direct Update URL 来配置匹配条件")
 
 5. 配置高速缓存键行为，以在高速缓存键中使用所有请求参数（您必须执行此操作，这样才能为不同的应用程序或版本高速缓存不同的 Direct Update 归档）。例如，从**行为**列表中，选择`包含所有参数（保留请求的顺序）`。
 
-    ![配置高速缓存键行为，以在高速缓存键中使用所有请求参数](images/direct_update_cdn_8.jpg)
+    ![配置高速缓存键行为，以在高速缓存键中使用所有请求参数](images/direct_update_cdn_8.jpg "配置高速缓存键行为，以在高速缓存键中使用所有请求参数")
 
 6. 将值设置为与以下值类似，以配置高速缓存行为来高速缓存 Direct Update URL 并设置 TTL。
 
-      ![设置值以配置高速缓存行为](images/direct_update_cdn_7.jpg)
+      ![设置值以配置高速缓存行为](images/direct_update_cdn_7.jpg "设置值以配置高速缓存行为")
 
 |字段|值|
 |:------|:------|
 |高速缓存选项|高速缓存|
 |强制重新验证旧对象|无法验证时提供旧对象|
 |最长时效|3 分钟|
+{: caption="表 2. 用于配置高速缓存行为的字段和值" caption-side="top"}
 
 ## 安全 Direct Update
 {: #secure-dc }
 
 安全 Direct Update 在缺省情况下禁用。安全 Direct Update 可防止第三方攻击者更改从 Mobile Foundation 服务器（或从内容交付网络 (CDN)）传输到客户机应用程序的 Web 资源。
 
-**启用 Direct Update 真实性：**  
+### 启用 Direct Update 真实性
+{: #enable-direct-update-authenticity}
 使用首选工具，从 Mobile Foundation 服务器密钥库中抽取公用密钥，并将其转换为 Base64。  
-然后，应该如下所示使用生成的值：
+然后，应该如以下步骤所示使用生成的值：
 
 1. 打开**命令行**窗口并导航至 Cordova 项目的根目录。
 2. 运行 `mfpdev app config` 命令，并选择 **Direct Update 真实性公用密钥**选项。

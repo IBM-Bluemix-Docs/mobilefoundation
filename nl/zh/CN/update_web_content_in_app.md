@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-02-14"
+lastupdated: "2019-06-06"
 
 keywords: update web content, update apps
 
@@ -29,7 +29,7 @@ Cordova iOS 和 Cordova Android 平台中支持 Direct Update。
 
 对于实时生产或预生产测试阶段，建议在将应用程序发布到应用程序商店之前实施安全 Direct Update。安全 Direct Update 需要从实际 CA 签名服务器证书中抽取的 RSA 密钥对。
 
-1. 请注意，在应用程序发布之后，不要修改密钥库配置。使用新的公用密钥重新配置应用程序并且重新发布应用程序后，才能对下载的更新进行认证。如果不执行上述这两个步骤，在客户机上执行 Direct Update 会失败。
+1. 请注意，在应用程序发布之后，不要修改密钥库配置。使用新的公用密钥重新配置应用程序并且重新发布应用程序后，才能对下载的更新进行认证。如果不执行前述两个步骤，在客户机上执行 Direct Update 会失败。
 2.  Direct Update 仅更新应用程序的 Web 资源。要更新本机资源，必须将新的应用程序版本提交到相应的应用程序商店。
 3. 使用 Direct Update 功能并且启用了 Web 资源校验和功能后，每次 Direct Update 都会建立新的校验和库。
 4. 如果升级了 Mobile Foundation 服务器，那么该服务器将继续正常处理 Direct Update。但是，如果上传了最新构建的 Direct Update 归档（.zip 文件），那么可能会停止对较旧版本客户机的更新。原因是该归档包含 `cordova-plugin-mfp` 插件的版本。在将该归档提供给移动式客户机之前，服务器会将客户机版本与插件版本进行比较。如果两个版本足够接近（即三个最重要的数字相同），那么 Direct Update 会正常执行。否则，Mobile Foundation 服务器会以静默方式跳过更新。如果版本不匹配，一个解决方案是下载与原始 Cordova 项目中的 `cordova-plugin-mfp` 版本相同的 cordova-plugin-mfp，并重新生成 Direct Update 归档。

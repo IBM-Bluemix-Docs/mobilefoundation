@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated:  "2019-02-12"
+lastupdated: "2019-06-14"
 
 keywords: JSONStore, offline storage, jsonstore error codes
 
@@ -18,8 +18,9 @@ subcollection:  mobilefoundation
 
 
 # JSONStore
-{: #jsonstore }
+{: #jsonstore}
 {{site.data.keyword.mobilefoundation_short}} **JSONStore** 是一个可选的客户机端 API，提供了面向文档的轻量级存储系统。JSONStore 支持持久存储 **JSON 文档**。即使在运行应用程序的设备脱机时，该应用程序中的文档在 JSONStore 中仍可用。这种始终可用的持久性存储器非常有用，例如可在设备中没有网络连接可用时，支持用户访问文档。
+{: shortdesc}
 
 因为开发者十分熟悉关系数据库术语，所以在本文档中有时会使用关系数据库术语来帮助说明 JSONStore。但是关系数据库和 JSONStore 之间有很多不同。例如，用于在关系数据库中存储数据的严格模式与 JSONStore 方法不同。使用 JSONStore，您可以存储任何 JSON 内容，并可对您需要搜索的内容建立索引。
 
@@ -30,7 +31,7 @@ subcollection:  mobilefoundation
 * 支持多个用户
 * 对已存储数据进行 AES 256 加密以提供安全性和机密性。如果单个设备上有多个用户，那么可以使用密码保护按用户进行分段保护。
 
-一个存储区可以有多个集合，每个集合可以有多个文档。还可以使一个 MobileFirst 应用程序包含多个存储区。有关信息，请参阅 JSONStore 多用户支持。
+单个存储器中可以有多个集合，每个集合可以有多个文档。还可以使一个 MobileFirst 应用程序包含多个存储器。有关信息，请参阅 JSONStore 多用户支持。
 
 ## 支持级别
 {: #support-level-jsonstore }
@@ -46,14 +47,14 @@ subcollection:  mobilefoundation
 
 JSONStore 文档是具有自动生成的标识 (`_id`) 和 JSON 数据的 JSON 对象，类似于数据库术语中的记录或行。`_id` 的值始终是特定集合中的唯一整数。`JSONStoreInstance` 类中的某些函数（如 `add`、`replace` 和 `remove`）采用“文档数组”或“对象数组”。这些方法对于同时针对各种文档或对象执行操作非常有用。
 
-**单个文档**  
+单个文档：
 
 ```javascript
 var doc = { _id: 1, json: {name: 'carlos', age: 99} };
 ```
 {: codeblock}
 
-**文档数组**
+文档数组：
 
 ```javascript
 var docs = [
@@ -66,7 +67,7 @@ var docs = [
 ### 集合 (Collection)
 {: #collection }
 JSONStore 集合类似于数据库术语中的表。  
-以下代码示例并不是在磁盘上存储文档的方式，但很适合用于在高级别可视化集合的外观。
+以下代码示例并不是在磁盘上存储文档的方式，但很适合用于在高级别直观显示集合的样子。
 
 ```javascript
 [
@@ -76,21 +77,21 @@ JSONStore 集合类似于数据库术语中的表。
 ```
 {: codeblock}
 
-### 存储区 (Store)
+### 存储器 (Store)
 {: #store }
-存储区是包含一个或多个集合的持久性 JSONStore 文件。  
-存储区类似于数据库术语中的关系数据库。存储区也称为 JSONStore。
+存储器是包含一个或多个集合的持久性 JSONStore 文件。  
+存储器类似于数据库术语中的关系数据库。存储器也称为 JSONStore。
 
 ### 搜索字段 (Search fields)
 {: #search-fields }
-搜索字段是键值对。  
+搜索字段是键/值对。  
 搜索字段是为了快速查找而建立索引的键，类似于数据库术语中的列字段或属性。
 
 额外搜索字段是已建立索引但不属于所存储 JSON 数据的键。这些字段定义其值（在 JSON 集合中）已建立索引的键，并且可以用于更快地进行搜索。
 
 有效数据类型为：String、Boolean、Number 和 Integer。这些类型只是类型提示，没有类型验证。此外，这些类型决定了如何存储可以建立索引的字段。例如，`{age: 'number'}` 将 1 作为 1.0 建立索引，`{age: 'integer'}` 将 1 作为 1 建立索引。
 
-**搜索字段和额外搜索字段**
+搜索字段和额外搜索字段：
 
 ```javascript
 var searchField = {name: 'string', age: 'integer'};
@@ -100,7 +101,7 @@ var additionalSearchField = {key: 'string'};
 
 只能对对象中的键（而不是对象本身）建立索引。数组以传递方式进行处理，这意味着无法对数组或数组的特定索引 (arr[n]) 建立索引，但可以对数组中的对象建立索引。
 
-**对数组中的值建立索引**
+对数组中的值建立索引：
 
 ```javascript
 
@@ -123,14 +124,14 @@ var myObject = {
 查询是使用搜索字段或额外搜索字段来查找文档的对象。  
 这些示例假定 name 搜索字段的类型为 string，age 搜索字段的类型为 integer。
 
-**查找其 `name` 与 `carlos` 匹配的文档**
+查找其 `name` 与 `carlos` 匹配的文档：
 
 ```javascript
 var query1 = {name: 'carlos'};
 ```
 {: codeblock}
 
-**查找其 `name` 与 `carlos` 匹配并且 `age` 与 `99` 匹配的文档**
+查找其 `name` 与 `carlos` 匹配并且 `age` 与 `99` 匹配的文档：
 
 ```javascript
 var query2 = {name: 'carlos', age: 99};
@@ -162,7 +163,8 @@ JSONStore 类似于 LocalStorage、Indexed DB、Cordova Storage API 和 Cordova 
 |跟踪本地更改|	     ✔|      -	    |     -	     |        -	           |         -	      |
 |多用户支持|	     ✔|      -	    |     -	     |        -	           |         -	      |
 |建立索引|	     ✔|      -	    |✔|✔|         -	      |
-|存储类型|JSON 文档|键值对|JSON 文档|关系数据库 (SQL)|字符串|
+|存储类型|JSON 文档|键/值对|JSON 文档|关系数据库 (SQL)|字符串|
+{: caption="表 1. 功能比较" caption-side="top"}
 
 “可靠存储”表示除非发生以下其中一个事件，否则不会删除您的数据：
 * 从设备上除去应用程序。
@@ -171,32 +173,31 @@ JSONStore 类似于 LocalStorage、Indexed DB、Cordova Storage API 和 Cordova 
 
 ## 多用户支持
 {: #multiple-user-support }
-使用 JSONStore，可以在单个 MobileFirst 应用程序中创建包含不同集合的多个存储区。
+使用 JSONStore，可以在单个 MobileFirst 应用程序中创建包含不同集合的多个存储器。
 
-init (JavaScript) 或 open（本机 iOS 和本机 Android）API 可采用具有用户名的 options 对象。不同的存储区是文件系统中的单独文件。用户名用作存储区的文件名。出于安全性和隐私的原因，这些单独存储区可以通过不同的密码进行加密。调用 closeAll API 将除去对所有集合的访问权。也可以通过调用 changePassword API 来更改已加密存储区的密码。
+init (JavaScript) 或 open（本机 iOS 和本机 Android）API 可使用包含用户名的 options 对象。不同的存储器是文件系统中的单独文件。用户名用作存储器的文件名。出于安全性和隐私的原因，这些单独存储器可以通过不同的密码进行加密。调用 closeAll API 将除去对所有集合的访问权。也可以通过调用 changePassword API 来更改已加密存储器的密码。
 
 示例用例是共享物理设备（例如，iPad 或 Android 平板电脑）和 MobileFirst 应用程序的各种员工。员工使用 MobileFirst 应用程序按不同轮班工作并处理来自不同客户的私有数据时，多用户支持非常有用。
 
 ## 安全性
 {: #security-jsonstore }
-您可以加密存储区中的所有集合以确保其安全性。
+您可以加密存储器中的所有集合以确保其安全性。
 
-要加密存储区中的所有集合，请将密码传递到 `init` (JavaScript) 或 `open`（本机 iOS 和本机 Android）API。如果未传递密码，那么不会加密存储区集合中的任何文档。
+要加密存储器中的所有集合，请将密码传递到 `init` (JavaScript) 或 `open`（本机 iOS 和本机 Android）API。如果未传递密码，那么不会加密存储器集合中的任何文档。
 
-某些安全工件（例如，加密盐 (Salt)）存储在密钥链 (iOS)、共享首选项 (Android) 和凭据保险箱（Windows Universal 8.1 和 Windows 10 UWP）中。存储区利用 256 位高级加密标准 (AES) 密钥进行加密。所有密钥通过基于密码的密钥派生函数 2 (PBKDF2) 进行增强。您可以选择对应用程序的数据集合进行加密，但不能在加密格式和纯文本格式之间进行切换，也不能在一个存储区中混合使用不同格式。
+某些安全工件（例如，加密盐 (Salt)）存储在密钥链 (iOS)、共享首选项 (Android) 和凭据保险箱（Windows Universal 8.1 和 Windows 10 UWP）中。存储器利用 256 位高级加密标准 (AES) 密钥进行加密。所有密钥通过基于密码的密钥派生函数 2 (PBKDF2) 进行增强。您可以选择对应用程序的数据集合进行加密，但不能在加密格式和纯文本格式之间进行切换，也不能在一个存储器中混合使用不同格式。
 
-用于保护存储区中数据的密钥基于您提供的用户密码。密钥不会到期，但您可以通过调用 changePassword API 来更改密钥。
+用于保护存储器中数据的密钥基于您提供的用户密码。密钥不会到期，但您可以通过调用 changePassword API 来更改密钥。
 
-数据保护密钥 (DPK) 是用于解密存储区内容的密钥。DPK 保存在 iOS 密钥链中，即使应用程序已卸载也是如此。要除去密钥链中的密钥以及 JSONStore 放入应用程序中的其他任何项，请使用 destroy API。 此过程不适用于 Android，因为加密的 DPK 会存储在共享首选项中，并会在卸载应用程序时擦除。
+数据保护密钥 (DPK) 是用于解密存储器内容的密钥。DPK 保存在 iOS 密钥链中，即使应用程序已卸载也是如此。要除去密钥链中的密钥以及 JSONStore 放入应用程序中的其他任何项，请使用 destroy API。 此过程不适用于 Android，因为加密的 DPK 会存储在共享首选项中，并会在卸载应用程序时擦除。
 
-JSONStore 第一次使用密码打开集合时（这意味着开发者想要加密存储区中的数据），JSONStore 需要随机令牌。该随机令牌可以从客户机或服务器获取。
+JSONStore 第一次使用密码打开集合时（这意味着开发者想要加密存储器中的数据），JSONStore 需要随机令牌。该随机令牌可以从客户机或服务器获取。
 
-JSONStore API 的 JavaScript 实现中提供 localKeyGen 密钥并且其值为 true 时，将在本地生成使用密码保护的安全令牌。否则，将通过联系服务器来生成此种令牌，这需要连接到 MobileFirst 服务器。仅在第一次使用密码打开存储区时需要此令牌。缺省情况下，本机实现（Objective-C 和 Java）会在本地生成使用密码保护的安全令
-牌，或者您可以通过 secureRandom 选项来传递此种令牌。
+JSONStore API 的 JavaScript 实现中提供 localKeyGen 密钥并且其值为 true 时，将在本地生成使用密码保护的安全令牌。否则，将通过联系服务器来生成此种令牌，这需要连接到 MobileFirst 服务器。仅在第一次使用密码打开存储器时需要此令牌。缺省情况下，本机实现（Objective-C 和 Java）会在本地生成使用密码保护的安全令牌，或者您可以通过 secureRandom 选项来传递此种令牌。
 
 以下各项之间的权衡如下：
-* 以脱机方式打开存储区并信任客户机，以生成该随机令牌（安全性较低），或者
-* 通过访问 MobileFirst 服务器（需要连接）并信任该服务器来打开存储区（安全性更高）
+* 以脱机方式打开存储器并信任客户机，以生成该随机令牌（安全性较低），或者
+* 通过访问 MobileFirst 服务器（需要连接）并信任该服务器来打开存储器（安全性更高）
 
 ### 安全实用程序
 {: #security-utilities }
@@ -213,7 +214,7 @@ MobileFirst 客户机端 API 提供了一些安全实用程序来帮助保护用
 
 ### Windows 8.1 Universal 和 Windows 10 UWP 加密
 {: #windows-81-universal-and-windows-10-uwp-encryption }
-您可以加密存储区中的所有集合以确保其安全性。
+您可以加密存储器中的所有集合以确保其安全性。
 
 JSONStore 将 [SQLCipher ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](http://sqlcipher.net/){: new_window} 用作其底层数据库技术。SQLCipher 是 Zetetic, LLC 生成的 SQLite 构建，用于向数据库添加一个加密层。
 
@@ -228,17 +229,17 @@ JSONStore for Windows 8 Universal 改为将 SQLite 作为底层数据库包含�
 1. 运行 SQLCipher for Windows Runtime Commercial Edition 随附的 SQLCipher for Windows Runtime 8.1/10 扩展。
 2. 安装完扩展后，查找刚创建的 **sqlite3.dll** 文件的 SQLCipher 版本。 有一个用于 x86 的版本，一个用于 x64 的版本，一个用于 ARM 的版本。
 
-   ```bash
-   C:\Program Files (x86)\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\SQLCipher.WinRT81\3.0.1\Redist\Retail\<platform>
-   ```
-   {: codeblock}
+    ```bash
+    C:\Program Files (x86)\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\SQLCipher.WinRT81\3.0.1\Redist\Retail\<platform>
+    ```
+    {: codeblock}
 
 3. 将此文件复制到 MobileFirst 应用程序进行替换。
 
-   ```bash
-   <Worklight project name>\apps\<application name>\windows8\native\buildtarget\<platform>
-   ```
-   {: codeblock}
+    ```bash
+    <Worklight project name>\apps\<application name>\windows8\native\buildtarget\<platform>
+    ```
+    {: codeblock}
 
 ## 性能
 {: #performance-jsonstore }
@@ -253,8 +254,8 @@ JSONStore for Windows 8 Universal 改为将 SQLite 作为底层数据库包含�
 ### 内存
 {: #memory-jsonstore }
 * 在使用 JavaScript API 时，JSONStore 文档将序列化和反序列化为本机（Objective-C、Java 或 C#）层和 JavaScript 层之间的字符串。缓解可能的内存问题的一种方法是在使用 find API 时应用限制和偏移量。这样，您可限制针对结果分配的内存量，并且可实现分页（每页显示 X 个结果）等功能。
-* 请不要使用最终序列化和反序列化为字符串的长密钥名称，而是考虑将这些长密钥名称映射到较短的名称（例如：将 `myVeryVeryVerLongKeyName` 映射到 `k` 或 `key`）。理想情况下，您在从适配器发送到客户机时，将长密钥名称映射到短密钥名称；在将数据发送回后端时，将其映射到原始长密钥名称。
-* 考虑将存储区中的数据拆分为不同的集合。让小型文档分布在各个集合中，而不是在单个集合中包含整个文档。此注意事项取决于数据间的相关程度以及这些数据的用例。
+* 请不要使用最终序列化和反序列化为字符串的长密钥名称，而是考虑将这些长密钥名称映射到较短的名称（例如：将 `myVeryVeryVerLongKeyName` 映射到 `k` 或 `key`）。理想情况下，您在将长密钥名称从适配器发送到客户机时，会将其映射到短密钥名称；在将数据发送回后端时，又会将其映射到原始长密钥名称。
+* 考虑将存储器中的数据拆分为不同的集合。让小型文档分布在各个集合中，而不是在单个集合中包含整个文档。此注意事项取决于数据间的相关程度以及这些数据的用例。
 * 将 add API 用于对象数组时，可能会遇到内存问题。要缓解此问题，请同时对较少的 JSON 对象调用这些方法。
 * JavaScript 和 Java™ 具有垃圾收集器，而 Objective-C 具有自动引用计数。可以使用这些工具，但不要完全依赖这些工具。尝试使不再使用的引用失效，并且在预计内存使用量会下降时，使用概要分析工具来检查内存使用量是否在下降。
 
@@ -263,7 +264,7 @@ JSONStore for Windows 8 Universal 改为将 SQLite 作为底层数据库包含�
 * 在调用建立索引的 add 方法时，使用的搜索字段和额外搜索字段的数量会影响性能。仅对 find 方法的查询中使用的值建立索引。
 * 缺省情况下，JSONStore 会跟踪对其文档的本地更改。通过在使用 add、remove 和 replace API 时，将 `markDirty` 标志设置为 **false**，可以禁用此行为，从而节省若干周期。
 * 启用安全性会为 `init` 或 `open` API 以及使用集合中文档的其他操作增加一些开销。请考虑是否真正需要安全性。例如，open API 在使用加密时的速度要慢得多，因为它必须生成用于加密和解密的加密密钥。
-* `replace` 和 `remove` API 取决于集合大小，因为这两个 API 必须遍历整个集合来替换或除去所有符合条件项。由于必须遍历每个记录，因此必须解密每个记录，从而使其在使用加密时的速度慢得多。在大型集合上，此性能下降更加明显。
+* `replace` 和 `remove` API 取决于集合大小，因为这两个 API 必须遍历整个集合来替换或除去所有符合条件项。由于必须遍历每个记录，也就必须解密每个记录，所以使用加密时的速度就会慢得多。在大型集合上，此性能下降更加明显。
 * `count` API 的开销相对较大。但是，您可以保留一个变量来保持对该集合的计数。每次在集合中存储或除去内容时，请更新该变量。
 * `find` API（`find`、`findAll` 和 `findById`）受加密影响，因为这些 API 必须解密每个文档，以确定该文档是否匹配。对于按查询查找，如果超过了限制，查找速度可能会更快，这是因为在达到结果限制时会停止查找。JSONStore 不需要解密其余文档，以弄清楚是否还有其他任何搜索结果。
 
@@ -277,7 +278,7 @@ jQuery Deferred 是可以解析或拒绝的 Promise。以下示例虽然不是�
 
 您还可以侦听 JSONStore `success` 和 `failure` 事件，而不使用 Promise 和回调。执行基于传递到事件侦听器的参数的操作。
 
-**示例 Promise 定义**
+示例 Promise 定义：
 
 ```javascript
 var asyncOperation = function () {
@@ -291,8 +292,9 @@ var asyncOperation = function () {
   return deferred.promise();
 };
 ```
+{: codeblock}
 
-**示例 Promise 用法**
+示例 Promise 用法：
 
 ```javascript
 // The function that is passed to .then is executed after 1000 ms.
@@ -300,8 +302,9 @@ asyncOperation.then(function (response) {
   // response = 'Hello'
 });
 ```
+{: codeblock}
 
-**示例回调定义**
+示例回调定义：
 
 ```javascript
 var asyncOperation = function (callback) {
@@ -310,8 +313,9 @@ var asyncOperation = function (callback) {
   }, 1000);
 };
 ```
+{: codeblock}
 
-**示例回调用法**
+示例回调用法：
 
 ```javascript
 // The function that is passed to asyncOperation is executed after 1000 ms.
@@ -319,8 +323,9 @@ asyncOperation(function (response) {
   // response = 'Hello'
 });
 ```
+{: codeblock}
 
-**示例事件**
+示例事件：
 
 ```javascript
 $(document.body).on('WL/JSONSTORE/SUCCESS', function (evt, data, src, collectionName) {
@@ -331,14 +336,15 @@ $(document.body).on('WL/JSONSTORE/SUCCESS', function (evt, data, src, collection
   // collectionName - Name of the collection
 });
 ```
+{: codeblock}
 
 ### Objective-C 中的并行操作
 {: #objective-c-jsonstore }
-在将本机 iOS API 用于 JSONStore 时，所有操作都将添加到同步分派队列。此行为可确保涉及存储区的操作按顺序在非主线程上运行。有关更多信息，请参阅 Apple 文档：[Grand Central Dispatch (GCD) ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://developer.apple.com/library/ios/documentation/Performance/Reference/GCD_libdispatch_Ref/Reference/reference.html#//apple_ref/c/func/dispatch_sync){: new_window}。
+在将本机 iOS API 用于 JSONStore 时，所有操作都将添加到同步分派队列。此行为可确保涉及存储器的操作按顺序在非主线程上运行。有关更多信息，请参阅 Apple 文档：[Grand Central Dispatch (GCD) ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://developer.apple.com/library/ios/documentation/Performance/Reference/GCD_libdispatch_Ref/Reference/reference.html#//apple_ref/c/func/dispatch_sync){: new_window}。
 
 ### Java 中的并行操作
 {: #java-jsonstore }
-在将本机 Android API 用于 JSONStore 时，所有操作都将在主线程上运行。您必须创建线程或者使用线程池以使用异步行为。所有存储区操作都是线程安全的。
+在将本机 Android API 用于 JSONStore 时，所有操作都将在主线程上运行。您必须创建线程或者使用线程池以使用异步行为。所有存储器操作都是线程安全的。
 
 ## 分析
 {: #analytics-jsonstore }
@@ -360,6 +366,7 @@ JSONStoreOpenOptions* options = [JSONStoreOpenOptions new];
 
 [[JSONStore sharedInstance] openCollections:@[...] withOptions:options error:nil];
 ```
+{: codeblock}
 
 ### Android 的 JSONStore 示例
 {: #android-example }
@@ -369,6 +376,7 @@ initOptions.setAnalytics(true);
 
 WLJSONStore.getInstance(...).openCollections(..., initOptions);
 ```
+{: codeblock}
 
 ### JavaScript 的 JSONStore 示例
 {: #java-script-example }
@@ -379,6 +387,7 @@ var options = {
 
 WL.JSONStore.init(..., options);
 ```
+{: codeblock}
 
 ## 使用外部数据
 {: #working-with-external-data }
@@ -395,20 +404,21 @@ WL.JSONStore.init(..., options);
 
 #### 用于拉取的传输层
 {: #transport-layer-pull }
-此源表示您如何将数据从外部源传送到内部源（存储区中的 JSONStore 集合）。一个备选方案是适配器。
+此源表示您如何将数据从外部源传送到内部源（存储器中的 JSONStore 集合）。一个备选方案是适配器。
 
 #### 用于拉取的内部数据源 API
 {: #internal-data-source-api-pull }
 此源是可用于将 JSON 数据添加到集合的 JSONStore API。
 
-可以使用从文件读取的数据、输入字段或变量中的硬编码数据来填充内部存储区。填充内容不必专门来自需要网络通信的外部源。
+可以使用从文件读取的数据、输入字段或变量中的硬编码数据来填充内部存储器。填充内容不必专门来自需要网络通信的外部源。
 {: note}
 
 以下所有代码示例都是以类似于 JavaScript 的伪码编写的。
 
 针对传输层使用适配器。使用适配器的一些优点包括服务器端代码和客户机端代码的 XML 到 JSON 转换、安全性、过滤和解耦。
 {: note}
-**外部数据源：后端 REST 端点**  
+##### 外部数据源：后端 REST 端点
+{: #external-data-source-backend-rest-endpoint-head}
 假设您具有一个 REST 端点，用于从数据库读取数据并将其作为 JSON 对象数组返回。
 
 ```javascript
@@ -430,7 +440,8 @@ app.get('/people', function (req, res) {
 ```
 {: codeblock}
 
-**传输层：适配器**  
+##### 传输层：适配器
+{: #transport-layer-adapter}
 假设创建名为 people 的适配器，并定义名为 getPeople 的过程。该过程将调用 REST 端点并将 JSON 对象数组返回给客户机。您可能希望在此执行更多操作，例如仅将数据的子集返回给客户机。
 
 ```javascript
@@ -476,12 +487,16 @@ $.ajax({
 ```
 {: codeblock}
 
-**内部数据源 API：JSONStore**
-从后端获取响应后，使用 JSONStore 来处理这些数据。JSONStore 提供了跟踪本地更改的方法。该方法支持某些 API 将文档标记为“脏”。API 将记录对文档执行的最后一个操作，以及将文档标记为“脏”的时间。然后可以使用这些信息来实现数据同步等功能。
+##### 内部数据源 API：JSONStore
+{: #internal-data-source-api-jsonstore}
+从后端获取响应后，使用 JSONStore 来处理这些数据。
+JSONStore 提供了跟踪本地更改的方法。该方法支持某些 API 将文档标记为“脏”。API 将记录对文档执行的最后一个操作，以及将文档标记为“脏”的时间。然后可以使用这些信息来实现数据同步等功能。
 
 change API 将接受数据和某些选项：
 
-**replaceCriteria**  
+###### replaceCriteria
+{: #replacecriteria}
+  
 这些搜索字段是输入数据的一部分，用于查找集合中已存在的文档。例如，如果选择：
 
 ```javascript
@@ -519,10 +534,14 @@ change API 将接受数据和某些选项：
 
 名称已从 `Carlitos` 更改为 `Carlos`。如果多个文档与替换标准相匹配，那么匹配的所有文档都会使用相应的输入数据进行替换。
 
-**addNew**  
-当没有任何文档与替换标准相匹配时，change API 将查看此标志的值。如果此标志设置为 **true**，那么 change API 将创建新文档，并将其添加到存储区中。如果未设置为 true，那么不执行进一步的操作。
+###### addNew 
+{: #addnew}
+ 
+当没有任何文档与替换标准相匹配时，change API 将查看此标志的值。如果此标志设置为 **true**，那么 change API 将创建新文档，并将其添加到存储器中。如果未设置为 true，那么不执行进一步的操作。
 
-**markDirty**  
+###### markDirty 
+{: #markdirty}
+ 
 确定 change API 是否将替换或添加的文档标记为“脏”。
 
 将从适配器返回数据数组：
@@ -600,7 +619,8 @@ accessor.remove(doc, {markDirty: true})
 针对传输层使用适配器。使用适配器的一些优点包括服务器端代码和客户机端代码的 XML 到 JSON 转换、安全性、过滤和解耦。
 {: note}
 
-**内部数据源 API：JSONStore**  
+##### 内部数据源 API：JSONStore  
+{: #internal-data-source-api-jsonstore-head}
 获取集合的存取器后，调用 `getAllDirty` API 以获取标记为“脏”的所有文档。这些文档中包含您要通过传输层发送到外部数据源的仅本地更改。
 
 ```javascript
@@ -630,7 +650,8 @@ accessor.getAllDirty()
 * `_operation`：对文档执行的最后一个操作。可能的值为 add、store、replace 和 remove。
 * `_dirty`：存储为数字的时间戳记，表示文档被标记为“脏”的时间。
 
-**传输层：MobileFirst 适配器**  
+##### 传输层：MobileFirst 适配器  
+{: #transport-layr-mobilefirst-adapter }
 您可以选择将脏文档发送到适配器。假设您具有定义有 `updatePeople` 过程的 `people` 适配器。
 
 ```javascript
@@ -748,7 +769,8 @@ $.when.apply(this, arrayOfPromises)
 ```
 {: codeblock}
 
-**外部数据源：后端 REST 端点**  
+##### 外部数据源：后端 REST 端点
+{: #external-data-source-backend-rest-endpoint }
 后端将接受或拒绝更改，然后将响应中继回客户机。客户机看到响应后，可以将更新的文档传递给 markClean API。
 
 ```javascript
@@ -818,14 +840,16 @@ $.when.apply(this, arrayOfPromises)
    $ sqlite3 jsonstore.sqlite
    ```
 
-   * **注：**在 Web 浏览器（Firefox、Chrome、Safari、Internet Explorer）上运行的“仅 JavaScript”实现不使用 SQLite 数据库。该文件存储在 HTML5 LocalStorage 中。
-   * 使用 `.schema` 查看 `searchFields`，并使用 `SELECT * FROM <collection-name>;`. 要退出 sqlite3，请输入 `.exit`。如果将用户名传递到 init 方法，那么该文件名为 **the-username.sqlite**。如果未传递用户名，那么缺省情况下该文件名为 **jsonstore.sqlite**。
+   在 Web 浏览器（Firefox、Chrome、Safari、Internet Explorer）上运行的“仅 JavaScript”实现不使用 SQLite 数据库。该文件存储在 HTML5 LocalStorage 中。
+    {: note}
+   * 查看带有 `.schema` 的 `searchFields`，并通过 `SELECT * FROM <collection-name>;` 来选择数据。要退出 sqlite3，请输入 `.exit`。如果将用户名传递到 init 方法，那么该文件名为 **the-username.sqlite**。如果未传递用户名，那么缺省情况下该文件名为 **jsonstore.sqlite**。
 5. （仅限 Android）启用详细 JSONStore。
 
    ```bash
    adb shell setprop log.tag.jsonstore-core VERBOSE
    adb shell getprop log.tag.jsonstore-core
    ```
+    {: codeblock}
 
 6. 使用调试器。
 
@@ -847,7 +871,7 @@ $.when.apply(this, arrayOfPromises)
 * 在某些情况（或环境）下，此流程会在初始化 JSONStore 插件前进入 `wlCommonInit()`。这会导致 JSONStore 相关 API 调用失败。`cordova-plugin-mfp` 引导程序会自动调用 `WL.Client.init`，这样会在调用完成时触发 `wlCommonInit` 函数。对于 JSONStore 插件，此初始化过程会有所不同。JSONStore 插件无法_停止_ `WL.Client.init` 调用。根据环境不同，此流程可能在 `mfpjsonjslloaded` 完成之前进入 `wlCommonInit()`。
 为确保 `mfpjsonjsloaded` 和 `mfpjsloaded` 事件的顺序正确，开发者可以选择手动调用 `WL.CLient.init`。这样可避免使用特定于平台的代码。
 
-  执行以下步骤以配置为手动调用 `WL.CLient.init`：                             
+  使用以下步骤以配置为手动调用 `WL.CLient.init`：                             
 
   1. 在 `config.xml` 中，将 `clientCustomInit` 属性更改为 **true**。
 
@@ -869,7 +893,7 @@ function initWL(){
 
 这会等待 `mfpjsonjsloaded` 事件（在 `wlCommonInit` 外部），确保已装入脚本，随后调用 `WL.Client.init` 以触发 `wlCommonInit`，然后调用 `WL.JSONStore.init`。
 
-## 存储区内部内容
+## 存储内部资源
 {: #store-internals }
 请参阅有关如何存储 JSONStore 数据的示例。
 
@@ -886,6 +910,7 @@ function initWL(){
 |-----|-----|------|-----|------|
 | 1   | c   | carlos | 99 | {name: 'carlos', age: 99} |
 | 2   | t   | tim   | 100 | {name: 'tim', age: 100} |
+{: caption="表 2. JSONStore 数据键元素示例" caption-side="top"}
 
 使用 `{_id : 1}、{name: 'carlos'}`、`{age: 99}、{key: 'c'}` 查询之一或者这些查询的组合进行搜索时，返回的文档为 `{_id: 1,json: {name: 'carlos', age: 99} }`。
 
@@ -957,12 +982,12 @@ catch(JSONStoreException e) {
 |----------------|-------------|
 | -100 UNKNOWN_FAILURE |无法识别的错误。|
 | -75 OS\_SECURITY\_FAILURE |此错误代码与 requireOperatingSystemSecurity 标志相关。如果 destroy API 未能除去受操作系统安全性（带有密码备选项的 Touch ID）保护的安全性元数据，或者如果 init 或 open API 找不到安全性元数据，那么可能发生此错误。如果设备不支持操作系统安全性，但请求了使用操作系统安全性，那么也可能失败。|
-| -50 PERSISTENT\_STORE\_NOT\_OPEN | JSONStore 已关闭。请首先尝试调用 JSONStore 类中的 open 方法，以启用对存储区的访问。|
+| -50 PERSISTENT\_STORE\_NOT\_OPEN | JSONStore 已关闭。请首先尝试调用 JSONStore 类中的 open 方法，以启用对存储器的访问。|
 | -48 TRANSACTION\_FAILURE\_DURING\_ROLLBACK |回滚事务时发生问题。|
 | -47 TRANSACTION\\_FAILURE\_DURING\_REMOVE\_COLLECTION |有事务正在处理时，无法调用 removeCollection。|
 | -46 TRANSACTION\_FAILURE\_DURING\_DESTROY |有事务正在处理时，无法调用 destroy。|
 | -45 TRANSACTION\_FAILURE\_DURING\_CLOSE\_ALL |有事务存在时，无法调用 closeAll。|
-| -44 TRANSACTION\_FAILURE\_DURING\_INIT |有事务正在处理时，无法初始化存储区。|
+| -44 TRANSACTION\_FAILURE\_DURING\_INIT |有事务正在处理时，无法初始化存储器。|
 | -43 TRANSACTION_FAILURE |事务发生问题。|
 | -42 NO\_TRANSACTION\_IN\_PROGRESS |没有事务正在处理时，无法落实回滚事务|
 | -41 TRANSACTION\_IN\_POGRESS |正在处理某个事务时，无法启动另一个新事务。|
@@ -979,9 +1004,9 @@ catch(JSONStoreException e) {
 | -8 INVALID\_LIMIT\_OR\_OFFSET |验证错误，必须是正整数。|
 | -7 INVALID_USERNAME |验证错误（只能为 [A-Z]、[a-z] 或 [0-9]）。|
 | -6 USERNAME\_MISMATCH\_DETECTED |要注销，JSONStore 用户必须首先调用 closeAll 方法。一次只能有一个用户。|
-| -5 DESTROY\_REMOVE\_PERSISTENT\_STORE\_FAILED |destroy 方法在尝试删除保存存储区内容的文件时发生问题。|
+| -5 DESTROY\_REMOVE\_PERSISTENT\_STORE\_FAILED |destroy 方法在尝试删除保存存储器内容的文件时发生问题。|
 | -4 DESTROY\_REMOVE\_KEYS\_FAILED |destroy 方法在尝试清除钥匙串 (iOS) 或共享用户首选项 (Android) 时发生问题。|
-| -3 INVALID\_KEY\_ON\_PROVISION |传递到已加密存储区的密码不正确。|
+| -3 INVALID\_KEY\_ON\_PROVISION |传递到已加密存储器的密码不正确。|
 | -2 PROVISION\_TABLE\_SEARCH\_FIELDS\_MISMATCH |搜索字段不是动态的。如果不在对新搜索字段调用 init 或 open 方法之前调用 destroy 方法或 removeCollection 方法，那么无法更改搜索字段。如果更改搜索字段的名称或类型，可能会发生此错误。例如：将 {key: 'string'} 更改为 {key: 'number'}，或者将 {myKey: 'string'} 更改为 {theKey: 'string'}。|
 | -1 PERSISTENT\_STORE\_FAILURE |一般错误。本机代码中发生故障，最可能是因为调用 init 方法。|
 | 0 SUCCESS |在某些情况下，JSONStore 本机代码会返回 0 以指示成功。|
@@ -1013,7 +1038,8 @@ catch(JSONStoreException e) {
 | 26 ERROR\_CLEARING\_COLLECTION |一般错误。本机代码调用 removeCollection 方法时发生错误。|
 | 27 INVALID\_PARAMETER\_FOR\_FIND\_BY\_ID |验证错误。|
 | 28 INVALID\_SORT\_OBJECT |提供的用于排序的数组无效，因为其中一个 JSON 对象无效。正确的语法是 JSON 对象数组，其中每个对象仅包含单个属性。此属性将搜索作为排序依据的字段，并指定是升序还是降序。例如：{searchField1 : "ASC"}。 |
-| 29 INVALID\_FILTER\_ARRAY | 提供的用于过滤结果的数组无效。此数组的正确语法是字符串数组，其中每个字符串是搜索字段或内部 JSONStore 字段。有关更多信息，请参阅“存储区内部内容”。|
+| 29 INVALID\_FILTER\_ARRAY | 提供的用于过滤结果的数组无效。此数组的正确语法是字符串数组，其中每个字符串是搜索字段或内部 JSONStore 字段。有关更多信息，请参阅“存储内部资源”。|
 | 30 BAD\_PARAMETER\_EXPECTED\_ARRAY\_OF\_OBJECTS |数组不是仅包含 JSON 对象的数组时发生验证错误。|
 | 31 BAD\_PARAMETER\_EXPECTED\_ARRAY\_OF\_CLEAN\_DOCUMENTS |验证错误。|
 | 32 BAD\_PARAMETER\_WRONG\_SEARCH\_CRITERIA |验证错误。|
+{: caption="表 3. 常见错误代码" caption-side="top"}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2016, 2019
-lastupdated:  "2019-02-11"
+lastupdated: "2019-06-06"
 
 keywords: mobile foundation, cordova sdk, ionic sdk
 

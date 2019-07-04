@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated:  "2018-11-16"
+lastupdated: "2019-06-10"
 
 keywords: mobile foundation faq, updates to mobile foundation, custom domain
 
@@ -12,8 +12,10 @@ subcollection:  mobilefoundation
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:faq: data-hd-content-type='faq'}
+{:note: .note}
 
 # 常见问题
+{: #mfp-faq}
 
 此常见问题提供了对 {{site.data.keyword.mobilefoundation_long}} 服务相关常见问题的解答。
 {: shortdesc}
@@ -36,10 +38,9 @@ subcollection:  mobilefoundation
 
 单击**重新创建**即可应用 {{site.data.keyword.mobilefoundation_short}} 更新。应用更新后，服务器的版本（如 {{site.data.keyword.mfp_oc_short_notm}} 中所示）将会修改为指示服务器更新版本。
 
-> **注：**
->  * 用户无法对其 {{site.data.keyword.mobilefoundation_short}} 服务实例应用自己的修订和更新。
->  * 请参阅[在 Professional Per Device 套餐中重新创建服务器](/docs/services/mobilefoundation?topic=mobilefoundation-c_using_mfs_p5#recreate_mobilefoundation_p5)和[在 Professional 1 Application 套餐中重新创建服务器](/docs/services/mobilefoundation?topic=mobilefoundation-c_using_mfs_p2#recreate_mobilefoundation_p2)，以了解单击**重新创建** 后不同套餐之间的行为差异。
->
+* 用户无法对其 {{site.data.keyword.mobilefoundation_short}} 服务实例应用自己的修订和更新。
+* 请参阅[在 Professional Per Device 套餐中重新创建服务器](/docs/services/mobilefoundation?topic=mobilefoundation-using_mobilefoundation_p5#recreate_mobilefoundation_p5)和[在 Professional 1 Application 套餐中重新创建服务器](/docs/services/mobilefoundation?topic=mobilefoundation-using_mobilefoundation_p2#recreate_mobilefoundation_p2)，以了解单击**重新创建** 后不同套餐之间的行为差异。
+{: note}
 
 ## 如何为我的 {{site.data.keyword.mobilefoundation_short}} 服务器实例配置定制域？
 {: #configcustomdomain}

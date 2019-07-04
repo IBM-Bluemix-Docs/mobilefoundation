@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-03-13"
+lastupdated: "2019-06-24"
 
 keywords: mobile foundation, integration, cloud object storage, COS, ibm cloud
 
@@ -34,18 +34,18 @@ subcollection:  mobilefoundation
 # 将 {{ site.data.keyword.cos_full_notm }} 与 {{ site.data.keyword.IBM_notm}} {{ site.data.keyword.mobilefoundation_short}} 一起使用
 {: #using_ibm_cloud_object_storage_with_ibm_mobile_foundation}
 
-{{ site.data.keyword.IBM_notm}} {{ site.data.keyword.mobilefoundation_short}} (MF) 交付企业级功能，专门设计为支持构建和部署新一代认知、上下文和个性化移动应用程序。{{ site.data.keyword.cos_full_notm }} (COS) 是针对非结构化数据的灵活、经济有效且可缩放的云存储。此操作指南阐述使用 {{ site.data.keyword.mobilefoundation_short}} 的移动应用程序如何通过 ionic 应用程序连接和访存 {{ site.data.keyword.cos_full_notm }} 或者向其上传数据。本操作指南教程的 ionic 应用程序、适配器和相关文件可从[此处](https://github.com/MobileFirst-Platform-Developer-Center/COS_MF_Short_Stories_Ionic_App)获取。
+{{ site.data.keyword.IBM_notm}} {{ site.data.keyword.mobilefoundation_short}} (MF) 交付企业级功能，专门设计为支持构建和部署新一代认知、上下文和个性化移动应用程序。{{ site.data.keyword.cos_full_notm }} (COS) 是针对非结构化数据的灵活、经济有效且可缩放的云存储。此操作指南阐述使用 {{ site.data.keyword.mobilefoundation_short}} 的移动应用程序如何通过 ionic 应用程序连接到 {{ site.data.keyword.cos_full_notm }}，并进行数据的访存或上传。本操作指南教程的 ionic 应用程序、适配器和相关文件可从[此处](https://github.com/MobileFirst-Platform-Developer-Center/COS_MF_Short_Stories_Ionic_App)获取。
 {: shortdesc}
 
 
 ## 先决条件
 {: #cos-prerequisites}
 
-1. 通过运行 `npm install -g mfpdev-cli` 安装 [mfpdev-cli](https://www.ibm.com/support/knowledgecenter/en/SSHS8R_8.0.0/com.ibm.worklight.dev.doc/dev/c_wl_cli_description.html)。此 cli 用于注册 ionic 应用程序并将适配器部署到 MF 服务器。或者，可从 MF 服务器仪表板执行这些活动。
+1. 通过运行 `npm install -g mfpdev-cli` 安装 [mfpdev-cli](https://www.ibm.com/support/knowledgecenter/en/SSHS8R_8.0.0/com.ibm.worklight.dev.doc/dev/c_wl_cli_description.html)。此 CLI 用于注册 ionic 应用程序并将适配器部署到 MF 服务器。或者，可从 MF 服务器仪表板执行这些活动。
 
-2. 在机器上安装 [{{ site.data.keyword.cloud_notm}} CLI](https://console.bluemix.net/docs/cli/index.html#overview)。
+2. 在机器上安装 [{{ site.data.keyword.cloud_notm}} CLI](https://cloud.ibm.com/docs/cli?topic=cloud-cli-ibmcloud-cli)。
 
-3. 通过执行 `npm install -g ionic` 安装 ionic cli
+3. 通过执行 `npm install -g ionic` 安装 ionic CLI
 
 4. 通过执行 `npm install -g cordova` 安装 cordova
 
@@ -55,7 +55,7 @@ subcollection:  mobilefoundation
 
 {{ site.data.keyword.mobilefoundation_short}} 服务器在 {{ site.data.keyword.cloud_notm}} 上进行设置。设置 {{ site.data.keyword.mobilefoundation_short}} 服务器的 {{ site.data.keyword.cloud_notm}} 实例，如下所示：
 
-* 在 {{ site.data.keyword.cloud_notm}} 目录中，搜索“{{ site.data.keyword.mobilefoundation_short}}”。单击 **{{ site.data.keyword.mobilefoundation_short}}** 磁贴。
+* 在 {{ site.data.keyword.cloud_notm}} 目录中，搜索 *{{ site.data.keyword.mobilefoundation_short}}*。单击 **{{ site.data.keyword.mobilefoundation_short}}** 磁贴。
 
     ![MFPCatalog](images/mfp_catalog.png)
 
@@ -67,7 +67,7 @@ subcollection:  mobilefoundation
 
     ![MFPLogin](images/mfp_login.png)
 
-* 用于登录到 MF 服务器的凭证可以在左侧菜单中的**凭证**选项卡中找到。
+* 用于登录到 MF 服务器的凭证可以在菜单中的**凭证**选项卡中找到。
 
     ![MFPcredentials](images/mfp_credentials.png)
 
@@ -79,7 +79,7 @@ subcollection:  mobilefoundation
 ## Cloud Object Storage 设置
 {: #cloud-object-storage-setup}
 
-* 在 {{ site.data.keyword.cloud_notm}} 目录中，搜索“Cloud Object Storage”。单击 **Object Storage** 磁贴。
+* 在 {{ site.data.keyword.cloud_notm}} 目录中，搜索 *Cloud Object Storage*。单击 **Object Storage** 磁贴。
 
     ![目录](images/catalog.png)
 
@@ -87,7 +87,7 @@ subcollection:  mobilefoundation
 
     ![创建 COS](images/cos_create.png)
 
-* 接下来，单击左侧窗格菜单选项中的**存储区**。为存储区提供适合的名称（在此样本中，我们选择将存储区命名为 `sharedgallery`），然后单击**创建**。
+* 接下来，单击菜单选项中的**存储区**。为存储区提供适合的名称（在此样本中，我们选择将存储区命名为 `sharedgallery`），然后单击**创建**。
 
     ![创建存储区](images/bucketcreate.png)
 
@@ -101,7 +101,7 @@ subcollection:  mobilefoundation
 ## MFP-COS Ionic 应用程序和 Java 适配器
 {: #mfp-cos-ionic-app-and-java-adapter}
 
-下载此 [git 存储库](https://github.com/MobileFirst-Platform-Developer-Center/COS_MF_Short_Stories_Ionic_App)或进行克隆。此存储库由两个主要组件组成：
+下载此 [Git 存储库](https://github.com/MobileFirst-Platform-Developer-Center/COS_MF_Short_Stories_Ionic_App)或进行克隆。此存储库由两个主要组件组成：
 
 1. MF Java 适配器
 2. Ionic 移动应用程序
@@ -151,7 +151,7 @@ subcollection:  mobilefoundation
 ? Make this server the default?: (Y/n)
 ```
 
-输入 *Y* 并按下 **Enter** 键。
+输入 *Y*，然后按 **Enter** 键。
 
 ***预期的输出***：
 
@@ -166,7 +166,7 @@ Server profile 'mfpserver' added successfully.
 
 要连接到 COS 实例，需要在 `adapter.xml` 文件中提供 COS 实例的一些详细信息。提供以下字段的值：
 
-1. **endpointURL**：此字段是 COS 对象的公共端点 URL。可在 COS 仪表板的**存储区（在左侧菜单选项上）-> <您的存储区名称>（在此样本中为 `sharedgallery`）-> 配置 -> 端点 -> 公共**下找到此 URL。
+1. **endpointURL**：此字段是 COS 对象的公共端点 URL。可在 COS 仪表板的**存储区（在菜单选项上）-> <您的存储区名称>（在此样本中为 `sharedgallery`）-> 配置 -> 端点 -> 公共**下找到此 URL。
 2. **AuthToken**：在本教程中，我们使用 IAM 认证。
 
 要使 Java 适配器能够连接到 COS 实例，需要使用 IAM 或 HMAC 的认证。以下是获取 IAM 令牌的步骤。有关 IAM 和 HMAC 认证过程的进一步详细信息，请单击[此处](https://cloud.ibm.com/docs/services/cloud-object-storage/api-reference/api-reference-buckets.html#bucket-operations#AuthenticationOptions)。
@@ -175,7 +175,7 @@ Server profile 'mfpserver' added successfully.
 {: #obtaining-iam-oath-token-using-ibm-cloud-cli}
 
 1. 首先，确保您具有 API 密钥。从 [{{ site.data.keyword.cloud_notm}} Identity and Access Management](https://cloud.ibm.com/iam/#/users) 获取 API 密钥。
-2. 使用 CLI 登录到 {{ site.data.keyword.cloud_notm}} Platform。
+2. 使用 CLI 登录到 {{ site.data.keyword.cloud_notm}} 平台。
 
   ```bash
 	ibmcloud login --apikey <value>
@@ -191,7 +191,7 @@ Server profile 'mfpserver' added successfully.
 
 	Targeted resource group default
 
-	API endpoint:     https://api.ng.bluemix.net (API version: 	2.75.0)
+	API endpoint:     https://api.us-south.cf.cloud.ibm.com (API version: 	2.128.0)
 	Region:           us-south
 	User:             <email-address>
 	Account:          <account-name> (<account-id>)
@@ -264,7 +264,8 @@ mfpdev adapter deploy
 
 这会将适配器部署到 MF 实例。
 
-或者，可以在 MF 服务器仪表板上部署适配器。打开 MF 服务器仪表板，在左侧菜单上，单击**适配器 -> 新建**以打开页面，如下图中所示。
+或者，可以在 MF 服务器仪表板上部署适配器。打开 MF 服务器仪表板，在菜单上，单击**适配器 -> 新建**以打开页面，如下图中所示。
+
 ![MFPNewAdapterRegister](images/mfp_new_adapter_register.png)
 
 然后，单击**部署适配器**，并从 **target** 文件夹上传 `.adapter` 文件。
@@ -300,15 +301,15 @@ mfpdev adapter deploy
 	mfpdev app register
 ```
 
-	或者，可以在 MF 服务器仪表板上注册应用程序。打开 MF 服务器仪表板，并在左侧菜单上，单击**应用程序 -> 新建**。
+	或者，可以在 MF 服务器仪表板上注册应用程序。打开 MF 服务器仪表板，并在菜单上，单击**应用程序 -> 新建**。
 
 	将装入如下图中所示的页面。
 
 	![MFPNewAppRegister](images/mfp_new_app_register.png)
 
-	输入请求的详细信息。 在文本框“应用程序名称”中为应用程序提供名称。选择必需的平台。
+	输入请求的详细信息。在“应用程序名称”文本框中为应用程序提供名称。选择所需的平台。
 
-	对于 Android，**程序包**文本框接受*应用程序标识*。此参数可在 Android 应用程序包 `AndroidManifest.xml` 中找到。**版本**文本框字段必须使用 `AndroidManifest.xml` 中的 *versionName* 值进行填充。对于 iOS，**捆绑软件标识**文本框接受*应用程序标识*（区分大小写）。此参数可在 iOS 应用程序的 `mfpclient.plist` 中找到。**版本**文本框字段必须使用 iOS 应用程序中 `mfpclient.plist` 文件中的 *version* 值进行填充。
+	对于 Android，**程序包**文本框接受*应用程序标识*。此参数可在 Android 应用程序包 `AndroidManifest.xml` 中找到。**版本**文本框字段必须使用 `AndroidManifest.xml` 中的 *versionName* 值进行填充。对于 iOS，**捆绑软件标识**文本框接受*应用程序标识*（区分大小写）。此参数可在 iOS 应用程序的 `mfpclient.plist` 中找到。**版本**文本框字段必须使用 iOS 应用程序内 `mfpclient.plist` 文件中的 *version* 值进行填充。
 
 5. 执行 `ionic cordova prepare` 以使更改渗透到添加的环境。
 6. 执行
@@ -331,38 +332,38 @@ mfpdev adapter deploy
 	ionic cordova run ios
   ```
 
-### 导航 Ionic 应用程序
+### 在 Ionic 应用程序中浏览
 {: #navigating-the-ionic-application}
 
-Ionic 应用程序显示先前从创建的 COS 实例上传的短案例列表（作为 [Cloud Object Storage 设置](#cloud-object-storage-setup)部分中的最后一步）。在选择特定案例选项时，将装入并显示选中的案例。还提供了用于添加案例的选项，然后可将案例上传到 COS 实例。
+Ionic 应用程序显示先前从创建的 COS 实例上传的短故事列表（[Cloud Object Storage 设置](#cloud-object-storage-setup)部分中的最后一步）。选择特定故事选项后，将装入并显示所选的故事。还提供了用于添加故事的选项，可将故事上传到 COS 实例。
 
 初始 COS 对象列表类似于下图。
 
-![COS 之前](images/cos_before.png)
+![添加故事之前的 COS](images/cos_before.png)
 
-应用程序主页提供选项以用于“获取所有案例”或“添加案例”
+该应用程序的主页提供了*获取所有故事*或*添加故事*选项
 
-![应用程序主屏](images/app-home-screen.png)
+![应用程序主页屏幕](images/app-home-screen.png)
 
-在单击**获取所有案例**时，将显示 COS 上可用的案例。
+单击**获取所有故事**后，将显示 COS 上已有的故事。
 
-![应用程序选择案例](images/app-select-story.png)
+![在应用程序中选择故事](images/app-select-story.png)
 
-从下拉菜单中选择要装入的案例，然后单击**装入**
+在下拉菜单中选择要装入的故事，然后单击**装入**
 
-![应用程序案例已装入](images/app-story-loaded.png)
+![在应用程序中已装入故事](images/app-story-loaded.png)
 
-接下来，单击**添加案例**按钮以添加自己的案例。在文本区域中输入案例的标题和案例的内容，然后单击**添加**。
+接下来，单击**添加故事**按钮，添加您自己的故事。输入故事的标题，并在文本区域中输入故事的内容，然后单击**添加**。
 
-![应用程序添加输入](images/app-add-input.png)
+![在应用程序中添加故事并输入内容](images/app-add-input.png)
 
-添加案例后，将显示一条成功添加案例的消息。
+添加故事后，将显示一条成功添加故事的消息。
 
-![应用程序案例已添加](images/app-story-added.png)
+![在应用程序中已添加故事](images/app-story-added.png)
 
-COS 仪表板现在也包含从应用程序添加的案例。
+COS 仪表板现在也已包含从应用程序添加的故事。
 
-![COS 已添加](images/cos_added.png)
+![在 COS 中已添加故事](images/cos_added.png)
 
 
 使用 `ibmcloud iam oauth-tokens` 获取的 IAM OAuth 令牌具有到期时间，并且适配器失败，异常为 `403 - Forbidden`。因此，必须确保令牌在已部署的适配器上有效，以使应用程序按期望运行。

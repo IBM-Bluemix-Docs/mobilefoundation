@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2018-02-12"
+lastupdated: "2019-06-10"
 
 keywords: troubleshooting techniques
 
@@ -39,7 +39,7 @@ subcollection:  mobilefoundation
 
 ### 问题有哪些症状？
 
-开始描述问题时，最常见的提问是“发生了什么问题？”。此提问可能看起来很直接；但是，您可以将其细分为多个更具针对性的提问，从而更好地描述问题。这些提问可能包括：
+开始描述问题时，最常见的提问是**发生了什么问题？**。此提问可能看起来很直接；但是，您可以将其细分为多个更具针对性的提问，从而更好地描述问题。这些提问可能包括：
 
 - 谁或哪个组件报告了该问题？
 - 有哪些错误代码和消息？
@@ -108,4 +108,4 @@ subcollection:  mobilefoundation
 
 有关服务和入门指示信息的问题，请使用 [IBM developerWorks dW Answers ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://developer.ibm.com/answers/topics/mobilefirst/?smartspace=bluemix){:new_window} 论坛。另请加上 `bluemix` 和 `mobilefirst` 标记。
 
-有关开具 IBM 支持凭单或有关支持级别和凭单严重性的更多信息，请参阅[联系支持人员](/docs/get-support?topic=get-support-getstarttssup#typesofsupport){: new_window}。
+有关开具 IBM 支持凭单或有关支持级别和凭单严重性的更多信息，请参阅[联系支持人员](https://cloud.ibm.com/docs/get-support?topic=get-support-getting-customer-support){: new_window}。

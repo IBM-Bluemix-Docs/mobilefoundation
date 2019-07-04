@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-02-13"
+lastupdated: "2019-06-06"
 
 keywords: integration, mobile foundation, secure gateway
 
@@ -29,7 +29,7 @@ subcollection:  mobilefoundation
 
 要完成本教程，您将需要企业防火墙中用于公开记录数据系统的 HTTP 端点。或者，使用[此样本 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://github.com/MobileFirst-Platform-Developer-Center/MFPSecureGatewayIonic/tree/master/NodeJSHTTPProject) `Node.js` 项目在本地环境中创建测试端点。
 
-浏览至项目文件夹并运行您的 HTTP 服务器。
+导航至项目文件夹并运行您的 HTTP 服务器。
 
 ```bash
 npm install
@@ -42,7 +42,7 @@ node app.js
 
 下图说明了本教程中描述的集成场景中使用的体系结构。
 
-![体系结构图](images/SecureGatewayArchi.png)
+![体系结构图](images/SecureGatewayArchi.png "设备、云服务和内部部署网络的体系结构图")
 
 ## 实现 Secure Gateway 集成
 {: #implementing_sg_integration}
@@ -50,40 +50,40 @@ node app.js
 ### 创建 Secure Gateway 服务实例
 登录到 IBM Cloud，然后创建 [Secure Gateway 服务](https://cloud.ibm.com/catalog/services/secure-gateway/)实例。
 
-![IBM Cloud](images/SecureGatewayInst.gif)
+![IBM Cloud](images/SecureGatewayInst.gif "从 IBM Cloud 目录创建 Secure Gateway 实例")
 
-创建 Secure Gateway 服务实例后，请执行以下步骤在 IBM Cloud 与内部部署环境之间配置 Secure Gateway 服务。
+创建 Secure Gateway 服务实例后，请使用以下步骤在 IBM Cloud 与内部部署环境之间配置 Secure Gateway 服务。
 
 ### 添加网关
 {: #add_gateway}
 
 在 Secure Gateway 服务仪表板中，单击**添加网关**，以通过提供任何所需的网关名称来创建新网关。
 
-![添加网关](images/AcmeAddGateway.gif)
+![添加网关](images/AcmeAddGateway.gif "添加网关 UI 步骤")
 
 
 ### 添加 Secure Gateway 客户机
 {: #add_sg_client}
 
-![添加客户机 2](images/AcmeAddClient.gif)
+![添加客户机 2](images/AcmeAddClient.gif "添加客户机 UI 步骤")
 
 在新网关内的**客户机**选项卡中，单击**连接客户机**。
 
 可以使用所选的任何客户机，然后在内部部署环境中运行 Secure Gateway 客户机。Secure Gateway 控制台中提供了设置 Secure Gateway 客户机的步骤。
 
-在本教程中，我们将使用 Docker 容器选项来运行 Secure Gateway 客户机。请执行以下步骤：
+在本教程中，我们将使用 Docker 容器选项来运行 Secure Gateway 客户机。请使用以下步骤：
 *   如果尚未在内部部署机器上安装 Docker，请进行安装。
 *   启动终端，然后使用服务控制台中显示的命令在容器上运行 Secure Gateway 客户机。
     ```bash
     docker run –it ibmcom/secure-gateway-client <gatewayId>
     ```
     {: codeblock}
-    `gatewayId` 可以在控制台中找到，如上面的图像中所示。
+    `gatewayId` 可以在控制台中找到，如先前的图像中所示。
 
 ### 添加目标
 {: #add_destination}
 
-![添加目标](images/AcmeAddDest.gif)
+![添加目标](images/AcmeAddDest.gif "添加目标 UI 步骤")
 
 在新网关内的**目标**选项卡中，单击**添加目标**。
 
@@ -99,7 +99,7 @@ acl allow <resourceHost>:<resourcePort>
 
 现在目标已配置。Secure Gateway 服务将填充云主机和端口详细信息，这些信息可用于从云环境访问内部部署资源。
 
-![“目标”选项卡](images/AcmeCloudPopulate.gif)
+![目标选项卡](images/AcmeCloudPopulate.gif "主机和端口详细信息屏幕")
 
 ### 为 Secure Gateway 服务配置 Mobile Foundation 和 Mobile Foundation 适配器
 {: #configuration_sg_mfp}
@@ -111,7 +111,7 @@ acl allow <resourceHost>:<resourcePort>
 
 通过 IBM Cloud 控制台创建 [Mobile Foundation 服务](https://cloud.ibm.com/catalog/services/mobile-foundation)实例。
 
-在 Mobile Foundation 服务控制台中，创建 [Mobile Foundation 服务器 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://mobilefirstplatform.ibmcloud.com/tutorials/en/foundation/8.0/bluemix/using-mobile-foundation/)。
+在 Mobile Foundation 服务控制台中，创建 [Mobile Foundation 服务器 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://mobilefirstplatform.ibmcloud.com/tutorials/en/foundation/8.0/ibmcloud/using-mobile-foundation/)。
 
 
 ### 构建和部署 Mobile Foundation 适配器
@@ -131,7 +131,7 @@ mfpdev adapter deploy
 
 在 JavaHTTP 适配器中提供从上一部分获取的资源端点的云主机和端口详细信息。
 
-![适配器配置](images/AdapterConfiguration.png)
+![AdapterConfiguration ](images/AdapterConfiguration.png "Java HTTP 配置页面")
 
 其中，`cap-sg-prd-5.securegateway.appdomain.cloud` 和 `18946` 分别是 Secure Gateway 主机和端口。
 
@@ -142,9 +142,9 @@ mfpdev adapter deploy
 
 从[此处](https://github.com/MobileFirst-Platform-Developer-Center/MFPSecureGatewayIonic/)下载 Mobile Foundation 样本应用程序，遵循 `Readme` 下的指示信息，并在 Mobile Foundation Operations Console 中注册应用程序。
 
-运行应用程序，提供登录凭证，然后单击*登录*按钮。单击*访存 Acme 写程序*按钮，通过 Secure Gateway 使用在 Mobile Foundation Operations Console 中部署的 JavaHTTP 适配器来调用内部部署端点。从内部部署环境中接收所需数据。
+运行应用程序，提供登录凭证，然后单击*登录*按钮。单击*访存 Acme 写程序*按钮，通过 Secure Gateway 使用在 Mobile Foundation Operations Console 中部署的 JavaHTTP 适配器来调用内部部署端点。从内部部署环境接收所需数据。
 
-![应用程序接收内部部署数据](images/AcmePublishersApp.gif)
+![应用程序接收内部部署数据](images/AcmePublishersApp.gif "样本应用程序接收数据")
 
 通过在 Secure Gateway 服务上配置多个目标以及部署 Mobile Foundation 适配器以连接到端点的相应云主机，可以连接到多个内部部署端点。您还可为 Secure Gateway 服务配置其他安全性，以确保与端点的通信通过 HTTPS 和应用程序端安全性执行。您可以在此处找到[详细信息](/docs/services/SecureGateway?topic=securegateway-getting-started-with-sg#getting-started-with-sg)。
 

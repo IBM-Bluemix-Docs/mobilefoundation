@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-02-11"
+lastupdated: "2019-06-06"
 
 keywords: mobile foundation, client sdk, sdk api, javascript api, java api, react native api, objective-c api, csharp api
 
@@ -69,7 +69,7 @@ subcollection:  mobilefoundation
     可以使用 Java push API 为 Android 环境开发应用程序。
     {: java }
 * **[Client side JSONStore API ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](http://mobilefirstplatform.ibmcloud.com/api-ref/mfp-client-android-jsonstore-8/html/refjava-mfp-client-android-jsonstore/html/)**  
-    可以通过 JSONStore API 来使用 Android 环境的存储区。
+    可以通过 JSONStore API 来使用 Android 环境的存储器。
     {: java }
 
 ### React Native
@@ -81,7 +81,7 @@ subcollection:  mobilefoundation
     使用此 API 开发 React Native 应用程序。
     {: reactnative }
 * **[Client-side JSONStore API ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](http://mobilefirstplatform.ibmcloud.com/api-ref/ibm-mobile-first-reactnative-jsonstore/html/refreactnative-jsonstore-mfp-apidoc/html/index.html)**   
-    可以通过 JSONStore API 来使用 React Native 环境的存储区。
+    可以通过 JSONStore API 来使用 React Native 环境的存储器。
     {: reactnative }
 
 ### C Sharp

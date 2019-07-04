@@ -2,7 +2,7 @@
 
 copyright:
   years: 2016, 2019
-lastupdated:  "2018-11-27"
+lastupdated: "2019-06-06"
 
 keywords: mobile foundation, features, overview
 
@@ -24,7 +24,7 @@ subcollection:  mobilefoundation
 ###  应用程序洞察
 {: #app_insights}
 
-为了使用户互动保持相关性和活跃性，您必须获取有关应用程序对于用户的表现情况的洞察。Mobile Foundation 的 Mobile Analytics 功能通过内置可视化（图表和表）提供了此功能。通过对应用程序进行极少的检测，您可以随时在 Mobile Analytics 控制台上对以下可行性洞察进行可视化：
+为了保持用户互动的相关性和活跃性，您必须获取有关应用程序对于用户的表现情况的洞察。Mobile Foundation 的 Mobile Analytics 功能通过内置可视化（图表和表）提供了此功能。通过对应用程序进行极少的检测，您可以随时在 Mobile Analytics 控制台上直观显示以下可操作的洞察：
 - **用户上线模式**：是否有新的用户上线？是否有现有用户重新使用应用程序？
 - **使用模式**：应用程序在什么时间使用量最大？在什么时间使用量最小？在此方面是否符合其业务相关性？
 - **后端性能**：后端系统中哪些功能最常用？这些功能的响应时间和稳定性如何？需要重新均衡后端吗？

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2018-11-19"
+lastupdated: "2019-06-06"
 
 keywords: mobile foundation security, restrict backend access, tampered apps
 
@@ -29,13 +29,12 @@ subcollection:  mobilefoundation
 
 要启用应用程序真实性，可以遵循 **MobileFirst Operations Console → [your-application] → 真实性**中的屏幕上指示信息进行操作，或者查看以下信息。
 
-* **可用性**
-
-    在所有支持的平台（iOS、Android、Windows 8.1 Universal 和 Windows 10 UWP）上，应用程序真实性在 Cordova 和本机应用程序中都可用。
-
-* **限制**
-
-    在 iOS 中，应用程序真实性不支持**位码**。因此，在使用应用程序真实性之前，请在 Xcode 项目属性中禁用位码。
+<dl>
+  <dt>可用性</dt>
+  <dd>在所有支持的平台（iOS、Android、Windows 8.1 Universal 和 Windows 10 UWP）上，应用程序真实性在 Cordova 和本机应用程序中都可用。</dd>
+  <dt>限制</dt>
+  <dd>在 iOS 中，应用程序真实性不支持**位码**。因此，在使用应用程序真实性之前，请在 Xcode 项目属性中禁用位码。</dd>
+</dl>
 
 ## 应用程序真实性流程
 {: #appauthenticityflow}
@@ -53,7 +52,7 @@ subcollection:  mobilefoundation
 
 1. 在您偏爱的浏览器中打开 MobileFirst Operations Console。
 2. 从导航侧边栏中选择应用程序，然后单击**真实性**菜单项。
-3. 切换**状态**框中的**开/关**按钮。
+3. 将**状态**框中的**开/关**按钮切换成“开”。
 
 ![启用应用程序真实性](/images/enable_application_authenticity.png)
 
@@ -64,7 +63,7 @@ MobileFirst 服务器会在应用程序首次尝试连接到该服务器时，�
 
 开发期间对应用程序所做的某些更改可能会导致应用程序的真实性验证失败。因此，建议在开发过程中禁用应用程序真实性。生产环境中的应用程序应该已启用此功能。
 
-要禁用应用程序真实性，请切换回**状态**框中的**开/关**按钮。
+要禁用应用程序真实性，请将**状态**框中的**开/关**按钮切换回“关”。
 
 ## 配置应用程序真实性
 {: #configappauthenticity}
@@ -96,7 +95,7 @@ Build Time Secret (BTS) 是一个**可选工具，用于增强真实性验证**�
 
 1. 在**构建阶段**选项卡下，单击 **+** 按钮，并创建新的**运行脚本阶段**。
 2. 复制 BTS 工具的路径，并将其粘贴到已创建的新“运行脚本阶段”中。
-3. 将该运行脚本阶段拖至**编译源代码阶段**上方。
+3. 将该运行脚本阶段拖至**编译源代码阶段**之前。
 
 构建应用程序的生产版本时，应使用该工具。
 

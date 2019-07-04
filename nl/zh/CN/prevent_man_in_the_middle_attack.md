@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2018-10-16"
+lastupdated: "2019-06-10"
 
 keywords: mobile foundation security, MIM attack, certificate pinning
 
@@ -35,7 +35,8 @@ subcollection:  mobilefoundation
 
 在 SSL 握手（向服务器发出的第一个请求）期间，Mobile Foundation 客户机 SDK 会验证服务器证书的公用密钥是否与应用程序中存储的证书的公用密钥相匹配。
 
->**注**：必须使用从认证中心购买的证书。**不支持**自签名证书。
+您必须使用从认证中心购买的证书。**不支持**自签名证书。
+{: note}
 
 ## 证书锁定
 {: #cert_pinning}
@@ -52,11 +53,10 @@ IBM Mobile Foundation 提供了用于启用**证书锁定**的 API。本机 iOS�
 您还可以将多个证书与客户机应用程序锁定。 将所有证书的副本放入客户机应用程序中。在 SSL 握手（向服务器发出的第一个请求）期间，MobileFirst 客户机 SDK 会验证服务器证书的公用密钥是否与应用程序中存储的其中一个证书的公用密钥相匹配。
 {: note}
 
-**重要信息**
-
-* 某些移动操作系统可能会高速缓存证书验证检查结果。因此，代码在发出安全请求**之前**调用证书锁定 API 方法。否则，任何后续请求都可能跳过证书验证和锁定检查。
-* 确保仅将 Mobile Foundation API 用于与相关主机的所有通信，即使在证书锁定之后也是如此。使用第三方 API 与同一主机进行交互可能会导致意外行为，例如移动操作系统对未验证的证书进行高速缓存。
-* 再次调用证书锁定 API 方法会覆盖先前的锁定操作。
+* **重要信息**
+    * 某些移动操作系统可能会高速缓存证书验证检查结果。因此，代码在发出安全请求**之前**调用证书锁定 API 方法。否则，任何后续请求都可能跳过证书验证和锁定检查。
+    * 确保仅将 Mobile Foundation API 用于与相关主机的所有通信，即使在证书锁定之后也是如此。使用第三方 API 与同一主机进行交互可能会导致意外行为，例如移动操作系统对未验证的证书进行高速缓存。
+    * 再次调用证书锁定 API 方法会覆盖先前的锁定操作。
 
 如果锁定过程成功，那么在安全请求 SSL/TLS 握手期间，将使用所提供证书内的公用密钥来验证 MobileFirst 服务器证书的完整性。如果锁定过程失败，那么客户机应用程序将拒绝针对服务器的所有 SSL/TLS 请求。
 
@@ -76,7 +76,7 @@ IBM Mobile Foundation 提供了用于启用**证书锁定**的 API。本机 iOS�
 ## 证书锁定 API
 {: #certpinapi}
 
-证书锁定包含以下重载的 API 方法，其中一个方法具有 ``certificateFilename`` 参数，其中 ``certificateFilename`` 是证书文件的名称，另一个方法具有 ``certificateFilenames`` 参数，其中 ``certificateFilenames`` 是证书文件的名称数组。
+证书锁定包含以下重载的 API 方法，其中一个方法具有 ``certificateFilename`` 参数，其中 ``certificateFilename`` 是证书文件的名称，另一个方法具有 ``certificateFilenames`` 参数，其中 ``certificateFilenames`` 是一组证书文件名称。
 
 ### Android
 {: #certpinapiandroid}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-03-06"
+lastupdated: "2019-06-10"
 
 keywords: push notifications, notifications, set up android app for notification, set up iOS app for notification, set up cordova app for notification, set up windows app for notification
 
@@ -42,15 +42,16 @@ subcollection:  mobilefoundation
 请参阅以下部分以了解如何在客户机应用程序中处理入局推送通知：
 
 ### 在 Android 中处理推送通知
-{: #handling_push_notifications_in_android }
+{: #handling_push_notifications_in_android}
 {: android}
-要使 Android 应用程序能够处理已收到的任何推送通知，需要配置 Google Play Services 支持。在配置应用程序后，可以使用 {{ site.data.keyword.mobilefirst_notm }} 提供的通知 API 来注册和注销设备以及预订和取消预订标记。在本教程中，您将学会如何在 Android 应用程序中处理推送通知。
+要使 Android 应用程序能够处理已收到的任何推送通知，需要配置 Google Play 服务支持。在配置应用程序后，可以使用 {{ site.data.keyword.mobilefirst_notm }} 提供的通知 API 来注册和注销设备以及预订和取消预订标记。在本教程中，您将了解如何在 Android 应用程序中处理推送通知。
 {: android}
 
-**先决条件：**
+#### 先决条件
+{: #prereqs-andriod}
 {: android}
 * 本地运行的 {{ site.data.keyword.mfserver_short_notm }} 或远程运行的 {{ site.data.keyword.mfserver_short_notm }}。
-* 安装在开发人员工作站上的 {{ site.data.keyword.mobilefirst_notm  }} CLI
+* 安装在开发者工作站上的 {{ site.data.keyword.mobilefirst_notm  }} CLI
 {: android}
 
 #### 通知配置
@@ -65,7 +66,7 @@ subcollection:  mobilefoundation
 {: #project-setup }
 {: android}
 
-1. 在 **Android → Gradle 脚本**中，选择 **build.gradle（模块：应用程序）**文件，并将以下行添加到 `dependencies` 中：
+1. 在 **Android → Gradle Scripts** 中，选择 **build.gradle (Module: app)** 文件，并将以下行添加到 `dependencies` 中：
 {: android}
 
     ```bash
@@ -74,7 +75,7 @@ subcollection:  mobilefoundation
     {: codeblock}
     {: android}
 
-    存在[已知 Google 缺陷](https://code.google.com/p/android/issues/detail?id=212879)，阻止使用最新的 Play Services 版本（当前为 9.2.0）。请使用较低的版本。
+    因为有一个[已知 Google 缺陷](https://code.google.com/p/android/issues/detail?id=212879)，无法使用最新版本（当前为 9.2.0）的 Play 服务。请使用低于 9.2.0 的版本。
     {: note}
     {: android}
 
@@ -96,7 +97,7 @@ subcollection:  mobilefoundation
     {: codeblock}
     {: android}
 
-1. 在 **Android → 应用程序 → 清单**中，打开 `AndroidManifest.xml` 文件。
+1. 在 **Android → app → manifests** 中，打开 `AndroidManifest.xml` 文件。
     * 向顶部的 `manifest` 标记中添加以下许可权：
 
         ```xml
@@ -150,12 +151,11 @@ subcollection:  mobilefoundation
    {: codeblock}
    {: android}
 
-      Be sure to replace `your.application.package.name` with the actual package name of your application.
+      确保将 `your.application.package.name` 替换为应用程序的实际程序包名。
       {: note}
       {: android}
 
-
-* Add the following `intent-filter` to the application's activity.
+    * 将以下 `intent-filter` 添加到应用程序的活动。
         ```xml
         <intent-filter>
             <action android:name="your.application.package.name.IBMPushNotification" />
@@ -173,7 +173,7 @@ subcollection:  mobilefoundation
 {: #mfppush-instance }
 {: android}
 
-必须在一个 `MFPPush` 实例上发出所有 API 调用。  为此，可以创建一个类级别字段，例如，`private MFPPush push = MFPPush.getInstance();`，然后在这整个类中调用 `push.<api-call>`。
+必须在一个 `MFPPush` 实例上发出所有 API 调用。为此，可以创建一个类级别字段，例如，`private MFPPush push = MFPPush.getInstance();`，然后在这整个类中调用 `push.<api-call>`。
 {: android}
 
 或者，也可以针对您需要在其中访问推送 API 方法的每个实例都调用 `MFPPush.getInstance().<api_call>`。
@@ -204,13 +204,14 @@ subcollection:  mobilefoundation
 | [`getSubscriptions(MFPPushResponseListener)`](#get-subscriptions) |检索设备当前预订的所有标记。               |
 | [`unsubscribe(String[] tagNames, MFPPushResponseListener)`](#unsubscribe) |取消对特定标记的预订。 |
 | [`unregisterDevice(MFPPushResponseListener)`](#unregister) | 从推送通知服务注销设备。 |
+{: caption="表 1. Java 方法" caption-side="top"}
 {: android}
 
 ###### 初始化
-{: #initialization }
+{: #initialization}
 {: android}
 
-在客户机应用程序使用适当的应用程序上下文连接到 MFPPush 服务时为必需项。
+在客户机应用程序使用正确的应用程序上下文连接到 MFPPush 服务时为必需项。
 {: android}
 
 * 应先调用此 API 方法，然后再使用任何其他 MFPPush API。
@@ -389,7 +390,7 @@ MFPPush.getInstance().unregisterDevice(new MFPPushResponseListener<String>() {
 {: #handling-a-push-notification }
 {: android}
 
-要处理推送通知，需要设置 `MFPPushNotificationListener`。  可实现以下某种方法来执行此操作。
+要处理推送通知，需要设置 `MFPPushNotificationListener`。可实现以下某种方法来执行此操作。
 {: android}
 
 ##### 选项 1
@@ -418,7 +419,7 @@ MFPPush.getInstance().unregisterDevice(new MFPPushResponseListener<String>() {
 {: #option-two }
 {: android}
 
-通过对 `MFPPush` 实例调用 `listen(new MFPPushNofiticationListener())` 来创建侦听器，如下所述：
+通过对 `MFPPush` 实例调用 `listen(new MFPPushNofiticationListener())` 来创建侦听器，如以下示例所概述：
 ```java
 MFPPush.getInstance().listen(new MFPPushNotificationListener() {
     @Override
@@ -430,17 +431,17 @@ MFPPush.getInstance().listen(new MFPPushNotificationListener() {
 {: codeblock}
 {: android}
 
-#### 在 Android 上将客户机应用程序迁移到 FCM
+#### 将 Android 上的客户机应用程序迁移到 FCM
 {: #migrate-to-fcm }
 {: android}
 
-Google Cloud Messaging (GCM) 已[不推荐使用](https://developers.google.com/cloud-messaging/faq)，它已与 Firebase Cloud Messaging (FCM) 集成。Google 将在 2019 年 4 月之前关闭大多数 GCM 服务。
+Google Cloud Messaging (GCM) 已[不推荐使用](https://developers.google.com/cloud-messaging/faq)，它已经与 Firebase Cloud Messaging (FCM) 集成。Google 将在 2019 年 4 月之前关闭大多数 GCM 服务。
 {: android}
 
-如果您正在使用 GCM 项目，那么请[将 Android 上的 GCM 客户机应用程序迁移到 FCM](https://developers.google.com/cloud-messaging/android/android-migrate-fcm)。
+如果您正在使用 GCM 项目，请[将 Android 上的 GCM 客户机应用程序迁移到 FCM](https://developers.google.com/cloud-messaging/android/android-migrate-fcm)。
 {: android}
 
-目前，使用 GCM 服务的现有应用程序将继续按原样运行。由于推送通知服务已更新为使用 FCM 端点，因此以后所有新应用程序必须使用 FCM。
+目前，使用 GCM 服务的现有应用程序将继续按原样运行。由于推送通知服务已更新为使用 FCM 端点，因此以后所有新的应用程序都必须使用 FCM。
 {: android}
 
 迁移到 FCM 后，更新项目以使用 FCM 凭证而不是旧的 GCM 凭证。
@@ -455,7 +456,7 @@ Google Cloud Messaging (GCM) 已[不推荐使用](https://developers.google.com/
 {: android}
 
 1. 获取通知提供程序凭证，创建一个 FCM 项目并将相同内容添加到 Android 应用程序。包含应用程序包名称 `com.ibm.mobilefirstplatform.clientsdk.android.push`。请参阅[此处的文档](https://cloud.ibm.com/docs/services/mobilepush/push_step_1.html#push_step_1_android)，直至您已完成生成 `google-services.json` 文件的步骤
-{: android}
+   {: android}
 2. 配置您的 Gradle 文件。在应用程序的 `build.gradle` 文件中添加以下内容
     ```xml
     dependencies {
@@ -469,16 +470,17 @@ Google Cloud Messaging (GCM) 已[不推荐使用](https://developers.google.com/
     {: codeblock}
     {: android}
 
-    - 将以下依赖项添加到 root build.gradle 的 `buildscript` 部分 `classpath 'com.google.gms:google-services:3.0.0'`
+    - 将以下依赖项添加到根 build.gradle 的 `buildscript` 部分：
+      `classpath 'com.google.gms:google-services:3.0.0'`
       {: codeblock}
       {: android}
 
-    - 从 build.gradle 文件 `compile  com.google.android.gms:play-services-gcm:+` 中除去下面的 GCM 插件
+    - 从 build.gradle 文件中除去以下 GCM 插件：`compile  com.google.android.gms:play-services-gcm:+`
      {: android}
  3. 配置 AndroidManifest 文件。`AndroidManifest.xml` 中需要进行以下更改
     {: android}
 
-    **除去以下条目：**
+    除去以下条目：
     {: android}
     ```xml
         <receiver android:exported="true" android:name="com.google.android.gms.gcm.GcmReceiver" android:permission="com.google.android.c2dm.permission.SEND">
@@ -504,7 +506,7 @@ Google Cloud Messaging (GCM) 已[不推荐使用](https://developers.google.com/
     {: codeblock}
     {: android}
 
-    **以下条目需要修改：**
+    以下条目需要修改：
     {: android}
 
     ```xml
@@ -517,7 +519,7 @@ Google Cloud Messaging (GCM) 已[不推荐使用](https://developers.google.com/
     {: codeblock}
     {: android}
 
-    **将条目修改为：**
+    将条目修改为：
     {: android}
 
     ```xml
@@ -530,7 +532,7 @@ Google Cloud Messaging (GCM) 已[不推荐使用](https://developers.google.com/
     {: codeblock}
     {: android}
 
-    **添加以下条目：**
+    添加以下条目：
     {: android}
 
     ```xml
@@ -544,7 +546,7 @@ Google Cloud Messaging (GCM) 已[不推荐使用](https://developers.google.com/
     {: codeblock}
     {: android}
 
- 4. 在 Android Studio 中打开应用程序。复制您在应用程序目录内的 **step-1** 中创建的 `google-services.json` 文件。请注意，`google-service.json` 文件将包含您添加的包名称。		
+ 4. 在 Android Studio 中打开应用程序。复制您在**步骤 1** 中在应用程序目录内创建的 `google-services.json` 文件。请注意，`google-service.json` 文件包含您已添加的程序包名称。		
  5. 编译 SDK。构建应用程序。
 {: android}
 
@@ -552,7 +554,7 @@ Google Cloud Messaging (GCM) 已[不推荐使用](https://developers.google.com/
 {: #handling_push_notifications_in_ios }
 {: ios}
 
-可以使用 {{ site.data.keyword.mobilefirst_notm }} 提供的通知 API 来注册和注销设备以及预订和取消预订标记。在本教程中，您将学会如何在使用 Swift 的 iOS 应用程序中处理推送通知。
+可以使用 {{ site.data.keyword.mobilefirst_notm }} 提供的通知 API 来注册和注销设备以及预订和取消预订标记。在本教程中，您将了解如何在使用 Swift 的 iOS 应用程序中处理推送通知。
 {: shortdesc}
 {: ios}
 
@@ -562,15 +564,16 @@ Google Cloud Messaging (GCM) 已[不推荐使用](https://developers.google.com/
 * [交互式通知](/docs/services/mobilefoundation?topic=mobilefoundation-interactive_notifications#interactive_notifications)
 {: ios}
 
-**先决条件：**
+#### 先决条件
+{: #prereqs-ios}
 {: ios}
 
 * 本地运行的 {{ site.data.keyword.mfserver_short }} 或远程运行的 {{ site.data.keyword.mfserver_short }}。
-* 安装在开发人员工作站上的 {{ site.data.keyword.mfp_cli_long_notm }}
+* 安装在开发者工作站上的 {{ site.data.keyword.mfp_cli_long_notm }}
 {: ios}
 
 #### 通知配置
-{: #notifications-configuration }
+{: #notifications-configuration_ios}
 {: ios}
 
 创建新的 Xcode 项目或使用现有项目。
@@ -612,17 +615,17 @@ Google Cloud Messaging (GCM) 已[不推荐使用](https://developers.google.com/
 
     - 将 **Xcode-project-target** 替换为 Xcode 项目目标的名称。
 2. 保存并关闭该 **podfile**。
-3. 从**命令行**窗口中，浏览至该项目的根文件夹。
+3. 从**命令行**窗口中，导航至该项目的根文件夹。
 4. 运行 `pod install` 命令。
 5. 通过 **.xcworkspace** 文件打开项目。
 {: ios}
 
 #### 通知 API
-{: #notifications-api }
+{: #notifications-api-ios}
 {: ios}
 
 ##### MFPPush 实例
-{: #mfppush-instance }
+{: #mfppush-instance-ios}
 {: ios}
 
 必须在一个 `MFPPush` 实例上发出所有 API 调用。为此，需要在视图控制器中使用 `var`（例如，`var push = MFPPush.sharedInstance();`），然后在视图控制器中调用 `push.methodName()`。
@@ -632,7 +635,7 @@ Google Cloud Messaging (GCM) 已[不推荐使用](https://developers.google.com/
 {: ios}
 
 #### 质询处理程序
-{: #challenge-handlers }
+{: #challenge-handlers-ios}
 {: ios}
 
 如果 `push.mobileclient` 作用域映射到**安全性检查**，那么需要确保在使用任何推送 API 之前，存在已注册的匹配**质询处理程序**。
@@ -643,7 +646,7 @@ Google Cloud Messaging (GCM) 已[不推荐使用](https://developers.google.com/
 {: ios}
 
 #### 客户机端
-{: #client-side }
+{: #client-side-ios}
 {: ios}
 
 |Swift 方法 | 描述|
@@ -651,16 +654,17 @@ Google Cloud Messaging (GCM) 已[不推荐使用](https://developers.google.com/
 | [`initialize()`](#initialization) |针对提供的上下文，初始化 MFPPush。                               |
 | [`isPushSupported()`](#is-push-supported) |设备是否支持推送通知。 |
 | [`registerDevice(completionHandler: ((WLResponse!, NSError!) -> Void)!)`](#register-device--send-device-token) |向推送通知服务注册设备。               |
-| [`sendDeviceToken(deviceToken: NSData!)`](#register-device--send-device-token) |将设备令牌到服务器。|
+| [`sendDeviceToken(deviceToken: NSData!)`](#register-device--send-device-token) |将设备令牌发送到服务器。|
 | [`getTags(completionHandler: ((WLResponse!, NSError!) -> Void)!)`](#get-tags) |在推送通知服务实例中检索可用的标记。 |
 | [`subscribe(tagsArray: [AnyObject], completionHandler: ((WLResponse!, NSError!) -> Void)!)`](#subscribe) |使设备预订指定的标记。                          |
 | [`getSubscriptions(completionHandler: ((WLResponse!, NSError!) -> Void)!)`](#get-subscriptions)  |检索设备当前预订的所有标记。               |
 | [`unsubscribe(tagsArray: [AnyObject], completionHandler: ((WLResponse!, NSError!) -> Void)!)`](#unsubscribe) |取消对特定标记的预订。 |
 | [`unregisterDevice(completionHandler: ((WLResponse!, NSError!) -> Void)!)`](#unregister) | 从推送通知服务注销设备。 |
+{: caption="表 2. Swift 方法" caption-side="top"}
 {: ios}
 
 ##### 初始化
-{: #initialization }
+{: #initialization-ios}
 {: ios}
 
 客户机应用程序连接到 MFPPush 服务时，需要执行初始化。
@@ -677,7 +681,7 @@ MFPPush.sharedInstance().initialize();
 {: ios}
 
 ##### 是否支持推送
-{: #is-push-supported }
+{: #is-push-supported-ios}
 {: ios}
 
 检查设备是否支持推送通知。
@@ -696,7 +700,7 @@ if isPushSupported {
 {: ios}
 
 ##### 注册设备并发送设备令牌
-{: #register-device--send-device-token }
+{: #register-device--send-device-token-ios}
 {: ios}
 
 向推送通知服务注册设备。
@@ -730,7 +734,7 @@ MFPPush.sharedInstance().sendDeviceToken(deviceToken)
 {: ios}
 
 ##### 获取标记
-{: #get-tags }
+{: #get-tags-ios}
 {: ios}
 
 从推送通知服务检索所有可用标记。
@@ -759,7 +763,7 @@ MFPPush.sharedInstance().getTags { (response, error) -> Void in
 {: ios}
 
 ##### 预订
-{: #subscribe }
+{: #subscribe-ios}
 {: ios}
 
 预订所需的标记。
@@ -782,7 +786,7 @@ MFPPush.sharedInstance().subscribe(self.tagsArray) { (response, error)  -> Void 
 {: ios}
 
 ##### 获取预订
-{: #get-subscriptions }
+{: #get-subscriptions-ios}
 {: ios}
 
 检索设备当前预订的标记。
@@ -811,7 +815,7 @@ MFPPush.sharedInstance().getSubscriptions { (response, error) -> Void in
 {: ios}
 
 ##### 取消预订
-{: #unsubscribe }
+{: #unsubscribe-ios}
 {: ios}
 
 取消对标记的预订。
@@ -835,7 +839,7 @@ MFPPush.sharedInstance().unsubscribe(self.tagsArray) { (response, error)  -> Voi
 {: ios}
 
 ##### 注销
-{: #unregister }
+{: #unregister-ios}
 {: ios}
 
 从推送通知服务实例注销设备。
@@ -858,7 +862,7 @@ MFPPush.sharedInstance().unregisterDevice { (response, error)  -> Void in
 {: ios}
 
 #### 处理推送通知
-{: #handling-a-push-notification }
+{: #handling-a-push-notification-ios}
 {: ios}
 
 由本机 iOS 框架直接处理推送通知。根据应用程序生命周期，iOS 框架将调用不同的方法。
@@ -889,7 +893,7 @@ func application(_ application: UIApplication, didReceiveRemoteNotification user
 {: #handling_push_notifications_in_cordova }
 {: cordova}
 
-要使 iOS、Android 和 Windows Cordova 应用程序能够接收和显示推送通知，需要先将 **cordova-plugin-mfp-push** Cordova 插件添加到 Cordova 项目中。在配置应用程序后，可以使用 {{ site.data.keyword.mobilefirst_notm }} 提供的通知 API 来注册和注销设备、预订和取消预订标记以及处理通知。在本教程中，您将学会如何在 Cordova 应用程序中处理推送通知。
+要使 iOS、Android 和 Windows Cordova 应用程序能够接收和显示推送通知，需要先将 **cordova-plugin-mfp-push** Cordova 插件添加到 Cordova 项目中。在配置应用程序后，可以使用 {{ site.data.keyword.mobilefirst_notm }} 提供的通知 API 来注册和注销设备、预订和取消预订标记以及处理通知。在本教程中，您将了解如何在 Cordova 应用程序中处理推送通知。
 {: shortdesc}
 {: cordova}
 
@@ -904,16 +908,17 @@ func application(_ application: UIApplication, didReceiveRemoteNotification user
 * [交互式通知](/docs/services/mobilefoundation?topic=mobilefoundation-interactive_notifications#interactive_notifications)
 {: cordova}
 
-**先决条件：**
+#### 先决条件
+{: #prereqs-cordova}
 {: cordova}
 
 * 本地运行的 {{ site.data.keyword.mfserver_short }} 或远程运行的 {{ site.data.keyword.mfserver_short }}
-* 安装在开发人员工作站上的 {{ site.data.keyword.mfp_cli_long_notm }}
-* 安装在开发人员工作站上的 Cordova CLI
+* 安装在开发者工作站上的 {{ site.data.keyword.mfp_cli_long_notm }}
+* 安装在开发者工作站上的 Cordova CLI
 {: cordova}
 
 #### 通知配置
-{: #notifications-configuration }
+{: #notifications-configuration-cordova}
 {: cordova}
 
 创建新的 Cordova 项目或使用现有项目，并添加一个或多个受支持的平台：iOS、Android 或 Windows。
@@ -924,12 +929,12 @@ func application(_ application: UIApplication, didReceiveRemoteNotification user
 {: cordova}
 {: note}
 
-#### 添加“推送”插件
-{: #adding-the-push-plug-in }
+#### 添加推送插件
+{: #adding-the-push-plug-in-cordova}
 {: cordova}
 
-1. 从**命令行**窗口中，浏览至 Cordova 项目的根目录。  
-2. 运行以下命令以添加“推送”插件：
+1. 从**命令行**窗口中，导航至 Cordova 项目的根目录。  
+2. 运行以下命令以添加推送插件：
     ```bash
     cordova plugin add cordova-plugin-mfp-push
     ```
@@ -974,23 +979,24 @@ Android 平台需要一个额外步骤。
 {: cordova}
 
 #### 通知 API
-{: #notifications-api }
+{: #notifications-api-cordova}
 {: cordova}
 
 ##### 客户机端
-{: #client-side }
+{: #client-side-cordova}
 {: cordova}
 
 |Javascript 函数 | 描述|
 | --- | --- |
-| [`MFPPush.initialize(success, failure)`](#initialization) | 初始化 MFPPush 实例。 |
-| [`MFPPush.isPushSupported(success, failure)`](#is-push-supported) |设备是否支持推送通知。 |
-| [`MFPPush.registerDevice(options, success, failure)`](#register-device) |向推送通知服务注册设备。               |
-| [`MFPPush.getTags(success, failure)`](#get-tags) |在推送通知服务实例中检索所有可用标记。 |
-| [`MFPPush.subscribe(tag, success, failure)`](#subscribe) |预订特定标记。 |
-| [`MFPPush.getSubsciptions(success, failure)`](#get-subscriptions) |检索设备当前预订的标记。 |
-| [`MFPPush.unsubscribe(tag, success, failure)`](#unsubscribe) |取消对特定标记的预订。 |
-| [`MFPPush.unregisterDevice(success, failure)`](#unregister) | 从推送通知服务注销设备。 |
+| [`MFPPush.initialize(success, failure)`](#initialization-cordova) | 初始化 MFPPush 实例。 |
+| [`MFPPush.isPushSupported(success, failure)`](#is-push-supported-cordova) |设备是否支持推送通知。 |
+| [`MFPPush.registerDevice(options, success, failure)`](#register-device-cordova) |向推送通知服务注册设备。               |
+| [`MFPPush.getTags(success, failure)`](#get-tags-cordova) |在推送通知服务实例中检索所有可用的标记。 |
+| [`MFPPush.subscribe(tag, success, failure)`](#subscribe-cordova) |预订特定标记。 |
+| [`MFPPush.getSubsciptions(success, failure)`](#get-subscriptions-cordova) |检索设备当前预订的标记。 |
+| [`MFPPush.unsubscribe(tag, success, failure)`](#unsubscribe-cordova) |取消对特定标记的预订。 |
+| [`MFPPush.unregisterDevice(success, failure)`](#unregister-cordova) | 从推送通知服务注销设备。 |
+{: caption="表 3. Javascript 函数" caption-side="top"}
 {: cordova}
 
 ##### API 实现
@@ -998,7 +1004,7 @@ Android 平台需要一个额外步骤。
 {: cordova}
 
 ###### 初始化
-{: #initialization }
+{: #initialization-cordova}
 {: cordova}
 
 初始化 **MFPPush** 实例。
@@ -1024,7 +1030,7 @@ MFPPush.initialize (
 {: cordova}
 
 ###### 是否支持推送
-{: #is-push-supported }
+{: #is-push-supported-cordova}
 {: cordova}
 
 检查设备是否支持推送通知。
@@ -1044,7 +1050,7 @@ MFPPush.isPushSupported (
 {: cordova}
 
 ###### 注册设备
-{: #register-device }
+{: #register-device-cordova}
 {: cordova}
 
 向推送通知服务注册设备。如果不需要任何选项，可将 options 设置为 `null`。
@@ -1066,7 +1072,7 @@ MFPPush.registerDevice(
 {: cordova}
 
 ###### 获取标记
-{: #get-tags }
+{: #get-tags-cordova}
 {: cordova}
 
 从推送通知服务检索所有可用标记。
@@ -1086,7 +1092,7 @@ MFPPush.getTags (
 {: cordova}
 
 ###### 预订
-{: #subscribe }
+{: #subscribe-cordova}
 {: cordova}
 
 预订所需的标记。
@@ -1109,7 +1115,7 @@ MFPPush.subscribe(
 {: cordova}
 
 ###### 获取预订
-{: #get-subscriptions }
+{: #get-subscriptions-cordova}
 {: cordova}
 
 检索设备当前预订的标记。
@@ -1129,7 +1135,7 @@ MFPPush.getSubscriptions (
 {: cordova}
 
 ###### 取消预订
-{: #unsubscribe }
+{: #unsubscribe-cordova}
 {: cordova}
 
 取消对标记的预订。
@@ -1152,7 +1158,7 @@ MFPPush.unsubscribe(
 {: cordova}
 
 ###### 注销
-{: #unregister }
+{: #unregister-cordova}
 {: cordova}
 
 从推送通知服务实例注销设备。
@@ -1172,7 +1178,7 @@ MFPPush.unregisterDevice(
 {: cordova}
 
 #### 处理推送通知
-{: #handling-a-push-notification }
+{: #handling-a-push-notification-cordova}
 {: cordova}
 
 通过在已注册的回调函数中对响应对象执行操作，可以处理已收到的推送通知。
@@ -1190,18 +1196,19 @@ var notificationReceived = function(message) {
 {: #handling_push_notifications_in_windows }
 {: windows}
 
-可以使用 {{ site.data.keyword.mobilefirst_notm }} 提供的通知 API 来注册和注销设备以及预订和取消预订标记。在本教程中，您将学会如何在使用 C# 的本机 Windows 8.1 Universal 和 Windows 10 UWP 应用程序中处理推送通知。
+可以使用 {{ site.data.keyword.mobilefirst_notm }} 提供的通知 API 来注册和注销设备以及预订和取消预订标记。在本教程中，您将了解如何在使用 C# 的本机 Windows 8.1 Universal 和 Windows 10 UWP 应用程序中处理推送通知。
 {: windows}
 
-**先决条件：**
+#### 先决条件
+{: #prereqs-windows}
 {: windows}
 
 * 本地运行的 {{ site.data.keyword.mfserver_short_notm }} 或远程运行的 {{ site.data.keyword.mfserver_short_notm }}。
-* 安装在开发人员工作站上的 {{ site.data.keyword.mobilefirst_notm  }} CLI
+* 安装在开发者工作站上的 {{ site.data.keyword.mobilefirst_notm  }} CLI
 {: windows}
 
 #### 通知配置
-{: #notifications-configuration }
+{: #notifications-configuration-windows}
 {: windows}
 
 创建新的 Visual Studio 项目或使用现有项目。  
@@ -1211,10 +1218,10 @@ var notificationReceived = function(message) {
 {: windows}
 
 #### 添加推送 SDK
-{: #adding-the-push-sdk }
+{: #adding-the-push-sdk-windows}
 {: windows}
 
-1. 选择“工具 → NuGet Package Manager → Package Manager Console”。
+1. 选择“工具 → NuGet 程序包管理器 → 程序包管理器控制台”。
 2. 选择要安装 {{ site.data.keyword.mobilefirst_notm }} 推送组件的项目。
 3. 运行 **Install-Package IBM.MobileFirstPlatformFoundationPush** 命令来添加 {{ site.data.keyword.mobilefirst_notm }} 推送 SDK。
 {: windows}
@@ -1229,11 +1236,11 @@ var notificationReceived = function(message) {
 {: windows}
 
 #### 通知 API
-{: #notifications-api }
+{: #notifications-api-windows}
 {: windows}
 
 ##### MFPPush 实例
-{: #mfppush-instance }
+{: #mfppush-instance-windows}
 {: windows}
 
 必须在一个 `MFPPush` 实例上发出所有 API 调用。为此，可以创建一个变量（例如，`private MFPPush PushClient = MFPPush.GetInstance();`），然后在这整个类中调用 `PushClient.methodName()`。
@@ -1243,7 +1250,7 @@ var notificationReceived = function(message) {
 {: windows}
 
 ##### 质询处理程序
-{: #challenge-handlers }
+{: #challenge-handlers-windows}
 {: windows}
 
 如果 `push.mobileclient` 作用域映射到**安全性检查**，那么需要确保在使用任何推送 API 之前，存在已注册的匹配**质询处理程序**。
@@ -1254,23 +1261,24 @@ var notificationReceived = function(message) {
 {: windows}
 
 #### 客户机端
-{: #client-side }
+{: #client-side-windows}
 {: windows}
 
 |C Sharp 方法                                                                                                | 描述|
 |--------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------|
-| [`Initialize()`](#initialization)                                                                            |针对提供的上下文，初始化 MFPPush。                               |
-| [`IsPushSupported()`](#is-push-supported)                                                                    |设备是否支持推送通知。 |
-| [`RegisterDevice(JObject options)`](#register-device--send-device-token)                  |向推送通知服务注册设备。               |
-| [`GetTags()`](#get-tags)                                |在推送通知服务实例中检索可用的标记。 |
-| [`Subscribe(String[] Tags)`](#subscribe)     |使设备预订指定的标记。                          |
-| [`GetSubscriptions()`](#get-subscriptions)              |检索设备当前预订的所有标记。               |
-| [`Unsubscribe(String[] Tags)`](#unsubscribe) |取消对特定标记的预订。 |
-| [`UnregisterDevice()`](#unregister)                     | 从推送通知服务注销设备。 |
+| [`Initialize()`](#initialization-windows)                                                                            |针对提供的上下文，初始化 MFPPush。                               |
+| [`IsPushSupported()`](#is-push-supported-windows)                                                                    |设备是否支持推送通知。 |
+| [`RegisterDevice(JObject options)`](#register-device--send-device-token-windows)                  |向推送通知服务注册设备。               |
+| [`GetTags()`](#get-tags-windows)                                |在推送通知服务实例中检索可用的标记。 |
+| [`Subscribe(String[] Tags)`](#subscribe-windows)     |使设备预订指定的标记。                          |
+| [`GetSubscriptions()`](#get-subscriptions-windows)              |检索设备当前预订的所有标记。               |
+| [`Unsubscribe(String[] Tags)`](#unsubscribe-windows) |取消对特定标记的预订。 |
+| [`UnregisterDevice()`](#unregister-windows)                     | 从推送通知服务注销设备。 |
+{: caption="表 4. C Sharp 方法" caption-side="top"}
 {: windows}
 
 ##### 初始化
-{: #initialization }
+{: #initialization-windows}
 {: windows}
 
 客户机应用程序连接到 MFPPush 服务时，需要执行初始化。
@@ -1287,7 +1295,7 @@ MFPPush.GetInstance().Initialize();
 {: windows}
 
 ##### 是否支持推送
-{: #is-push-supported }
+{: #is-push-supported-windows}
 {: windows}
 
 检查设备是否支持推送通知。
@@ -1306,7 +1314,7 @@ if (isSupported ) {
 {: windows}
 
 ##### 注册设备并发送设备令牌
-{: #register-device--send-device-token }
+{: #register-device--send-device-token-windows}
 {: windows}
 
 向推送通知服务注册设备。
@@ -1326,7 +1334,7 @@ if (Response.Success == true)
 {: windows}
 
 ##### 获取标记
-{: #get-tags }
+{: #get-tags-windows}
 {: windows}
 
 从推送通知服务检索所有可用标记。
@@ -1345,7 +1353,7 @@ if (Response.Success == true)
 {: windows}
 
 ##### 预订
-{: #subscribe }
+{: #subscribe-windows}
 {: windows}
 
 预订所需的标记。
@@ -1369,7 +1377,7 @@ else
 {: windows}
 
 ##### 获取预订
-{: #get-subscriptions }
+{: #get-subscriptions-windows}
 {: windows}
 
 检索设备当前预订的标记。
@@ -1390,7 +1398,7 @@ else
 {: windows}
 
 ##### 取消预订
-{: #unsubscribe }
+{: #unsubscribe-windows}
 {: windows}
 
 取消对标记的预订。
@@ -1414,7 +1422,7 @@ else
 {: windows}
 
 ##### 注销
-{: #unregister }
+{: #unregister-windows}
 {: windows}
 
 从推送通知服务实例注销设备。
@@ -1433,7 +1441,7 @@ if (Response.Success == true)
 {: windows}
 
 #### 处理推送通知
-{: #handling-a-push-notification }
+{: #handling-a-push-notification-windows}
 {: windows}
 
 要处理推送通知，需要设置 `MFPPushNotificationListener`。可实现以下方法来执行此操作。

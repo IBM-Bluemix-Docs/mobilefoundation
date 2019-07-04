@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2018-11-19"
+lastupdated: "2019-06-10"
 
 keywords: security, basic authentication, protecting resources, tokens, scopemapping
 
@@ -53,10 +53,11 @@ MobileFirst 访问令牌包含以下信息：
 * **令牌到期时间**：令牌变为无效（到期）的时间（以秒为单位）。
 
 #### 令牌到期时间
+{: #token-expiration}
 
 授予的访问令牌会一直保持有效，直至达到其到期时间。访问令牌的到期时间设置为作用域内所有安全性检查的到期时间中最短的到期时间。但是，如果最短到期时间之前的时间段长于应用程序的最长令牌到期时间段，那么令牌的到期时间会设置为当前时间加上最长到期时间段。缺省最长令牌到期时间段（有效期）为 3,600 秒（1 小时），但可以通过设置 ``maxTokenExpiration`` 属性的值对其进行配置。
 
-**配置最长访问令牌到期时间段**
+##### 配置最长访问令牌到期时间段
 {: #acs_config-max-access-tokens}
 
 使用以下其中一种替代方法来配置应用程序的最长访问令牌到期时间段：
@@ -82,7 +83,7 @@ MobileFirst 访问令牌包含以下信息：
         {: codeblock}
     4. 通过运行以下命令部署更新的配置 JSON 文件：``mfpdev app push``。
 
-**访问令牌响应结构**
+##### 访问令牌响应结构
 {: #acs_access-tokens-structure}
 
 对访问令牌请求的成功 HTTP 响应包含具有访问令牌和其他数据的 JSON 对象。下面是来自授权服务器的有效令牌响应的示例：
@@ -110,7 +111,7 @@ Pragma: no-cache
 
 **expires_in** 和 **scope** 信息还包含在令牌 (**access_token**) 本身中。
 
->**注**：如果使用低级别 `WLAuthorizationManager` 类并自行管理客户机与授权和资源服务器之间的 OAuth 交互，或者如果使用保密客户机，那么有效访问令牌响应的结构是相关的。如果使用的是高级别 `WLResourceRequest` 类，其中封装了用于访问受保护资源的 OAuth 流，那么安全框架会为您处理访问令牌响应。请参阅 [Client security APIs](http://www.ibm.com/support/knowledgecenter/en/SSHS8R_8.0.0/com.ibm.worklight.dev.doc/dev/c_oauth_client_apis.html?view=kc#c_oauth_client_apis) 和 [Confidential clients](https://mobilefirstplatform.ibmcloud.com/tutorials/en/foundation/8.0/authentication-and-security/confidential-clients/)。
+**注**：如果使用低级别 `WLAuthorizationManager` 类并自行管理客户机与授权和资源服务器之间的 OAuth 交互，或者如果使用保密客户机，那么有效访问令牌响应的结构是相关的。如果使用的是高级别 `WLResourceRequest` 类，其中封装了用于访问受保护资源的 OAuth 流，那么安全框架会为您处理访问令牌响应。请参阅 [Client security APIs](http://www.ibm.com/support/knowledgecenter/en/SSHS8R_8.0.0/com.ibm.worklight.dev.doc/dev/c_oauth_client_apis.html?view=kc#c_oauth_client_apis) 和 [Confidential clients](https://mobilefirstplatform.ibmcloud.com/tutorials/en/foundation/8.0/authentication-and-security/confidential-clients/)。
 
 ### 刷新令牌
 {: #acs_refresh_tokens}
@@ -123,6 +124,7 @@ MobileFirst 刷新令牌
 MobileFirst 刷新令牌是一种数字签名实体，类似于访问令牌，用于描述客户机的授权许可权。刷新令牌可用于获取相同作用域的新访问令牌。在授予客户机对特定作用域的授权请求并且认证客户机后，授权服务器的令牌端点会向客户机发送包含所请求访问令牌和刷新令牌的 HTTP 响应。访问令牌到期后，客户机会将刷新令牌发送到授权服务器的令牌端点，以获取一组新的访问令牌和刷新令牌。
 
 #### 刷新令牌的结构
+{: #structure_refresh_tokens}
 
 与 MobileFirst 访问令牌类似，MobileFirst 访问令牌也包含以下信息：
 
@@ -130,30 +132,31 @@ MobileFirst 刷新令牌是一种数字签名实体，类似于访问令牌，�
 * **作用域**：为其授予令牌的作用域（请参阅“OAuth 作用域”）。此作用域不包括必需的应用程序作用域。
 * **令牌到期时间**：令牌变为无效（到期）的时间（以秒为单位）。
 
-**令牌到期时间**
+##### 令牌到期时间
+{: #str-token-expiration}
 
 刷新令牌的令牌到期时间段长于典型的访问令牌到期时间段。刷新令牌一旦授予后会一直保持有效，直至达到其到期时间。在此有效期内，客户机可以使用刷新令牌来获取一组新的访问令牌和刷新令牌。刷新令牌的到期时间段固定为 30 天。每次客户机成功收到一组新的访问令牌和刷新令牌时，刷新令牌到期时间都会重置，因此客户机的体验是令牌永不到期。访问令牌到期时间规则保持不变，如**访问令牌**部分中所述。
 
-**启用刷新令牌功能**
+##### 启用刷新令牌功能
 {: #acs_enable-refresh-token}
 
 刷新令牌功能可以在客户机端和服务器端分别使用以下属性来启用。
 
-**客户机端属性 (Android)**
+客户机端属性 (Android)：
 *文件名*：mfpclient.properties
 *属性名称*：wlEnableRefreshToken
 *属性值*：true
 例如，
 *wlEnableRefreshToken*=true
 
-**客户机端属性 (iOS)**
+客户机端属性 (iOS)：
 *文件名*：mfpclient.plist
 *属性名称*：wlEnableRefreshToken
 *属性值*：true
 例如，
 *wlEnableRefreshToken*=true
 
-**服务器端属性**
+服务器端属性：
 *文件名*：server.xml
 *属性名称*：mfp.security.refreshtoken.enabled.apps
 *属性值*：应用程序捆绑软件标识，用“;”分隔
@@ -166,7 +169,8 @@ MobileFirst 刷新令牌是一种数字签名实体，类似于访问令牌，�
 {: codeblock}
 对于不同的平台，请使用不同的捆绑软件标识。
 
-**刷新令牌响应结构**
+##### 刷新令牌响应结构
+{: #refresh-token-response-structure}
 
 下面是来自授权服务器的有效刷新令牌响应的示例：
 
@@ -187,9 +191,9 @@ MobileFirst 刷新令牌是一种数字签名实体，类似于访问令牌，�
 
 刷新令牌响应除了在访问令牌响应结构中说明的其他属性对象外，还有额外的属性对象 `refresh_token`。
 
->**注**：与访问令牌相比，刷新令牌长期有效。因此，必须谨慎使用刷新令牌功能。不需要定期用户认证的应用程序非常适合使用刷新令牌功能。
+**注**：与访问令牌相比，刷新令牌长期有效。因此，必须谨慎使用刷新令牌功能。不需要定期用户认证的应用程序非常适合使用刷新令牌功能。
 
->从 CD 更新 3 开始，MobileFirst 在 iOS 上支持刷新令牌功能。
+从 CD 更新 3 开始，MobileFirst 在 iOS 上支持刷新令牌功能。
 
 #### 安全性检查
 {: #acs_securitychecks}
@@ -198,7 +202,8 @@ MobileFirst 刷新令牌是一种数字签名实体，类似于访问令牌，�
 
 安全性检查通常会发出安全质询，要求客户机以特定方式进行响应才能通过检查。此握手作为 OAuth 访问令牌获取流的一部分执行。客户机使用**质询处理程序**来处理来自安全性检查的质询。
 
-**内置安全性检查**
+##### 内置安全性检查
+{: #builtin-sec-checks}
 
 提供了以下预定义的安全性检查：
 
@@ -213,7 +218,7 @@ MobileFirst 刷新令牌是一种数字签名实体，类似于访问令牌，�
 
 质询处理程序是一种客户机端实体，用于实现客户机端安全逻辑和相关用户交互。
 
->**重要信息**：收到质询后，不能忽略不管。您必须应答或取消该质询。忽略质询可能会导致意外行为。
+**重要信息**：收到质询后，不能忽略不管。您必须应答或取消该质询。忽略质询可能会导致意外行为。
 
 ### 作用域
 {: #scopes}
@@ -248,9 +253,9 @@ scope 元素可以是以下其中一项：
     * `access-restricted` 映射到 `PinCodeAttempts`。
     * `deletePrivilege` 映射到 `UserLogin`。
 
->要将 scope 元素映射到空字符串，请不要在**添加新 scope 元素映射**弹出菜单中选择任何安全性检查。
+要将 scope 元素映射到空字符串，请不要在**添加新 scope 元素映射**弹出菜单中选择任何安全性检查。
 
-![作用域映射](/images/scope_mapping.png)
+![作用域映射](/images/scope_mapping.png "添加新的 scope 元素映射屏幕")
 
 您还可以使用必需的配置来手动编辑应用程序的配置 JSON 文件，然后将更改推送回 MobileFirst 服务器。
 
@@ -284,13 +289,13 @@ mfpdev app push
 
 在应用程序级别，可以定义将应用于应用程序使用的所有资源的作用域。除了对所请求资源作用域的安全性检查外，安全框架还会运行这些检查（如果存在）。
 
->**注**：
->* 在访问不受保护的资源时，不会应用必需的应用程序作用域。
->* 针对资源作用域授予的访问令牌不包含必需的应用程序作用域。
+**注**：
+   * 在访问不受保护的资源时，不会应用必需的应用程序作用域。
+   * 针对资源作用域授予的访问令牌不包含必需的应用程序作用域。
 
 在 MobileFirst Operations Console 中，从导航侧边栏的**应用程序**部分中选择应用程序，然后选择**安全性**选项卡。在**必需的应用程序作用域**下，选择**添加到作用域**。
 
-![必需的应用程序作用域](/images/mandatory-application-scope.png)
+![必需的应用程序作用域](/images/mandatory-application-scope.png "配置必需的应用程序作用域屏幕")
 
 您还可以使用必需的配置来手动编辑应用程序的配置 JSON 文件，然后将更改推送回 MobileFirst 服务器。
 
@@ -303,7 +308,7 @@ mfpdev app push
     ```
 4. 通过运行以下命令部署更新的配置 JSON 文件：mfpdev app push。
 
->您还可以将更新的配置推送到远程服务器。
+您还可以将更新的配置推送到远程服务器。
 
 #### 保护适配器资源
 {: #protectadapterres}
@@ -326,9 +331,9 @@ mfpdev app push
 
 注释的 `enabled` 元素的缺省值为 `true`。如果将 `enabled` 元素设置为 `false`，那么会忽略 `scope` 元素，因此资源或资源类将不受保护。
 
->**注**：在向不受保护的类的方法分配作用域后，该方法将受到保护，而不论类注释是何内容，除非您将资源注释的 `enabled` 元素设置为 `false`。
+**注**：在向不受保护的类的方法分配作用域后，该方法将受到保护，而不论类注释是何内容，除非您将资源注释的 `enabled` 元素设置为 `false`。
 
-**示例**
+查看以下示例：
 
 以下代码禁用对 `helloUser` 方法的资源保护：
 
@@ -362,7 +367,7 @@ mfpdev app push
 
 如果将 `secured` 属性设置为 `false`，那么会忽略 `scope` 属性，因此资源将不受保护。
 
-**示例**
+查看以下示例：
 
 以下代码禁用对 `userName` 过程的资源保护：
 

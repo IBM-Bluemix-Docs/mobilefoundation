@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated:  "2018-11-19"
+lastupdated: "2019-06-10"
 
 keywords: command line, cli, mfpdev-cli, cli commands
 
@@ -14,8 +14,9 @@ subcollection:  mobilefoundation
 {:screen: .screen}
 {:tip: .tip}
 {:pre: .pre}
+{:note: .note}
 
-#	Mobile Foundation CLI
+# Mobile Foundation CLI
 {: #mobile_foundation_cli}
 
 {{ site.data.keyword.mobilefoundation_short }} 提供了命令行界面 (CLI) 工具，供开发者 **mfpdev** 轻松管理 {{site.data.keyword.mobilefoundation_short}} 客户机和服务器工件。
@@ -34,27 +35,28 @@ node -v
 ```
 {: codeblock}
 
-> **注：**支持的最低 node.js 版本为 **4.2.3**。此外，在 Node 和 NPM 软件包快速更新时，{{site.data.keyword.mobilefoundation_short}} CLI 可能无法在所有可用的 Node 和 NPM 版本（包括最新版本）上以全功能运行。为了使 CLI 正常运行，请确保 Node 的版本为 **6.11.1**，NPM 的版本为 **3.10.10**。
+支持的最低 node.js 版本为 **4.2.3**。此外，在 Node 和 NPM 软件包快速更新时，{{site.data.keyword.mobilefoundation_short}} CLI 可能无法在所有可用的 Node 和 NPM 版本（包括最新版本）上以全功能运行。为了使 CLI 正常运行，请确保 Node 的版本为 **6.11.1**，NPM 的版本为 **3.10.10**。
+{: note}
 
-> 对于 MobileFirst CLI 临时修订版本 *8.0.2018100112* 和更高版本，可以使用 Node V8.x 或 V10.x。
+对于 MobileFirst CLI 临时修订版本 *8.0.2018100112* 和更高版本，可以使用 Node V8.x 或 V10.x。
 
-要安装 {{site.data.keyword.mobilefoundation_short}} CLI，请运行以下命令：
-```bash
-npm install -g mfpdev-cli
-```
-{: codeblock}
+* 要安装 {{site.data.keyword.mobilefoundation_short}} CLI，请运行以下命令：
+    ```bash
+    npm install -g mfpdev-cli
+    ```
+    {: codeblock}
 
-如果已从 MobileFirst Operations Console 的下载中心下载 CLI 压缩文件 (*.zip*)，请使用以下命令：
-```bash
-npm install -g <path-to-mfpdev-cli.tgz>
-```
-{: codeblock}
+* 如果已从 MobileFirst Operations Console 的下载中心下载 CLI 压缩文件 (*.zip*)，请使用以下命令：
+    ```bash
+    npm install -g <path-to-mfpdev-cli.tgz>
+    ```
+    {: codeblock}
 
-要安装不包含可选依赖项的 CLI，请添加 `--no-optional` 标志：
-```bash
-npm install -g --no-optional path-to-mfpdev-cli.tgz
-```
-{: codeblock}
+* 要安装不包含可选依赖项的 CLI，请添加 `--no-optional` 标志：
+    ```bash
+    npm install -g --no-optional path-to-mfpdev-cli.tgz
+    ```
+    {: codeblock}
 
 使用 Node 8 安装 MobileFirst CLI 时，可能会在终端窗口中看到下面的其中一些错误：
 ```text
@@ -84,35 +86,36 @@ gyp ERR! not ok
 > fsevents@1.2.4 install /usr/local/lib/node_modules/mfpdev-cli/node_modules/fsevents
 > node install
 ```
+{: codeblock}
 
 导致此错误的原因是 [node-gyp 中的已知错误 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://github.com/nodejs/node-gyp/issues/1547){: new_window}。可以忽略这些错误，因为它们不会影响 MobileFirst CLI 正常运行。此问题适用于 `mfpdev-cli` 临时修订级别 *8.0.2018100112* 和更高版本。要解决此错误，请在安装期间使用 `--no-optional` 标志。
 
-要确认 CLI 是否正确安装，请运行以下命令：
-```bash
-mfpdev
-```
-{: codeblock}
+* 要确认 CLI 是否正确安装，请运行以下命令：
+    ```bash
+    mfpdev
+    ```
+    {: codeblock}
 
-CLI 帮助将作为输出显示。
+* CLI 帮助将作为输出显示。
 
-```
- NAME
-     IBM MobileFirst Foundation Command Line Interface (CLI).
+    ```
+     NAME
+         IBM MobileFirst Foundation Command Line Interface (CLI).
 
- SYNOPSIS
-     mfpdev <command> [options]
+     SYNOPSIS
+         mfpdev <command> [options]
 
- DESCRIPTION
-     The IBM MobileFirst Foundation Command Line Interface (CLI) is a command-line
-     for developing MobileFirst applications. The command-line can be used by itself, or in conjunction  with the IBM MobileFirst Foundation Operations Console. Some functions are available from  the command-line only and not the console.
+     DESCRIPTION
+         The IBM MobileFirst Foundation Command Line Interface (CLI) is a command-line
+         for developing MobileFirst applications. The command-line can be used by itself, or in conjunction  with the IBM MobileFirst Foundation Operations Console. Some functions are available from  the command-line only and not the console.
 
-     For more information and a step-by-step example of using the CLI, see the IBM Knowledge Center for your version of IBM MobileFirst Foundation at
-     https://www.ibm.com/support/knowledgecenter.
-     ...
-     ...
-     ...
-```
-{: screen}
+         For more information and a step-by-step example of using the CLI, see the IBM Knowledge Center for your version of IBM MobileFirst Foundation at
+         https://www.ibm.com/support/knowledgecenter.
+         ...
+         ...
+         ...
+    ```
+    {: screen}
 
 ## {{site.data.keyword.mobilefoundation_short}} CLI 命令列表
 {: #list_cli_commands}
@@ -205,7 +208,7 @@ mfpdev app register <server> <runtime>
 ```
 {: codeblock}
 
-对于 Cordova Windows 平台，必须向命令添加 `-w <platform>` 自变量。platform 自变量是要向其注册的 Windows 平台的逗号分隔列表。有效值为 windows、windows8 和 windowsphone8。
+对于 Cordova Windows 平台，必须在命令中添加 `-w <platform>` 自变量。platform 自变量是要向其注册的 Windows 平台的逗号分隔列表。有效值为 windows、windows8 和 windowsphone8。
 
 ```bash
 mfpdev app register -w windows8

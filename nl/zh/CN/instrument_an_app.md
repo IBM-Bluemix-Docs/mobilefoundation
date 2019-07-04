@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-01-30"
+lastupdated: "2019-06-10"
 
 keywords: mobile analytics, instrumenting cordova app, instrumenting iOS app, instrumenting android app
 
@@ -87,7 +87,7 @@ Mobile Analytics 客户机 SDK 随 Gradle 一起分发，Gradle 是 Android 项�
 4. 通过单击**工具 &gt; Android &gt; 使用 Gradle 文件同步项目**以使用 Gradle 来同步项目。
 {: android}
 
-5. 打开 Android 项目的 `AndroidManifest.xml` 文件。您可以在**应用程序 > 清单**中找到此文件。在 `<manifest>` 元素下添加因特网访问权和位置访问许可权：
+5. 打开 Android 项目的 `AndroidManifest.xml` 文件。您可以在 **app > manifests** 中找到此文件。在 `<manifest>` 元素下添加因特网访问权和位置访问许可权：
 {: android}
 
   ```xml
@@ -95,7 +95,7 @@ Mobile Analytics 客户机 SDK 随 Gradle 一起分发，Gradle 是 Android 项�
  
   ```
   {: codeblock}
-  如果使用的 SDK 版本高于或等于 1.2，那么需要将以下行置于 `AndroidManifest.xml` 文件的 `<application>` 元素内。
+  如果使用的 SDK 版本为 1.2 或更高版本，就需要将以下行置于 `AndroidManifest.xml` 文件的 `<application>` 元素内。
   {: android}
 
   ```
@@ -241,7 +241,7 @@ Mobile Analytics 客户机 SDK 随 Gradle 一起分发，Gradle 是 Android 项�
     {: codeblock}
     {: android}
 
-9.  要在客户机 SDK 中固有支持的内容的基础上定义定制分析并定义您自己的分析数据，可以使用定制日志记录 API：
+9.  要在客户机 SDK 中固有支持的内容的基础上定义定制分析并定义您自己的分析数据，可以使用定制日志记录 API
     ```java
         //create a JSON to capture the custom data 
         JSONObject jsonObject = new JSONObject();
@@ -404,7 +404,7 @@ Swift SDK 可用于 iOS 和 watchOS。
     {: codeblock}
     {: ios}
 
-9.  要在客户机 SDK 中固有支持的内容的基础上定义定制分析并定义您自己的分析数据，可以使用定制日志记录 API：
+9.  要在客户机 SDK 中固有支持的内容的基础上定义定制分析并定义您自己的分析数据，可以使用定制日志记录 API
     ```Swift
         //create an array object with key value pair as custom data
         let eventObject = ["FromPage": "LoginPage"]
@@ -446,7 +446,7 @@ Swift SDK 可用于 iOS 和 watchOS。
 1. 创建 [Cordova ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](http://cordova.apache.org/#getstarted){: new_window} 项目或打开现有项目。
     {: cordova}
 
-2. 将选择的 Android 或 iOS 平台添加到 Cordova 应用程序。在命令行中运行以下一个或两个命令。<br/>
+2. 将选择的 Android 或 iOS 平台添加到 Cordova 应用程序。从命令行运行以下一个或全部两个命令。<br/>
     **Android**：
     ```
     cordova platform add android
@@ -488,7 +488,7 @@ Swift SDK 可用于 iOS 和 watchOS。
 
 1. 在 Cordova 应用程序中，无需进行设置，并且初始化已内置。
 
-   在调用以下任一分析方法之前，必须确保应用程序嵌入必需的代码，以便通过 Mobile Foundation 服务认证和授权设备。此步骤是所有 Mobile Foundation 服务应用程序都需要的通用步骤，而不是特定于分析数据捕获的步骤。<!--  Refer <need to link doc that talks about auth> -->
+   在调用以下任意分析方法之前，必须确保应用程序嵌入必需的代码，以便通过 Mobile Foundation 服务认证和授权设备。此步骤是所有 Mobile Foundation 服务应用程序都需要的通用步骤，而不是特定于分析数据捕获的步骤。<!--  Refer <need to link doc that talks about auth> -->
    {: cordova}
 
    初始化完成后，无需添加进一步的代码，应用程序现在就可以捕获设备信息和 Mobile Analytics SDK 日志。以下各部分中讨论的任何进一步 API 和代码都是可选的，可以根据要捕获的分析数据类型进行添加。
@@ -606,7 +606,7 @@ Swift SDK 可用于 iOS 和 watchOS。
     {: codeblock}
     {: cordova}
 
-7. 要在客户机 SDK 中固有支持的内容的基础上定义定制分析并定义您自己的分析数据，可以使用定制日志记录 API：
+7. 要在客户机 SDK 中固有支持的内容的基础上定义定制分析并定义您自己的分析数据，可以使用定制日志记录 API
     ```Javascript
         //create custom data as key value pair
         WL.Analytics.log({"FromPage" : 'LoginPage'});
@@ -643,7 +643,7 @@ Swift SDK 可用于 iOS 和 watchOS。
 通过 Mobile Analytics SDK，可以检测 Web 应用程序。
 {: web}
 
-1. 浏览至 Web 应用程序的根文件夹，然后运行以下命令。使用 [npm](https://www.npmjs.com/package/ibm-mfp-web-sdk) 将 SDK 添加到 Web 应用程序
+1. 导航至 Web 应用程序的根文件夹，然后运行以下命令。使用 [npm](https://www.npmjs.com/package/ibm-mfp-web-sdk) 将 SDK 添加到 Web 应用程序
     ```bash
     npm install ibm-mfp-web-sdk
     ```
@@ -684,7 +684,7 @@ Swift SDK 可用于 iOS 和 watchOS。
     {: codeblock}
     {: web}
 
-   在调用以下任一分析方法之前，必须确保应用程序嵌入必需的代码，以便通过 Mobile Foundation 服务认证和授权设备。此步骤是所有 Mobile Foundation 服务应用程序都需要的通用步骤，而不是特定于分析数据捕获的步骤。<!--  Refer <need to link doc that talks about auth> -->
+   在调用以下任意分析方法之前，必须确保应用程序嵌入必需的代码，以便通过 Mobile Foundation 服务认证和授权设备。此步骤是所有 Mobile Foundation 服务应用程序都需要的通用步骤，而不是特定于分析数据捕获的步骤。<!--  Refer <need to link doc that talks about auth> -->
    {: web}
 
    初始化完成后，无需添加进一步的代码，应用程序现在就可以捕获设备信息和 Mobile Analytics SDK 日志。以下各部分中讨论的任何进一步 API 和代码都是可选的，可以根据要捕获的分析数据类型进行添加。
@@ -765,7 +765,6 @@ Swift SDK 可用于 iOS 和 watchOS。
     {: web}
 
 8.  要在客户机 SDK 中固有支持的内容的基础上定义定制分析并定义您自己的分析数据，可以使用定制日志记录 API：
-    
 
     ```Javascript
         //custom data is sent with the addEvent method
@@ -787,4 +786,4 @@ Swift SDK 可用于 iOS 和 watchOS。
 
 Mobile Foundation Analytics 服务提供了 REST API，可帮助开发者导入 (POST) 和导出 (GET) 分析数据。
 
-请试用[此处](https://mobile-analytics-dashboard.ng.bluemix.net/analytics-service/)的 Swagger 文档上的分析 REST API。
+请试用[此处](https://ma-server.us-south.mobile-analytics-prod.cloud.ibm.com/analytics-service/)的 Swagger 文档上的分析 REST API。

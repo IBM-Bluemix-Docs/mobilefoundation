@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-03-26"
+lastupdated: "2019-06-06"
 
 keywords: obfuscating resources, security
 
@@ -75,14 +75,14 @@ mfpdev app webencrypt
 
 1. 打开终端窗口，并导航至要加密的 Cordova 应用程序的根目录。
 2. 通过输入以下其中一个命令来准备应用程序：
-    * ```bash
+    ```bash
       cordova prepare
       ```
-      {: codeblock}
-    * ```bash
+    {: codeblock}
+    ```bash
       mfpdev app webupdate
       ```
-      {: codeblock}
+    {: codeblock}
 3. 完成以下其中一个过程以加密内容：
     * 输入以下命令：
       ```bash
@@ -98,7 +98,7 @@ mfpdev app webencrypt
       {: tip}
 
     * 在构建包时，还可以通过将 `mfpwebencrypt` 标志添加到 `cordova compile` 或 `cordova build` 命令，以加密 Cordova 包的 Web 资源。
-       * ```bash
+        ```bash
          cordova compile -- --mfpwebencrypt
          ```
          {: codeblock}
@@ -111,13 +111,13 @@ mfpdev app webencrypt
 4. 使用特定于平台的工具随附的仿真器可测试包含加密资源的应用程序。例如，可以使用 Android Studio（对于 Android）或 Xcode（对于 iOS）中的仿真器。
 
 请勿在加密应用程序后使用以下 Cordova 命令来测试应用程序：
-* ```bash
-  cordova run
-  ```
-  {: codeblock}
-* ```bash
-  cordova emulate
-  ```
-  {: codeblock}
+```bash
+cordova run
+```
+{: codeblock}
+```bash
+cordova emulate
+```
+{: codeblock}
 这些命令会刷新 www 文件夹中已加密的内容，并将其重新保存为解密的内容。如果使用这些命令，请务必在发布应用程序之前，再次完成该过程以对其进行加密。
 {: note}

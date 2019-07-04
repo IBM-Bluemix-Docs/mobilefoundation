@@ -2,7 +2,7 @@
 
 copyright:
   years: 2016, 2019
-lastupdated:  "2019-02-12"
+lastupdated: "2019-06-06"
 
 keywords: mobile foundation developer, mobile analytics
 
@@ -28,7 +28,7 @@ subcollection:  mobilefoundation
   此选择将创建具有以下设置的 {{site.data.keyword.mfserver_long_notm}}：
   *	1 GB 内存。此大小足够用于开发、轻量测试活动和小规模生产工作负载。
 
-  * 要使用 CLI 访问 MobileFirst 服务器，您将需要凭证。在 IBM Cloud 控制台的左侧导航窗格中单击**服务凭证**即可获取凭证。
+  * 要使用 CLI 访问 MobileFirst 服务器，您将需要凭证。在 IBM Cloud 控制台的导航窗格中单击**服务凭证**即可获取凭证。
 
 现在，您可以管理移动应用程序和移动设备、使用服务器作为移动后端以及发送推送通知等等。
 

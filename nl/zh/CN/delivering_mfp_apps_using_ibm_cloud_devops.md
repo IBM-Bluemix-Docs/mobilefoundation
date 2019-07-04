@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-03-13"
+lastupdated: "2019-06-10"
 
 keywords: mobile foundation, integration, devops, ibmcloud, pipeline
 
@@ -39,7 +39,7 @@ subcollection:  mobilefoundation
 
 下图提供了管道的概述。
 
-![overview_of_pipeline](images/p00_overview_of_pipeline.png)
+![overview_of_pipeline](images/p00_overview_of_pipeline.png "DevOps 管道的六个阶段")
 
 
 ## 先决条件
@@ -49,22 +49,22 @@ subcollection:  mobilefoundation
 * [mfpdev-cli](https://www.npmjs.com/package/mfpdev-cli)
 * 样本应用程序和 [MFP 适配器](https://mobilefirstplatform.ibmcloud.com/tutorials/en/foundation/8.0/adapters/)
 * [GitHub](http://github.com/) 帐户
-* **可选：** [Bitbar](https://bitbar.com/testing/) 实例和 Bitbar API 密钥（您可以根据需求使用任何服务）。
+* *可选：* [Bitbar](https://bitbar.com/testing/) 实例和 Bitbar API 密钥（您可以根据需求使用任何服务）。
 
 
-## 创建持续交付服务和工具链
+## 创建 Continuous Delivery 服务和工具链
 {: #creating-continuous-delivery-service-and-toolchain }
 
-* 在 {{ site.data.keyword.cloud_notm }} 目录上搜索“Continuous Delivery”（持续交付）（或者[单击此处](https://cloud.ibm.com/catalog/services/continuous-delivery)）。
+* 在 {{ site.data.keyword.cloud_notm }} 目录中搜索“Continuous Delivery”（或者[单击此处](https://cloud.ibm.com/catalog/services/continuous-delivery)）。
 * 通过提供服务名称和区域等来创建服务。
 
-    在以下示例中，我们使用服务名称“MFP App/Adapter delivery Test”、区域/位置“London”以及资源组“Default”。
+    在以下示例中，对于服务名称使用 *MFP App/Adapter delivery Test*，对于区域/位置使用*伦敦*，对于资源组使用*缺省值*。
 
-    ![configuring_continuous_delivery_service](images/p01_configuring_continuous_delivery_service.png)
+    ![configuring_continuous_delivery_service](images/p01_configuring_continuous_delivery_service.png "Mobile Foundation 服务实例的目录创建页面")
 
-* 从左侧汉堡菜单中的 {{ site.data.keyword.jazzhub_title }} 部分，创建工具链并搜索“构建您自己的工具链”以从头开始创建工具链。
+* 从导航菜单中，选择 **DevOps**，然后单击**创建工具链**，并搜索“构建您自己的工具链”以从头开始创建工具链。
 
-    ![search_build_your_own_toolchain](images/p02_search_build_your_own_toolchain.png)
+    ![search_build_your_own_toolchain](images/p02_search_build_your_own_toolchain.png "创建您自己的工具链页面，其中显示了“构建您自己的工具链”的搜索结果")
 
 * 提供要配置的工具链名称和区域等。
 
@@ -72,13 +72,13 @@ subcollection:  mobilefoundation
 ## 将 GitHub 与工具链相集成以用于版本控制和管道触发器
 {: #integrating-github-with-the-toolchain}
 
-* 从左侧菜单的工具链概述中，单击**添加工具**并搜索 GitHub。
+* 从导航的**概述**页面中，单击**添加工具**并搜索 GitHub。
 * 配置 GitHub 工具的 **GitHub 服务器地址**、**存储库类型**和**存储库 URL**。
 * 您可以创建新存储库，派生、克隆或使用现有存储库。
 
-    在以下示例中，我们使用 GitHub 服务器“[https://github.com](http://github.com/)”、存储库类型“现有”和存储库 URL“https://github.com/sagar20896/mfp-devops-20181210030116092”。
+    在以下示例中，对于 GitHub 服务器使用“[https://github.com](http://github.com/)”，对于存储库类型使用*现有*，对于存储库 URL 使用 *https://github.com/sagar20896/mfp-devops-20181210030116092*。
 
-    ![configuring_toolchain](images/p03_configuring_toolchain.png)
+    ![configuring_toolchain](images/p03_configuring_toolchain.png "“配置集成”屏幕，显示了“GitHub 服务器”、“存储库类型”和“存储库 URL”字段")
 
 ### 将 Delivery Pipeline 添加到工具链
 {: #adding-the-delivery-pipeline-to-the-toolchain}
@@ -92,14 +92,14 @@ subcollection:  mobilefoundation
 
 {: #stage1-setting-up-mobile-foundation}
 
-在此阶段中，我们将启动 {{ site.data.keyword.mobilefoundation_short }} 的实例。将 GitHub 添加到管道处于此阶段中，每次将更改推送到 git 存储库时将触发管道。以下步骤显示 GitHub 配置。您可以根据需求设置阶段触发器。可以是手动的，也可以是自动的。
+在此阶段中，我们将启动 {{ site.data.keyword.mobilefoundation_short }} 的实例。将 GitHub 添加到管道处于此阶段中，每次将更改推送到 Git 存储库时将触发管道。以下步骤显示 GitHub 配置。您可以根据需求设置阶段触发器。可以是手动的，也可以是自动的。
 
-在以下示例中，我们将“输入类型”设置为 *Git 存储库*，将 Git 存储库设置为 *mfp-devops-20181210030116092*，将 Git URL 设置为 *https://github.com/sagar20896/mfp-devops-20181210030116092*，并将分支设置为*主*。
+在以下示例中，我们将“输入类型”设置为 *Git 存储库*，将 Git 存储库设置为 *mfp-devops-20181210030116092*，将 Git URL 设置为 *https://github.com/sagar20896/mfp-devops-20181210030116092*，并将分支设置为 *master*。
 
-![first_stage_git_input](images/p4_first_stage_git_input.png)
+![first_stage_git_input](images/p4_first_stage_git_input.png "“设置 Mobile Foundation”屏幕，其中选择了“输入”选项卡")
 
 - 单击**添加阶段**并配置**输入**选项卡以指向 GitHub 存储库，如图中所示。
-- 在**作业**选项卡中，单击**添加作业**，然后选择*部署*作为作业类型。选择**部署程序类型**为 *Cloud Foundry*。
+- 在**作业**选项卡中，单击**添加作业**，然后选择*部署*作为作业类型。对于**部署程序类型**选择 *Cloud Foundry*。
 - 如果您没有 API 密钥，那么可以在[此处](https://cloud.ibm.com/iam/#/apikeys)为您的 {{ site.data.keyword.cloud_notm }} 帐户创建一个密钥。
 
 根据需要选择/填写其他字段。在**部署脚本**中添加以下行：
@@ -132,13 +132,13 @@ subcollection:  mobilefoundation
 ```
 {: codeblock}
 
-在以上脚本中，我们使用 Cloud Foundry CLI 来创建 {{ site.data.keyword.mobilefoundation_short }} 服务实例。
+在上述脚本中，我们使用 Cloud Foundry CLI 来创建 {{ site.data.keyword.mobilefoundation_short }} 服务实例。
 
-![stage1_jobs_tab_config](images/p05_stage1_jobs_tab_config.png)
+![stage1_jobs_tab_config](images/p05_stage1_jobs_tab_config.png "“设置 Mobile Foundation”屏幕，其中选择了“作业”选项卡")
 
 在**环境属性**选项卡中，添加属性 *INSTANCE\_NAME*（作为文本属性）作为想要的 MobileFoundation 实例名称。它将在多个阶段中用作标识。
 
-![stage1_environment_properties](images/p06_stage1_environment_properties.png)
+![stage1_environment_properties](images/p06_stage1_environment_properties.png "“设置 Mobile Foundation”屏幕，其中选择了“环境属性”选项卡")
 
 #### 阶段 2 - 构建适配器
 {: #stage2-building-an-adapter}
@@ -147,7 +147,7 @@ subcollection:  mobilefoundation
 
 - 单击**添加阶段**并根据添加 GitHub 存储库作为输入的首选项配置阶段。**阶段触发器**必须设置为*在前一个阶段完成时运行作业*。
 
-- 切换到**作业**选项卡并添加构建作业。选择构建器类型 *Maven*，并在构建脚本中添加以下行。
+- 切换到**作业**选项卡并添加构建作业。对于构建器类型选择 *Maven*，并在构建脚本中添加以下行。
 
 ```
 	#!/bin/bash
@@ -164,11 +164,11 @@ subcollection:  mobilefoundation
 ```
 {: codeblock}
 
-在以上脚本中，我们安装 [mfpdev-cli](https://www.npmjs.com/package/mfpdev-cli) 以在存储库的 `adapters/JavaAdapter` 中使用适配器命令构建适配器。
+在上述脚本中，我们安装 [mfpdev-cli](https://www.npmjs.com/package/mfpdev-cli) 以在存储库的 `adapters/JavaAdapter` 中使用适配器命令构建适配器。
 
-在以下示例中，我们使用**构建器类型** *npm*，并使用构建脚本中提供的脚本。我们将**工作目录**和**构建归档目录**参数保留为空。
+在以下示例中，对于**构建器类型**使用 *npm*，并使用构建脚本中提供的脚本。将**工作目录**和**构建归档目录**参数保留为空。
 
-![build_adapter_stage_jobs_config](images/p07_build_adapter_stage_jobs_config.png)
+![build_adapter_stage_jobs_config](images/p07_build_adapter_stage_jobs_config.png "“构建适配器”屏幕，其中选择了“作业”选项卡")
 
 #### 阶段 3 - 部署适配器
 {: #stage3-deploying-an-adapter}
@@ -180,11 +180,11 @@ subcollection:  mobilefoundation
 - 将输入类型设置为**构建工件**，将**阶段**设置为构建适配器所在的阶段的名称，并设置在构建适配器阶段中构建适配器的作业。
 - **阶段触发器**必须设置为*在前一个阶段完成时运行作业*。
 - 从**作业**选项卡添加部署作业。
-- 选择**部署程序类型** *Cloud Foundry*，并根据首选项配置其余项。
+- 对于**部署程序类型**选择 *Cloud Foundry*，并根据首选项配置其余项。
 
-在以下示例中，我们使用**部署程序类型** *Cloud Foundry*、**{{ site.data.keyword.cloud_notm }} 区域** *达拉斯*，并且 API 密钥与第一阶段中创建的密钥相同。
+在以下示例中，对于**部署程序类型**使用 *Cloud Foundry*，对于 **{{ site.data.keyword.cloud_notm }} 区域**使用*达拉斯*，对于 API 密钥使用在第一阶段中创建的密钥。
 
-![deploy_adapter](images/p08_deploy_adapter.png)
+![deploy_adapter](images/p08_deploy_adapter.png "“部署”屏幕，其中选择了“作业”选项卡")
 
 
 使用以下**部署脚本**：
@@ -233,7 +233,7 @@ subcollection:  mobilefoundation
 
 - 将**输入**设置为与构建适配器的配置相同的 *GitHub 存储库*。
 
-- 在**作业**选项卡中添加*部署作业*。选择**部署程序类型** *Cloud Foundry*。我们使用部署作业而不是测试作业，因为部署具有选项可轻松与 Cloud Foundry 集成。
+- 在**作业**选项卡中添加*部署作业*。对于**部署程序类型**选择 *Cloud Foundry*。我们使用部署作业而不是测试作业，因为部署具有选项可轻松与 Cloud Foundry 集成。
 
 使用以下脚本来测试适配器。
 
@@ -286,7 +286,7 @@ subcollection:  mobilefoundation
 
 此阶段的输入应该是在先前阶段中使用的 GitHub 存储库。此阶段必须在上一阶段（测试适配器）通过后触发。
 
-对于构建应用程序，我们使用**作业**选项卡中的部署作业模板。使用 *Cloud Foundry* 作为**部署程序类型**。
+为构建应用程序，我们在**作业**选项卡中使用部署作业模板。使用 *Cloud Foundry* 作为**部署程序类型**。
 
 使用以下脚本来构建应用程序：
 
@@ -366,7 +366,7 @@ subcollection:  mobilefoundation
 ```
 {: codeblock}
 
-在以上脚本中，我们使用 `mfpdev-cli` 以将应用程序注册到 {{ site.data.keyword.mobilefoundation_short }}
+在上述脚本中，我们使用 `mfpdev-cli` 以将应用程序注册到 {{ site.data.keyword.mobilefoundation_short }}
  [Fastlane](https://fastlane.tools/) 来构建和发布应用程序。
 
 在下一个**环境属性**选项卡中定义在脚本中使用的环境变量。
@@ -377,7 +377,7 @@ subcollection:  mobilefoundation
 - *appPublishUrl* 为**存储库**，需要在其中发布应用程序，以便测试阶段可拉取该应用程序。
 - *gitPushUser* 为 **GitHub 用户名**
 - *gitPushEmail* 为 **GitHub 用户的电子邮件**
-- *gitPushToken* 为 **git 推送令牌**
+- *gitPushToken* 为 **Git 推送令牌**
 - *apkGitPushUrl* 为 **https://$gitPushToken:x-oauth-basic@github.com/<path><SPACE><branch>**
     `例如：https://$gitPushToken:x-oauth-basic@github.com/ShinojEdakkara/mfp-apps master`
 
@@ -389,7 +389,7 @@ subcollection:  mobilefoundation
 
 - 添加有关您拥有的测试项目的 GitHub 存储库详细信息（此项目将由用于支持测试的所有测试脚本和工件组成）。
 
-- 对于 Bitbar，在**作业**选项卡下添加构建作业，然后选择**构建器类型**为 *Maven*。
+- 对于 Bitbar，在**作业**选项卡下添加构建作业，然后对于**构建器类型**选择 *Maven*。
 
 使用类似于以下脚本的构建脚本：
 
@@ -400,7 +400,7 @@ subcollection:  mobilefoundation
 ```
 {: codeblock}
 
-对于以上脚本，您需要一些环境变量。
+对于上述脚本，您需要一些环境变量。
 
 - *screenshot\_dir* 为 **/home/pipeline/home/pipeline/$BUILD\_ID/target**
 - *applicationPath* 为您打算测试的应用程序的 **GitHub 路径**
@@ -410,10 +410,10 @@ subcollection:  mobilefoundation
 - *testdroid_project* 为**项目**。
 
 
-#### 阶段 7 - 破坏 {{ site.data.keyword.mobilefoundation_short }}
+#### 阶段 7 - 除去 {{ site.data.keyword.mobilefoundation_short }}
 {: #stage7-tearing-down-mobile-foundation}
 
-在此阶段中，我们将破坏在第一个阶段中创建的用于在先前阶段中进行构建、部署和测试的 {{ site.data.keyword.mobilefoundation_short }} 实例。
+在前面的阶段使用了在第一个阶段中创建的 {{ site.data.keyword.mobilefoundation_short }} 实例进行构建、部署和测试。在此阶段中，我们将除去该实例。
 
 此阶段不会有任何输入。
 

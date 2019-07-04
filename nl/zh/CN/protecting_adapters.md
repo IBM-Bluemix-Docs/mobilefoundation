@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2018-11-19"
+lastupdated: "2019-06-10"
 
 keywords: mobile foundation security, adapter security
 
@@ -31,10 +31,10 @@ subcollection:  mobilefoundation
 
 缺省 MobileFirst 作用域为 `RegisteredClient`，需要访问令牌才能访问资源；缺省作用域会验证资源请求是否来自向 MobileFirst 服务器注册的应用程序。除非[禁用资源保护](#disabling-resource-protection)，否则始终会应用此保护措施。因此，即使没有为资源设置作用域，资源也仍受保护。
 
->**注**：`RegisteredClient` 是保留的 MobileFirst 关键字。请勿使用此名称定义定制的 scope 元素或安全性检查。
-{.note}
+`RegisteredClient` 是保留的 MobileFirst 关键字。请勿使用此名称定义定制的 scope 元素或安全性检查。
+{: note}
 
-### 保护 Java 适配器资源
+## 保护 Java 适配器资源
 {: #protect-java-adapter-resources}
 
 要向 JAX-RS 方法或类分配保护作用域，请向该方法或类声明添加 `@OAuthSecurity` 注释，并将注释的 `scope` 元素设置为首选作用域。将 `YOUR_SCOPE` 替换为由一个或多个 scope 元素构成的字符串（“scopeElement1 scopeElement2 ...”）：
@@ -46,10 +46,11 @@ subcollection:  mobilefoundation
 
 类作用域适用于类中的所有方法，但自身具有 `@OAuthSecurity` 注释的方法除外。
 
->**注**：将 `@OAuthSecurity` 注释的 enabled 元素设置为 `false` 时，将忽略 scope 元素。请参阅[禁用 Java 资源保护](#disabling-java-resource-protection)。
+将 `@OAuthSecurity` 注释的 enabled 元素设置为 `false` 时，将忽略 scope 元素。请参阅[禁用 Java 资源保护](#disabling-java-resource-protection)。
+{: note}
 
-**示例**
-
+### 示例
+{: #protect-java-adap-res-example}
 以下代码使用包含 `UserAuthentication` 和 `Pincode` scope 元素的作用域来保护 `helloUser` 方法：
 
 ```java
@@ -73,7 +74,7 @@ public class WebSphereResources {
 ```
 {: codeblock}
 
-### 保护 JavaScript 适配器资源
+## 保护 JavaScript 适配器资源
 {: #protect-javascript-adapter-resources}
 
 要向 JavaScript 过程分配保护作用域，请在 **adapter.xml** 文件中将 <procedure> 元素的 scope 属性设置为首选作用域。将 `PROCEDURE_NANE` 替换为过程的名称，将 `YOUR SCOPE` 替换为由一个或多个 scope 元素构成的字符串（“scopeElement1 scopeElement2 ...”）：
@@ -83,10 +84,11 @@ public class WebSphereResources {
 ```
 {: codeblock}
 
->**注**<procedure> 元素的 `secured` 属性设置为 false 时，将忽略 `scope` 属性。请参阅[禁用 JavaScript 资源保护](#disabling-javascript-resource-protection)。
-{.note}
+将 <procedure> 元素的 `secured` 属性设置为 false 时，将忽略 `scope` 属性。请参阅[禁用 JavaScript 资源保护](#disabling-javascript-resource-protection)。
+{: note}
 
-**示例**
+### 示例
+{: #protect-javascript-adap-res-example}
 
 以下代码使用包含 `UserAuthentication` 和 `Pincode` scope 元素的作用域来保护 `userName` 过程：
 
@@ -112,10 +114,11 @@ public class WebSphereResources {
 
 注释的 `enabled` 元素的缺省值为 `true`。如果将 `enabled` 元素设置为 `false`，那么会忽略 `scope` 元素，因此资源或资源类将不受保护。
 
->**注**：在向不受保护的类的方法分配作用域后，该方法将受到保护，而不论类注释是何内容，除非您将资源注释的 `enabled` 元素设置为 `false`。
-{.note}
+在向不受保护的类的方法分配作用域后，该方法将受到保护，而不论类注释是何内容，除非您将资源注释的 `enabled` 元素设置为 `false`。
+{: note}
 
-**示例**
+#### 示例
+{: #disble-java-adap-res-example}
 
 以下代码禁用对 `helloUser` 方法的资源保护：
 
@@ -152,7 +155,8 @@ public class WebSphereResources {
 
 如果将 `secured` 属性设置为 `false`，那么会忽略 `scope` 属性，因此资源将不受保护。
 
-**示例**
+#### 示例
+{: #disable-javascript-res-prot-example}
 
 以下代码禁用对 `userName` 过程的资源保护：
 

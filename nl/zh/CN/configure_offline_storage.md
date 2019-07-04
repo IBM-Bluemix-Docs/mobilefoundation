@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-02-12"
+lastupdated: "2019-06-06"
 
 keywords: JSONStore, offline storage, add jsonstore to cordova, add jsonstore to iOS, add jsonstore to android, jsonstore methods, jsonstore operations
 
@@ -53,7 +53,7 @@ Mobile Foundation JSONStore 是一个可选的客户机端 API，提供了面向
 {: #adding_jsonstore_cordova}
 {: cordova}
 
-1. 打开命令行窗口并浏览至 Cordova 项目文件夹。
+1. 打开命令行窗口并导航至 Cordova 项目文件夹。
 2. 运行以下命令：
    ```bash
    cordova plugin add cordova-plugin-mfp-jsonstore
@@ -231,7 +231,7 @@ WL.JSONStore.get(collectionName).remove(query, options).then(function (numberOfD
 使用 `destroy` 除去以下数据：
 * 所有文档
 * 所有集合
-* 所有存储区
+* 所有存储器
 * 所有 JSONStore 元数据和安全工件
 {: cordova}
 
@@ -441,7 +441,7 @@ do {
 使用 `destroyData` 除去以下数据：
 * 所有文档
 * 所有集合
-* 所有存储区
+* 所有存储器
 * 所有 JSONStore 元数据和安全工件
 {: ios}
 
@@ -485,7 +485,7 @@ do {
    ```
    {: codeblock}
    {: android}
-   添加 `abiFilters` 是为了确保具有 JSONStore 的应用程序将在以上指定的任何体系结构中运行。由于 JSONStore 依赖于仅支持这些体系结构的第三方库，所以此操作是必需的。
+   添加 `abiFilters` 是为了确保具有 JSONStore 的应用程序将在先前指定的任何体系结构中运行。由于 JSONStore 依赖于仅支持这些体系结构的第三方库，所以此操作是必需的。
    {: note}
    {: android}
 
@@ -670,7 +670,7 @@ try {
 使用 `destroy` 除去以下数据：
 * 所有文档
 * 所有集合
-* 所有存储区
+* 所有存储器
 * 所有 JSONStore 元数据和安全工件
 {: android}
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2018-11-19"
+lastupdated: "2019-06-06"
 
 keywords: mobile foundation security, authentication, using challenge handlers
 
@@ -50,8 +50,7 @@ private transient StepUpUserLogin userLogin;
 ```
 {: codeblock}
 
->**重要信息**：两个安全性检查实现都需要捆绑在同一适配器中。
-{.important}
+**重要信息**：两个安全性检查实现都需要捆绑在同一适配器中。{.important}
 
 为了解析此引用，框架会查找具有相应类的安全性检查，并将其引用注入到从属安全性检查中。
 

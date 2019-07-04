@@ -2,7 +2,7 @@
 
 copyright:
   years: 2016, 2019
-lastupdated:  "2019-02-12"
+lastupdated: "2019-06-06"
 
 keywords: mobile foundation, mobile analytics, professional plan, configure database
 
@@ -29,7 +29,8 @@ subcollection:  mobilefoundation
 
 * 您需要拥有对 {{site.data.keyword.Db2_on_Cloud_short}} 或 {{site.data.keyword.composeForPostgreSQL}} 服务实例凭证的访问权，才能配置 {{site.data.keyword.mobilefoundation_short}} 服务实例的设置。
 
-> **注**：{{site.data.keyword.Db2_on_Cloud_short}}（除**轻量**套餐以外的其他任何套餐）或 {{site.data.keyword.composeForPostgreSQL}} 服务实例可以存在于您的 {{site.data.keyword.Bluemix_notm}} `组织`或您有权访问的其他任何`组织`内的任何`空间`中。请确保您有权访问 {{site.data.keyword.Db2_on_Cloud_short}} 或 {{site.data.keyword.composeForPostgreSQL}} 服务实例所在的`空间`。
+{{site.data.keyword.Db2_on_Cloud_short}}（除**轻量**套餐以外的其他任何套餐）或 {{site.data.keyword.composeForPostgreSQL}} 服务实例可以存在于您的 {{site.data.keyword.Bluemix_notm}} `组织`或您有权访问的其他任何`组织`内的任何`空间`中。请确保您有权访问 {{site.data.keyword.Db2_on_Cloud_short}} 或 {{site.data.keyword.composeForPostgreSQL}} 服务实例所在的`空间`。
+{: note}
 
 
 ## 配置数据库连接
@@ -62,7 +63,8 @@ subcollection:  mobilefoundation
 1. 选择 {{site.data.keyword.Db2_on_Cloud_short}} 服务实例所在的 {{site.data.keyword.Bluemix_notm}} `组织`。
 
 + 从所选`组织`内可用的空间列表中，选择具有 {{site.data.keyword.Db2_on_Cloud_short}} 服务实例的 {{site.data.keyword.Bluemix_notm}} `空间`。   
-> **注：**如果未看到列出 {{site.data.keyword.Db2_on_Cloud_short}} 服务实例所在的`组织`和`空间`，请检查您是否为该`组织`和`空间`的成员。您需要对组织和空间具有 *Developer* 角色访问权。{{site.data.keyword.mobilefoundation_short}} 服务从 {{site.data.keyword.Db2_on_Cloud_short}} 服务访问凭证。
+如果未看到列出 {{site.data.keyword.Db2_on_Cloud_short}} 服务实例所在的`组织`和`空间`，请检查您是否为该`组织`和`空间`的成员。您需要对组织和空间具有 *Developer* 角色访问权。{{site.data.keyword.mobilefoundation_short}} 服务从 {{site.data.keyword.Db2_on_Cloud_short}} 服务访问凭证。
+{: note}
 
 + 选择 {{site.data.keyword.Db2_on_Cloud_short}} `服务名称`和`凭证`以连接到现有 {{site.data.keyword.Db2_on_Cloud_short}} 服务实例。
 
