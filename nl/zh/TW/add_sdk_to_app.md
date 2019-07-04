@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated:  "2019-01-04"
+lastupdated: "2019-06-06"
 
 keywords: Mobile Foundation SDK, android sdk, iOS sdk, cordova sdk, react native sdk
 
@@ -53,8 +53,8 @@ subcollection:  mobilefoundation
               pickFirst 'META-INF/NOTICE'
     }
   ```
-  {: codeblock}
-  {: android}
+   {: codeblock}
+   {: android}
 3. 在 Android 視圖中，開啟 **app → manifests → AndroidManifest.xml** 檔案。將下列許可權新增至 `application` 元素之前。
    ```xml
    <uses-permission android:name="android.permission.INTERNET"/>
@@ -62,7 +62,7 @@ subcollection:  mobilefoundation
    ```
    {: codeblock}
    {: android}
-4. 在現有 'activity' 元素旁邊新增 MobileFirst 使用者介面活動。
+4. 在現有 `activity` 元素旁邊新增 MobileFirst 使用者介面活動。
    ```xml
    <activity android:name="com.worklight.wlclient.ui.UIActivity" />
    ```

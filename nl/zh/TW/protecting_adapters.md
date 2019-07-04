@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2018-11-19"
+lastupdated: "2019-06-10"
 
 keywords: mobile foundation security, adapter security
 
@@ -31,10 +31,10 @@ subcollection:  mobilefoundation
 
 預設 MobileFirst 範圍是 `RegisteredClient`（這需要用於存取資源的存取記號），並驗證資源要求來自向 MobileFirst Server 登錄的應用程式。除非您[停用資源保護](#disabling-resource-protection)，否則一律會套用此保護。因此，即使您未設定資源的範圍，資源還是會受到保護。
 
->**附註**：`RegisteredClient` 是保留的 MobileFirst 關鍵字。請不要依此名稱來定義自訂範圍元素或安全檢查。
-{.note}
+`RegisteredClient` 是保留 MobileFirst 關鍵字。請不要依此名稱來定義自訂範圍元素或安全檢查。
+{: note}
 
-### 保護 Java 配接器資源
+## 保護 Java 配接器資源
 {: #protect-java-adapter-resources}
 
 若要將保護範圍指派給 JAX-RS 方法或類別，請將 `@OAuthSecurity` 註釋新增至方法或類別宣告，以及將註釋的 `scope` 元素設為偏好的範圍。將 `YOUR_SCOPE` 取代為一個以上範圍元素的字串 ("scopeElement1 scopeElement2 ...")：
@@ -46,11 +46,12 @@ subcollection:  mobilefoundation
 
 類別範圍會套用至類別中的所有方法，但具有其專屬 `@OAuthSecurity` 註釋的方法除外。
 
->**附註**：`@OAuthSecurity` 註釋的 enabled 元素設為 `false` 時，會忽略 scope 元素。請參閱[停用 Java 資源保護](#disabling-java-resource-protection)。
+將 `@OAuthSecurity` 註釋的 enabled 元素設定為 `false` 時，將忽略 scope 元素。請參閱[停用 Java 資源保護](#disabling-java-resource-protection)。
+{: note}
 
-**範例**
-
-下列程式碼會保護範圍包含 `UserAuthentication` 及 `Pincode` 範圍元素的 `helloUser` 方法：
+### 範例
+{: #protect-java-adap-res-example}
+下列程式碼會保護範圍包含 `UserAuthentication` 及 `Pincode` scope 元素的 `helloUser` 方法：
 
 ```java
 @GET
@@ -73,7 +74,7 @@ public class WebSphereResources {
 ```
 {: codeblock}
 
-### 保護 JavaScript 配接器資源
+## 保護 JavaScript 配接器資源
 {: #protect-javascript-adapter-resources}
 
 若要將保護範圍指派給 JavaScript 程序，請在 **adapter.xml** 檔案中，將 <procedure> 元素的 scope 屬性設為偏好的範圍。將 `PROCEDURE_NANE` 取代為您程序的名稱，並將 `YOUR SCOPE` 取代為一個以上範圍元素的字串 ("scopeElement1 scopeElement2 ...")：
@@ -83,10 +84,11 @@ public class WebSphereResources {
 ```
 {: codeblock}
 
->**附註**：將 <procedure> 元素的 `secured` 屬性設為 false 時，會忽略 `scope` 屬性。請參閱[停用 JavaScript 資源保護](#disabling-javascript-resource-protection)。
-{.note}
+將 <procedure> 元素的 `secured` 屬性設定為 false 時，將忽略 `scope` 屬性。請參閱[停用 JavaScript 資源保護](#disabling-javascript-resource-protection)。
+{: note}
 
-**範例**
+### 範例
+{: #protect-javascript-adap-res-example}
 
 下列程式碼會保護範圍包含 `UserAuthentication` 及 `Pincode` 範圍元素的 `userName` 程序：
 
@@ -112,10 +114,11 @@ public class WebSphereResources {
 
 註釋之 `enabled` 元素的預設值為 `true`。將 `enabled` 元素設為 `false` 時，會忽略 `scope` 元素，而且會解除保護資源或資源類別。
 
->**附註**：當您將範圍指派給未受保護類別的方法時，儘管有此類別註釋，還是會保護該方法，除非您將資源註釋的 `enabled` 元素設為 `false`。
-{.note}
+當您將範圍指派給未受保護類別的方法時，儘管有此類別註釋，還是會保護該方法，除非您將資源註釋的 `enabled` 元素設定為 `false`。
+{: note}
 
-**範例**
+#### 範例
+{: #disble-java-adap-res-example}
 
 下列程式碼會停用 `helloUser` 方法的資源保護：
 
@@ -152,7 +155,8 @@ public class WebSphereResources {
 
 將 `secured` 屬性設為 `false` 時，會忽略 `scope` 屬性，而且會解除保護資源。
 
-**範例**
+#### 範例
+{: #disable-javascript-res-prot-example}
 
 下列程式碼會停用 `userName` 程序的資源保護：
 

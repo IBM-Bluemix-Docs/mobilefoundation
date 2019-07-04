@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2018-11-19"
+lastupdated: "2019-06-06"
 
 keywords: mobile foundation security, authentication, using challenge handlers
 
@@ -50,8 +50,7 @@ private transient StepUpUserLogin userLogin;
 ```
 {: codeblock}
 
->**重要事項**：需要在相同的配接器內組合兩個安全檢查實作。
-{.important}
+**重要事項**：需要在相同的配接器內組合兩個安全檢查實作。{.important}
 
 為了解析此參考資料，此架構會查閱適當類別的安全檢查，並將其參考資料注入至相依安全檢查。
 

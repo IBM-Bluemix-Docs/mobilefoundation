@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-03-13"
+lastupdated: "2019-06-24"
 
 keywords: mobile foundation, integration, cloud object storage, COS, ibm cloud
 
@@ -43,7 +43,7 @@ subcollection:  mobilefoundation
 
 1. 執行 `npm install -g mfpdev-cli` 來安裝 [mfpdev-cli](https://www.ibm.com/support/knowledgecenter/en/SSHS8R_8.0.0/com.ibm.worklight.dev.doc/dev/c_wl_cli_description.html)。此 CLI 可用來登錄 Ionic 應用程式，並將配接器部署至 MF 伺服器。或者，您可以從 MF 伺服器儀表板執行這些活動。
 
-2. 在您的機器上安裝 [{{ site.data.keyword.cloud_notm}} CLI](https://console.bluemix.net/docs/cli/index.html#overview)。
+2. 在您的機器上安裝 [{{ site.data.keyword.cloud_notm}} CLI](https://cloud.ibm.com/docs/cli?topic=cloud-cli-ibmcloud-cli)。
 
 3. 執行 `npm install -g ionic` 來安裝 Ionic CLI
 
@@ -55,7 +55,7 @@ subcollection:  mobilefoundation
 
 {{ site.data.keyword.mobilefoundation_short}} 伺服器是設定在 {{ site.data.keyword.cloud_notm}} 上。請如下所示設定 {{ site.data.keyword.mobilefoundation_short}} 伺服器的 {{ site.data.keyword.cloud_notm}} 實例。
 
-* 在「{{ site.data.keyword.cloud_notm}} 型錄」中搜尋 "{{ site.data.keyword.mobilefoundation_short}}"。按一下 **{{ site.data.keyword.mobilefoundation_short}}** 磚。
+* 在 {{ site.data.keyword.cloud_notm}} 型錄中，搜尋 *{{ site.data.keyword.mobilefoundation_short}}*。按一下 **{{ site.data.keyword.mobilefoundation_short}}** 磚。
 
     ![MFPCatalog](images/mfp_catalog.png)
 
@@ -67,7 +67,7 @@ subcollection:  mobilefoundation
 
     ![MFPLogin](images/mfp_login.png)
 
-* 用來登入 MF 伺服器的認證可在左側功能表的**認證**標籤中找到。
+* 用於登入到 MF 伺服器的認證可以在功能表中的**認證**標籤中找到。
 
     ![MFPcredentials](images/mfp_credentials.png)
 
@@ -79,7 +79,7 @@ subcollection:  mobilefoundation
 ## Cloud Object Storage 設定
 {: #cloud-object-storage-setup}
 
-* 在「{{ site.data.keyword.cloud_notm}} 型錄」中搜尋 "Cloud Object Storage"。按一下 **Object Storage** 磚。
+* 在 {{ site.data.keyword.cloud_notm}} 型錄中，搜尋 *Cloud Object Storage*。按一下 **Object Storage** 磚。
 
     ![型錄](images/catalog.png)
 
@@ -87,7 +87,7 @@ subcollection:  mobilefoundation
 
     ![建立 COS](images/cos_create.png)
 
-* 接著，在左窗格功能表選項中按一下**儲存區**。為您的儲存區提供合適的名稱（在此範例中，我們選擇將儲存區命名為 `sharedgallery`），然後按一下**建立**。
+* 接下來，按一下功能表選項中的**儲存區**。為您的儲存區提供合適的名稱（在此範例中，我們選擇將儲存區命名為 `sharedgallery`），然後按一下**建立**。
 
     ![建立儲存區](images/bucketcreate.png)
 
@@ -166,7 +166,7 @@ Server profile 'mfpserver' added successfully.
 
 若要連接至 COS 實例，您必須在 `adapter.xml` 檔案中提供 COS 實例的部分詳細資料。請提供下列欄位的值：
 
-1. **endpointURL**：此欄位是 COS 物件的公用端點 URL。此 URL 可在 COS 的儀表板上找到，其位於**儲存區（在左側功能表選項上）-> <your-bucket-name>（在此範例中為 `sharedgallery`）-> 配置 -> 端點 -> 公用**下
+1. **endpointURL**：此欄位是 COS 物件的公用端點 URL。此 URL 可在 COS 的儀表板上找到，其位於**儲存區（在功能表選項上）-> <your-bucket-name>（在此範例中為 `sharedgallery`）-> 配置 -> 端點 -> 公用**下
 2. **AuthToken**：在此指導教學中，我們使用的是 IAM 鑑別。
 
 若要讓 Java 配接器連接至您的 COS 實例，需要使用 IAM 或 HMAC 的鑑別。以下是取得 IAM 記號的步驟。如需 IAM 及 HMAC 鑑別處理程序的進一步詳細資料，請按一下[這裡](https://cloud.ibm.com/docs/services/cloud-object-storage/api-reference/api-reference-buckets.html#bucket-operations#AuthenticationOptions)。
@@ -191,7 +191,7 @@ Server profile 'mfpserver' added successfully.
 
 	Targeted resource group default
 
-	API endpoint:     https://api.ng.bluemix.net (API version: 	2.75.0)
+	API endpoint:     https://api.us-south.cf.cloud.ibm.com (API version: 	2.128.0)
 	Region:           us-south
 	User:             <email-address>
 	Account:          <account-name> (<account-id>)
@@ -266,7 +266,7 @@ mfpdev adapter deploy
 
 配接器會部署到 MF 實例。
 
-或者，也可以在 MF 伺服器儀表板上部署該配接器。開啟 MF 伺服器儀表板，在左側功能表上，按一下**配接器 -> 新建**以開啟下列影像所顯示的頁面。
+或者，也可以在 MF 伺服器儀表板上部署該配接器。開啟 MF 伺服器儀表板，在功能表上，按一下**配接器 -> 新建**以開啟下列影像所顯示的頁面。
 
 ![MFPNewAdapterRegister](images/mfp_new_adapter_register.png)
 
@@ -289,7 +289,7 @@ mfpdev adapter deploy
 3. 新增 Android 或 iOS 平台
 
   ```bash
-	ionic cordova platform add android
+ionic cordova platform add android
   ```
 	或
 
@@ -303,7 +303,7 @@ mfpdev adapter deploy
 	mfpdev app register
 ```
 
-	或者，也可以在 MF 伺服器儀表板上登錄該應用程式。請開啟 MF 伺服器儀表板，然後在左側功能表上，按一下**應用程式 -> 新建**。
+	或者，也可以在 MF 伺服器儀表板上登錄該應用程式。請開啟 MF 伺服器儀表板，然後在功能表上，按一下**應用程式 -> 新建**。
 
 	即會載入下列影像所顯示的頁面。
 
@@ -313,7 +313,7 @@ mfpdev adapter deploy
 
 	若為 Android，**套件**文字框會接受*應用程式 ID*。此參數可在作為 Android 應用程式套件一部分的 `AndroidManifest.xml` 中找到。**版本**文字框欄位則必須填入來自 `AndroidManifest.xml` 的 *versionName* 值。
 
-	若為 iOS，**軟體組 ID** 文字框會接受*應用程式 ID*（區分大小寫）。此參數可在 iOS 應用程式的 `mfpclient.plist` 中找到。**版本**文字框欄位則必須填入來自 iOS 應用程式 `mfpclient.plist` 的 *version* 值。
+	若為 iOS，**組合 ID** 文字框會接受*應用程式 ID*（區分大小寫）。此參數可在 iOS 應用程式的 `mfpclient.plist` 中找到。**版本**文字框欄位則必須填入來自 iOS 應用程式 `mfpclient.plist` 的 *version* 值。
 
 5. 執行 `ionic cordova prepare`，讓變更過濾到新增的環境。
 6. 執行
@@ -345,7 +345,7 @@ Ionic 應用程式會顯示先前從您建立的 COS 實例中上傳的簡短案
 
 ![之前的 COS](images/cos_before.png)
 
-應用程式的首頁提供「取得所有案例」或「新增案例」的選項。
+該應用程式的首頁提供了*取得所有案例*或*新增案例*選項
 
 ![應用程式首頁畫面](images/app-home-screen.png)
 

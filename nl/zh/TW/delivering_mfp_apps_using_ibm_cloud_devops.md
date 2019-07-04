@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-03-13"
+lastupdated: "2019-06-10"
 
 keywords: mobile foundation, integration, devops, ibmcloud, pipeline
 
@@ -39,7 +39,7 @@ subcollection:  mobilefoundation
 
 下列影像提供管線的概觀。
 
-![overview_of_pipeline](images/p00_overview_of_pipeline.png)
+![overview_of_pipeline](images/p00_overview_of_pipeline.png "DevOps 管道的六個階段")
 
 
 ## 必要條件
@@ -49,7 +49,7 @@ subcollection:  mobilefoundation
 * [mfpdev-cli](https://www.npmjs.com/package/mfpdev-cli)
 * 一個範例應用程式及 [MFP 配接器](https://mobilefirstplatform.ibmcloud.com/tutorials/en/foundation/8.0/adapters/)
 * [GitHub](http://github.com/) 帳戶
-* **選用項目：** [Bitbar](https://bitbar.com/testing/) 實例及 Bitbar API 金鑰（您可以根據需求使用任何服務）。
+* *選用項目：* [Bitbar](https://bitbar.com/testing/) 實例及 Bitbar API 金鑰（您可以根據需求使用任何服務）。
 
 
 ## 建立 Continuous Delivery 服務及工具鏈
@@ -58,13 +58,13 @@ subcollection:  mobilefoundation
 * 在「{{ site.data.keyword.cloud_notm }} 型錄」中搜尋 "Continuous Delivery"（或[按一下這裡](https://cloud.ibm.com/catalog/services/continuous-delivery)）。
 * 提供服務名稱、地區等等來建立服務。
 
-    在下列範例中，我們使用「MFP 應用程式/配接器遞送測試」作為服務名稱、使用「倫敦」作為地區/位置，以及使用「預設值」作為資源群組。
+    在下列範例中，對於服務名稱使用 *MFP App/Adapter delivery Test*、對於地區/位置使用 *London*、對於資源群組使用 *Default*。
 
-    ![configuring_continuous_delivery_service](images/p01_configuring_continuous_delivery_service.png)
+    ![configuring_continuous_delivery_service](images/p01_configuring_continuous_delivery_service.png "Mobile Foundation 服務實例的型錄建立頁面")
 
-* 從左側漢堡功能表的 {{ site.data.keyword.jazzhub_title }} 區段中建立工具鏈，並搜尋「建置您自己的工具鏈」以從頭開始建立工具鏈。
+* 從導覽功能表中，選取 **DevOps**，然後按一下**建立工具鏈**，並搜尋「建置您自己的工具鏈」以從頭開始建立工具鏈。
 
-    ![search_build_your_own_toolchain](images/p02_search_build_your_own_toolchain.png)
+    ![search_build_your_own_toolchain](images/p02_search_build_your_own_toolchain.png "建立您自己的工具鏈頁面，其中顯示了「建置您自己的工具鏈」的搜尋結果")
 
 * 提供要配置的工具鏈名稱、地區等等。
 
@@ -72,13 +72,13 @@ subcollection:  mobilefoundation
 ## 將 GitHub 與版本控制及管線觸發程式的工具鏈整合
 {: #integrating-github-with-the-toolchain}
 
-* 在左側功能表的工具鏈概觀中，按一下**新增工具**並搜尋 GitHub。
+* 從導覽的**概觀**頁面中，按一下**新增工具**並搜尋 GitHub。
 * 配置 GitHub 工具的 **GitHub 伺服器位址**、**儲存庫類型**及**儲存庫 URL**。
 * 您可以建立新儲存庫；分出、複製或使用現有的儲存庫。
 
-    在下列範例中，我們使用 "[https://github.com](http://github.com/)" 作為 GitHub 伺服器、使用 "Existing" 作為儲存庫類型，以及使用 "https://github.com/sagar20896/mfp-devops-20181210030116092" 作為「儲存庫 URL」。
+    在下列範例中，對於 GitHub 伺服器使用 "[https://github.com](http://github.com/)"、對於儲存庫類型使用 *Existing*、對於儲存庫 URL 使用 *https://github.com/sagar20896/mfp-devops-20181210030116092*。
 
-    ![configuring_toolchain](images/p03_configuring_toolchain.png)
+    ![configuring_toolchain](images/p03_configuring_toolchain.png "「配置整合」畫面，顯示了「GitHub 伺服器」、「儲存庫類型」和「儲存庫 URL」欄位")
 
 ### 將交付管線新增至工具鏈
 {: #adding-the-delivery-pipeline-to-the-toolchain}
@@ -94,12 +94,12 @@ subcollection:  mobilefoundation
 
 在此階段中，我們將啟動 {{ site.data.keyword.mobilefoundation_short }} 的實例。將 GitHub 新增至管線的作業處於這個階段，只要將變更推送至 Git 儲存庫時，它就會觸發管線。下列步驟會顯示 GitHub 配置。您可以根據需求設定階段觸發程式。它可以是手動或自動的。
 
-在下列範例中，我們將「輸入類型」設為 *Git 儲存庫*、將 Git 儲存庫設為 *mfp-devops-20181210030116092* 並將 Git URL 設為 *https://github.com/sagar20896/mfp-devops-20181210030116092*，以及將分支設為*主要*。
+在下列範例中，我們將「輸入類型」設為 *Git repository*、將 Git 儲存庫設為 *mfp-devops-20181210030116092* 並將 Git URL 設為 *https://github.com/sagar20896/mfp-devops-20181210030116092*，以及將分支設為 *master*。
 
-![first_stage_git_input](images/p4_first_stage_git_input.png)
+![first_stage_git_input](images/p4_first_stage_git_input.png "「設定 Mobile Foundation」畫面，其中選取了「輸入」標籤")
 
 - 按一下**新增階段**，然後配置**輸入**標籤，以指向影像中顯示的 GitHub 儲存庫。
-- 在**工作**標籤中，按一下**新增工作**，然後選取*部署* 作為工作類型。將**部署器類型**選取為 *Cloud Foundry*。
+- 在**工作**標籤中，按一下**新增工作**，然後選取*部署* 作為工作類型。將**部署者類型**選取為 *Cloud Foundry*。
 - 如果您沒有 API 金鑰，則可以在[這裡](https://cloud.ibm.com/iam/#/apikeys)為 {{ site.data.keyword.cloud_notm }} 帳戶建立 API 金鑰。
 
 視需要選取/填入其他欄位。在**部署 Script** 中新增下列幾行：
@@ -134,11 +134,11 @@ subcollection:  mobilefoundation
 
 在上述 Script 中，我們使用 Cloud Foundry CLI 來建立 {{ site.data.keyword.mobilefoundation_short }} 服務實例。
 
-![stage1_jobs_tab_config](images/p05_stage1_jobs_tab_config.png)
+![stage1_jobs_tab_config](images/p05_stage1_jobs_tab_config.png "「設定 Mobile Foundation」畫面，其中選取了「工作」標籤")
 
 在**環境內容**標籤中，將內容 *INSTANCE\_NAME*（作為文字內容）新增為要作為 MobileFoundation 實例名稱的內容。它將作為許多階段中的 ID 使用。
 
-![stage1_environment_properties](images/p06_stage1_environment_properties.png)
+![stage1_environment_properties](images/p06_stage1_environment_properties.png "「設定 Mobile Foundation」畫面，其中選取了「環境內容」標籤")
 
 #### 階段 2 - 建置配接器
 {: #stage2-building-an-adapter}
@@ -164,11 +164,11 @@ subcollection:  mobilefoundation
 ```
 {: codeblock}
 
-在上述 Script 中，我們在儲存庫的 `adapters/JavaAdapter` 中使用配接器指令，藉以安裝 [mfpdev-cli](https://www.npmjs.com/package/mfpdev-cli) 來建置配接器。
+在上述 Script 中，我們安裝 [mfpdev-cli](https://www.npmjs.com/package/mfpdev-cli) 以在儲存庫的 `adapters/JavaAdapter` 中使用配接器指令建置配接器。
 
 在下列範例中，我們使用 *npm* 作為**建置器類型**，並使用建置 Script 中提供的 Script。我們會將**工作目錄**及**建置保存目錄**參數保留為空白。
 
-![build_adapter_stage_jobs_config](images/p07_build_adapter_stage_jobs_config.png)
+![build_adapter_stage_jobs_config](images/p07_build_adapter_stage_jobs_config.png "「建置配接器」畫面，其中選取了「工作」標籤")
 
 #### 階段 3 - 部署配接器
 {: #stage3-deploying-an-adapter}
@@ -180,11 +180,11 @@ subcollection:  mobilefoundation
 - 將輸入類型設為**建置構件**、將**階段**設為建置配接器的階段名稱，以及設定在建置配接器階段中建置配接器的工作。
 - 必須將**階段觸發程式**設為*在完成前一個階段時執行工作*。
 - 從**工作**標籤中新增部署工作。
-- 將**部署器類型**選取為 *Cloud Foundry*，並根據您的喜好設定來配置其餘項目。
+- 將**部署者類型**選取為 *Cloud Foundry*，並根據您的喜好設定來配置其餘項目。
 
-在下列範例中，我們使用 *Cloud Foundry* 作為**部署器類型**、使用*達拉斯* 作為 **{{ site.data.keyword.cloud_notm }} 地區**，API 金鑰與我們在第一個階段中建立的 API 金鑰相同。
+在下列範例中，我們使用 *Cloud Foundry* 作為**部署者類型**、使用 *Dallas* 作為 **{{ site.data.keyword.cloud_notm }} 地區**，API 金鑰與我們在第一個階段中建立的 API 金鑰相同。
 
-![deploy_adapter](images/p08_deploy_adapter.png)
+![deploy_adapter](images/p08_deploy_adapter.png "「部署」畫面，其中選取了「工作」標籤")
 
 
 使用下列**部署 Script**：
@@ -231,9 +231,9 @@ subcollection:  mobilefoundation
 
 在此階段中，我們打算測試先前階段中所建置及部署的配接器。在我們的範例配接器儲存庫中，我們在 'adapters/JavaAdapter/tests' 上有 Script 用來測試配接器端點。
 
-- 將**輸入**設為與建置配接器配置相同的 *GitHub 儲存庫*。
+- 將**輸入**設為與建置配接器配置相同的 *GitHub repository*。
 
-- 在**工作**標籤中新增*部署工作*。將**部署器類型**選取為 *Cloud Foundry*。我們使用部署工作而非測試工作，因為部署可以輕鬆地與 Cloud Foundry 整合。
+- 在**工作**標籤中新增 *deploy job*。將**部署者類型**選取為 *Cloud Foundry*。我們使用部署工作而非測試工作，是因為部署可以輕鬆地與 Cloud Foundry 整合。
 
 請使用下列 Script 來測試配接器。
 
@@ -286,7 +286,7 @@ subcollection:  mobilefoundation
 
 此階段的輸入應該是我們在先前階段中使用的 GitHub 儲存庫。在前一個階段（測試配接器）通過之後，必須觸發此階段。
 
-為了建置應用程式，我們會在**工作**標籤中使用部署工作範本。請使用 *Cloud Foundry* 作為**部署器類型**。
+為了建置應用程式，我們會在**工作**標籤中使用部署工作範本。請使用 *Cloud Foundry* 作為**部署者類型**。
 
 請使用下列 Script 來建置應用程式：
 
@@ -366,7 +366,8 @@ subcollection:  mobilefoundation
 ```
 {: codeblock}
 
-在上述 Script 中，我們使用 `mfpdev-cli` 將應用程式登錄至 {{ site.data.keyword.mobilefoundation_short }} [Fastlane](https://fastlane.tools/)，來建置及發行應用程式。
+在上述 Script 中，我們使用 `mfpdev-cli` 以將應用程式登錄到 {{ site.data.keyword.mobilefoundation_short }}
+ [Fastlane](https://fastlane.tools/) 來建置和發佈應用程式。
 
 用於 Script 的環境變數定義在下一個**環境內容**標籤中。
 
@@ -399,7 +400,7 @@ subcollection:  mobilefoundation
 ```
 {: codeblock}
 
-在上述 Script 中，您需要幾個環境變數。
+對於上述 Script，您需要一些環境變數。
 
 - 將 *screenshot\_dir* 設為 **/home/pipeline/home/pipeline/$BUILD\_ID/target**
 - 將 *applicationPath* 設為您打算要測試之應用程式的 **GitHub 路徑**
@@ -416,7 +417,7 @@ subcollection:  mobilefoundation
 
 此階段不會有任何輸入。
 
-- 在**工作**標籤中建立*部署工作*。
+- 在**工作**標籤中建立 *Deploy job*。
 - 使用下列 Script：
 
 ```

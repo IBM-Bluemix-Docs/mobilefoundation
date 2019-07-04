@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-02-28"
+lastupdated: "2019-06-06"
 
 keywords: push notifications, notifications, FCM, GCM, APNS, WNS, authenticate notification
 
@@ -68,7 +68,7 @@ Android 裝置使用 Firebase Cloud Messaging (FCM) 服務來進行推送通知�
 1. 造訪 [Firebase 主控台](https://console.firebase.google.com/?pli=1)。
 2. 建立專案並提供專案名稱。
 3. 按一下「設定」的「齒輪」圖示，並選取**專案設定**。
-4. 按一下**雲端通訊**標籤以產生**伺服器 API 金鑰**及**傳送端 ID**，然後按一下**儲存**。
+4. 按一下 **Cloud Messaging** 標籤以產生**伺服器 API 金鑰**及**寄件者 ID**，然後按一下**儲存**。
 
 您也可以使用 [{{ site.data.keyword.mobilefirst_notm }} Push 服務的 REST API](http://www.ibm.com/support/knowledgecenter/en/SSHS8R_8.0.0/com.ibm.worklight.apiref.doc/rest_runtime/r_restapi_push_gcm_settings_put.html#Push-GCM-Settings--PUT-) 或 [{{ site.data.keyword.mobilefirst_notm }} 管理服務的 REST API](http://www.ibm.com/support/knowledgecenter/en/SSHS8R_8.0.0/com.ibm.worklight.apiref.doc/apiref/r_restapi_update_gcm_settings_put.html#restservicesapi) 來設定 FCM。
 {: note}
@@ -123,7 +123,7 @@ Windows 裝置會使用 Windows Push Notifications Service (WNS) 來進行推送
 1. 遵循 [Microsoft 所提供的指示](https://msdn.microsoft.com/en-in/library/windows/apps/hh465407.aspx)來產生**套件安全 ID (SID)**及**用戶端密碼**值。
 2. 在 {{ site.data.keyword.mfp_oc_short_notm }} → **[您的應用程式] → 推送 → 推送設定**中新增這些值，然後按一下**儲存**。
 
-> 您也可以使用 [{{ site.data.keyword.mobilefirst_notm }} Push 服務的 REST API](http://www.ibm.com/support/knowledgecenter/en/SSHS8R_8.0.0/com.ibm.worklight.apiref.doc/rest_runtime/r_restapi_push_wns_settings_put.html?view=kc) 或 [{{ site.data.keyword.mobilefirst_notm }} 管理服務的 REST API](http://www.ibm.com/support/knowledgecenter/en/SSHS8R_8.0.0/com.ibm.worklight.apiref.doc/apiref/r_restapi_update_wns_settings_put.html?view=kc) 來設定 WNS。
+您也可以使用 [{{ site.data.keyword.mobilefirst_notm }} Push 服務的 REST API](http://www.ibm.com/support/knowledgecenter/en/SSHS8R_8.0.0/com.ibm.worklight.apiref.doc/rest_runtime/r_restapi_push_wns_settings_put.html?view=kc) 或 [{{ site.data.keyword.mobilefirst_notm }} 管理服務的 REST API](http://www.ibm.com/support/knowledgecenter/en/SSHS8R_8.0.0/com.ibm.worklight.apiref.doc/apiref/r_restapi_update_wns_settings_put.html?view=kc) 來設定 WNS。
 
 <img class="gifplayer" alt="新增 WNS 認證的影像" src="images/wns-setup.png"/>
 
@@ -135,27 +135,28 @@ Windows 裝置會使用 Windows Push Notifications Service (WNS) 來進行推送
 1. 載入 {{ site.data.keyword.mfp_oc_short_notm }}，並導覽至 **[您的應用程式] → 安全 → 範圍元素對映**，按一下**新建**。
 2. 在**範圍元素**欄位中寫入 "push.mobileclient"。然後，按一下**新增**。
 
-**其他可用範圍的清單**
+更多可用範圍的清單：
 
-**範圍** | **說明**
----|---
-apps.read | 讀取應用程式資源的許可權。
-apps.write | 建立、更新、刪除應用程式資源的許可權。
-gcmConf.read | 讀取 GCM 配置設定（API 金鑰及傳送端 ID）的許可權。
-gcmConf.write | 更新、刪除 GCM 配置設定的許可權。
-apnsConf.read | 讀取 APNS 配置設定的許可權。
-apnsConf.write | 更新、刪除 APNS 配置設定的許可權。
-devices.read | 讀取裝置的許可權。
-devices.write | 建立、更新、刪除裝置的許可權。
-subscriptions.read | 讀取訂閱的許可權。
-subscriptions.write | 建立、更新、刪除訂閱的許可權。
-messages.write | 傳送推送通知的許可權。
-webhooks.read | 讀取事件通知的許可權。
-webhooks.write | 傳送事件通知的許可權。
-smsConf.read | 讀取 SMS 配置設定的許可權。
-smsConf.write | 更新、刪除 SMS 配置設定的許可權。
-wnsConf.read | 讀取 WNS 配置設定的許可權。
-wnsConf.write | 更新、刪除 WNS 配置設定的許可權。
+|**範圍** | **說明**|
+|---|---|
+|apps.read | 讀取應用程式資源的許可權。|
+|apps.write | 建立、更新、刪除應用程式資源的許可權。|
+|gcmConf.read | 讀取 GCM 配置設定（API 金鑰及傳送端 ID）的許可權。|
+|gcmConf.write | 更新、刪除 GCM 配置設定的許可權。|
+|apnsConf.read | 讀取 APNS 配置設定的許可權。|
+|apnsConf.write | 更新、刪除 APNS 配置設定的許可權。|
+|devices.read | 讀取裝置的許可權。|
+|devices.write | 建立、更新、刪除裝置的許可權。|
+|subscriptions.read | 讀取訂閱的許可權。|
+|subscriptions.write | 建立、更新、刪除訂閱的許可權。|
+|messages.write | 傳送推送通知的許可權。|
+|webhooks.read | 讀取事件通知的許可權。|
+|webhooks.write | 傳送事件通知的許可權。|
+|smsConf.read | 讀取 SMS 配置設定的許可權。|
+|smsConf.write | 更新、刪除 SMS 配置設定的許可權。|
+|wnsConf.read | 讀取 WNS 配置設定的許可權。|
+|wnsConf.write | 更新、刪除 WNS 配置設定的許可權。|
+{: caption="表 1. 範圍說明" caption-side="top"}
 
 <img class="gifplayer" alt="範圍對映" src="images/scope-mapping.png"/>
 

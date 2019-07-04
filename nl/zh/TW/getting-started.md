@@ -2,7 +2,7 @@
 
 copyright:
   years: 2016, 2019
-lastupdated:  "2019-03-14"
+lastupdated: "2019-06-06"
 
 keywords: getting started, mobile foundation, plans, configure mobile foundation server, sample app, setup
 
@@ -17,10 +17,9 @@ subcollection:  mobilefoundation
 {:note: .note}
 
 # 入門指導教學
-{: #getting-started-tutorial}
+{: #getting-started}
 
 {{site.data.keyword.mobilefoundation_long}} 可加速設定 {{site.data.keyword.mfp_full}} 環境，您可以使用該環境來開發、測試及執行企業行動應用程式。{{site.data.keyword.mobilefoundation_short}} 提供下列不同的服務方案：
-* **Lite**：佈建 Foundation Server 的管理實例，並以記憶體和 CPU 為限。允許任何數目的應用程式，而所有應用程式之間的連接裝置總數限制為 10。免費，且供僅用於試用用途。
 * **Developer**：在使用者帳戶中佈建 Foundation Server 實例。允許任何數目的應用程式，而所有應用程式之間的連接裝置總數限制為 10。免費，且僅供用於開發及測試用途。
 * **Professional Per Device**：在使用者帳戶中佈建 Foundation Server 實例，並依積極連接的裝置數收費。
 * **Professional 1 Application**：在使用者帳戶中佈建 Foundation Server 實例，並允許任意數目的使用者和裝置積極地連接（僅限於單一應用程式）。    
@@ -48,18 +47,6 @@ subcollection:  mobilefoundation
 {: #buildmobilechannel}
 
 
-### 針對 {{site.data.keyword.mobilefoundation_short}}: Lite 方案
-{: #buildchannelliteplan}
-建立 {{site.data.keyword.mobilefoundation_short}}: Lite 的實例之後，您可以完成下列步驟來開始建置行動通道。
-
-* 您可以立即存取與使用 Mobile Foundation Server 的管理實例。
-
-  此選項會使用下列設定來建立 {{site.data.keyword.mfserver_long_notm}} 的管理實例：
-  *	1 GB 的記憶體，這足以嘗試 {{site.data.keyword.mfserver_long_notm}} 的功能。  
-
-  * 使用 CLI 存取 Mobile Foundation Server 時需要認證，您可以從 IBM Cloud 主控台的左導覽窗格按一下**服務認證**來取得認證。
-
-
 ### 針對 {{site.data.keyword.mobilefoundation_short}}: Developer 方案
 {: #buildchanneldevplan}
 
@@ -68,9 +55,9 @@ subcollection:  mobilefoundation
 * 您可以立即存取與使用 Mobile Foundation Server。
 
   此選項會使用下列設定來建立 {{site.data.keyword.mfserver_long_notm}}：
-  *	1 GB 的記憶體。此大小就足以進行開發、輕量型測試活動及小規模正式作業工作負載。
+  *	1 GB 的記憶體。此大小足以進行開發及輕量型測試活動使用。
 
-  * 使用 CLI 存取 Mobile Foundation Server 時需要認證，您可以從 IBM Cloud 主控台的左導覽窗格按一下**服務認證**來取得認證。
+  * 使用 CLI 存取 Mobile Foundation Server 時需要認證，您可以從 IBM Cloud 主控台的導覽窗格按一下**服務認證**來取得認證。
 
 ### 針對 {{site.data.keyword.mobilefoundation_short}}：Professional Per Device 方案
 {: #buildchannelprofdeviceplan}
@@ -96,7 +83,7 @@ subcollection:  mobilefoundation
       1. 使用預設配置建立 {{site.data.keyword.mobilefirst_notm}} 伺服器實例，然後按一下**啟動基本伺服器**。
 
       + 此選項會使用下列設定佈建 {{site.data.keyword.mfserver_long_notm}}：
-          - 兩個節點，各具有 1 GB 記憶體。此大小適合進行開發、控管測試活動及小規模正式作業工作負載。
+          - 兩個節點，各具有 1 GB 記憶體。此大小適合進行開發、中等測試活動及小規模正式作業工作負載。
 
           -	自動產生 `username` 及 `password`。您可以在伺服器啟動並執行時存取它們。
 
@@ -107,7 +94,7 @@ subcollection:  mobilefoundation
 
       +	按一下**啟動主控台**，以啟動 {{site.data.keyword.mfp_oc_short_notm}}。      
 
-      若要使用拓蹼、安全及其他伺服器配置的進階配置來建立 {{site.data.keyword.mobilefirst_notm}} 伺服器實例，請按一下**使用進階配置啟動伺服器**。如需相關資訊，請參閱[設定進階配置](/docs/services/mobilefoundation?topic=mobilefoundation-c_using_mfs_p5#using_mfs_advanced_p5)。
+      若要使用拓蹼、安全及其他伺服器配置的進階配置來建立 {{site.data.keyword.mobilefirst_notm}} 伺服器實例，請按一下**使用進階配置啟動伺服器**。如需相關資訊，請參閱[設定進階配置](/docs/services/mobilefoundation?topic=mobilefoundation-using_mobilefoundation_p5#using_mfs_advanced_p5)。
       {: tip}
 
 ### 針對 {{site.data.keyword.mobilefoundation_short}}：Professional 1 Application 方案
@@ -145,10 +132,10 @@ subcollection:  mobilefoundation
 
       +  按一下**啟動主控台**，以啟動 {{site.data.keyword.mfp_oc_short_notm}}。  
 
-      若要使用拓蹼、安全及其他伺服器配置的進階配置來建立 {{site.data.keyword.mobilefirst_notm}} 伺服器實例，請按一下**使用進階配置啟動伺服器**。如需相關資訊，請參閱[設定進階配置](/docs/services/mobilefoundation?topic=mobilefoundation-c_using_mfs_p2#using_mfs_advanced_p2)。
+      若要使用拓蹼、安全及其他伺服器配置的進階配置來建立 {{site.data.keyword.mobilefirst_notm}} 伺服器實例，請按一下**使用進階配置啟動伺服器**。如需相關資訊，請參閱[設定進階配置](/docs/services/mobilefoundation?topic=mobilefoundation-using_mobilefoundation_p2#using_mfs_advanced_p2)。
       {: tip}
 
-移至[使用 Mobile Foundation 服務來設定 MobileFirst Server ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://mobilefirstplatform.ibmcloud.com/tutorials/en/foundation/8.0/bluemix/using-mobile-foundation/){: new_window}，以進一步瞭解開始使用 {{site.data.keyword.mobilefoundation_short}}。
+移至[使用 Mobile Foundation 服務來設定 MobileFirst Server ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://mobilefirstplatform.ibmcloud.com/tutorials/en/foundation/8.0/ibmcloud/using-mobile-foundation/){: new_window}，以進一步瞭解開始使用 {{site.data.keyword.mobilefoundation_short}}。
 {: note}
 
 ## 步驟 3：在 {{site.data.keyword.mobilefoundation_short}} 中登錄應用程式
@@ -156,7 +143,7 @@ subcollection:  mobilefoundation
 
 建立及啟動 Mobile Foundation 伺服器實例之後，即可執行下列步驟來登錄 Android 應用程式。
 
-  1.  呼叫 {{site.data.keyword.mfp_oc_short_notm}}，方法為載入 URL：`http://<your-server-host>:<server-port>/mfpconsole`。使用在佈建時所產生的 `username` 及 `password`。
+  1.  透過載入 URL `http://<your-server-host>:<server-port>/mfpconsole` 來呼叫 {{site.data.keyword.mfp_oc_short_notm}}。使用在佈建時所產生的 `username` 及 `password`。
 
   + 在 {{site.data.keyword.mfp_oc_short_notm}} **儀表板**中，按一下**應用程式**旁邊的**新建**。
 

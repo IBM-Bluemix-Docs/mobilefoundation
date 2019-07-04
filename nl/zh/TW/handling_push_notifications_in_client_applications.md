@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-03-06"
+lastupdated: "2019-06-10"
 
 keywords: push notifications, notifications, set up android app for notification, set up iOS app for notification, set up cordova app for notification, set up windows app for notification
 
@@ -42,12 +42,13 @@ subcollection:  mobilefoundation
 請參閱下列各節，以瞭解如何處理用戶端應用程式中送入的推送通知：
 
 ### 處理 Android 中的推送通知
-{: #handling_push_notifications_in_android }
+{: #handling_push_notifications_in_android}
 {: android}
 Android 應用程式能夠處理任何收到的推送通知之前，需要先配置「Google Play 服務」的支援。配置應用程式之後，即可使用 {{ site.data.keyword.mobilefirst_notm }} 提供的通知 API 來登錄和取消登錄裝置，以及訂閱和取消訂閱標籤。在本指導教學中，您將瞭解如何處理 Android 應用程式中的推送通知。
 {: android}
 
-**必要條件：**
+#### 必要條件
+{: #prereqs-andriod}
 {: android}
 * 要在本端執行的 {{ site.data.keyword.mfserver_short_notm }}，或遠端執行的 {{ site.data.keyword.mfserver_short_notm }}。
 * 開發人員工作站上安裝的 {{ site.data.keyword.mobilefirst_notm  }} CLI
@@ -74,7 +75,7 @@ Android 應用程式能夠處理任何收到的推送通知之前，需要先配
     {: codeblock}
     {: android}
 
-    有一個[已知的 Google 問題報告](https://code.google.com/p/android/issues/detail?id=212879)防止使用最新的「Play 服務」版本（目前是 9.2.0）。請使用較低的版本。
+    有一個[已知的 Google 問題報告](https://code.google.com/p/android/issues/detail?id=212879)防止使用最新的「Play 服務」版本（目前是 9.2.0）。請使用低於 9.2.0 的版本。
     {: note}
     {: android}
 
@@ -203,13 +204,14 @@ Android 應用程式能夠處理任何收到的推送通知之前，需要先配
 | [`getSubscriptions(MFPPushResponseListener)`](#get-subscriptions) | 擷取裝置目前訂閱的所有標籤。 |
 | [`unsubscribe(String[] tagNames, MFPPushResponseListener)`](#unsubscribe) | 取消訂閱特定標籤。 |
 | [`unregisterDevice(MFPPushResponseListener)`](#unregister) | 從「Push Notifications 服務」取消登錄裝置 |
+{: caption="表 1. Java 方法" caption-side="top"}
 {: android}
 
 ###### 起始設定
-{: #initialization }
+{: #initialization}
 {: android}
 
-需要起始設定，用戶端應用程式才能使用正確的應用程式環境定義連接至 MFPPush 服務。
+需要此項目，用戶端應用程式才能使用正確的應用程式環境定義連接至 MFPPush 服務。
 {: android}
 
 * 應該先呼叫 API 方法，再使用任何其他 MFPPush API。
@@ -417,7 +419,7 @@ MFPPush.getInstance().unregisterDevice(new MFPPushResponseListener<String>() {
 {: #option-two }
 {: android}
 
-在 `MFPPush` 的實例上呼叫 `listen(new MFPPushNofiticationListener())` 來建立接聽器，如下所示：
+透過對 `MFPPush` 實例呼叫 `listen(new MFPPushNofiticationListener())` 來建立接聽器，如下列範例所概述：
 ```java
 MFPPush.getInstance().listen(new MFPPushNotificationListener() {
     @Override
@@ -472,12 +474,12 @@ Google Cloud Messaging (GCM) 已[淘汰](https://developers.google.com/cloud-mes
       {: codeblock}
       {: android}
 
-    - 從 build.gradle 檔案 `compile  com.google.android.gms:play-services-gcm:+` 中移除以下的 GCM 外掛程式
+    - 從 build.gradle 檔案中移除以下 GCM 外掛程式：`compile  com.google.android.gms:play-services-gcm:+`
      {: android}
  3. 配置 AndroidManifest 檔案。`AndroidManifest.xml` 需要進行下列變更
     {: android}
 
-    **移除下列項目：**
+    移除下列項目：
     {: android}
     ```xml
         <receiver android:exported="true" android:name="com.google.android.gms.gcm.GcmReceiver" android:permission="com.google.android.c2dm.permission.SEND">
@@ -503,7 +505,7 @@ Google Cloud Messaging (GCM) 已[淘汰](https://developers.google.com/cloud-mes
     {: codeblock}
     {: android}
 
-    **以下項目需要修改：**
+    下列項目需要修改：
     {: android}
 
     ```xml
@@ -516,7 +518,7 @@ Google Cloud Messaging (GCM) 已[淘汰](https://developers.google.com/cloud-mes
     {: codeblock}
     {: android}
 
-    **將項目修改為：**
+    將項目修改為：
     {: android}
 
     ```xml
@@ -529,7 +531,7 @@ Google Cloud Messaging (GCM) 已[淘汰](https://developers.google.com/cloud-mes
     {: codeblock}
     {: android}
 
-    **新增下列項目：**
+    新增下列項目：
     {: android}
 
     ```xml
@@ -561,7 +563,8 @@ Google Cloud Messaging (GCM) 已[淘汰](https://developers.google.com/cloud-mes
 * [互動式通知](/docs/services/mobilefoundation?topic=mobilefoundation-interactive_notifications#interactive_notifications)
 {: ios}
 
-**必要條件：**
+#### 必要條件
+{: #prereqs-ios}
 {: ios}
 
 * 要在本端執行的 {{ site.data.keyword.mfserver_short }}，或遠端執行的 {{ site.data.keyword.mfserver_short }}。
@@ -569,7 +572,7 @@ Google Cloud Messaging (GCM) 已[淘汰](https://developers.google.com/cloud-mes
 {: ios}
 
 #### 通知配置
-{: #notifications-configuration }
+{: #notifications-configuration_ios}
 {: ios}
 
 建立新的 Xcode 專案，或使用現有的 Xcode 專案。如果 {{ site.data.keyword.mobilefirst_notm }} 原生 iOS SDK 尚未存在於專案中，請遵循[將 {{ site.data.keyword.mobilefoundation_short }} SDK 新增至 iOS 應用程式](http://mobilefirstplatform.ibmcloud.com/tutorials/en/foundation/8.0/application-development/sdk/ios/)指導教學中的指示。
@@ -616,11 +619,11 @@ Google Cloud Messaging (GCM) 已[淘汰](https://developers.google.com/cloud-mes
 {: ios}
 
 #### 通知 API
-{: #notifications-api }
+{: #notifications-api-ios}
 {: ios}
 
 ##### MFPPush 實例
-{: #mfppush-instance }
+{: #mfppush-instance-ios}
 {: ios}
 
 所有 API 呼叫都必須在 `MFPPush` 實例上進行呼叫。在視圖控制器中使用 `var`（例如 `var push = MFPPush.sharedInstance();`），然後在整個視圖控制器中呼叫 `push.methodName()`。
@@ -630,7 +633,7 @@ Google Cloud Messaging (GCM) 已[淘汰](https://developers.google.com/cloud-mes
 {: ios}
 
 #### 盤查處理程式
-{: #challenge-handlers }
+{: #challenge-handlers-ios}
 {: ios}
 
 如果 `push.mobileclient` 範圍對映至**安全檢查**，則您必須確定相符的**盤查處理程式**已存在，且在使用任何 Push API 之前登錄。
@@ -641,7 +644,7 @@ Google Cloud Messaging (GCM) 已[淘汰](https://developers.google.com/cloud-mes
 {: ios}
 
 #### 用戶端
-{: #client-side }
+{: #client-side-ios}
 {: ios}
 
 | Swift 方法 | 說明 |
@@ -655,10 +658,11 @@ Google Cloud Messaging (GCM) 已[淘汰](https://developers.google.com/cloud-mes
 | [`getSubscriptions(completionHandler: ((WLResponse!, NSError!) -> Void)!)`](#get-subscriptions)  | 擷取裝置目前訂閱的所有標籤。 |
 | [`unsubscribe(tagsArray: [AnyObject], completionHandler: ((WLResponse!, NSError!) -> Void)!)`](#unsubscribe) | 取消訂閱特定標籤。 |
 | [`unregisterDevice(completionHandler: ((WLResponse!, NSError!) -> Void)!)`](#unregister) | 從「Push Notifications 服務」取消登錄裝置 |
+{: caption="表 2. Swift 方法" caption-side="top"}
 {: ios}
 
 ##### 起始設定
-{: #initialization }
+{: #initialization-ios}
 {: ios}
 
 需要起始設定，用戶端應用程式才能連接至 MFPPush 服務。
@@ -675,7 +679,7 @@ MFPPush.sharedInstance().initialize();
 {: ios}
 
 ##### 是否支援推送
-{: #is-push-supported }
+{: #is-push-supported-ios}
 {: ios}
 
 檢查裝置是否支援推送通知。
@@ -694,7 +698,7 @@ if isPushSupported {
 {: ios}
 
 ##### 登錄裝置並傳送裝置記號
-{: #register-device--send-device-token }
+{: #register-device--send-device-token-ios}
 {: ios}
 
 將裝置登錄至推送通知服務。
@@ -728,7 +732,7 @@ MFPPush.sharedInstance().sendDeviceToken(deviceToken)
 {: ios}
 
 ##### 取得標籤
-{: #get-tags }
+{: #get-tags-ios}
 {: ios}
 
 從推送通知服務擷取所有可用的標籤。
@@ -757,7 +761,7 @@ MFPPush.sharedInstance().getTags { (response, error) -> Void in
 {: ios}
 
 ##### 訂閱
-{: #subscribe }
+{: #subscribe-ios}
 {: ios}
 
 訂閱所需的標籤。
@@ -780,7 +784,7 @@ MFPPush.sharedInstance().subscribe(self.tagsArray) { (response, error)  -> Void 
 {: ios}
 
 ##### 取得訂閱
-{: #get-subscriptions }
+{: #get-subscriptions-ios}
 {: ios}
 
 擷取裝置目前訂閱的標籤。
@@ -809,7 +813,7 @@ MFPPush.sharedInstance().getSubscriptions { (response, error) -> Void in
 {: ios}
 
 ##### 取消訂閱
-{: #unsubscribe }
+{: #unsubscribe-ios}
 {: ios}
 
 取消訂閱標籤。
@@ -833,7 +837,7 @@ MFPPush.sharedInstance().unsubscribe(self.tagsArray) { (response, error)  -> Voi
 {: ios}
 
 ##### 取消登錄
-{: #unregister }
+{: #unregister-ios}
 {: ios}
 
 從推送通知服務實例中取消登錄裝置。
@@ -856,7 +860,7 @@ MFPPush.sharedInstance().unregisterDevice { (response, error)  -> Void in
 {: ios}
 
 #### 處理推送通知
-{: #handling-a-push-notification }
+{: #handling-a-push-notification-ios}
 {: ios}
 
 推送通知由原生 iOS 架構直接處理。視您的應用程式生命週期而定，iOS 架構將會呼叫不同的方法。
@@ -902,7 +906,8 @@ func application(_ application: UIApplication, didReceiveRemoteNotification user
 * [互動式通知](/docs/services/mobilefoundation?topic=mobilefoundation-interactive_notifications#interactive_notifications)
 {: cordova}
 
-**必要條件：**
+#### 必要條件
+{: #prereqs-cordova}
 {: cordova}
 
 * 要在本端執行的 {{ site.data.keyword.mfserver_short }}，或遠端執行的 {{ site.data.keyword.mfserver_short }}
@@ -911,7 +916,7 @@ func application(_ application: UIApplication, didReceiveRemoteNotification user
 {: cordova}
 
 #### 通知配置
-{: #notifications-configuration }
+{: #notifications-configuration-cordova}
 {: cordova}
 
 建立新的 Cordova 專案或使用現有的專案，然後新增一個以上的支援平台：iOS、Android、Windows。
@@ -922,7 +927,7 @@ func application(_ application: UIApplication, didReceiveRemoteNotification user
 {: note}
 
 #### 新增 Push 外掛程式
-{: #adding-the-push-plug-in }
+{: #adding-the-push-plug-in-cordova}
 {: cordova}
 
 1. 從**指令行**視窗中，導覽至 Cordova 專案的根目錄。  
@@ -949,7 +954,7 @@ iOS 平台需要一個額外步驟。
 在 Xcode 中，於**功能**畫面中啟用應用程式的推送通知。
 {: cordova}
 
-為應用程式選取的軟體組 ID 必須符合您先前在 Apple Developer 網站中建立的 AppId。
+為應用程式選取的組合 ID 必須符合您先前在 Apple Developer 網站中建立的 AppId。
 {: important}
 {: cordova}
 
@@ -971,23 +976,24 @@ Android 平台需要一個額外步驟。
 {: cordova}
 
 #### 通知 API
-{: #notifications-api }
+{: #notifications-api-cordova}
 {: cordova}
 
 ##### 用戶端
-{: #client-side }
+{: #client-side-cordova}
 {: cordova}
 
 | Javascript 函數 | 說明 |
 | --- | --- |
-| [`MFPPush.initialize(success, failure)`](#initialization) | 起始設定 MFPPush 實例。 |
-| [`MFPPush.isPushSupported(success, failure)`](#is-push-supported) | 裝置是否支援推送通知。 |
-| [`MFPPush.registerDevice(options, success, failure)`](#register-device) | 向「Push Notifications 服務」登錄裝置。 |
-| [`MFPPush.getTags(success, failure)`](#get-tags) | 擷取推送通知服務實例中所有可用的標籤。 |
-| [`MFPPush.subscribe(tag, success, failure)`](#subscribe) | 訂閱特定標籤。 |
-| [`MFPPush.getSubsciptions(success, failure)`](#get-subscriptions) | 擷取裝置目前訂閱的標籤 |
-| [`MFPPush.unsubscribe(tag, success, failure)`](#unsubscribe) | 從特定標籤取消訂閱。 |
-| [`MFPPush.unregisterDevice(success, failure)`](#unregister) | 從「Push Notifications 服務」取消登錄裝置 |
+| [`MFPPush.initialize(success, failure)`](#initialization-cordova) | 起始設定 MFPPush 實例。 |
+| [`MFPPush.isPushSupported(success, failure)`](#is-push-supported-cordova) | 裝置是否支援推送通知。 |
+| [`MFPPush.registerDevice(options, success, failure)`](#register-device-cordova) | 向「Push Notifications 服務」登錄裝置。 |
+| [`MFPPush.getTags(success, failure)`](#get-tags-cordova) | 擷取推送通知服務實例中所有可用的標籤。 |
+| [`MFPPush.subscribe(tag, success, failure)`](#subscribe-cordova) | 訂閱特定標籤。 |
+| [`MFPPush.getSubsciptions(success, failure)`](#get-subscriptions-cordova) | 擷取裝置目前訂閱的標籤 |
+| [`MFPPush.unsubscribe(tag, success, failure)`](#unsubscribe-cordova) | 從特定標籤取消訂閱。 |
+| [`MFPPush.unregisterDevice(success, failure)`](#unregister-cordova) | 從「Push Notifications 服務」取消登錄裝置 |
+{: caption="表 3. Javascript 函數" caption-side="top"}
 {: cordova}
 
 ##### API 實作
@@ -995,7 +1001,7 @@ Android 平台需要一個額外步驟。
 {: cordova}
 
 ###### 起始設定
-{: #initialization }
+{: #initialization-cordova}
 {: cordova}
 
 起始設定 **MFPPush** 實例。
@@ -1021,7 +1027,7 @@ MFPPush.initialize (
 {: cordova}
 
 ###### 是否支援推送
-{: #is-push-supported }
+{: #is-push-supported-cordova}
 {: cordova}
 
 檢查裝置是否支援推送通知。
@@ -1041,10 +1047,10 @@ MFPPush.isPushSupported (
 {: cordova}
 
 ###### 登錄裝置
-{: #register-device }
+{: #register-device-cordova}
 {: cordova}
 
-將裝置登錄至推送通知服務。如果不需要任何選項，則這些選項可以設為 `null`。
+將裝置登錄至推送通知服務。如果不需要任何選項，則 options 可以設為 `null`。
 {: cordova}
 
 ```javascript
@@ -1063,7 +1069,7 @@ MFPPush.registerDevice(
 {: cordova}
 
 ###### 取得標籤
-{: #get-tags }
+{: #get-tags-cordova}
 {: cordova}
 
 從推送通知服務擷取所有可用的標籤。
@@ -1083,7 +1089,7 @@ MFPPush.getTags (
 {: cordova}
 
 ###### 訂閱
-{: #subscribe }
+{: #subscribe-cordova}
 {: cordova}
 
 訂閱所需的標籤。
@@ -1106,7 +1112,7 @@ MFPPush.subscribe(
 {: cordova}
 
 ###### 取得訂閱
-{: #get-subscriptions }
+{: #get-subscriptions-cordova}
 {: cordova}
 
 擷取裝置目前訂閱的標籤。
@@ -1126,7 +1132,7 @@ MFPPush.getSubscriptions (
 {: cordova}
 
 ###### 取消訂閱
-{: #unsubscribe }
+{: #unsubscribe-cordova}
 {: cordova}
 
 取消訂閱標籤。
@@ -1149,7 +1155,7 @@ MFPPush.unsubscribe(
 {: cordova}
 
 ###### 取消登錄
-{: #unregister }
+{: #unregister-cordova}
 {: cordova}
 
 從推送通知服務實例中取消登錄裝置。
@@ -1169,7 +1175,7 @@ MFPPush.unregisterDevice(
 {: cordova}
 
 #### 處理推送通知
-{: #handling-a-push-notification }
+{: #handling-a-push-notification-cordova}
 {: cordova}
 
 您可以在已登錄的回呼函數中對其回應物件執行作業，以處理收到的推送通知。
@@ -1190,7 +1196,8 @@ var notificationReceived = function(message) {
 可使用 {{ site.data.keyword.mobilefirst_notm }} 提供的通知 API 來登錄和取消登錄裝置，以及訂閱和取消訂閱標籤。在本指導教學中，您將瞭解如何使用 C# 處理原生 Windows 8.1 Universal 及 Windows 10 UWP 應用程式中的推送通知。
 {: windows}
 
-**必要條件：**
+#### 必要條件
+{: #prereqs-windows}
 {: windows}
 
 * 要在本端執行的 {{ site.data.keyword.mfserver_short_notm }}，或遠端執行的 {{ site.data.keyword.mfserver_short_notm }}。
@@ -1198,7 +1205,7 @@ var notificationReceived = function(message) {
 {: windows}
 
 #### 通知配置
-{: #notifications-configuration }
+{: #notifications-configuration-windows}
 {: windows}
 
 建立新的 Visual Studio 專案，或使用現有的專案。  
@@ -1208,7 +1215,7 @@ var notificationReceived = function(message) {
 {: windows}
 
 #### 新增 Push SDK
-{: #adding-the-push-sdk }
+{: #adding-the-push-sdk-windows}
 {: windows}
 
 1. 選取工具 → NuGet 套件管理程式 → 套件管理程式主控台。
@@ -1226,11 +1233,11 @@ var notificationReceived = function(message) {
 {: windows}
 
 #### 通知 API
-{: #notifications-api }
+{: #notifications-api-windows}
 {: windows}
 
 ##### MFPPush 實例
-{: #mfppush-instance }
+{: #mfppush-instance-windows}
 {: windows}
 
 所有 API 呼叫都必須在 `MFPPush` 實例上進行呼叫。作法是建立變數（例如 `private MFPPush PushClient = MFPPush.GetInstance();`），然後透過類別呼叫 `PushClient.methodName()`。
@@ -1240,7 +1247,7 @@ var notificationReceived = function(message) {
 {: windows}
 
 ##### 盤查處理程式
-{: #challenge-handlers }
+{: #challenge-handlers-windows}
 {: windows}
 
 如果 `push.mobileclient` 範圍對映至**安全檢查**，則您必須確定相符的**盤查處理程式**已存在，且在使用任何 Push API 之前登錄。
@@ -1251,23 +1258,24 @@ var notificationReceived = function(message) {
 {: windows}
 
 #### 用戶端
-{: #client-side }
+{: #client-side-windows}
 {: windows}
 
 | C Sharp 方法                                                                                                | 說明 |
 |--------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------|
-| [`Initialize()`](#initialization)                                                                            | 起始設定所提供環境定義的 MFPPush。 |
-| [`IsPushSupported()`](#is-push-supported)                                                                    | 裝置是否支援推送通知。 |
-| [`RegisterDevice(JObject options)`](#register-device--send-device-token)                  | 向「Push Notifications 服務」登錄裝置。 |
-| [`GetTags()`](#get-tags)                                | 擷取推送通知服務實例中可用的標籤。 |
-| [`Subscribe(String[] Tags)`](#subscribe)     | 訂閱裝置至指定的標籤。 |
-| [`GetSubscriptions()`](#get-subscriptions)              | 擷取裝置目前訂閱的所有標籤。 |
-| [`Unsubscribe(String[] Tags)`](#unsubscribe) | 取消訂閱特定標籤。 |
-| [`UnregisterDevice()`](#unregister)                     | 從「Push Notifications 服務」取消登錄裝置 |
+| [`Initialize()`](#initialization-windows)                                                                            | 起始設定所提供環境定義的 MFPPush。 |
+| [`IsPushSupported()`](#is-push-supported-windows)                                                                    | 裝置是否支援推送通知。 |
+| [`RegisterDevice(JObject options)`](#register-device--send-device-token-windows)                  | 向「Push Notifications 服務」登錄裝置。 |
+| [`GetTags()`](#get-tags-windows)                                | 擷取推送通知服務實例中可用的標籤。 |
+| [`Subscribe(String[] Tags)`](#subscribe-windows)     | 訂閱裝置至指定的標籤。 |
+| [`GetSubscriptions()`](#get-subscriptions-windows)              | 擷取裝置目前訂閱的所有標籤。 |
+| [`Unsubscribe(String[] Tags)`](#unsubscribe-windows) | 取消訂閱特定標籤。 |
+| [`UnregisterDevice()`](#unregister-windows)                     | 從「Push Notifications 服務」取消登錄裝置 |
+{: caption="表 4. C Sharp 方法" caption-side="top"}
 {: windows}
 
 ##### 起始設定
-{: #initialization }
+{: #initialization-windows}
 {: windows}
 
 需要起始設定，用戶端應用程式才能連接至 MFPPush 服務。
@@ -1284,7 +1292,7 @@ MFPPush.GetInstance().Initialize();
 {: windows}
 
 ##### 是否支援推送
-{: #is-push-supported }
+{: #is-push-supported-windows}
 {: windows}
 
 檢查裝置是否支援推送通知。
@@ -1303,7 +1311,7 @@ if (isSupported ) {
 {: windows}
 
 ##### 登錄裝置並傳送裝置記號
-{: #register-device--send-device-token }
+{: #register-device--send-device-token-windows}
 {: windows}
 
 將裝置登錄至推送通知服務。
@@ -1323,7 +1331,7 @@ if (Response.Success == true)
 {: windows}
 
 ##### 取得標籤
-{: #get-tags }
+{: #get-tags-windows}
 {: windows}
 
 從推送通知服務擷取所有可用的標籤。
@@ -1342,7 +1350,7 @@ if (Response.Success == true)
 {: windows}
 
 ##### 訂閱
-{: #subscribe }
+{: #subscribe-windows}
 {: windows}
 
 訂閱所需的標籤。
@@ -1366,7 +1374,7 @@ else
 {: windows}
 
 ##### 取得訂閱
-{: #get-subscriptions }
+{: #get-subscriptions-windows}
 {: windows}
 
 擷取裝置目前訂閱的標籤。
@@ -1387,7 +1395,7 @@ else
 {: windows}
 
 ##### 取消訂閱
-{: #unsubscribe }
+{: #unsubscribe-windows}
 {: windows}
 
 取消訂閱標籤。
@@ -1411,7 +1419,7 @@ else
 {: windows}
 
 ##### 取消登錄
-{: #unregister }
+{: #unregister-windows}
 {: windows}
 
 從推送通知服務實例中取消登錄裝置。
@@ -1430,7 +1438,7 @@ if (Response.Success == true)
 {: windows}
 
 #### 處理推送通知
-{: #handling-a-push-notification }
+{: #handling-a-push-notification-windows}
 {: windows}
 
 為了處理推送通知，您需要設定 `MFPPushNotificationListener`。實作下列方法即可達成此目的。

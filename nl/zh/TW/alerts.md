@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2018-11-23"
+lastupdated: "2019-06-06"
 
 keywords: mobile analytics, set up alerts, alert definitions
 
@@ -49,8 +49,8 @@ Mobile Analytics 提供「警示」特性，可讓您定義警示來監視您的
             * **運算子**：*大於或等於*
             * 臨界值：*3*
 4.  按**下一步**，然後提供下列值：
-    * **方法**：*僅限分析主控台*<br/>
-      此外，如果您想要傳送具有 JSON 有效負載的 POST 訊息至您自訂的 URL，請選擇*分析主控台和 Network Post* 選項。如果您選擇此選項，則可使用下列欄位。
+    * **方法**：*僅限 Analytics 主控台*<br/>
+      此外，如果您想要傳送具有 JSON 有效負載的 POST 訊息至您自訂的 URL，請選擇*Analytics 主控台和 Network Post* 選項。如果您選擇此選項，則可使用下列欄位。
       * **Network Post URL**
       * **標頭**
       * **鑑別類型**
@@ -80,8 +80,8 @@ Mobile Analytics 提供「警示」特性，可讓您定義警示來監視您的
     * **運算子**：*大於或等於*
     * 臨界值：*5*
 4.  按一下**配送方法**或**下一步**，然後提供下列值：
-    * **方法**：*僅限分析主控台*<br/>
-      此外，如果您想要傳送具有 JSON 有效負載的 POST 訊息至您自訂的 URL，請選擇*分析主控台和 Network Post* 選項。如果您選擇此選項，則可使用下列欄位。
+    * **方法**：*僅限 Analytics 主控台*<br/>
+      此外，如果您想要傳送具有 JSON 有效負載的 POST 訊息至您自訂的 URL，請選擇 *Analytics 主控台和 Network Post* 選項。如果您選擇此選項，則可使用下列欄位。
       * **Network Post URL**
       * **標頭**
       * **鑑別類型**

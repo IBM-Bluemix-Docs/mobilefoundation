@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-02-12"
+lastupdated: "2019-06-06"
 
 keywords: JSONStore, advanced jsonstore, Cordova secure jsonstore, iOS secure jsonstore, android jsonstore, adapter integration
 
@@ -42,7 +42,7 @@ subcollection:  mobilefoundation
 您可以將密碼傳遞至 `init` 函數，來保護儲存庫中所有集合的安全。如果未傳遞密碼，則不會將儲存庫中所有集合的文件加密。
 {: cordova}
 
-資料加密僅適用於 Android、iOS、Windows 8.1 Universal 及 Windows 10 UWP 環境。有些安全 meta 資料儲存在金鑰鏈 (iOS)、共用喜好設定 (Android) 或認證鎖定器 (Windows 8.1) 中。儲存庫會以 256 位元的「進階加密標準 (AES)」金鑰進行加密。所有金鑰都是使用密碼型金鑰鍵衍生函數 2 (PBKDF2) 來增強。
+資料加密僅適用於 Android、iOS、Windows 8.1 Universal 及 Windows 10 UWP 環境。有些安全 meta 資料儲存在金鑰鏈 (iOS)、共用喜好設定 (Android) 或認證保險箱 (Windows 8.1) 中。儲存庫會以 256 位元的「進階加密標準 (AES)」金鑰進行加密。所有金鑰都是使用密碼型金鑰鍵衍生函數 2 (PBKDF2) 來增強。
 {: cordova}
 
 使用 `closeAll` 來鎖定所有集合的存取權，直到再次呼叫 `init` 為止。如果您將 `init` 視為登入函數，則可以將 `closeAll` 視為對應的登出函數。請使用 `changePassword` 來變更密碼。
@@ -237,7 +237,7 @@ do {
     }
    ```
    {: cordova}
-3. 如果要從配接器載入資料，請使用 `WLResourceRequest`。
+3. 若要從配接器載入資料，請使用 `WLResourceRequest`。
    ```javascript
    try {
      var resource = new WLResourceRequest("adapters/JSONStoreAdapter/getPeople", WLResourceRequest.GET);
@@ -305,7 +305,7 @@ do {
    ```
    {: codeblock}
    {: cordova}
-7. 使用 `enhance` 可將函數新增至集合原型來延伸核心 API，以符合您的需求。本範例（下面的程式碼 Snippet）顯示如何使用 `enhance` 來新增 `getValue` 函數，它會處理 `keyvalue` 集合。它會接受一個 key（字串）作為其唯一參數，並傳回單一結果。
+7. 使用 `enhance` 可將函數新增至集合原型來延伸核心 API，以符合您的需求。此範例（下列程式碼 Snippet）顯示如何使用 `enhance` 來新增作用於 `keyvalue` 集合的函數 `getValue`。它會接受一個 key（字串）作為其唯一參數，並傳回單一結果。
    ```javascript
    var collectionName = 'keyvalue';
     WL.JSONStore.get(collectionName).enhance('getValue', function (key) {
@@ -327,7 +327,7 @@ do {
 ```
    {: codeblock}
    {: cordova}
-8. 參閱**範例**小節的 Cordova 應用程式 JSONStore 範例。此專案包含使用 JSONStore API 集的 Cordova 應用程式。JavaScript 配接器 Maven 專案可以從[這裡](https://github.com/MobileFirst-Platform-Developer-Center/JSONStoreAdapter/tree/release80)下載。
+8. 參閱**範例**小節的 Cordova 應用程式 JSONStore 範例。此專案包含使用 JSONStore API 集合的 Cordova 應用程式。JavaScript 配接器 Maven 專案可以從[這裡](https://github.com/MobileFirst-Platform-Developer-Center/JSONStoreAdapter/tree/release80)下載。
 {: cordova}
 
 <!--### iOS
@@ -338,7 +338,7 @@ do {
 
 1. 建立配接器，並將它命名為 **People**。
 2. 定義其程序 `addPerson`、`getPeople`、`pushPeople`、`removePerson` 和 `replacePerson`。
-3. 如果要從配接器載入資料，請使用 `WLResourceRequest`。
+3. 若要從配接器載入資料，請使用 `WLResourceRequest`。
    ```swift
     // Start - LoadFromAdapter
     class LoadFromAdapter: NSObject, WLDelegate {
@@ -408,7 +408,7 @@ do {
    ```
    {: codeblock}
    {: ios}
-6. 從**範例**小節下載原生 iOS Swift 應用程式專案。專案包含使用 JSONStore API 集的原生 iOS Swift 應用程式。JavaScript 配接器 Maven 專案可以從[這裡](https://github.com/MobileFirst-Platform-Developer-Center/JSONStoreAdapter/tree/release80)下載。
+6. 從**範例**小節下載原生 iOS Swift 應用程式專案。專案包含使用 JSONStore API 集合的原生 iOS Swift 應用程式。JavaScript 配接器 Maven 專案可以從[這裡](https://github.com/MobileFirst-Platform-Developer-Center/JSONStoreAdapter/tree/release80)下載。
 {: ios}
 
 <!--### Android
@@ -419,7 +419,7 @@ do {
 
 1. 建立配接器，並將它命名為 **JSONStoreAdapter**。
 2. 定義其程序 `addPerson`、`getPeople`、`pushPeople`、`removePerson` 和 `replacePerson`。
-3. 如果要從配接器載入資料，請使用 `WLResourceRequest`。
+3. 若要從配接器載入資料，請使用 `WLResourceRequest`。
    ```java
     WLResponseListener responseListener = new WLResponseListener() {
       @Override
@@ -494,5 +494,5 @@ do {
    ```
    {: codeblock}
    {: android}
-6. 從**範例**小節下載原生 Android 應用程式專案。專案包含使用 JSONStore API 集的原生 Android 應用程式。JavaScript 配接器 Maven 專案可以從[這裡](https://github.com/MobileFirst-Platform-Developer-Center/JSONStoreAdapter/tree/release80)下載。
+6. 從**範例**小節下載原生 Android 應用程式專案。專案包含使用 JSONStore API 集合的原生 Android 應用程式。JavaScript 配接器 Maven 專案可以從[這裡](https://github.com/MobileFirst-Platform-Developer-Center/JSONStoreAdapter/tree/release80)下載。
 {: android}

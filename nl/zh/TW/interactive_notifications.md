@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-02-28"
+lastupdated: "2019-06-10"
 
 keywords: push notifications, sending interactive notification
 
@@ -117,7 +117,7 @@ subcollection:  mobilefoundation
 
 請遵循下列步驟，接收互動式通知：
 
-1. 啟用應用程式功能，以執行背景作業來接收遠端通知。如果部分動作是在背景啟用，則這是必要步驟。
+1. 啟用應用程式功能，以執行背景作業來接收遠端通知。如果部分動作是在背景啟用，則需要執行此步驟。
 2. 定義互動式通知的已登錄種類，並將它們傳遞為 `MFPPush.registerDevice` 的選項。
 
    ```swift

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-02-14"
+lastupdated: "2019-06-06"
 
 keywords: update web content in apps, update apps
 
@@ -20,7 +20,7 @@ subcollection:  mobilefoundation
 # 更新應用程式中 Web 內容的替代步驟
 {: #alternate_steps_to_update_app_web_content_in_app}
 
-以下列出更新應用程式中 Web 內容的部分替代方式。
+檢閱下列有關更新應用程式中 Web 內容的替代方法清單。
 
 * 建置 `.zip` 檔案，並將它上傳至不同的 Mobile Foundation Server：`mfpdev app webupdate [server-name] [runtime-name]`。
   例如：
@@ -42,7 +42,7 @@ subcollection:  mobilefoundation
       {: pre}
   2. 載入「Mobile Foundation 作業主控台」，然後按一下應用程式項目。
   3. 按一下**上傳 Web 資源檔案**，上傳已包裝的 Web 資源。    
-      ![從主控台中上傳「直接更新」.zip 檔案](images/upload-direct-update-package.png)
+      ![透過主控台上傳「直接更新」.zip 檔案](images/upload-direct-update-package.png "透過主控台上傳「直接更新」.zip 檔案，其中「上傳 Web 資源檔案」按鈕強調顯示")
 
 執行指令 `mfpdev help app webupdate` 來進一步瞭解。
 {: tip}

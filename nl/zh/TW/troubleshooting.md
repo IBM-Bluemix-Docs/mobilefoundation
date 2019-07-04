@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2018-02-12"
+lastupdated: "2019-06-10"
 
 keywords: troubleshooting techniques
 
@@ -39,7 +39,7 @@ subcollection:  mobilefoundation
 
 ### 問題有何症狀？
 
-開始說明問題時，最明顯的問題是「問題是什麼？」。此問題可能看起來直接明確；然而，您可以將它細分為數個更有針對性的問題，從而更詳細地說明問題。這些問題可包括下列各項：
+開始說明問題時，最常問的問題是**發生了什麼問題？**。此問題可能看起來直接明確；然而，您可以將它細分為數個更有針對性的問題，更詳細地說明問題。這些問題可包括下列各項：
 
 - 是誰或何者提報問題？
 - 錯誤碼及訊息內容？
@@ -108,4 +108,4 @@ subcollection:  mobilefoundation
 
 若為服務及開始使用指示的相關問題，請使用 [IBM developerWorksdW Answers ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://developer.ibm.com/answers/topics/mobilefirst/?smartspace=bluemix){:new_window} 討論區。請包含 `bluemix` 和 `mobilefirst` 標籤。
 
-如需開立 IBM 支援問題單的相關資訊，或支援層次與問題單嚴重性的相關資訊，請參閱[與支援中心聯絡](/docs/get-support?topic=get-support-getstarttssup#typesofsupport){: new_window}。
+如需開立 IBM 支援問題單的相關資訊，或支援層次與問題單嚴重性的相關資訊，請參閱[與支援中心聯絡](https://cloud.ibm.com/docs/get-support?topic=get-support-getting-customer-support){: new_window}。

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-02-28"
+lastupdated: "2019-06-10"
 
 keywords: push notifications, notifications, sending notification, HTTP/2
 
@@ -69,14 +69,14 @@ subcollection:  mobilefoundation
 
 使用 REST API 來傳送通知時，可以傳送所有形式的通知：標籤和播送通知，以及已鑑別的通知。
 
-若要傳送通知，會使用 POST 至 REST 端點提出要求：`imfpush/v1/apps/<application-identifier>/messages`。  
+若要傳送通知，會使用 POST 向 REST 端點提出要求：`imfpush/v1/apps/<application-identifier>/messages`。  
 以下為範例 URL。
 
 ```
 https://myserver.com:443/imfpush/v1/apps/com.sample.PinCodeSwift/messages
 ```
 
-> 若要檢閱所有 Push Notifications REST API，請參閱使用者文件中的 [REST API 運行環境服務主題](https://www.ibm.com/support/knowledgecenter/SSHS8R_8.0.0/com.ibm.worklight.apiref.doc/rest_runtime/c_restapi_runtime.html)。
+若要檢閱所有 Push Notifications REST API，請參閱使用者文件中的 [REST API 運行環境服務主題](https://www.ibm.com/support/knowledgecenter/SSHS8R_8.0.0/com.ibm.worklight.apiref.doc/rest_runtime/c_restapi_runtime.html)。
 
 ### 通知有效負載
 {: #notification-payload }
@@ -86,14 +86,24 @@ https://myserver.com:443/imfpush/v1/apps/com.sample.PinCodeSwift/messages
 |有效負載內容|定義
 |--- | ---
 |message |要傳送的警示訊息
+|
 |settings |設定是通知的不同屬性。
+|
 |target |目標集可以是消費者 ID、裝置、平台或標籤。只能設定其中一個目標。
+|
 |deviceIds |裝置 ID 所代表的裝置陣列。具有這些 ID 的裝置會收到通知。這是單點播送通知。
+|
 |notificationType |指出用來傳送訊息之通道（推送或 SMS）的整數值。容許的值為 1（僅限推送）、2（僅限 SMS）及 3（同時適用於推送及 SMS）
+|
 |platforms |裝置平台的陣列。在這些平台上執行的裝置會收到通知。支援的值為 A (Apple/iOS)、G (Google/Android) 及 M (Microsoft/Windows)。
+|
 |tagNames |指定為 tagNames 的標籤陣列。訂閱這些標籤的裝置會收到通知。將此類型的目標用於以標籤為基礎的通知。
+|
 |userIds |使用者的 userId 所代表之使用者陣列，用來傳送通知。這是單點播送通知。
+|
 |phoneNumber |用於登錄裝置及接收通知的電話號碼。這是單點播送通知。
+|
+{: caption="表 1. 有效負載內容" caption-side="top"}
 
 **Push Notifications 有效負載 JSON 範例**
 
@@ -118,7 +128,7 @@ https://myserver.com:443/imfpush/v1/apps/com.sample.PinCodeSwift/messages
     },
   },
   "target" : {
-    // The list below is for demonstration purposes only - per the documentation only 1 target is allowed to be used at a time.
+    // The following list is for demonstration purposes only - per the documentation only 1 target is allowed to be used at a time.
     "deviceIds" : [ "MyDeviceId1", ... ],
     "platforms" : [ "A,G", ... ],
     "tagNames" : [ "Gold", ... ],
@@ -155,8 +165,8 @@ https://myserver.com:443/imfpush/v1/apps/com.sample.PinCodeSwift/messages
   - 使用您自己的值來更新應用程式 ID 值。
 4. 設定標頭：
     - `**Authorization**: Bearer eyJhbGciOiJSUzI1NiIsImp ...`
-    - 將 **Bearer** 後面的值取代為步驟 (1) 中的存取記號值。
-    ![Authorization 標頭](images/postman_authorization_header.png)
+    - 將 **Bearer** 之後的值取代為步驟 (1) 中存取記號的值。
+    ![授權標頭](images/postman_authorization_header.png "授權標頭")
 5. 設定內文：
   - 如[通知有效負載](#notification-payload)所述，更新其內容。
   - 例如，藉由新增具有 **userIds** 屬性的 **target** 內容，您可以傳送通知給特定的已登錄使用者。
@@ -168,11 +178,11 @@ https://myserver.com:443/imfpush/v1/apps/com.sample.PinCodeSwift/messages
     }
     ```
 
-    ![Authorization 標頭](images/postman_json.png)
+    ![授權主體](images/postman_json.png "授權主體")
 
     按一下**傳送**按鈕之後，裝置會收到通知：
 
-    ![範例應用程式的影像](images/notifications-app.png)
+    ![範例應用程式的影像](images/notifications-app.png "行動裝置上的推送通知")
 
 ## 自訂通知
 {: #customizing-notifications }
@@ -192,7 +202,7 @@ https://myserver.com:443/imfpush/v1/apps/com.sample.PinCodeSwift/messages
 
 * 通知音效、自訂有效負載、動作鍵標題、通知類型及識別證號碼。
 
-  ![自訂推送通知](images/customizing-push-notifications.png)
+  ![自訂推送通知](images/customizing-push-notifications.png "MobileFirst 作業主控台推送頁面，其中選取了「傳送推送」標籤")
 
 ## APN 推送通知的 HTTP/2 支援
 {: #http2-support-for-apns-push-notifications}
@@ -212,6 +222,7 @@ Apple Push Notification Service (APNs) 支援以 HTTP/2 網路通訊協定為基
 ```xml
 <jndiEntry jndiName="imfpush/mfp.push.apns.http2.enabled" value= "true"/>
 ```
+{: codeblock}
 
 如果新增了 JNDI 內容，則不會使用舊式 TCP Socket 為基礎的通知，而只會啟用以 HTTP/2 為基礎的通知。
 {: note}
@@ -229,4 +240,4 @@ Apple Push Notification Service (APNs) 支援以 HTTP/2 網路通訊協定為基
 {: #next-tutorial-to-follow }
 現在設定好伺服器端之後，請使用下列指導教學設定用戶端，並處理收到的通知。
 
-* [在用戶端應用程式中處理推送通知](/docs/services/mobilefoundation?topic=mobilefoundation-handling_push_notifications_in_client_applications#handling_push_notifications_in_client_applications)
+* [處理用戶端應用程式中的推送通知](/docs/services/mobilefoundation?topic=mobilefoundation-handling_push_notifications_in_client_applications#handling_push_notifications_in_client_applications)

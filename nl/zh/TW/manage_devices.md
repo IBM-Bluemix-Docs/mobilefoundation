@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2018-11-29"
+lastupdated: "2019-06-06"
 
 keywords: device management
 

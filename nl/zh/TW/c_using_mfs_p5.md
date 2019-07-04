@@ -2,7 +2,7 @@
 
 copyright:
   years: 2016, 2019
-lastupdated:  "2019-02-12"
+lastupdated: "2019-06-06"
 
 keywords: mobile foundation, mobile analytics, professional plan, configure database
 
@@ -19,7 +19,7 @@ subcollection:  mobilefoundation
 #	使用 Professional Per Device 方案設定
 {: #using_mobilefoundation_p5}
 
-使用 Professional Per Device 方案，使用者可以在正式作業中建置、測試及執行行動應用程式，而不論行動使用者或裝置的數目有多少。費用則基於每日用戶端裝置的數目。此方案支援大型部署與高可用性。建立 {{site.data.keyword.mobilefoundation_short}}: Professional Per Device 服務實例之後，請閱讀下列程序，以開始使用服務。
+使用 Professional Per Device 方案，使用者可以在正式作業中建置、測試及執行行動應用程式，而不論行動使用者或裝置的數目有多少。費用則是根據每日用戶端裝置的數目。此方案支援大型部署與高可用性。建立 {{site.data.keyword.mobilefoundation_short}}: Professional Per Device 服務實例之後，請閱讀下列程序，以開始使用服務。
 
 ## Professional Per Device 方案中的必要條件
 {: #prerequisites_p5}

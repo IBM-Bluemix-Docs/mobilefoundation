@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2018-11-19"
+lastupdated: "2019-06-06"
 
 keywords: mobile foundation security, restrict backend access, tampered apps
 
@@ -27,15 +27,14 @@ subcollection:  mobilefoundation
 
 若要適當地保護應用程式安全，請啟用預先定義的 MobileFirst 應用程式確實性安全檢查 (`appAuthenticity`)。啟用時，這項檢查會先驗證應用程式的確實性，再向任何服務提供它。正式作業環境中的應用程式應該啟用此特性。
 
-若要啟用應用程式確實性，您可以遵循 **MobileFirst 作業主控台 → [您的應用程式]→ 確實性**中的畫面上指示，或檢閱下面的資訊。
+若要啟用應用程式確實性，可以遵循 **MobileFirst 作業主控台 → [您的應用程式] → 確實性**中的畫面上指示，或檢閱下面的資訊。
 
-* **可用性**
-
-    在 Cordova 及原生應用程式中，所有支援的平台（iOS、Android、Windows 8.1 Universal、Windows 10 UWP）都提供應用程式確實性。
-
-* **限制**
-
-    在 iOS 中，應用程式確實性不支援 **Bitcode**。因此，使用應用程式確實性之前，請在 Xcode 專案內容中停用 Bitcode。
+<dl>
+  <dt>可用性</dt>
+  <dd>在 Cordova 及原生應用程式中，所有支援的平台（iOS、Android、Windows 8.1 Universal、Windows 10 UWP）都提供應用程式確實性。</dd>
+  <dt>限制</dt>
+  <dd>在 iOS 中，應用程式確實性不支援 **Bitcode**。因此，使用應用程式確實性之前，請在 Xcode 專案內容中停用 Bitcode。</dd>
+</dl>
 
 ## 應用程式確實性流程
 {: #appauthenticityflow}
@@ -96,7 +95,7 @@ MobileFirst Server 會在第一次嘗試連接至伺服器時驗證應用程式�
 
 1. 在**建置階段**標籤下，按一下 **+** 按鈕，然後建立新的**執行 Script 階段**。
 2. 複製「BTS 工具」的路徑，並將其貼入您已建立的新「執行 Script 階段」。
-3. 將「執行 Script 階段」拖曳至**編譯來源階段**上方。
+3. 將該執行 Script 階段拖曳至**編譯來源階段**上方。
 
 建置應用程式的正式作業版本時，應該使用此工具。
 
@@ -115,7 +114,7 @@ MobileFirst Server 會在第一次嘗試連接至伺服器時驗證應用程式�
 ### 驗證類型
 {: #trblvalidationtypes}
 
-Mobile First Platform Foundation 提供應用程式的靜態及動態應用程式確實性。對於用來產生應用程式確實性種子的演算法及屬性，這些驗證類型會不同。依預設，應用程式確實性在啟用時會使用動態驗證演算法。兩種驗證類型都確保應用程式的安全。動態應用程式確實性使用嚴格驗證，並檢查應用程式確實性。針對靜態應用程式確實性，我們使用稍微放鬆的演算法，而這類演算法不會使用動態應用程式確實性中使用的所有驗證檢查。
+MobileFirst Platform Foundation 提供應用程式的靜態及動態應用程式確實性。對於用來產生應用程式確實性種子的演算法及屬性，這些驗證類型會不同。依預設，應用程式確實性在啟用時會使用動態驗證演算法。兩種驗證類型都確保應用程式的安全。動態應用程式確實性使用嚴格驗證，並檢查應用程式確實性。針對靜態應用程式確實性，我們使用稍微放鬆的演算法，而這類演算法不會使用動態應用程式確實性中使用的所有驗證檢查。
 
 動態應用程式確實性可以從「MobileFirst 主控台」中配置。內部演算法會根據主控台中所選擇的選項來產生應用程式確實性資料。針對靜態應用程式確實性，則需要使用 mfpadm CLI。
 

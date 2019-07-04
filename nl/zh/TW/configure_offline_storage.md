@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-02-12"
+lastupdated: "2019-06-06"
 
 keywords: JSONStore, offline storage, add jsonstore to cordova, add jsonstore to iOS, add jsonstore to android, jsonstore methods, jsonstore operations
 
@@ -65,7 +65,7 @@ Mobile Foundation JSONStore 是選用的用戶端 API，提供輕量型文件導
 {: #initialize_jsonstore_cordova}   
 {: cordova}
 
-使用 `init`，來啟動一個以上 JSONStore 集合。啟動或佈建集合表示建立包含集合及文件（如果不存在）的持續性儲存空間。如果將密碼傳遞至選項，則會以密碼加密持續性儲存空間。
+使用 `init`，來啟動一個以上 JSONStore 集合。啟動或佈建集合表示建立包含集合及文件（如果不存在）的持續性儲存空間。如果將密碼傳遞給選項，則會以該密碼加密持續性儲存空間。
 {: cordova}
 
 ```javascript
@@ -485,7 +485,7 @@ do {
    ```
    {: codeblock}
    {: android}
-   我們新增了 `abiFilters`，以確保具有 JSONStore 的應用程式將在上述指定的任何架構中執行。這是必要的，因為 JSONStore 相依於只支援這些架構的協力廠商程式庫。
+   新增 `abiFilters` 是為了確保具有 JSONStore 的應用程式將在先前指定的任何架構中執行。這是必要的，因為 JSONStore 相依於只支援這些架構的協力廠商程式庫。
    {: note}
    {: android}
 

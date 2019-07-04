@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-02-14"
+lastupdated: "2019-06-06"
 
 keywords: Direct Update, CDN support, secure direct update
 
@@ -25,7 +25,7 @@ subcollection:  mobilefoundation
 ## 自訂直接更新使用者介面
 {: #customize_du_ui}
 
-您可以自訂呈現給一般使用者的「直接更新使用者介面」。
+您可以自訂呈現給一般使用者的「直接更新」使用者介面。
 在 **index.js** 的 `wlCommonInit()` 函數內新增下列程式碼：
 ```JavaScript
 wl_DirectUpdateChallengeHandler.handleDirectUpdate = function(directUpdateData, directUpdateContext) {
@@ -41,8 +41,8 @@ wl_DirectUpdateChallengeHandler.handleDirectUpdate = function(directUpdateData, 
 
 此函數提供預設「直接更新」設計：在「直接更新」可用時顯示的預設訊息對話框，以及在起始直接更新程序時顯示的預設進度畫面。您可以藉由置換此函數，並實作您自己的邏輯，來實作自訂的「直接更新」使用者介面行為，或自訂「直接更新」對話框。
 
-在下面的程式碼範例中，`handleDirectUpdate` 函數會在「直接更新」對話框中實作自訂訊息。請將這個程式碼新增至 Cordova 專案的 `www/js/index.js` 檔案。
-自訂的「直接更新」使用者介面的其他範例：
+在下列程式碼範例中，`handleDirectUpdate` 函數在「直接更新」對話框中實作自訂訊息。請將這個程式碼新增至 Cordova 專案的 `www/js/index.js` 檔案。
+其他自訂的「直接更新」使用者介面範例：
 * 使用協力廠商 JavaScript 架構（例如 jQuery Mobile、Ionic、…）所建立的對話框
 * 執行 Cordova 外掛程式的完全原生使用者介面
 * 呈現給使用者的替代 HTML，其中具有選項等。
@@ -93,6 +93,7 @@ var  directUpdateCustomListener  = {
 | `FAILURE_ALREADY_IN_PROGRESS` | 直接更新已在執行中時，已呼叫啟動方法。|
 | `FAILURE_INTEGRITY` | 無法驗證更新檔案的確實性。|
 | `FAILURE_UNKNOWN` | 非預期的內部錯誤。|
+{: caption="表 1. 狀態碼" caption-side="top"}
 
 如果實作自訂直接更新接聽器，則您必須確保在直接更新程序完成時重新載入應用程式，並已呼叫 `onFinish()` 方法。如果直接更新程序無法順利完成，您也必須呼叫 `wl_directUpdateChalengeHandler.submitFailure()`。
 
@@ -138,7 +139,7 @@ wl_directUpdateChallengeHandler.handleDirectUpdate = function(directUpdateData, 
 
 若要執行無使用者介面的直接更新，請實作 `directUpdateCustomListener`。請將空的函數實作提供給 `onStart` 及 `onProgress` 方法。空的實作會導致直接更新程序在背景中執行。
 
-若要完成直接更新程序，必須重新載入應用程式。下列是可用的選項：
+若要完成直接更新程序，必須重新載入應用程式。以下是可用的選項：
 * `onFinish` 方法也可以是空的。在此情況下，將在重新啟動應用程式之後套用直接更新。
 * 您可以實作一個自訂對話框，通知或要求使用者重新啟動應用程式。（請參閱下列範例。）
 * `onFinish` 方法可以藉由呼叫 `WL.Client.reloadApp()` 來強制重新載入應用程式。
@@ -176,7 +177,7 @@ wl_directUpdateChallengeHandler.handleDirectUpdate = function(directUpdateData, 
 
 ## 處理直接更新失敗
 {: #scenario-handling-a-direct-update-failure }
-本節示範如何處理由於失去連線功能（舉例來說）而可能造成的直接更新失敗。在此情境中，即使處於離線模式，也會阻止使用者使用應用程式。畫面上會顯示一個對話框，提供使用者重試的選項。
+本節示範如何處理由於失去連線功能（舉例來說）而可能造成的直接更新失敗。在此情境中，即使處於離線模式，也會導致使用者無法使用應用程式。畫面上會顯示一個對話框，提供使用者重試的選項。
 
 1.  建立一個廣域變數，來儲存直接更新環境定義，讓您可在後續當直接更新程序失敗時使用它。例如：
     ```JavaScript
@@ -245,7 +246,7 @@ wl_directUpdateChallengeHandler.handleDirectUpdate = function(directUpdateData, 
 {: #delta-and-full-direct-update }
 「差異直接更新」可讓應用程式只下載自前次更新後已變更的檔案，而不是應用程式的整個 Web 資源。這會減少下載時間、保留頻寬，並改善整體使用者體驗。
 
-只有在用戶端應用程式的 Web 資源比目前部署在伺服器的應用程式落後一個版本時，才能進行**差異更新**。落後目前部署的應用程式多個版本的用戶端應用程式（表示自更新用戶端應用程式後，已至少兩次將應用程式部署至伺服器）會接收**完整更新**（表示下載並更新整個 Web 資源）。
+只有在用戶端應用程式的 Web 資源比目前部署在伺服器的應用程式落後一個版本時，才能進行**差異更新**。落後目前部署的應用程式多個版本的用戶端應用程式（表示自更新用戶端應用程式後，已至少兩次將應用程式部署至伺服器）會收到**完整更新**（表示會下載並更新整個 Web 資源）。
 {: note}
 
 請參閱**範例**小節中的 Cordova 應用程式「直接更新」範例。此應用程式示範如何建立自訂「直接更新」對話框，而不是預設所提供的對話框。  
@@ -297,42 +298,44 @@ wl_directUpdateChallengeHandler.handleDirectUpdate = function(directUpdateData, 
 {: #akamai-administrator }
 1. 開啟 Akamai 內容管理程式，並將**主機名稱**內容設為新網域的值。
 
-    ![將主機名稱內容設為新網域的值](images/direct_update_cdn_3.jpg)
+    ![將「主機名稱」內容設定為新網域的值](images/direct_update_cdn_3.jpg "將「主機名稱」內容設定為新網域的值")
 
 2. 在「預設規則」標籤上，配置原始 Mobile Foundation 伺服器主機及埠，並將**自訂轉遞主機標頭**值設為剛才建立的網域。
 
-    ![將「自訂轉遞主機標頭」值設為剛才建立的網域](images/direct_update_cdn_4.jpg)
+    ![將「自訂轉遞主機標頭」值設定為新建立的網域](images/direct_update_cdn_4.jpg "將「自訂轉遞主機標頭」值設定為新建立的網域")
 
 3. 從**快取選項**清單中，選取**無儲存**。
 
-    ![從「快取選項」中，選取「無儲存」](images/direct_update_cdn_5.jpg)
+    ![從「快取選項」清單中，選取「無儲存」](images/direct_update_cdn_5.jpg "從「快取選項」清單中，選取「無儲存」")
 
 4. 從**靜態內容配置**標籤中，根據應用程式的「直接更新」URL 配置比對準則。例如，建立一個條件，陳述 `If Path matches one of direct_update_URL`。
 
-    ![根據應用程式的「直接更新」URL 配置比對準則](images/direct_update_cdn_6.jpg)
+    ![根據應用程式的「直接更新」URL 來配置符合條件](images/direct_update_cdn_6.jpg "根據應用程式的「直接更新」URL 來配置符合條件")
 
 5. 配置快取索引鍵行為，以使用快取索引鍵中的所有要求參數（您必須這樣做，才能快取不同應用程式或版本的不同「直接更新」保存檔）。例如，從**行為**清單中，選取`包括所有參數（保留來自要求的順序）`。
 
-    ![將快取索引鍵行為配置為使用快取索引鍵中的所有要求參數](images/direct_update_cdn_8.jpg)
+    ![配置快取索引鍵行為，以在快取索引鍵中使用所有要求參數](images/direct_update_cdn_8.jpg "配置快取索引鍵行為，以在快取索引鍵中使用所有要求參數")
 
 6. 設定與下列值類似的值，將快取行為配置為快取「直接更新」URL 並設定 TTL。
 
-      ![將值設為配置快取行為](images/direct_update_cdn_7.jpg)
+      ![設定值以配置快取行為](images/direct_update_cdn_7.jpg "設定值以配置快取行為")
 
 | 欄位 | 值 |
 |:------|:------|
 | 快取選項 | 快取 |
 | 強制重新評估過時物件 | 如果無法驗證，則提供過時物件 |
 | 經歷時間上限 | 3 分鐘 |
+{: caption="表 2. 用於配置快取行為的欄位和值" caption-side="top"}
 
 ## 安全直接更新
 {: #secure-dc }
 
-預設為已停用，「安全直接更新」可防止協力廠商攻擊者變更從 Mobile Foundation 伺服器（或從「內容遞送網路 (CDN)」）傳送至用戶端應用程式的 Web 資源。
+預設為已停用，「安全直接更新」可防止協力廠商攻擊者變更從 Mobile Foundation 伺服器（或從 Content Delivery Network (CDN)）傳送至用戶端應用程式的 Web 資源。
 
-**若要啟用「直接更新」確實性，請執行下列動作：**  
+### 啟用「直接更新」確實性
+{: #enable-direct-update-authenticity}
 使用偏好的工具，從 Mobile Foundation 伺服器金鑰儲存庫中擷取公開金鑰，並將它轉換為 base64。  
-然後，應該依照以下指示使用所產生的值：
+然後，應該如下列步驟所示使用產生的值：
 
 1. 開啟**指令行**視窗，並導覽至 Cordova 專案的根目錄。
 2. 執行下列指令：`mfpdev app config`，並選取**直接更新確實性公開金鑰**選項。
@@ -405,6 +408,6 @@ pdGIdLtkrhzbqHFwXE0v3dt+lnLf21wRPIqYHaEu+EB/A4dLO6hm+IjBeu/No7H7TBFm
     * 將產生的文字（沒有 `BEGIN PUBLIC KEY` 及 `END PUBLIC KEY` 標記）複製到應用程式的 mfpclient 內容檔，緊跟在 `wlSecureDirectUpdatePublicKey` 後面。
     * 從命令提示字元中，發出下列指令：`mfpdev app config direct_update_authenticity_public_key <public_key>`
 
-    對於 `<public_key>`，貼上「步驟 1」中產生的文字（沒有 `BEGIN PUBLIC KEY` 及 `END PUBLIC KEY` 標記）。
+    對於 `<public_key>`，貼上步驟 1 中產生的文字，不包括 `BEGIN PUBLIC KEY` 和 `END PUBLIC KEY` 標記。
 
 3. 執行 cordova 建置指令，在應用程式中儲存公開金鑰。

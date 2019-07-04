@@ -2,7 +2,7 @@
 
 copyright:
   years: 2016, 2019
-lastupdated:  "2019-02-12"
+lastupdated: "2019-06-06"
 
 keywords: mobile foundation developer, mobile analytics
 
@@ -28,7 +28,7 @@ subcollection:  mobilefoundation
   此選項會使用下列設定來建立 {{site.data.keyword.mfserver_long_notm}}：
   *	1 GB 的記憶體。此大小就足以進行開發、輕量型測試活動及小規模正式作業工作負載。
 
-  * 使用 CLI 存取 MobileFirst Server 時需要認證，您可以從 IBM Cloud 主控台的左導覽窗格按一下**服務認證**來取得認證。
+  * 使用 CLI 存取 MobileFirst Server 時需要認證，您可以從 IBM Cloud 主控台的導覽窗格按一下**服務認證**來取得認證。
 
 您現在可以管理行動應用程式及行動裝置、使用伺服器作為行動後端、傳送推送通知，以及執行其他作業。
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated:  "2019-02-12"
+lastupdated: "2019-06-14"
 
 keywords: JSONStore, offline storage, jsonstore error codes
 
@@ -17,9 +17,10 @@ subcollection:  mobilefoundation
 {:pre: .pre}
 
 
-#  JSONStore      
-{: #jsonstore }
+# JSONStore
+{: #jsonstore}
 {{site.data.keyword.mobilefoundation_short}} **JSONStore** 是選用的用戶端 API，可提供輕量型文件導向的儲存空間系統。JSONStore 會啟用 **JSON 文件**的持續性儲存空間。應用程式中的文件會在 JSONStore 中提供，即使執行應用程式的裝置已離線。例如，裝置中沒有可用的網路連線時，這個持續性且一律可用的儲存空間可協助使用者存取文件。
+{: shortdesc}
 
 因為 JSONStore 是開發人員所熟悉的，所以本文件有時會使用關聯式資料庫術語來協助說明 JSONStore。不過，關聯式資料庫與 JSONStore 之間有許多差異。例如，用來將資料儲存至關聯式資料庫的嚴格綱目與 JSONStore 的方法不同。使用 JSONStore，您可以儲存任何 JSON 內容，並檢索需要搜尋的內容。
 
@@ -46,14 +47,14 @@ subcollection:  mobilefoundation
 
 JSONStore 文件是具有自動產生 ID (`_id`) 及 JSON 資料的 JSON 物件。這類似於資料庫術語中的記錄或列。`_id` 的值一律是特定集合內的唯一整數。部分函數（例如 `JSONStoreInstance` 類別中的 `add`、`replace` 及 `remove`）採用「文件」或「物件」的「陣列」。這些方法適用於一次對各種「文件」或「物件」執行多項作業。
 
-**單一文件**  
+單一文件：
 
 ```javascript
 var doc = { _id: 1, json: {name: 'carlos', age: 99} };
 ```
 {: codeblock}
 
-**文件陣列**
+文件陣列：
 
 ```javascript
 var docs = [
@@ -90,7 +91,7 @@ JSONStore 集合類似於資料庫術語中的表格。
 
 有效的資料類型包含：「字串」、「布林」、「數字」及「整數」。這些類型只是類型提示，並未進行類型驗證。此外，這些類型決定如何儲存可檢索的欄位。例如，`{age: 'number'}` 會將 1 檢索為 1.0，而 `{age: 'integer'}` 會將 1 檢索為 1。
 
-**搜尋欄位及額外搜尋欄位**
+搜尋欄位和額外搜尋欄位：
 
 ```javascript
 var searchField = {name: 'string', age: 'integer'};
@@ -100,7 +101,7 @@ var additionalSearchField = {key: 'string'};
 
 只能檢索物件內的索引鍵，而不是物件本身。陣列是以透通方式處理，這表示您無法檢索陣列或陣列的特定索引 (arr[n])，但您可以檢索陣列內的物件。
 
-**檢索陣列內的值**
+對陣列中的值編製索引：
 
 ```javascript
 
@@ -123,14 +124,14 @@ var myObject = {
 查詢是使用搜尋欄位或額外搜尋欄位來尋找文件的物件。  
 這些範例假設 name 搜尋欄位的類型是「字串」，而 age 搜尋欄位的類型是「整數」。
 
-**尋找 `name` 符合 `carlos` 的文件**
+尋找其 `name` 與 `carlos` 符合的文件：
 
 ```javascript
 var query1 = {name: 'carlos'};
 ```
 {: codeblock}
 
-**尋找 `name` 符合 `carlos` 且 `age` 符合 `99` 的文件**
+尋找其 `name` 與 `carlos` 符合並且 `age` 與 `99` 符合的文件：
 
 ```javascript
 var query2 = {name: 'carlos', age: 99};
@@ -141,7 +142,7 @@ var query2 = {name: 'carlos', age: 99};
 {: #query-parts }
 查詢組件用來建置更進階的搜尋。部分 JSONStore 作業（例如 `find` 或 `count` 的部分版本）採用查詢組件。查詢組件內的所有項目都是依據 `AND` 陳述式結合的，而查詢組件本身則是依據 `OR` 陳述式結合的。只有在查詢組件內的所有項目都是 **true** 時，搜尋準則才會傳回相符項。您可以使用多個查詢組件來搜尋滿足一個以上查詢組件的相符項。
 
-使用查詢組件尋找，只能在最上層的搜尋欄位上運作。例如：使用 `name`，而不是 `name.first`。使用多個集合（其中，所有搜尋欄位都是最上層）來解決此行為。使用非最上層搜尋欄位的查詢組件作業包含：`equal`、`notEqual`、`like`、`notLike`、`rightLike`、`notRightLike`、`leftLike` 及 `notLeftLike`。如果您使用非最上層搜尋欄位，則行為不確定。
+使用查詢組件尋找，只能在最上層的搜尋欄位上運作。例如：使用 `name`，而不是 `name.first`。使用包含的所有搜尋欄位均為最上層欄位的多個集合，可規避此行為。使用非最上層搜尋欄位的查詢組件作業包含：`equal`、`notEqual`、`like`、`notLike`、`rightLike`、`notRightLike`、`leftLike` 及 `notLeftLike`。如果您使用非最上層搜尋欄位，則行為不確定。
 
 ## 特性表格
 {: #features-table }
@@ -163,6 +164,7 @@ JSONStore 類似於 LocalStorage、Indexed DB、Cordova Storage API 及 Cordova 
 | 多使用者支援                                     |	     ✔ 	      |      -	    |     -	     |        -	           |         -	      |
 | 檢索   	                                         |	     ✔ 	      |      -	    |        ✔	           |         ✔	      |         -	      |
 | 儲存空間類型                                     | JSON 文件      | 鍵值組          | JSON 文件      | 關聯式 (SQL)     | 字串        |
+{: caption="表 1. 特性比較" caption-side="top"}
 
 「可靠的儲存空間」表示除非發生下列其中一個事件，否則不會刪除您的資料：
 * 從裝置中移除應用程式。
@@ -183,8 +185,7 @@ init (JavaScript) 或 open（原生 iOS 及原生 Android）API 可以採用具�
 
 若要加密儲存庫中的所有集合，請將密碼傳遞至 `init` (JavaScript) 或 `open`（原生 iOS 及原生 Android）API。如果未傳遞任何密碼，則不會加密儲存庫集合中的任何文件。
 
-部分安全構件（例如 salt）儲存在金鑰鏈 (iOS)、共用喜好設定 (Android) 及認證鎖定器（Windows Universal 8.1 及 Windows 10 UWP）中。儲存庫會以 256 位元的「進階加密標準 (AES)」金鑰進行加密。所有金鑰都是使用密碼型金鑰鍵衍生函數 2 (PBKDF2) 來增強。
-您可以選擇為應用程式加密資料收集，但無法切換已加密與純文字格式，或混合使用儲存庫內的格式。
+部分安全構件（例如 salt）儲存在金鑰鏈 (iOS)、共用喜好設定 (Android) 及認證鎖定器（Windows Universal 8.1 及 Windows 10 UWP）中。儲存庫會以 256 位元的「進階加密標準 (AES)」金鑰進行加密。所有金鑰都是使用密碼型金鑰鍵衍生函數 2 (PBKDF2) 來增強。您可以選擇為應用程式加密資料收集，但無法切換已加密與純文字格式，或混合使用儲存庫內的格式。
 
 用於保護儲存庫中資料的金鑰係根據您所提供的使用者密碼。金鑰不會到期，但您可以藉由呼叫 changePassword API 來進行變更。
 
@@ -228,17 +229,17 @@ JSONStore 在所有平台上使用 SQLCipher。在 Android 及 iOS 上，提供�
 1. 執行隨附 SQLCipher for Windows Runtime Commercial Edition 的 SQLCipher for Windows Runtime 8.1/10 延伸。
 2. 安裝延伸完成之後，找出剛才建立的 **sqlite3.dll** 檔案的 SQLCipher 版本。其中一個適用於 x86、一個適用於 x64，一個適用於 ARM。
 
-   ```bash
-   C:\Program Files (x86)\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\SQLCipher.WinRT81\3.0.1\Redist\Retail\<platform>
-   ```
-   {: codeblock}
+    ```bash
+    C:\Program Files (x86)\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\SQLCipher.WinRT81\3.0.1\Redist\Retail\<platform>
+    ```
+    {: codeblock}
 
 3. 複製這個檔案，並取代 MobileFirst 應用程式。
 
-   ```bash
-   <Worklight project name>\apps\<application name>\windows8\native\buildtarget\<platform>
-   ```
-   {: codeblock}
+    ```bash
+    <Worklight project name>\apps\<application name>\windows8\native\buildtarget\<platform>
+    ```
+    {: codeblock}
 
 ## 效能
 {: #performance-jsonstore }
@@ -263,9 +264,9 @@ JSONStore 在所有平台上使用 SQLCipher。在 Android 及 iOS 上，提供�
 * 當您呼叫執行檢索的 add 方法時，所使用的搜尋欄位及額外搜尋欄位數量會影響效能。只會檢索用於 find 方法之查詢中的值。
 * 依預設，JSONStore 會追蹤其文件的本端變更。此行為可以予以停用，因此節省一些循環，方法是在您使用 add、remove 及 replace API 時將 `markDirty` 旗標設為 **false**。
 * 啟用安全會將一些額外負擔新增至 `init` 或 `open` API，以及其他使用集合內文件的作業。請考量是否真的需要安全。例如，open API 的加密速度較慢，因為它必須產生用於加密及解密的加密金鑰。
-* `replace` 及 `remove` API 取決於集合大小，因為它們必須通過整個集合才能取代或移除所有出現項目。因為它必須通過每筆記錄，所以必須將每筆記錄解密，因此在使用加密時會變慢。此效能命中對大型集合更為顯著。
+* `replace` 及 `remove` API 取決於集合大小，因為它們必須透過整個集合才能取代或移除所有出現項目。因為它必須透過每筆記錄，所以必須將每筆記錄解密，因此在使用加密時會變慢。此效能命中對大型集合更為顯著。
 * `count` API 相當昂貴。不過，您可以保留可保留該集合計數的變數。每次您儲存或移除集合中的項目時，都要更新它。
-* `find` API（`find`、`findAll` 及 `findById`）受到加密的影響，因為它們必須解密每份文件才能看到它是否符合。對於依查詢尋找，如果通過限制，則可能較為快速，因為當它達到結果限制時就會停止。JSONStore 不需要將其餘的文件解密，即可瞭解是否還有任何其他搜尋結果。
+* `find` API（`find`、`findAll` 及 `findById`）受到加密的影響，因為它們必須解密每份文件才能看到它是否符合。對於依查詢尋找，如果達到限制，則可能較為快速，因為當它達到結果限制時就會停止。JSONStore 不需要將其餘的文件解密，即可瞭解是否還有任何其他搜尋結果。
 
 ## 並行性
 {: #concurrency-jsonstore }
@@ -275,9 +276,9 @@ JSONStore 在所有平台上使用 SQLCipher。在 Android 及 iOS 上，提供�
 
 「jQuery 延遲」是可解決或拒絕的承諾。下列範例並非 JSONStore 特有的，但一般是要協助您瞭解其使用情形。
 
-您也可以接聽 JSONStore `success` 及 `failure` 事件，而非承諾及回呼。執行基於傳遞給事件接聽器之引數的動作。
+您也可以接聽 JSONStore `success` 及 `failure` 事件，而非承諾及回呼。執行以傳遞給事件接聽器之引數為基礎的動作。
 
-**承諾定義範例**
+範例 Promise 定義：
 
 ```javascript
 var asyncOperation = function () {
@@ -291,8 +292,9 @@ var asyncOperation = function () {
   return deferred.promise();
 };
 ```
+{: codeblock}
 
-**承諾使用情形範例**
+範例 Promise 用法：
 
 ```javascript
 // The function that is passed to .then is executed after 1000 ms.
@@ -300,8 +302,9 @@ asyncOperation.then(function (response) {
   // response = 'Hello'
 });
 ```
+{: codeblock}
 
-**回呼定義範例**
+範例回呼定義：
 
 ```javascript
 var asyncOperation = function (callback) {
@@ -310,8 +313,9 @@ var asyncOperation = function (callback) {
   }, 1000);
 };
 ```
+{: codeblock}
 
-**回呼使用情形範例**
+範例回呼用法：
 
 ```javascript
 // The function that is passed to asyncOperation is executed after 1000 ms.
@@ -319,8 +323,9 @@ asyncOperation(function (response) {
   // response = 'Hello'
 });
 ```
+{: codeblock}
 
-**事件範例**
+範例事件：
 
 ```javascript
 $(document.body).on('WL/JSONSTORE/SUCCESS', function (evt, data, src, collectionName) {
@@ -331,6 +336,7 @@ $(document.body).on('WL/JSONSTORE/SUCCESS', function (evt, data, src, collection
   // collectionName - Name of the collection
 });
 ```
+{: codeblock}
 
 ### Objective-C 中的並行性
 {: #objective-c-jsonstore }
@@ -360,6 +366,7 @@ JSONStoreOpenOptions* options = [JSONStoreOpenOptions new];
 
 [[JSONStore sharedInstance] openCollections:@[...] withOptions:options error:nil];
 ```
+{: codeblock}
 
 ### 適用於 Android 的 JSONStore 範例
 {: #android-example }
@@ -369,6 +376,7 @@ initOptions.setAnalytics(true);
 
 WLJSONStore.getInstance(...).openCollections(..., initOptions);
 ```
+{: codeblock}
 
 ### 適用於 JavaScript 的 JSONStore 範例
 {: #java-script-example }
@@ -379,6 +387,7 @@ var options = {
 
 WL.JSONStore.init(..., options);
 ```
+{: codeblock}
 
 ## 使用外部資料
 {: #working-with-external-data }
@@ -401,14 +410,15 @@ WL.JSONStore.init(..., options);
 {: #internal-data-source-api-pull }
 此來源是 JSONStore API，可用來將 JSON 資料新增至集合。
 
-您可以將從檔案、輸入欄位或變數中編寫之資料所讀取的資料移入內部儲存庫中。它不一定只來自需要網路通訊的外部來源。
+您可以將從檔案、輸入欄位或寫在變數中之資料所讀取的資料移入內部儲存庫中。它不一定只來自需要網路通訊的外部來源。
 {: note}
 
 下列所有程式碼範例都是以虛擬碼撰寫，其與 JavaScript 類似。
 
 請將配接器用於「傳輸層」。使用配接器的一些優點包含：XML 至 JSON、安全、過濾以及取消伺服器端程式碼與用戶端程式碼的連結。
 {: note}
-**外部資料來源：後端 REST 端點**  
+##### 外部資料來源：後端 REST 端點
+{: #external-data-source-backend-rest-endpoint-head}
 假設您有一個 REST 端點，該端點會從資料庫讀取資料，並將其作為 JSON 物件陣列傳回。
 
 ```javascript
@@ -430,7 +440,8 @@ app.get('/people', function (req, res) {
 ```
 {: codeblock}
 
-**傳輸層：配接器**  
+##### 傳輸層：配接器
+{: #transport-layer-adapter}
 假設您已建立一個稱為 people 的配接器，並已定義一個稱為 getPeople 的程序。此程序會呼叫 REST 端點，並將 JSON 物件的陣列傳回給用戶端。建議您在這裡執行更多工作，例如，只將一部分的資料傳回給用戶端。
 
 ```javascript
@@ -476,13 +487,16 @@ $.ajax({
 ```
 {: codeblock}
 
-**內部資料來源 API：JSONStore**
-在您從後端取得回應之後，請使用 JSONStore 來處理該資料。
+##### 內部資料來源 API：JSONStore
+{: #internal-data-source-api-jsonstore}
+從後端取得回應後，使用 JSONStore 來處理這些資料。
 JSONStore 提供一種追蹤本端變更的方法。它可讓某些 API 將文件標示為「變動過」。API 會記錄前次對文件所執行的作業，以及將文件標示為「變動過」的時間。然後，您可以使用此資訊來實作資料同步化這類特性。
 
 change API 會取得資料及部分選項：
 
-**replaceCriteria**  
+###### replaceCriteria
+{: #replacecriteria}
+  
 這些搜尋欄位是輸入資料的一部分。它們用來找出已在集合內的文件。例如，如果您選取：
 
 ```javascript
@@ -520,10 +534,14 @@ change API 會取得資料及部分選項：
 
 名稱已從 `Carlitos` 變更為 `Carlos`。如果有多份文件符合取代準則，則所有符合的文件都會取代為個別的輸入資料。
 
-**addNew**  
+###### addNew 
+{: #addnew}
+ 
 沒有任何文件符合取代準則時，change API 會查看此旗標的值。如果此旗標設為 **true**，則 change API 會建立新的文件，並將它新增至儲存庫。否則，不採取其他任何動作。
 
-**markDirty**  
+###### markDirty 
+{: #markdirty}
+ 
 決定 change API 是否將已取代或新增的文件標示為「變動過」。
 
 從配接器傳回資料陣列：
@@ -601,7 +619,8 @@ accessor.remove(doc, {markDirty: true})
 請將配接器用於「傳輸層」。使用配接器的一些優點包含：XML 至 JSON、安全、過濾以及取消伺服器端程式碼與用戶端程式碼的連結。
 {: note}
 
-**內部資料來源 API：JSONStore**  
+##### 內部資料來源 API：JSONStore  
+{: #internal-data-source-api-jsonstore-head}
 在您取得集合的存取元之後，請呼叫 `getAllDirty` API 來取得所有標示為「變動過」的文件。這些文件具有僅限本端變更，而您想要透過傳輸層將其傳送至外部資料來源。
 
 ```javascript
@@ -631,7 +650,8 @@ accessor.getAllDirty()
 * `_operation`：前次對文件所執行的作業。可能的值為 add、store、replace 及 remove。
 * `_dirty`：儲存為數字的時間戳記，以表示將文件標示為「變動過」的時間。
 
-**傳輸層：MobileFirst 配接器**  
+##### 傳輸層：MobileFirst 配接器  
+{: #transport-layr-mobilefirst-adapter }
 您可以選擇將變動過的文件傳送至配接器。假設您具有使用 `updatePeople` 程序所定義的 `people` 配接器。
 
 ```javascript
@@ -749,7 +769,8 @@ $.when.apply(this, arrayOfPromises)
 ```
 {: codeblock}
 
-**外部資料來源：後端 REST 端點**  
+##### 外部資料來源：後端 REST 端點
+{: #external-data-source-backend-rest-endpoint }
 後端會接受或拒絕變更，然後將回應轉遞回用戶端。在用戶端查看回應之後，可以將已更新的文件傳遞至 markClean API。
 
 ```javascript
@@ -819,7 +840,8 @@ $.when.apply(this, arrayOfPromises)
    $ sqlite3 jsonstore.sqlite
    ```
 
-   * **附註：**在 Web 瀏覽器（Firefox、Chrome、Safari、Internet Explorer）上執行的僅限 JavaScript 實作不會使用 SQLite 資料庫。檔案儲存在 HTML5 LocalStorage 中。
+   在 Web 瀏覽器（Firefox、Chrome、Safari、Internet Explorer）上執行的「僅 JavaScript」實作不使用 SQLite 資料庫。檔案儲存在 HTML5 LocalStorage 中。
+    {: note}
    * 查看含 `.schema` 的 `searchFields`，並使用 `SELECT * FROM <collection-name>;` 來選取資料。若要結束 sqlite3，請鍵入 `.exit`。如果您將使用者名稱傳遞至 init 方法，則檔案稱為 **the-username.sqlite**。如果您未傳遞使用者名稱，則依預設，檔案稱為 **jsonstore.sqlite**。
 5. （僅限 Android）啟用詳細 JSONStore。
 
@@ -827,6 +849,7 @@ $.when.apply(this, arrayOfPromises)
    adb shell setprop log.tag.jsonstore-core VERBOSE
    adb shell getprop log.tag.jsonstore-core
    ```
+    {: codeblock}
 
 6. 使用除錯器。
 
@@ -843,11 +866,11 @@ $.when.apply(this, arrayOfPromises)
 * 如果強制停止或損毀應用程式，則在應用程式再次啟動並呼叫 `init` 或 `open` API 時，一律會失敗，錯誤碼為 -1。如果發生此問題，請先呼叫 `closeAll` API。
 * JSONStore 的 JavaScript 實作預期會循序呼叫程式碼。請先等待作業完成，再呼叫下一個作業。
 * 適用於 Cordova 應用程式的 Android 2.3.x 不支援交易。
-* 當您在 64 位元裝置上使用 JSONStore 時，可能會看到下列錯誤：`java.lang.UnsatisfiedLinkError: dlopen failed: "..." is 32-bit instead of 64-bit`
+* 在 64 位元裝置上使用 JSONStore 時，您可能會看到下列錯誤：`java.lang.UnsatisfiedLinkError: dlopen failed: "..." is 32-bit instead of 64-bit`
 * 此錯誤表示您的 Android 專案中有 64 位元原生程式庫，而在您使用這些程式庫時，JSONStore 目前未作用。若要確認，請移至 Android 專案下的 **src/main/libs** 或 **src/main/jniLibs**，並檢查您是否具有 x86_64 或 arm64-v8a 資料夾。如果有的話，請刪除這些資料夾，JSONStore 即可再次運作。
 * 在某些情況（環境）中，流程會先進入 `wlCommonInit()`，再起始設定 JSONStore 外掛程式。這會導致 JSONStore 相關 API 呼叫失敗。`cordova-plugin-mfp` 引導會在完成時自動呼叫 `WL.Client.init` 以觸發 `wlCommonInit` 函數。JSONStore 外掛程式的這個起始設定程序是不同的。JSONStore 外掛程式沒有方法可以_中止_ `WL.Client.init` 呼叫。在不同的環境之間，流程可能會在 `mfpjsonjslloaded` 完成之前先進入 `wlCommonInit()`。若要確定 `mfpjsonjsloaded` 及 `mfpjsloaded` 事件的順序，開發人員可以選擇手動呼叫 `WL.CLient.init`。這不需要具有平台特定程式碼。
 
-  請遵循下列步驟來手動配置 `WL.CLient.init` 的呼叫：                             
+  使用下列步驟以配置為手動呼叫 `WL.CLient.init`：                             
 
   1. 在 `config.xml` 中，將 `clientCustomInit` 內容變更為 **true**。
 
@@ -884,6 +907,7 @@ $.when.apply(this, arrayOfPromises)
 |-----|-----|------|-----|------|
 | 1   | c   | carlos | 99 | {name: 'carlos', age: 99} |
 | 2   | t   | tim   | 100 | {name: 'tim', age: 100} |
+{: caption="表 2. JSONStore 資料鍵元素範例" caption-side="top"}
 
 當您使用下列其中一個查詢或下列查詢組合：`{_id : 1}, {name: 'carlos'}`、`{age: 99}, {key: 'c'}` 進行搜尋時，傳回的文件是 `{_id: 1, json: {name: 'carlos', age: 99} }`。
 
@@ -1009,3 +1033,4 @@ catch(JSONStoreException e) {
 | 30 BAD\_PARAMETER\_EXPECTED\_ARRAY\_OF\_OBJECTS | 陣列不是只有 JSON 物件的陣列時發生驗證錯誤。|
 | 31 BAD\_PARAMETER\_EXPECTED\_ARRAY\_OF\_CLEAN\_DOCUMENTS | 驗證錯誤。|
 | 32 BAD\_PARAMETER\_WRONG\_SEARCH\_CRITERIA | 驗證錯誤。|
+{: caption="表 3. 常見錯誤碼" caption-side="top"}

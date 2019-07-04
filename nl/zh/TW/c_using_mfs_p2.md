@@ -2,7 +2,7 @@
 
 copyright:
   years: 2016, 2019
-lastupdated:  "2019-02-12"
+lastupdated: "2019-06-06"
 
 keywords: mobile foundation, mobile analytics, professional plan, configure database
 
@@ -30,7 +30,8 @@ subcollection:  mobilefoundation
 
 * 您需要有 {{site.data.keyword.Db2_on_Cloud_short}} 或 {{site.data.keyword.composeForPostgreSQL}} 服務實例認證的存取權，才能配置 {{site.data.keyword.mobilefoundation_short}} 服務實例的設定。
 
-> **附註**：{{site.data.keyword.Db2_on_Cloud_short}}（**精簡**方案以外的任何方案）或 {{site.data.keyword.composeForPostgreSQL}} 服務實例可存在於 {{site.data.keyword.Bluemix_notm}} `Organization` 的任何 `Space` 中或您具有存取權的任何其他 `Organization` 中。請確定您具有存取 {{site.data.keyword.Db2_on_Cloud_short}} 或 {{site.data.keyword.composeForPostgreSQL}} 服務實例所存在的 `Space` 的許可權。
+{{site.data.keyword.Db2_on_Cloud_short}}（**精簡**方案以外的任何方案）或 {{site.data.keyword.composeForPostgreSQL}} 服務實例可存在於 {{site.data.keyword.Bluemix_notm}} `Organization` 的任何 `Space` 中或您具有存取權的任何其他 `Organization` 中。請確定您具有存取 {{site.data.keyword.Db2_on_Cloud_short}} 或 {{site.data.keyword.composeForPostgreSQL}} 服務實例所存在的 `Space` 的許可權。
+{: note}
 
 
 ## 配置資料庫連線
@@ -63,7 +64,8 @@ subcollection:  mobilefoundation
 1. 選取 {{site.data.keyword.Db2_on_Cloud_short}} 服務實例所存在的 {{site.data.keyword.Bluemix_notm}} `Organization`。
 
 + 從所選取 `Organization` 中可用的空間清單，選取 {{site.data.keyword.Db2_on_Cloud_short}} 服務實例所存在的 {{site.data.keyword.Bluemix_notm}} `Space`。   
-> **附註：**如果您未看到 {{site.data.keyword.Db2_on_Cloud_short}} 服務實例所存在的 `Organization` 及 `Space`，則請檢查您是否為該 `Organization` 及 `Space` 的成員。您需要具有對組織及空間的*開發人員* 角色存取權。{{site.data.keyword.mobilefoundation_short}} 服務會存取來自 {{site.data.keyword.Db2_on_Cloud_short}} 服務的認證。
+如果您未看到 {{site.data.keyword.Db2_on_Cloud_short}} 服務實例所存在的 `Organization` 及 `Space`，則請檢查您是否為該 `Organization` 及 `Space` 的成員。您需要具有對組織及空間的*開發人員* 角色存取權。{{site.data.keyword.mobilefoundation_short}} 服務會存取來自 {{site.data.keyword.Db2_on_Cloud_short}} 服務的認證。
+{: note}
 
 + 選取 {{site.data.keyword.Db2_on_Cloud_short}} `Service Name` 和 `Credentials`，以連接至現有的 {{site.data.keyword.Db2_on_Cloud_short}} 服務實例。
 

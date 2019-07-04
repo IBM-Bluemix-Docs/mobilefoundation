@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated:  "2018-11-16"
+lastupdated: "2019-06-10"
 
 keywords: mobile foundation faq, updates to mobile foundation, custom domain
 
@@ -12,8 +12,10 @@ subcollection:  mobilefoundation
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:faq: data-hd-content-type='faq'}
+{:note: .note}
 
 # 常見問題
+{: #mfp-faq}
 
 此常見問題提供 {{site.data.keyword.mobilefoundation_long}} 服務常見問題的回答。
 {: shortdesc}
@@ -36,10 +38,9 @@ subcollection:  mobilefoundation
 
 {{site.data.keyword.mobilefoundation_short}} 的更新可以藉由按一下**重建**來套用。套用更新時，伺服器版本（如 {{site.data.keyword.mfp_oc_short_notm}} 中所見）修改為指出伺服器更新版本。
 
-> **附註：**
->  * 使用者無法將自己的修正程式及更新套用至其 {{site.data.keyword.mobilefoundation_short}} 服務實例。
->  * 請參閱[在 Professional Per Device 方案中重建伺服器](/docs/services/mobilefoundation?topic=mobilefoundation-c_using_mfs_p5#recreate_mobilefoundation_p5)及[在 Professional 1 Application 方案中重建伺服器](/docs/services/mobilefoundation?topic=mobilefoundation-c_using_mfs_p2#recreate_mobilefoundation_p2)，以瞭解按一下**重建* 時，方案之間的行為差異。
->
+* 使用者無法將自己的修正程式及更新套用至其 {{site.data.keyword.mobilefoundation_short}} 服務實例。
+* 請參閱[在 Professional Per Device 方案中重建伺服器](/docs/services/mobilefoundation?topic=mobilefoundation-using_mobilefoundation_p5#recreate_mobilefoundation_p5)和[在 Professional 1 Application 方案中重建伺服器](/docs/services/mobilefoundation?topic=mobilefoundation-using_mobilefoundation_p2#recreate_mobilefoundation_p2)，以瞭解按一下**重建** 後不同方案之間的行為差異。
+{: note}
 
 ## 如何配置 {{site.data.keyword.mobilefoundation_short}} 伺服器實例的自訂網域？
 {: #configcustomdomain}

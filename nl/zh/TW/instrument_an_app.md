@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-01-30"
+lastupdated: "2019-06-10"
 
 keywords: mobile analytics, instrumenting cordova app, instrumenting iOS app, instrumenting android app
 
@@ -198,7 +198,7 @@ Mobile Analytics Client SDK 會與 Android 專案相依關係管理程式 Gradle
    {: codeblock}
    {: android}
 
-6.  若要了解使用者上線型樣（新使用者與返回的使用者），您必須建立使用者身分與應用程式階段作業的關聯。此步驟可以藉由呼叫下列 API 完成：
+6.  若要了解使用者上線模式（新使用者與返回的使用者），您必須建立使用者身分與應用程式階段作業的關聯。此步驟可以藉由呼叫下列 API 完成：
     ```java
       WLAnalytics.setUserContext("userName or userIdentity");
     ```
@@ -208,7 +208,7 @@ Mobile Analytics Client SDK 會與 Android 專案相依關係管理程式 Gradle
     只有在呼叫 WLAnalytics.send() API 時，才會將所有擷取並儲存在本端的分析資料傳送至 Mobile Analytics 服務。
     {: android}
 
-7.  若要了解已呼叫的 HTTP API、要求數目及平均回應時間這類應用程式 HTTP 網路互動型樣，您必須使用 Mobile Foundation Service Client SDK 的 WLResourceRequest 類別來進行 HTTP 呼叫。雖然您已起始設定 Analytics 來擷取「網路」事件，使用 `WLResourceRequest` 可讓 Mobile Analytics 連結至網路呼叫並擷取相關資料。請依照下列程式碼來進行 HTTP 呼叫。
+7.  若要了解已呼叫的 HTTP API、要求數目及平均回應時間這類應用程式 HTTP 網路互動模式，您必須使用 Mobile Foundation Service Client SDK 的 WLResourceRequest 類別來進行 HTTP 呼叫。雖然您已起始設定 Analytics 來擷取「網路」事件，使用 `WLResourceRequest` 可讓 Mobile Analytics 連結至網路呼叫並擷取相關資料。請依照下列程式碼來進行 HTTP 呼叫。
     ```java
       WLResourceRequest request = new WLResourceRequest(new URI(url), WLResourceRequest.GET);
             request.send(new WLResponseListener() {
@@ -240,7 +240,7 @@ Mobile Analytics Client SDK 會與 Android 專案相依關係管理程式 Gradle
 
 9.  若要定義「自訂分析」，以及除了 Client SDK 中原本就支援的項目之外還要定義您自己的分析資料，您可以使用自訂記載 API：
     ```java
-        //create a JSON to capture the custom data 
+        //create a JSON to capture the custom data
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("FromPage", "LoginPage");
 
@@ -361,7 +361,7 @@ Swift SDK 適用於 iOS 及 watchOS。
 
     遵循[指導教學 ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://mobilefirstplatform.ibmcloud.com/tutorials/en/foundation/8.0/application-development/client-side-log-collection/ios/) 中「日誌程式」的程式碼 Snippet，以在 iOS 應用程式中新增記載功能。
 
-6.  若要了解使用者上線型樣（新使用者與返回的使用者），您必須建立使用者身分與應用程式階段作業的關聯。此關聯可以藉由呼叫下列 API 完成：
+6.  若要了解使用者上線模式（新使用者與返回的使用者），您必須建立使用者身分與應用程式階段作業的關聯。此關聯可以藉由呼叫下列 API 完成：
     ```Swift
       WLAnalytics.sharedInstance().setUserContext("userName or userIdentity")
     ```
@@ -371,7 +371,7 @@ Swift SDK 適用於 iOS 及 watchOS。
     只有在呼叫 `WLAnalytics.sharedInstance().send()` API 時，才會將所有擷取並儲存在本端的分析資料傳送至 Mobile Analytics 服務。
     {: ios}
 
-7.  若要了解已呼叫的 HTTP API、要求數目及平均回應時間這類應用程式 HTTP 網路互動型樣，您必須使用 Mobile Foundation Service Client SDK 的 WLResourceRequest 類別來進行 HTTP 呼叫。雖然您已起始設定 Analytics 來擷取「網路」事件，使用 `WLResourceRequest` 可讓 Mobile Analytics 連結至網路呼叫並擷取相關資料。請依照下列程式碼來進行 HTTP 呼叫。
+7.  若要了解已呼叫的 HTTP API、要求數目及平均回應時間這類應用程式 HTTP 網路互動模式，您必須使用 Mobile Foundation Service Client SDK 的 WLResourceRequest 類別來進行 HTTP 呼叫。雖然您已起始設定 Analytics 來擷取「網路」事件，使用 `WLResourceRequest` 可讓 Mobile Analytics 連結至網路呼叫並擷取相關資料。請依照下列程式碼來進行 HTTP 呼叫。
     ```Swift
       let request = WLResourceRequest( url: URL(string: "/adapters/JavaAdapter/users"), method: WLHttpMethodGet )
 
@@ -482,7 +482,7 @@ Mobile Analytics Cordova 外掛程式可讓您檢測行動應用程式。
 
 1. 在 Cordova 應用程式中，不需要進行設定，起始設定已經內建。
 
-   呼叫下列任何分析方法之前，您必須確定應用程式內嵌必要程式碼，以使用 MobileFoundation 服務來鑑別及授權裝置。這個步驟是所有 Mobile Foundation 服務應用程式都需要的一般步驟，並不是 Analytics 資料擷取特有的。
+   在呼叫下列任意分析方法之前，必須確保應用程式內嵌必要的程式碼，以便透過 Mobile Foundation 服務鑑別和授權裝置。這個步驟是所有 Mobile Foundation 服務應用程式都需要的一般步驟，並不是 Analytics 資料擷取特有的。
    {: cordova}
 
    起始設定完成之後，即會立即啟用應用程式來擷取裝置資訊及 Mobile Analytics SDK 日誌，而不需要新增其他程式碼。下列各節中討論的其他任何 API 及程式碼都是選用的，而且可以根據您要擷取的分析資料種類進行新增。
@@ -563,7 +563,7 @@ Mobile Analytics Cordova 外掛程式可讓您檢測行動應用程式。
     {: codeblock}
     {: cordova}
 
-5.  若要了解使用者上線型樣（新使用者與返回的使用者），您必須建立使用者身分與應用程式階段作業的關聯。沒有來自 Javascript 層次的特定 API。但是，在原生程式碼的作法是呼叫下列 API：
+5.  若要了解使用者上線模式（新使用者與返回的使用者），您必須建立使用者身分與應用程式階段作業的關聯。沒有來自 Javascript 層次的特定 API。但是，在原生程式碼的作法是呼叫下列 API：
 
     **Android：**
       ```java
@@ -582,7 +582,7 @@ Mobile Analytics Cordova 外掛程式可讓您檢測行動應用程式。
     只有在 javascript 層次中呼叫 WL.Analytics.send() API [或] 在 android 原生中呼叫 WLAnalytics.send() API [或] 在 iOS 原生中呼叫 WLAnalytics.sharedInstance().send() API 時，才會將所有擷取並儲存在本端的分析資料傳送至 Mobile Analytics 服務。
     {: cordova}
 
-6. 若要了解已呼叫的 HTTP API、要求數目及平均回應時間這類應用程式 HTTP 網路互動型樣，您必須使用 Mobile Foundation Service Client SDK 的 WLResourceRequest 類別來進行 HTTP 呼叫。雖然您已起始設定 Analytics 來擷取「網路」事件，使用 `WLResourceRequest` 可讓 Mobile Analytics 連結至網路呼叫並擷取相關資料。請使用下列程式碼來進行 HTTP 呼叫。
+6. 若要了解已呼叫的 HTTP API、要求數目及平均回應時間這類應用程式 HTTP 網路互動模式，您必須使用 Mobile Foundation Service Client SDK 的 WLResourceRequest 類別來進行 HTTP 呼叫。雖然您已起始設定 Analytics 來擷取「網路」事件，使用 `WLResourceRequest` 可讓 Mobile Analytics 連結至網路呼叫並擷取相關資料。請使用下列程式碼來進行 HTTP 呼叫。
     ```Javascript
       var resourceRequest = new WLResourceRequest("url-path", WLResourceRequest.GET);
       resourceRequest.send().then(
@@ -676,7 +676,7 @@ Mobile Analytics SDK 可讓您檢測 Web 應用程式。
     {: codeblock}
     {: web}
 
-   呼叫下列任何分析方法之前，您必須確定應用程式內嵌必要程式碼，以使用 MobileFoundation 服務來鑑別及授權裝置。這個步驟是所有 Mobile Foundation 服務應用程式都需要的一般步驟，並不是 Analytics 資料擷取特有的。
+   在呼叫下列任意分析方法之前，必須確保應用程式內嵌必要的程式碼，以便透過 Mobile Foundation 服務鑑別和授權裝置。這個步驟是所有 Mobile Foundation 服務應用程式都需要的一般步驟，並不是 Analytics 資料擷取特有的。
    {: web}
 
    起始設定完成之後，即會立即啟用應用程式來擷取裝置資訊及 Mobile Analytics SDK 日誌，而不需要新增其他程式碼。下列各節中討論的其他任何 API 及程式碼都是選用的，而且可以根據您要擷取的分析資料種類進行新增。
@@ -732,7 +732,7 @@ Mobile Analytics SDK 可讓您檢測 Web 應用程式。
    {: note}
    {: web}
 
-6. 若要了解使用者上線型樣（新使用者與返回的使用者），您必須建立使用者身分與應用程式階段作業的關聯。作法是呼叫下列 API
+6. 若要了解使用者上線模式（新使用者與返回的使用者），您必須建立使用者身分與應用程式階段作業的關聯。作法是呼叫下列 API
     ```Javascript
     ibmmfpfanalytics.setUserContext("userName or userIdentity");
     ```
@@ -742,7 +742,7 @@ Mobile Analytics SDK 可讓您檢測 Web 應用程式。
     只有在呼叫 ibmmfpfanalytics.send() API 時，才會將所有擷取並儲存在本端的分析資料傳送至 Mobile Analytics 服務。
     {: web}
 
-7.  若要了解已呼叫的 HTTP API、要求數目及平均回應時間這類應用程式 HTTP 網路互動型樣，您必須使用 Mobile Foundation Service Client SDK 的 WLResourceRequest 類別來進行 HTTP 呼叫。雖然您已起始設定 Analytics 來擷取「網路」事件，使用 `WLResourceRequest` 可讓 Mobile Analytics 連結至網路呼叫並擷取相關資料。請使用下列程式碼來進行 HTTP 呼叫。
+7.  若要了解已呼叫的 HTTP API、要求數目及平均回應時間這類應用程式 HTTP 網路互動模式，您必須使用 Mobile Foundation Service Client SDK 的 WLResourceRequest 類別來進行 HTTP 呼叫。雖然您已起始設定 Analytics 來擷取「網路」事件，使用 `WLResourceRequest` 可讓 Mobile Analytics 連結至網路呼叫並擷取相關資料。請使用下列程式碼來進行 HTTP 呼叫。
     ```Javascript
       var resourceRequest = new WL.ResourceRequest("url_path", WLResourceRequest.GET);
       resourceRequest.send().then(function(response) {
@@ -776,4 +776,4 @@ Mobile Analytics SDK 可讓您檢測 Web 應用程式。
 
 Mobile Foundation Analytics Service 提供 REST API 協助開發人員匯入 (POST) 及匯出 (GET) 分析資料。
 
-請在[這裡](https://mobile-analytics-dashboard.ng.bluemix.net/analytics-service/)的 Swagger Docs 上嘗試分析 REST API。
+請在[這裡](https://ma-server.us-south.mobile-analytics-prod.cloud.ibm.com/analytics-service/)的 Swagger Docs 上嘗試分析 REST API。
