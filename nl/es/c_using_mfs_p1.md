@@ -2,7 +2,7 @@
 
 copyright:
   years: 2016, 2019
-lastupdated:  "2019-02-12"
+lastupdated: "2019-06-06"
 
 keywords: mobile foundation developer, mobile analytics
 
@@ -28,7 +28,7 @@ Después de crear la instancia de servicio de {{site.data.keyword.mobilefoundati
   Esta selección crea un {{site.data.keyword.mfserver_long_notm}} con la configuración siguiente:
   *	1 GB de memoria. Este tamaño es suficiente para realizar actividades de desarrollo, de pruebas no muy exigentes y cargas de trabajo de producción a pequeña escala.
 
-  * Para acceder al servidor de MobileFirst mediante la CLI, necesitará las credenciales, que están disponibles al pulsar **Credenciales de servicio** en el panel de navegación izquierdo de la consola de IBM Cloud.
+  * Para acceder al servidor de MobileFirst mediante la CLI, necesitará las credenciales, que están disponibles al pulsar **Credenciales de servicio** en el panel de navegación de la consola de IBM Cloud.
 
 Ahora puede gestionar sus apps móviles y dispositivos móviles, utilizar su servidor como programa de fondo móvil, enviar notificaciones push, etc.
 

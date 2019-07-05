@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2018-11-19"
+lastupdated: "2019-06-06"
 
 keywords: mobile foundation security, restrict backend access, tampered apps
 
@@ -29,13 +29,12 @@ Para proteger adecuadamente la aplicación, habilite la comprobación de segurid
 
 Para habilitar la autenticidad de aplicación, puede seguir las instrucciones en pantalla en la **consola de operaciones de MobileFirst → [su aplicación] → Autenticidad**, o revisar la información siguiente.
 
-* **Disponibilidad**
-
-    La autenticidad de aplicación está disponible en todas las plataformas soportadas (iOS, Android, Windows 8.1 Universal, Windows 10 UWP) en las aplicaciones nativas y en Cordova.
-
-* **Limitaciones**
-
-    La autenticidad de aplicación no da soporte a **Bitcode** en iOS. Por lo tanto, antes de utilizar la autenticidad de aplicación, inhabilite Bitcode en las propiedades de proyecto de Xcode.
+<dl>
+  <dt>Disponibilidad</dt>
+  <dd>La autenticidad de aplicación está disponible en todas las plataformas soportadas (iOS, Android, Windows 8.1 Universal, Windows 10 UWP) en las aplicaciones nativas y en Cordova.</dd>
+  <dt>Limitaciones</dt>
+  <dd>La autenticidad de aplicación no da soporte a **Bitcode** en iOS. Por lo tanto, antes de utilizar la autenticidad de aplicación, inhabilite Bitcode en las propiedades de proyecto de Xcode.</dd>
+</dl>
 
 ## Flujo de la autenticidad de aplicación
 {: #appauthenticityflow}

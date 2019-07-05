@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-03-06"
+lastupdated: "2019-06-10"
 
 keywords: push notifications, notifications, set up android app for notification, set up iOS app for notification, set up cordova app for notification, set up windows app for notification
 
@@ -42,12 +42,13 @@ Antes de que aplicaciones basadas en Cordova o basadas en iOS, Android y Windows
 Consulte las secciones siguientes para aprender a manejar las notificaciones push entrantes en aplicaciones cliente:
 
 ### Manejo de las notificaciones push en Android
-{: #handling_push_notifications_in_android }
+{: #handling_push_notifications_in_android}
 {: android}
 Antes que las aplicaciones Android puedan manejar las notificaciones push que reciban, es necesario configurar el soporte para Google Play Services. Una vez se haya configurado la aplicación, se puede utilizar la API de notificaciones que {{ site.data.keyword.mobilefirst_notm }} proporciona con el propósito de registrar y anular el registro de dispositivos y suscribir y anular la suscripción a etiquetas. En esta guía de aprendizaje, aprenderá a manejar el envío de notificaciones en aplicaciones Android.
 {: android}
 
-**Requisitos previos:**
+#### Requisitos previos
+{: #prereqs-andriod}
 {: android}
 * {{ site.data.keyword.mfserver_short_notm }} para ejecutar localmente o {{ site.data.keyword.mfserver_short_notm }} ejecutándose de forma remota.
 * CLI de {{ site.data.keyword.mobilefirst_notm  }} instalada en la estación de trabajo del desarrollador
@@ -74,7 +75,7 @@ Si {{ site.data.keyword.mobilefirst_notm }} Native Android SDK todavía no está
     {: codeblock}
     {: android}
 
-    Hay un [defecto conocido de Google](https://code.google.com/p/android/issues/detail?id=212879) que impide el uso de la versión más reciente de Play Services (actualmente la 9.2.0). Utilice una versión inferior.
+    Hay un [defecto conocido de Google](https://code.google.com/p/android/issues/detail?id=212879) que impide el uso de la versión más reciente de Play Services (actualmente la 9.2.0). Utilice una versión menor que la 9.2.0.
     {: note}
     {: android}
 
@@ -175,7 +176,7 @@ Si {{ site.data.keyword.mobilefirst_notm }} Native Android SDK todavía no está
 Todas las llamadas de API se deben realizar en una instancia de `MFPPush`.  Esto se puede realizar creando un campo de nivel de clase como, por ejemplo, `private MFPPush push = MFPPush.getInstance();` y a continuación, llamando a `push.<api-call>` a través de la clase.
 {: android}
 
-De forma alternativa puede llamar a `MFPPush.getInstance().<api_call>` para cada instancia en la que necesita acceder a los métodos de API de push.
+Como alternativa, puede llamar a `MFPPush.getInstance().<api_call>` para cada instancia en la que necesita acceder a los métodos de API de push.
 {: android}
 
 ##### Manejadores de desafíos
@@ -204,10 +205,11 @@ Obtenga más información sobre los manejadores de desafíos en la guía de apre
 | [`getSubscriptions(MFPPushResponseListener)`](#get-subscriptions) | Recupera todas las etiquetas a las que el dispositivo está actualmente suscrito. |
 | [`unsubscribe(String[] tagNames, MFPPushResponseListener)`](#unsubscribe) | Anula la suscripción de una o varias etiquetas. |
 | [`unregisterDevice(MFPPushResponseListener)`](#unregister) | Anula el registro del dispositivo del servicio notificaciones push. |
+{: caption="Tabla 1. Métodos Java" caption-side="top"}
 {: android}
 
 ###### Inicialización
-{: #initialization }
+{: #initialization}
 {: android}
 
 Requerido para la aplicación de cliente para conectarse al servicio MFPPush con el contexto de aplicación correcto.
@@ -418,7 +420,7 @@ En la actividad en que desea manejar las notificaciones push.
 {: #option-two }
 {: android}
 
-Cree un escucha llamando a `listen(new MFPPushNofiticationListener())` en una instancia de `MFPPush` tal como se indica a continuación:
+Cree un escucha llamando a `listen(new MFPPushNofiticationListener())` en una instancia de `MFPPush` tal como se indica en el ejemplo siguiente:
 ```java
 MFPPush.getInstance().listen(new MFPPushNotificationListener() {
     @Override
@@ -474,12 +476,12 @@ La configuración de una aplicación en FCM es algo distinta en comparación con
       {: codeblock}
       {: android}
 
-    - Elimine el siguiente plugin GCM desde el archivo build.gradle `compile com.google.android.gms:play-services-gcm:+`
+    - Elimine la parte posterior al plugin GCM del archivo build.gradle `compile com.google.android.gms:play-services-gcm:+`
      {: android}
  3. Configure el archivo AndroidManifest. Son necesarios los cambios siguientes en el `AndroidManifest.xml`
     {: android}
 
-    **Elimine las entradas siguientes:**
+    Elimine las entradas siguientes:
     {: android}
     ```xml
         <receiver android:exported="true" android:name="com.google.android.gms.gcm.GcmReceiver" android:permission="com.google.android.c2dm.permission.SEND">
@@ -505,7 +507,7 @@ La configuración de una aplicación en FCM es algo distinta en comparación con
     {: codeblock}
     {: android}
 
-    **Las entradas siguientes necesitan una modificación:**
+    Es necesario modificar las entradas siguientes:
     {: android}
 
     ```xml
@@ -518,7 +520,7 @@ La configuración de una aplicación en FCM es algo distinta en comparación con
     {: codeblock}
     {: android}
 
-    **Modifique las entradas a:**
+    Modifique las entradas a:
     {: android}
 
     ```xml
@@ -531,7 +533,7 @@ La configuración de una aplicación en FCM es algo distinta en comparación con
     {: codeblock}
     {: android}
 
-    **Añada la entrada siguiente:**
+    Añada la entrada siguiente:
     {: android}
 
     ```xml
@@ -563,7 +565,8 @@ Para obtener información sobre las notificaciones interactivas o silenciosas, c
 * [Notificaciones interactivas](/docs/services/mobilefoundation?topic=mobilefoundation-interactive_notifications#interactive_notifications)
 {: ios}
 
-**Requisitos previos:**
+#### Requisitos previos
+{: #prereqs-ios}
 {: ios}
 
 * {{ site.data.keyword.mfserver_short }} para ejecutar localmente o {{ site.data.keyword.mfserver_short }} ejecutándose de forma remota.
@@ -571,7 +574,7 @@ Para obtener información sobre las notificaciones interactivas o silenciosas, c
 {: ios}
 
 #### Configuración de notificaciones
-{: #notifications-configuration }
+{: #notifications-configuration_ios}
 {: ios}
 
 Cree un nuevo proyecto Xcode o utilice uno existente.
@@ -619,11 +622,11 @@ Si {{ site.data.keyword.mobilefirst_notm }} Native iOS SDK todavía no está pre
 {: ios}
 
 #### API de notificaciones
-{: #notifications-api }
+{: #notifications-api-ios}
 {: ios}
 
 ##### Instancia de MFPPush
-{: #mfppush-instance }
+{: #mfppush-instance-ios}
 {: ios}
 
 Todas las llamadas de API se deben realizar en una instancia de `MFPPush`. Esto se puede realizar utilizando una `var` en un controlador de vista, por ejemplo, `var push = MFPPush.sharedInstance();` y, a continuación, llamando a `push.methodName()` a través del controlador de vista.
@@ -633,7 +636,7 @@ Otra posibilidad es llamar a `MFPPush.sharedInstance().methodName()` para cada i
 {: ios}
 
 #### Manejadores de desafíos
-{: #challenge-handlers }
+{: #challenge-handlers-ios}
 {: ios}
 
 Si el ámbito de `push.mobileclient` está correlacionado con la **comprobación de seguridad**, debe asegurarse de que existen **manejadores de desafíos** coincidentes registrados antes de utilizar las API de push.
@@ -645,7 +648,7 @@ Obtenga más información sobre los manejadores de desafíos en la guía de apre
 {: ios}
 
 #### Lado del cliente
-{: #client-side }
+{: #client-side-ios}
 {: ios}
 
 | Métodos Swift | Descripción  |
@@ -659,10 +662,11 @@ Obtenga más información sobre los manejadores de desafíos en la guía de apre
 | [`getSubscriptions(completionHandler: ((WLResponse!, NSError!) -> Void)!)`](#get-subscriptions)  | Recupera todas las etiquetas a las que el dispositivo está actualmente suscrito. |
 | [`unsubscribe(tagsArray: [AnyObject], completionHandler: ((WLResponse!, NSError!) -> Void)!)`](#unsubscribe) | Anula la suscripción de una o varias etiquetas. |
 | [`unregisterDevice(completionHandler: ((WLResponse!, NSError!) -> Void)!)`](#unregister) | Anula el registro del dispositivo del servicio notificaciones push.              |
+{: caption="Tabla 2. Métodos Swift" caption-side="top"}
 {: ios}
 
 ##### Inicialización
-{: #initialization }
+{: #initialization-ios}
 {: ios}
 
 La inicialización es necesaria para que la aplicación de cliente se conecte al servicio MFPPush.
@@ -679,7 +683,7 @@ MFPPush.sharedInstance().initialize();
 {: ios}
 
 ##### Está push soportado
-{: #is-push-supported }
+{: #is-push-supported-ios}
 {: ios}
 
 Comprueba si el dispositivo da soporte a las notificaciones push.
@@ -698,7 +702,7 @@ if isPushSupported {
 {: ios}
 
 ##### Registrar el dispositivo y enviar una señal de dispositivo
-{: #register-device--send-device-token }
+{: #register-device--send-device-token-ios}
 {: ios}
 
 Registre el dispositivo para el servicio de notificaciones push.
@@ -732,7 +736,7 @@ Normalmente, se llama a esto en **AppDelegate** en el método `didRegisterForRem
 {: ios}
 
 ##### Obtener etiquetas
-{: #get-tags }
+{: #get-tags-ios}
 {: ios}
 
 Recupere todas las etiquetas disponibles desde el servicio de notificaciones push.
@@ -761,7 +765,7 @@ MFPPush.sharedInstance().getTags { (response, error) -> Void in
 {: ios}
 
 ##### Suscribir
-{: #subscribe }
+{: #subscribe-ios}
 {: ios}
 
 Suscríbase a las etiquetas deseadas.
@@ -784,7 +788,7 @@ MFPPush.sharedInstance().subscribe(self.tagsArray) { (response, error)  -> Void 
 {: ios}
 
 ##### Obtener suscripciones
-{: #get-subscriptions }
+{: #get-subscriptions-ios}
 {: ios}
 
 Recupere las etiquetas a las que el dispositivo está actualmente suscrito.
@@ -813,7 +817,7 @@ MFPPush.sharedInstance().getSubscriptions { (response, error) -> Void in
 {: ios}
 
 ##### Eliminar suscripción
-{: #unsubscribe }
+{: #unsubscribe-ios}
 {: ios}
 
 Anule la suscripción de etiquetas.
@@ -837,7 +841,7 @@ MFPPush.sharedInstance().unsubscribe(self.tagsArray) { (response, error)  -> Voi
 {: ios}
 
 ##### Anular el registro
-{: #unregister }
+{: #unregister-ios}
 {: ios}
 
 Anule el registro del dispositivo de una instancia de servicio de notificaciones push.
@@ -860,7 +864,7 @@ MFPPush.sharedInstance().unregisterDevice { (response, error)  -> Void in
 {: ios}
 
 #### Manejo de una notificación push
-{: #handling-a-push-notification }
+{: #handling-a-push-notification-ios}
 {: ios}
 
 La infraestructura iOS nativa maneja directamente las notificaciones push. En función del ciclo de vida de su aplicación, la infraestructura de iOS llamará a métodos distintos.
@@ -907,7 +911,8 @@ Para obtener información sobre las notificaciones interactivas o silenciosas en
 * [Notificaciones interactivas](/docs/services/mobilefoundation?topic=mobilefoundation-interactive_notifications#interactive_notifications)
 {: cordova}
 
-**Requisitos previos:**
+#### Requisitos previos
+{: #prereqs-cordova}
 {: cordova}
 
 * {{ site.data.keyword.mfserver_short }} para ejecutar localmente, o un remotamente ejecutando {{ site.data.keyword.mfserver_short }}
@@ -916,7 +921,7 @@ Para obtener información sobre las notificaciones interactivas o silenciosas en
 {: cordova}
 
 #### Configuración de notificaciones
-{: #notifications-configuration }
+{: #notifications-configuration-cordova}
 {: cordova}
 
 Cree un nuevo proyecto Cordova o utilice uno ya existente, y añada una o varias de las plataformas soportadas: iOS, Android, Windows.
@@ -927,7 +932,7 @@ Si {{ site.data.keyword.mobilefirst_notm }} Cordova SDK todavía no está presen
 {: note}
 
 #### Añadir el plugin de push
-{: #adding-the-push-plug-in }
+{: #adding-the-push-plug-in-cordova}
 {: cordova}
 
 1. Desde una ventana de **línea de mandatos**, vaya a la raíz del proyecto Cordova.  
@@ -976,23 +981,24 @@ En Android Studio, añada la siguiente `actividad` a la etiqueta `application`:
 {: cordova}
 
 #### API de notificaciones
-{: #notifications-api }
+{: #notifications-api-cordova}
 {: cordova}
 
 ##### Lado del cliente
-{: #client-side }
+{: #client-side-cordova}
 {: cordova}
 
 | Función Javascript | Descripción |
 | --- | --- |
-| [`MFPPush.initialize(success, failure)`](#initialization) | Inicializa la instancia MFPPush. |
-| [`MFPPush.isPushSupported(success, failure)`](#is-push-supported) | Indica si el dispositivo da soporte a notificaciones push. |
-| [`MFPPush.registerDevice(options, success, failure)`](#register-device) | Registra el dispositivo con el servicio de notificaciones push. |
-| [`MFPPush.getTags(success, failure)`](#get-tags) | Recupera todas las etiquetas disponibles en una instancia de servicio de notificaciones push. |
-| [`MFPPush.subscribe(tag, success, failure)`](#subscribe) | Suscribe a una etiqueta concreta. |
-| [`MFPPush.getSubsciptions(success, failure)`](#get-subscriptions) | Recupera las etiquetas de servicio a las que actualmente está suscrito. |
-| [`MFPPush.unsubscribe(tag, success, failure)`](#unsubscribe) | Anula la suscripción a una etiqueta concreta. |
-| [`MFPPush.unregisterDevice(success, failure)`](#unregister) | Anula el registro del dispositivo del servicio notificaciones push. |
+| [`MFPPush.initialize(success, failure)`](#initialization-cordova) | Inicializa la instancia MFPPush. |
+| [`MFPPush.isPushSupported(success, failure)`](#is-push-supported-cordova) | Indica si el dispositivo da soporte a notificaciones push. |
+| [`MFPPush.registerDevice(options, success, failure)`](#register-device-cordova) | Registra el dispositivo con el servicio de notificaciones push. |
+| [`MFPPush.getTags(success, failure)`](#get-tags-cordova) | Recupera todas las etiquetas disponibles en una instancia de servicio de notificaciones push. |
+| [`MFPPush.subscribe(tag, success, failure)`](#subscribe-cordova) | Suscribe a una etiqueta concreta. |
+| [`MFPPush.getSubsciptions(success, failure)`](#get-subscriptions-cordova) | Recupera las etiquetas de servicio a las que actualmente está suscrito. |
+| [`MFPPush.unsubscribe(tag, success, failure)`](#unsubscribe-cordova) | Anula la suscripción a una etiqueta concreta. |
+| [`MFPPush.unregisterDevice(success, failure)`](#unregister-cordova) | Anula el registro del dispositivo del servicio notificaciones push. |
+{: caption="Tabla 3. Funciones Javascript" caption-side="top"}
 {: cordova}
 
 ##### Implementación de API
@@ -1000,7 +1006,7 @@ En Android Studio, añada la siguiente `actividad` a la etiqueta `application`:
 {: cordova}
 
 ###### Inicialización
-{: #initialization }
+{: #initialization-cordova}
 {: cordova}
 
 Inicializa la instancia **MFPPush**.
@@ -1026,7 +1032,7 @@ MFPPush.initialize (
 {: cordova}
 
 ###### Está push soportado
-{: #is-push-supported }
+{: #is-push-supported-cordova}
 {: cordova}
 
 Comprueba si el dispositivo da soporte a las notificaciones push.
@@ -1046,7 +1052,7 @@ MFPPush.isPushSupported (
 {: cordova}
 
 ###### Registrar el dispositivo
-{: #register-device }
+{: #register-device-cordova}
 {: cordova}
 
 Registre el dispositivo para el servicio de notificaciones push. Si no se proporcionan opciones, se pueden establecer en `null`.
@@ -1068,7 +1074,7 @@ MFPPush.registerDevice(
 {: cordova}
 
 ###### Obtener etiquetas
-{: #get-tags }
+{: #get-tags-cordova}
 {: cordova}
 
 Recupere todas las etiquetas disponibles desde el servicio de notificaciones push.
@@ -1088,7 +1094,7 @@ MFPPush.getTags (
 {: cordova}
 
 ###### Suscribir
-{: #subscribe }
+{: #subscribe-cordova}
 {: cordova}
 
 Suscríbase a las etiquetas deseadas.
@@ -1111,7 +1117,7 @@ MFPPush.subscribe(
 {: cordova}
 
 ###### Obtener suscripciones
-{: #get-subscriptions }
+{: #get-subscriptions-cordova}
 {: cordova}
 
 Recupere las etiquetas a las que el dispositivo está actualmente suscrito.
@@ -1131,7 +1137,7 @@ MFPPush.getSubscriptions (
 {: cordova}
 
 ###### Eliminar suscripción
-{: #unsubscribe }
+{: #unsubscribe-cordova}
 {: cordova}
 
 Anule la suscripción de etiquetas.
@@ -1154,7 +1160,7 @@ MFPPush.unsubscribe(
 {: cordova}
 
 ###### Anular el registro
-{: #unregister }
+{: #unregister-cordova}
 {: cordova}
 
 Anule el registro del dispositivo de una instancia de servicio de notificaciones push.
@@ -1174,7 +1180,7 @@ MFPPush.unregisterDevice(
 {: cordova}
 
 #### Manejo de una notificación push
-{: #handling-a-push-notification }
+{: #handling-a-push-notification-cordova}
 {: cordova}
 
 Las notificaciones push recibidas se pueden manejar trabajando con el objeto de respuesta en la función de retorno registrada.
@@ -1195,7 +1201,8 @@ var notificationReceived = function(message) {
 La API de notificaciones que {{ site.data.keyword.mobilefirst_notm }} proporciona sirve para registrar y anular el registro de dispositivos y suscribir y anular la suscripción a etiquetas. En esta guía de aprendizaje, aprenderá a manejar el envío de notificaciones en aplicaciones nativas Windows 8.1 Universal y Windows 10 UWP mediante C#.
 {: windows}
 
-**Requisitos previos:**
+#### Requisitos previos
+{: #prereqs-windows}
 {: windows}
 
 * {{ site.data.keyword.mfserver_short_notm }} para ejecutar localmente o {{ site.data.keyword.mfserver_short_notm }} ejecutándose de forma remota.
@@ -1203,7 +1210,7 @@ La API de notificaciones que {{ site.data.keyword.mobilefirst_notm }} proporcion
 {: windows}
 
 #### Configuración de notificaciones
-{: #notifications-configuration }
+{: #notifications-configuration-windows}
 {: windows}
 
 Cree un nuevo proyecto de Visual Studio o utilice uno que ya exista.  
@@ -1213,7 +1220,7 @@ Si {{ site.data.keyword.mobilefirst_notm }} Native Windows SDK todavía no está
 {: windows}
 
 #### Añadir el SDK de push
-{: #adding-the-push-sdk }
+{: #adding-the-push-sdk-windows}
 {: windows}
 
 1. Seleccione Herramientas → NuGet Package Manager → Package Manager Console.
@@ -1231,11 +1238,11 @@ Si {{ site.data.keyword.mobilefirst_notm }} Native Windows SDK todavía no está
 {: windows}
 
 #### API de notificaciones
-{: #notifications-api }
+{: #notifications-api-windows}
 {: windows}
 
 ##### Instancia de MFPPush
-{: #mfppush-instance }
+{: #mfppush-instance-windows}
 {: windows}
 
 Todas las llamadas de API se deben realizar en una instancia de `MFPPush`.  Esto se puede realizar creando una variable como, por ejemplo, `private MFPPush PushClient = MFPPush.GetInstance();` y, a continuación, llamando a `PushClient.methodName()` a lo largo de la clase.
@@ -1245,7 +1252,7 @@ Otra posibilidad es llamar a `MFPPush.GetInstance().methodName()` para cada inst
 {: windows}
 
 ##### Manejadores de desafíos
-{: #challenge-handlers }
+{: #challenge-handlers-windows}
 {: windows}
 
 Si el ámbito de `push.mobileclient` está correlacionado con la **comprobación de seguridad**, debe asegurarse de que existen **manejadores de desafíos** coincidentes registrados antes de utilizar las API de push.
@@ -1257,23 +1264,24 @@ Obtenga más información sobre los manejadores de desafíos en la guía de apre
 {: windows}
 
 #### Lado del cliente
-{: #client-side }
+{: #client-side-windows}
 {: windows}
 
 | Métodos de C Sharp                                                                                                | Descripción                                                             |
 |--------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------|
-| [`Initialize()`](#initialization)                                                                            | Inicia MFPPush con el contexto proporcionado.                               |
-| [`IsPushSupported()`](#is-push-supported)                                                                    | Indica si el dispositivo da soporte a notificaciones push.                             |
-| [`RegisterDevice(JObject options)`](#register-device--send-device-token)                  | Registra el dispositivo con el servicio de notificaciones push.               |
-| [`GetTags()`](#get-tags)                                | Recupera las etiquetas disponibles en una instancia del servicio de notificaciones push. |
-| [`Subscribe(String[] Tags)`](#subscribe)     | Suscribe el dispositivo para las etiquetas especificadas.                          |
-| [`GetSubscriptions()`](#get-subscriptions)              | Recupera todas las etiquetas a las que el dispositivo está actualmente suscrito.               |
-| [`Unsubscribe(String[] Tags)`](#unsubscribe) | Anula la suscripción de una o varias etiquetas.                                  |
-| [`UnregisterDevice()`](#unregister)                     | Anula el registro del dispositivo del servicio notificaciones push.              |
+| [`Initialize()`](#initialization-windows)                                                                            | Inicia MFPPush con el contexto proporcionado.                               |
+| [`IsPushSupported()`](#is-push-supported-windows)                                                                    | Indica si el dispositivo da soporte a notificaciones push.                             |
+| [`RegisterDevice(JObject options)`](#register-device--send-device-token-windows)                  | Registra el dispositivo con el servicio de notificaciones push.               |
+| [`GetTags()`](#get-tags-windows)                                | Recupera las etiquetas disponibles en una instancia del servicio de notificaciones push. |
+| [`Subscribe(String[] Tags)`](#subscribe-windows)     | Suscribe el dispositivo para las etiquetas especificadas.                          |
+| [`GetSubscriptions()`](#get-subscriptions-windows)              | Recupera todas las etiquetas a las que el dispositivo está actualmente suscrito.               |
+| [`Unsubscribe(String[] Tags)`](#unsubscribe-windows) | Anula la suscripción de una o varias etiquetas.                                  |
+| [`UnregisterDevice()`](#unregister-windows)                     | Anula el registro del dispositivo del servicio notificaciones push.              |
+{: caption="Tabla 4. Métodos C Sharp" caption-side="top"}
 {: windows}
 
 ##### Inicialización
-{: #initialization }
+{: #initialization-windows}
 {: windows}
 
 La inicialización es necesaria para que la aplicación de cliente se conecte al servicio MFPPush.
@@ -1290,7 +1298,7 @@ MFPPush.GetInstance().Initialize();
 {: windows}
 
 ##### Está push soportado
-{: #is-push-supported }
+{: #is-push-supported-windows}
 {: windows}
 
 Comprueba si el dispositivo da soporte a las notificaciones push.
@@ -1309,7 +1317,7 @@ if (isSupported ) {
 {: windows}
 
 ##### Registrar el dispositivo y enviar una señal de dispositivo
-{: #register-device--send-device-token }
+{: #register-device--send-device-token-windows}
 {: windows}
 
 Registre el dispositivo para el servicio de notificaciones push.
@@ -1329,7 +1337,7 @@ if (Response.Success == true)
 {: windows}
 
 ##### Obtener etiquetas
-{: #get-tags }
+{: #get-tags-windows}
 {: windows}
 
 Recupere todas las etiquetas disponibles desde el servicio de notificaciones push.
@@ -1348,7 +1356,7 @@ if (Response.Success == true)
 {: windows}
 
 ##### Suscribir
-{: #subscribe }
+{: #subscribe-windows}
 {: windows}
 
 Suscríbase a las etiquetas deseadas.
@@ -1372,7 +1380,7 @@ else
 {: windows}
 
 ##### Obtener suscripciones
-{: #get-subscriptions }
+{: #get-subscriptions-windows}
 {: windows}
 
 Recupere las etiquetas a las que el dispositivo está actualmente suscrito.
@@ -1393,7 +1401,7 @@ else
 {: windows}
 
 ##### Eliminar suscripción
-{: #unsubscribe }
+{: #unsubscribe-windows}
 {: windows}
 
 Anule la suscripción de etiquetas.
@@ -1417,7 +1425,7 @@ else
 {: windows}
 
 ##### Anular el registro
-{: #unregister }
+{: #unregister-windows}
 {: windows}
 
 Anule el registro del dispositivo de una instancia de servicio de notificaciones push.
@@ -1436,7 +1444,7 @@ if (Response.Success == true)
 {: windows}
 
 #### Manejo de una notificación push
-{: #handling-a-push-notification }
+{: #handling-a-push-notification-windows}
 {: windows}
 
 Con el propósito de manejar una notificación push será necesario configurar un `MFPPushNotificationListener`.  Esto se puede lograr implementando el siguiente método.

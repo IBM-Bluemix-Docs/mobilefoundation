@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated:  "2019-02-13"
+lastupdated: "2019-06-10"
 
 keywords: jsonstore, code samples, offline storage
 
@@ -18,14 +18,14 @@ subcollection:  mobilefoundation
 {:android: .ph data-hd-programlang='Android'}
 {:cordova: .ph data-hd-programlang='Cordova'}
 
-#	Ejemplos de código de JSONStore
+# Ejemplos de código de JSONStore
 {: #code_samples}
 
-### Ejemplos para Cordova
+## Ejemplos para Cordova
 {: #samples_cordova }
 {: cordova}
 
-#### Inicializar y abrir conexiones, obtener un descriptor de acceso y añadir datos en Cordova
+### Inicializar y abrir conexiones, obtener un descriptor de acceso y añadir datos en Cordova
 {: #initialize-and-open-connections-get-an-accessor-and-add-data-cordova }
 {: cordova}
 
@@ -86,7 +86,7 @@ WL.JSONStore.init(collections, options)
 {: codeblock}
 {: cordova}
 
-#### Encontrar - ubicar documentos dentro de un almacén
+### Encontrar - ubicar documentos dentro de un almacén
 {: #find-locate-documents-inside-the-store }
 {: cordova}
 
@@ -132,7 +132,7 @@ WL.JSONStore.get(collectionName)
 {: codeblock}
 {: cordova}
 
-#### Sustituir - cambiar los documentos que ya están almacenados dentro de una recopilación en Cordova
+### Sustituir - cambiar los documentos que ya están almacenados dentro de una recopilación en Cordova
 {: cordova}
 
 ```javascript
@@ -163,7 +163,7 @@ WL.JSONStore.get(collectionName)
 {: codeblock}
 {: cordova}
 
-#### Eliminar - suprimir todos los documentos que coinciden con la consulta en Cordova
+### Eliminar - suprimir todos los documentos que coinciden con la consulta en Cordova
 {: cordova}
 
 ```javascript
@@ -196,7 +196,7 @@ WL.JSONStore.get(collectionName)
 {: codeblock}
 {: cordova}
 
-#### Recuento - obtener el número total de documentos que coinciden con una consulta en Cordova
+### Recuento - obtener el número total de documentos que coinciden con una consulta en Cordova
 {: cordova}
 
 ```javascript
@@ -227,7 +227,7 @@ WL.JSONStore.get(collectionName)
 {: codeblock}
 {: cordova}
 
-#### Destruir - limpiar los datos de todos los usuarios, destruir el almacenamiento interno y borrar los artefactos de seguridad en Cordova
+### Destruir - limpiar los datos de todos los usuarios, destruir el almacenamiento interno y borrar los artefactos de seguridad en Cordova
 {: cordova}
 
 ```javascript
@@ -244,7 +244,7 @@ WL.JSONStore.destroy()
 {: codeblock}
 {: cordova}
 
-#### Seguridad - cerrar el acceso a todas las recopilaciones abiertas del usuario actual en Cordova
+### Seguridad - cerrar el acceso a todas las recopilaciones abiertas del usuario actual en Cordova
 {: cordova}
 
 ```javascript
@@ -261,7 +261,7 @@ WL.JSONStore.closeAll()
 {: codeblock}
 {: cordova}
 
-#### Seguridad - cambiar la contraseña que se utiliza para acceder al almacén en Cordova
+### Seguridad - cambiar la contraseña que se utiliza para acceder al almacén en Cordova
 {: cordova}
 
 ```javascript
@@ -299,7 +299,7 @@ WL.JSONStore.changePassword(oldPassword, newPassword, username)
 {: codeblock}
 {: cordova}
 
-#### Push - obtener todos los documentos marcados como sucios, enviarlos al adaptador y marcarlos como limpios en Cordova
+### Push - obtener todos los documentos marcados como sucios, enviarlos al adaptador y marcarlos como limpios en Cordova
 {: cordova}
 
 ```javascript
@@ -342,7 +342,7 @@ WL.JSONStore.get(collectionName)
 {: codeblock}
 {: cordova}
 
-#### Pull - obtener nuevos datos desde un adaptador en Cordova
+### Pull - obtener nuevos datos desde un adaptador en Cordova
 {: cordova}
 
 ```javascript
@@ -395,7 +395,7 @@ resource.send()
 {: codeblock}
 {: cordova}
 
-#### Comprobar si el documento está sucio en Cordova
+### Comprobar si el documento está sucio en Cordova
 {: cordova}
 
 ```javascript
@@ -419,7 +419,7 @@ WL.JSONStore.get(collectionName)
 {: codeblock}
 {: cordova}
 
-#### Comprobar el número de documentos sucios en Cordova
+### Comprobar el número de documentos sucios en Cordova
 {: cordova}
 
 ```javascript
@@ -440,7 +440,7 @@ WL.JSONStore.get(collectionName)
 {: codeblock}
 {: cordova}
 
-#### Eliminar una recopilación en Cordova
+### Eliminar una recopilación en Cordova
 {: cordova}
 
 ```javascript
@@ -464,7 +464,7 @@ WL.JSONStore.get(collectionName)
 {: codeblock}
 {: cordova}
 
-#### Borrar todos los datos que hay en una recopilación en Cordova
+### Borrar todos los datos que hay en una recopilación en Cordova
 {: cordova}
 
 ```javascript
@@ -488,7 +488,7 @@ WL.JSONStore.get(collectionName)
 {: codeblock}
 {: cordova}
 
-#### Iniciar una transacción, añadir datos, eliminar un documento, comprometer la transacción y desplegar de nuevo la transacción si se produce una anomalía en Cordova
+### Iniciar una transacción, añadir datos, eliminar un documento, comprometer la transacción y desplegar de nuevo la transacción si se produce una anomalía en Cordova
 {: #cordova-transaction }
 {: cordova}
 
@@ -536,7 +536,7 @@ WL.JSONStore.startTransaction()
 {: codeblock}
 {: cordova}
 
-#### Obtener la información de archivo en Cordova
+### Obtener la información de archivo en Cordova
 
 ```javascript
 WL.JSONStore.fileInfo()
@@ -551,7 +551,7 @@ WL.JSONStore.fileInfo()
 {: codeblock}
 {: cordova}
 
-#### Buscar con like, rightLike y leftLike en Cordova
+### Buscar con like, rightLike y leftLike en Cordova
 {: cordova}
 
 ```javascript
@@ -560,12 +560,12 @@ WL.JSONStore.fileInfo()
 var arr1 = WL.JSONStore.QueryPart().like('name', 'ca');  // returns {name: 'carlos', age: 10}
 var arr2 = WL.JSONStore.QueryPart().like('name', 'los');  // returns {name: 'carlos', age: 10}
 
-// Match all records that contain the search string on the left side and anything on the right side.
+// Match all records that contain the search string on the left hand side and anything on the right hand side.
 // searchString%
 var arr1 = WL.JSONStore.QueryPart().rightLike('name', 'ca');  // returns {name: 'carlos', age: 10}
 var arr2 = WL.JSONStore.QueryPart().rightLike('name', 'los');  // returns nothing
 
-// Match all records that contain the search string on the right side and anything on the left side.
+// Match all records that contain the search string on the right hand side and anything on the left hand side.
 // %searchString
 var arr = WL.JSONStore.QueryPart().leftLike('name', 'ca');  // returns nothing
 var arr2 = WL.JSONStore.QueryPart().leftLike('name', 'los');  // returns {name: 'carlos', age: 10}
@@ -573,11 +573,11 @@ var arr2 = WL.JSONStore.QueryPart().leftLike('name', 'los');  // returns {name: 
 {: codeblock}
 {: cordova}
 
-### Ejemplos para iOS
+## Ejemplos para iOS
 {: #samples-ios }
 {: ios}
 
-#### Inicializar y abrir conexiones, obtener un descriptor de acceso y añadir datos en iOS
+### Inicializar y abrir conexiones, obtener un descriptor de acceso y añadir datos en iOS
 {: ios}
 
 ```objc
@@ -635,7 +635,7 @@ Initialize with a secure random token from the server
 {: codeblock}
 {: ios}
 
-#### Encontrar - ubicar documentos dentro de un almacén en iOS
+### Encontrar - ubicar documentos dentro de un almacén en iOS
 {: ios}
 
 ```objc
@@ -677,7 +677,7 @@ for (NSDictionary* result in results) {
 {: codeblock}
 {: ios}
 
-#### Sustituir - cambiar los documentos que ya están almacenados dentro de una recopilación en iOS
+### Sustituir - cambiar los documentos que ya están almacenados dentro de una recopilación en iOS
 {: ios}
 
 ```objc
@@ -697,7 +697,7 @@ int docsReplaced = [[people replaceDocuments:docs andMarkDirty:NO error:&error] 
 {: codeblock}
 {: ios}
 
-#### Eliminar - suprimir todos los documentos que coinciden con la consulta en iOS
+### Eliminar - suprimir todos los documentos que coinciden con la consulta en iOS
 {: ios}
 
 ```objc
@@ -713,7 +713,7 @@ int docsRemoved = [[people removeWithIds:@[@1] andMarkDirty:NO error:&error] int
 {: codeblock}
 {: ios}
 
-#### Recuento - obtener el número total de documentos que coinciden con una consulta en iOS
+### Recuento - obtener el número total de documentos que coinciden con una consulta en iOS
 {: ios}
 
 ```objc
@@ -735,7 +735,7 @@ int countResult = [[people countWithQueryParts:@[queryPart] error:&error] intVal
 {: codeblock}
 {: ios}
 
-#### Destruir - limpiar los datos de todos los usuarios, destruir el almacenamiento interno y borrar los artefactos de seguridad en iOS
+### Destruir - limpiar los datos de todos los usuarios, destruir el almacenamiento interno y borrar los artefactos de seguridad en iOS
 {: ios}
 
 ```objc
@@ -748,7 +748,7 @@ NSError* error = nil;
 {: codeblock}
 {: ios}
 
-#### Seguridad - cerrar el acceso a todas las recopilaciones abiertas del usuario actual en iOS
+### Seguridad - cerrar el acceso a todas las recopilaciones abiertas del usuario actual en iOS
 {: ios}
 
 ```objc
@@ -761,7 +761,7 @@ NSError* error = nil;
 {: codeblock}
 {: ios}
 
-#### Seguridad - cambiar la contraseña que se utiliza para acceder al almacén en iOS
+### Seguridad - cambiar la contraseña que se utiliza para acceder al almacén en iOS
 {: ios}
 
 ```objc
@@ -784,7 +784,7 @@ newPassword = nil;
 {: codeblock}
 {: ios}
 
-#### Push - obtener todos los documentos marcados como sucios, enviarlos al adaptador y marcarlos como limpios en iOS
+### Push - obtener todos los documentos marcados como sucios, enviarlos al adaptador y marcarlos como limpios en iOS
 {: ios}
 
 ```objc
@@ -806,7 +806,7 @@ int numCleaned = [[people markDocumentsClean:dirtyDocs error:&error] intValue];
 {: codeblock}
 {: ios}
 
-#### Pull - obtener nuevos datos desde un adaptador en iOS
+### Pull - obtener nuevos datos desde un adaptador en iOS
 {: ios}
 
 ```objc
@@ -827,7 +827,7 @@ int numChanged = [[people changeData:data withReplaceCriteria:@[@"id", @"ssn"] a
 {: codeblock}
 {: ios}
 
-#### Comprobar si el documento está sucio en iOS
+### Comprobar si el documento está sucio en iOS
 {: ios}
 
 ```objc
@@ -843,7 +843,7 @@ BOOL isDirtyResult = [people isDirtyWithDocumentId:1 error:&error];
 {: codeblock}
 {: ios}
 
-#### Comprobar el número de documentos sucios en iOS
+### Comprobar el número de documentos sucios en iOS
 {: ios}
 
 ```objc
@@ -859,7 +859,7 @@ int dirtyDocsCount = [[people countAllDirtyDocumentsWithError:&error] intValue];
 {: codeblock}
 {: ios}
 
-#### Eliminar una recopilación en iOS
+### Eliminar una recopilación en iOS
 {: ios}
 
 ```objc
@@ -875,7 +875,7 @@ NSError* error = nil;
 {: codeblock}
 {: ios}
 
-#### Borrar todos los datos que hay en una recopilación en iOS
+### Borrar todos los datos que hay en una recopilación en iOS
 {: ios}
 
 ```objc
@@ -924,7 +924,7 @@ if (addError != nil || removeError != nil) {
 {: codeblock}
 {: ios}
 
-#### Obtener la información de archivo en iOS
+### Obtener la información de archivo en iOS
 {: ios}
 
 ```objc
@@ -938,11 +938,11 @@ NSArray* results = [[JSONStore sharedInstance] fileInfoAndReturnError:&error];
 {: codeblock}
 {: ios}
 
-### Ejemplos para Android
+## Ejemplos para Android
 {: #samples_android }
 {: android}
 
-#### Inicializar y abrir conexiones, obtener un descriptor de acceso y añadir datos en Android
+### Inicializar y abrir conexiones, obtener un descriptor de acceso y añadir datos en Android
 {: android}
 
 ```java
@@ -985,7 +985,7 @@ throw ex;
 {: codeblock}
 {: android}
 
-#### Inicializar con una señal aleatoria segura desde el servidor en Android
+### Inicializar con una señal aleatoria segura desde el servidor en Android
 {: android}
 
 ```java
@@ -1049,7 +1049,7 @@ aTask.execute(ctx);
 {: codeblock}
 {: android}
 
-#### Encontrar - ubicar documentos dentro de un almacén en Android
+### Encontrar - ubicar documentos dentro de un almacén en Android
 {: android}
 
 ```java
@@ -1093,7 +1093,7 @@ catch (JSONStoreException ex) {
 {: codeblock}
 {: android}
 
-#### Sustituir - cambiar los documentos que ya están almacenados dentro de una recopilación en Android
+### Sustituir - cambiar los documentos que ya están almacenados dentro de una recopilación en Android
 {: android}
 
 ```java
@@ -1123,7 +1123,7 @@ catch (JSONStoreException ex) {
 {: codeblock}
 {: android}
 
-#### Eliminar - suprimir todos los documentos que coinciden con la consulta en Android
+### Eliminar - suprimir todos los documentos que coinciden con la consulta en Android
 {: android}
 
 ```java
@@ -1157,7 +1157,7 @@ catch (JSONException ex) {
 {: codeblock}
 {: android}
 
-#### Recuento - obtener el número total de documentos que coinciden con una consulta en Android
+### Recuento - obtener el número total de documentos que coinciden con una consulta en Android
 {: android}
 
 ```java
@@ -1188,7 +1188,7 @@ catch (JSONStoreException ex) {
 {: codeblock}
 {: android}
 
-#### Destruir - limpiar los datos de todos los usuarios, destruir el almacenamiento interno y borrar los artefactos de seguridad en Android
+### Destruir - limpiar los datos de todos los usuarios, destruir el almacenamiento interno y borrar los artefactos de seguridad en Android
 {: android}
 
 ```java
@@ -1207,7 +1207,7 @@ catch (JSONStoreException ex) {
 {: codeblock}
 {: android}
 
-#### Seguridad - cerrar el acceso a todas las recopilaciones abiertas del usuario actual en Android
+### Seguridad - cerrar el acceso a todas las recopilaciones abiertas del usuario actual en Android
 {: android}
 
 ```java
@@ -1226,7 +1226,7 @@ catch (JSONStoreException ex) {
 {: codeblock}
 {: android}
 
-#### Seguridad - cambiar la contraseña que se utiliza para acceder al almacén en Android
+### Seguridad - cambiar la contraseña que se utiliza para acceder al almacén en Android
 {: android}
 
 ```java
@@ -1255,7 +1255,7 @@ finally {
 {: codeblock}
 {: android}
 
-#### Push - obtener todos los documentos marcados como sucios, enviarlos al adaptador y marcarlos como limpios en Android
+### Push - obtener todos los documentos marcados como sucios, enviarlos al adaptador y marcarlos como limpios en Android
 {: android}
 
 ```java
@@ -1280,7 +1280,7 @@ try {
 {: codeblock}
 {: android}
 
-#### Pull - obtener nuevos datos desde un adaptador en Android
+### Pull - obtener nuevos datos desde un adaptador en Android
 {: android}
 
 ```java
@@ -1324,7 +1324,7 @@ catch (JSONException ex) {
 {: codeblock}
 {: android}
 
-#### Cómo comprobar si un documento está sucio en Android
+### Cómo comprobar si un documento está sucio en Android
 {: android}
 
 ```java
@@ -1346,7 +1346,7 @@ catch (JSONStoreException ex) {
 {: codeblock}
 {: android}
 
-#### Cómo revisar el número de documentos sucios en Android
+### Cómo revisar el número de documentos sucios en Android
 {: android}
 
 ```java
@@ -1368,7 +1368,7 @@ catch (JSONStoreException ex) {
 {: codeblock}
 {: android}
 
-#### Eliminar una recopilación en Android
+### Eliminar una recopilación en Android
 {: android}
 
 ```java
@@ -1391,7 +1391,7 @@ catch (JSONStoreException ex) {
 {: codeblock}
 {: android}
 
-#### Borrar todos los datos que hay en una recopilación en Android
+### Borrar todos los datos que hay en una recopilación en Android
 {: android}
 
 ```java
@@ -1413,7 +1413,7 @@ catch (JSONStoreException ex) {
 {: codeblock}
 {: android}
 
-#### Iniciar una transacción, añadir datos, eliminar un documento, comprometer la transacción y desplegar de nuevo la transacción si se produce una anomalía en Android
+### Iniciar una transacción, añadir datos, eliminar un documento, comprometer la transacción y desplegar de nuevo la transacción si se produce una anomalía en Android
 {: #android-transaction }
 {: android}
 
@@ -1458,7 +1458,7 @@ catch (JSONException ex) {
 {: codeblock}
 {: android}
 
-#### Obtener la información de archivo en Android
+### Obtener la información de archivo en Android
 {: android}
 
 ```java

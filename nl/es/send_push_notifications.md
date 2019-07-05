@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-02-28"
+lastupdated: "2019-06-10"
 
 keywords: push notifications, notifications, sending notification, HTTP/2
 
@@ -76,7 +76,7 @@ A continuación se muestra un URL de ejemplo,
 https://myserver.com:443/imfpush/v1/apps/com.sample.PinCodeSwift/messages
 ```
 
-> Para revisar todas las API REST de notificaciones push, consulte el tema [API REST de servicios de tiempo de ejecución](https://www.ibm.com/support/knowledgecenter/SSHS8R_8.0.0/com.ibm.worklight.apiref.doc/rest_runtime/c_restapi_runtime.html) en la documentación de usuario.
+Para revisar todas las API REST de notificaciones push, consulte el tema [API REST de servicios de tiempo de ejecución](https://www.ibm.com/support/knowledgecenter/SSHS8R_8.0.0/com.ibm.worklight.apiref.doc/rest_runtime/c_restapi_runtime.html) en la documentación de usuario.
 
 ### Carga útil de notificación
 {: #notification-payload }
@@ -85,15 +85,16 @@ La solicitud puede contener las siguientes propiedades de carga útil:
 
 |Propiedades de carga útil| Definición
 |--- | ---
-|message | Mensaje de alerta a enviar.
-|settings | Los valores son los distintos atributos de la notificación.
-|target | Conjunto de destinos: etiquetas, plataformas, dispositivos o ID de consumidor. Solo se puede especificar uno de los destinos.
-|deviceIds | Matriz de los dispositivos representados por los identificadores de dispositivo. Los dispositivos con estos identificadores recibirán la notificación. Se trata de una notificación de difusión única.
-|notificationType | Valor entero que indica el canal (push o SMS) utilizado para enviar el mensaje. Los valores permitidos son 1 (solo push), 2 (solo SMS) y 3 (ambos).
-|platforms | Matriz de plataformas de dispositivo. Los dispositivos que se ejecuten en estas plataformas recibirán la notificación. Los valores soportados son (Apple/iOS), G (Google/Android) y M (Microsoft/Windows).
-|tagNames | Matriz de etiquetas que se especifican como tagNames. Los dispositivos suscritos a estas etiquetas recibirán la notificación. Utilice este tipo de destino para notificaciones basadas en etiquetas.
-|userIds | Matriz de usuarios representados por sus userIds para enviar la notificación. Se trata de una notificación de difusión única.
-|phoneNumber | Número de teléfono utilizado para registrar el dispositivo y recibir notificaciones. Se trata de una notificación de difusión única.
+|message | Mensaje de alerta a enviar. |
+|settings | Los valores son los distintos atributos de la notificación. |
+|target | Conjunto de destinos: etiquetas, plataformas, dispositivos o ID de consumidor. Solo se puede especificar uno de los destinos. |
+|deviceIds | Matriz de los dispositivos representados por los identificadores de dispositivo. Los dispositivos con estos identificadores recibirán la notificación. Se trata de una notificación de difusión única. |
+|notificationType | Valor entero que indica el canal (push o SMS) utilizado para enviar el mensaje. Los valores permitidos son 1 (solo push), 2 (solo SMS) y 3 (ambos). |
+|platforms | Matriz de plataformas de dispositivo. Los dispositivos que se ejecuten en estas plataformas recibirán la notificación. Los valores soportados son (Apple/iOS), G (Google/Android) y M (Microsoft/Windows). |
+|tagNames | Matriz de etiquetas que se especifican como tagNames. Los dispositivos suscritos a estas etiquetas recibirán la notificación. Utilice este tipo de destino para notificaciones basadas en etiquetas. |
+|userIds | Matriz de usuarios representados por sus userIds para enviar la notificación. Se trata de una notificación de difusión única. |
+|phoneNumber | Número de teléfono utilizado para registrar el dispositivo y recibir notificaciones. Se trata de una notificación de difusión única. |
+{: caption="Tabla 1. Propiedades de la carga útil" caption-side="top"}
 
 **Ejemplo de JSON de carga útil de notificaciones push**
 
@@ -118,7 +119,7 @@ La solicitud puede contener las siguientes propiedades de carga útil:
     },
   },
   "target" : {
-    // The list below is for demonstration purposes only - per the documentation only 1 target is allowed to be used at a time.
+    // The following list is for demonstration purposes only - per the documentation only 1 target is allowed to be used at a time.
     "deviceIds" : [ "MyDeviceId1", ... ],
     "platforms" : [ "A,G", ... ],
     "tagNames" : [ "Gold", ... ],
@@ -147,7 +148,7 @@ La solicitud puede contener las siguientes propiedades de carga útil:
 La notificación se puede enviar utilizando distintas herramientas. A efectos de prueba, se utilizará **Postman**; en los pasos siguientes se describe la configuración,
 
 1. [Configuración de un cliente confidencial](https://mobilefirstplatform.ibmcloud.com/tutorials/en/foundation/8.0/authentication-and-security/confidential-clients/).
-  El envío de una notificación push a través de la API REST utiliza elementos de ámbito separados por espacios `messages.write` y `push.application.<applicationId>.`
+  El envío de una notificación push a través de la API REST utiliza elementos de ámbito separados por espacios `messages.write` y `push.application.<applicationId>`.
   <img class="gifplayer" alt="Configurar un cliente confidencial" src="images/push-confidential-client.png"/>
 2. [Creación de una señal de acceso](https://mobilefirstplatform.ibmcloud.com/tutorials/en/foundation/8.0/authentication-and-security/confidential-clients#obtaining-an-access-token).  
 3. Realice una solicitud **POST** a **http://localhost:9080/imfpush/v1/apps/com.sample.PushNotificationsAndroid/messages**
@@ -156,7 +157,7 @@ La notificación se puede enviar utilizando distintas herramientas. A efectos de
 4. Establezca una cabecera:
     - `**Authorization**: Bearer eyJhbGciOiJSUzI1NiIsImp ...`
     - Sustituya el valor que hay tras **Bearer** por el valor de su señal de acceso del paso (1).
-    ![Cabecera de autorización](images/postman_authorization_header.png)
+    ![Cabecera Authorization](images/postman_authorization_header.png "Cabecera Authorization")
 5. Establezca un cuerpo:
   - Actualice sus propiedades según se describe en [Carga útil de notificación](#notification-payload).
   - Por ejemplo, añadiendo la propiedad **target** con el atributo **userIds**, podrá enviar una notificación a usuarios específicamente registrados.
@@ -168,11 +169,11 @@ La notificación se puede enviar utilizando distintas herramientas. A efectos de
     }
     ```
 
-    ![Cabecera de autorización](images/postman_json.png)
+    ![Cuerpo de Authorization](images/postman_json.png "Cuerpo de Authorization")
 
     Tras pulsar el botón **Enviar**, el dispositivo recibirá una notificación:
 
-    ![Imagen de la aplicación de ejemplo](images/notifications-app.png)
+    ![Imagen de la aplicación de ejemplo](images/notifications-app.png "Notificación push en un dispositivo móvil")
 
 ## Personalización de notificaciones
 {: #customizing-notifications }
@@ -192,7 +193,7 @@ En {{ site.data.keyword.mfp_oc_short_notm }} → **[su aplicación] → Push →
 
 * Sonido de notificación, carga útil personalizada, título de clave de acción, tipo de notificación y número de identificador.
 
-  ![Personalización de notificaciones push](images/customizing-push-notifications.png)
+  ![Personalización de notificaciones push](images/customizing-push-notifications.png "Página de push de la consola de operaciones de Mobile First con el separador Enviar push seleccionado")
 
 ## Soporte de HTTP/2 para notificaciones push de APN
 {: #http2-support-for-apns-push-notifications}
@@ -212,6 +213,7 @@ Las notificaciones basadas en HTTP/2 se pueden habilitar utilizando una propieda
 ```xml
 <jndiEntry jndiName="imfpush/mfp.push.apns.http2.enabled" value= "true"/>
 ```
+{: codeblock}
 
 Si se añade la propiedad JNDI, no se utilizarán las notificaciones heredadas basadas en socket TCP, y solo estarán habilitadas las notificaciones basadas en HTTP/2.
 {: note}

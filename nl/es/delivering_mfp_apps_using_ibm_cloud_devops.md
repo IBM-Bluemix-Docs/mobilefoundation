@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-03-13"
+lastupdated: "2019-06-10"
 
 keywords: mobile foundation, integration, devops, ibmcloud, pipeline
 
@@ -40,7 +40,7 @@ en {{ site.data.keyword.cloud_notm }}.
 
 En la imagen siguiente se proporciona una visión general del conducto.
 
-![overview_of_pipeline](images/p00_overview_of_pipeline.png)
+![overview_of_pipeline](images/p00_overview_of_pipeline.png "Seis etapas del conducto de DevOps")
 
 
 ## Requisitos previos
@@ -50,7 +50,7 @@ En la imagen siguiente se proporciona una visión general del conducto.
 * [mfpdev-cli](https://www.npmjs.com/package/mfpdev-cli)
 * Una app y un [adaptador MFP](https://mobilefirstplatform.ibmcloud.com/tutorials/en/foundation/8.0/adapters/) de ejemplo
 * Cuenta de [GitHub](http://github.com/)
-* **Opcional:** instancia de [Bitbar](https://bitbar.com/testing/) y clave de API de Bitbar (puede utilizar cualquier servicio según sus requisitos).
+* *Opcional:* instancia de [Bitbar](https://bitbar.com/testing/) y clave de API de Bitbar (puede utilizar cualquier servicio según sus requisitos).
 
 
 ## Creación del servicio Continuous Delivery y la cadena de herramientas
@@ -60,14 +60,13 @@ En la imagen siguiente se proporciona una visión general del conducto.
 [pulse aquí](https://cloud.ibm.com/catalog/services/continuous-delivery)).
 * Cree el servicio proporcionando el nombre de servicio, la región, etc.
 
-    En el ejemplo siguiente, utilizaremos el nombre de servicio "MFP App/Adapter delivery Test", la región/ubicación "London" y el grupo de recursos "Default".
+    En el ejemplo siguiente, utilizaremos el nombre de servicio *MFP App/Adapter delivery Test*, la región/ubicación *London* y el grupo de recursos *Default*.
 
-    ![configuring_continuous_delivery_service](images/p01_configuring_continuous_delivery_service.png)
+    ![configuring_continuous_delivery_service](images/p01_configuring_continuous_delivery_service.png "Página de creación de catálogo para la instancia de servicio de Mobile Foundation")
 
-* En la sección de {{ site.data.keyword.jazzhub_title }} del menú de hamburguesa de la izquierda, cree una cadena de herramientas y busque
-"Crear su propia cadena de herramientas" para crear una cadena de herramientas desde cero.
+* Desde el menú Navegación, seleccione **DevOps**, luego pulse **Crear una cadena de herramientas** y busque "Crear su propia cadena de herramientas" para crear una cadena de herramientas desde cero.
 
-    ![search_build_your_own_toolchain](images/p02_search_build_your_own_toolchain.png)
+    ![search_build_your_own_toolchain](images/p02_search_build_your_own_toolchain.png "Página Crear su propia cadena de herramientas con el resultado de búsqueda para crear su propia cadena de herramientas")
 
 * Proporcione el nombre de la cadena de herramientas, la región, etc., para configurarla.
 
@@ -75,13 +74,13 @@ En la imagen siguiente se proporciona una visión general del conducto.
 ## Integración de GitHub con la cadena de herramientas para el control de versiones y el desencadenante de conducto
 {: #integrating-github-with-the-toolchain}
 
-* En la visión general de la cadena de herramientas del menú de la izquierda, pulse **Añadir una herramienta** y busque GitHub.
+* En la página **Visión general** de la navegación, pulse **Añadir una herramienta** y busque GitHub.
 * Configure la **dirección de servidor de GitHub**, **tipo de repositorio** y **URL de repositorio** para la herramienta GitHub.
 * Puede crear un repositorio nuevo, hacer fork, clonar o utilizar un repositorio existente.
 
-    En el ejemplo siguiente, utilizaremos el servidor de GitHub "[https://github.com](http://github.com/)", el tipo de repositorio "Existing" y el URL de repositorio "https://github.com/sagar20896/mfp-devops-20181210030116092".
+    En el ejemplo siguiente, utilizaremos el servidor de GitHub "[https://github.com](http://github.com/)", el tipo de repositorio *Existing* y el URL de repositorio *https://github.com/sagar20896/mfp-devops-20181210030116092*.
 
-    ![configuring_toolchain](images/p03_configuring_toolchain.png)
+    ![configuring_toolchain](images/p03_configuring_toolchain.png "Pantalla Configurar la integración que muestra los campos Servidor de GitHub, Tipo de repositorio y URL de repositorio")
 
 ### Adición del conducto de entrega a la cadena de herramientas
 {: #adding-the-delivery-pipeline-to-the-toolchain}
@@ -102,7 +101,7 @@ En el ejemplo siguiente, establecemos el Tipo de entrada como *Git repository*, 
 *mfp-devops-20181210030116092*, el URL de Git como *https://github.com/sagar20896/mfp-devops-20181210030116092* y la rama como
 *master*.
 
-![first_stage_git_input](images/p4_first_stage_git_input.png)
+![first_stage_git_input](images/p4_first_stage_git_input.png "Pantalla Configurar Mobile Foundation con el separador Entrada seleccionado")
 
 - Pulse **Añadir etapa** y configure el separador **Entrada** para que haga referencia al repositorio de GitHub como se muestra en la imagen.
 - En el separador **Trabajos**, pulse **AÑADIR TRABAJO** y seleccione *Desplegar* como tipo de trabajo. Establezca el **Tipo de desplegador** en *Cloud Foundry*.
@@ -141,11 +140,11 @@ Seleccione/rellene los demás campos según sea necesario. Añada las líneas si
 
 En el script anterior, utilizamos la CLI de Cloud Foundry para crear una instancia del servicio {{ site.data.keyword.mobilefoundation_short }}.
 
-![stage1_jobs_tab_config](images/p05_stage1_jobs_tab_config.png)
+![stage1_jobs_tab_config](images/p05_stage1_jobs_tab_config.png "Pantalla Configurar Mobile Foundation con el separador Trabajos seleccionado")
 
 En el separador **Propiedades de entorno**, añada la propiedad *INSTANCE\_NAME* (como propiedad de texto) con el nombre que desea que tenga la instancia de MobileFoundation. Se utilizará como identificador en muchas etapas.
 
-![stage1_environment_properties](images/p06_stage1_environment_properties.png)
+![stage1_environment_properties](images/p06_stage1_environment_properties.png "Pantalla Configurar Mobile Foundation con el separador Propiedades de entorno seleccionado")
 
 #### Etapa 2 - Compilación de un adaptador
 {: #stage2-building-an-adapter}
@@ -176,7 +175,7 @@ En el script anterior, instalamos [mfpdev-cli](https://www.npmjs.com/package/mfp
 
 En el ejemplo siguiente, utilizaremos el **Tipo de compilador** como *npm* y el script proporcionado en el script de compilación. Dejaremos los parámetros **Directorio de trabajo** y **Directorio de archivado de compilación** vacíos.
 
-![build_adapter_stage_jobs_config](images/p07_build_adapter_stage_jobs_config.png)
+![build_adapter_stage_jobs_config](images/p07_build_adapter_stage_jobs_config.png "Pantalla BuildAdapter con el separador Trabajos seleccionado")
 
 #### Etapa 3 - Despliegue de un adaptador
 {: #stage3-deploying-an-adapter}
@@ -193,7 +192,7 @@ En esta etapa, desplegaremos el adaptador en la instancia de {{ site.data.keywor
 En el ejemplo siguiente, utilizaremos el **Tipo de desplegador** como *Cloud Foundry*, la
 **Región de {{ site.data.keyword.cloud_notm }}** como *Dallas* y la clave de API como la misma que hemos creado en la primera etapa.
 
-![deploy_adapter](images/p08_deploy_adapter.png)
+![deploy_adapter](images/p08_deploy_adapter.png "Pantalla Desplegar con el separador Trabajos seleccionado")
 
 
 Utilice el **Script de despliegue** siguiente:

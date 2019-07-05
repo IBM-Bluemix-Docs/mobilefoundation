@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2018-11-23"
+lastupdated: "2019-06-06"
 
 keywords: mobile analytics, set up alerts, alert definitions
 
@@ -44,13 +44,13 @@ Puede crear una definición de alerta basada en los registros de apps.  Por ejem
         * **Propiedad**: *Nivel de registro*
             * **Valor**: *Error*
             * **Umbral**: *Total para la instancia de aplicación*<br/>
-              Si selecciona la opción *Promedio para aplicación*, el promedio de los registros de apps se realiza por el número de dispositivos. Por ejemplo, si tiene dos dispositivos y un dispositivo envía seis registros de apps mientras que el otro dispositivo envía tres registros de apps, el promedio es de 4,5 registros de apps.
+Si selecciona la opción *Promedio para aplicación*, el promedio de los registros de apps se realiza por el número de dispositivos. Por ejemplo, si tiene dos dispositivos y un dispositivo envía seis registros de apps mientras que el otro dispositivo envía tres registros de apps, el promedio es de 4,5 registros de apps.
               {: note}
             * **Operador**: *es mayor que o igual a*
             * Valor de umbral: *3*
 4.  Pulse **Siguiente** y proporcione el siguiente valor:
-    * **Método**: *solo consola de analíticas*<br/>
-      Ademas, elija la opción *Consola de analíticas y POST de red*, si también desea enviar un mensaje POST con una carga útil JSON a su URL personalizado. Los campos siguientes están disponibles si selecciona esta opción.
+    * **Método**: *Solo para la consola de Analytics*<br/>
+Ademas, elija la opción *Consola de Analytics y POST de red*, si también desea enviar un mensaje POST con una carga útil JSON a su URL personalizado. Los campos siguientes están disponibles si selecciona esta opción.
       * **URL POST de red**
       * **Cabeceras**
       * **Tipo de autenticación**
@@ -80,8 +80,8 @@ A continuación se muestra un ejemplo de configuración de alertas sobre bloqueo
     * **Operador**: *es mayor que o igual a*
     * Valor de umbral: *5*
 4.  Pulse **Método de distribución** o **Siguiente** y proporcione el siguiente valor:
-    * **Método**: *solo consola de analíticas*<br/>
-      Ademas, elija la opción *Consola de analíticas y POST de red*, si también desea enviar un mensaje POST con una carga útil JSON a su URL personalizado. Los campos siguientes están disponibles si selecciona esta opción.
+    * **Método**: *Solo para la consola de Analytics*<br/>
+Ademas, elija la opción *Consola de Analytics y POST de red*, si también desea enviar un mensaje POST con una carga útil JSON a su URL personalizado. Los campos siguientes están disponibles si selecciona esta opción.
       * **URL POST de red**
       * **Cabeceras**
       * **Tipo de autenticación**

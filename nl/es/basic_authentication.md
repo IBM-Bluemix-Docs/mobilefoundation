@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2018-11-19"
+lastupdated: "2019-06-10"
 
 keywords: security, basic authentication, protecting resources, tokens, scopemapping
 
@@ -23,7 +23,7 @@ subcollection:  mobilefoundation
 # Autenticación y seguridad
 {: #basic_authentication}
 
-La infraestructura de seguridad de MobileFirst se basa en el protocolo [OAuth 2.0](http://oauth.net/). De acuerdo con este protocolo, un recurso puede ser protegido por un **ámbito** que define los permisos requeridos para acceder al recurso. Para acceder a un recurso protegido, el cliente debe proporcionar una **señal de acceso** coincidente que encapsula el ámbito de la autorización que se le garantiza al cliente.
+La infraestructura de seguridad de MobileFirst se basa en el protocolo [OAuth 2.0](http://oauth.net/). De acuerdo con este protocolo, un recurso puede ser protegido por un **ámbito** que define los permisos requeridos para acceder al recurso. Para acceder a un recurso protegido, el cliente debe proporcionar una **señal de acceso** coincidente que encapsula el ámbito de la autorización que se le otorga al cliente.
 
 El protocolo OAuth separa los roles del servidor de autorización y el servidor de recursos en el que se aloja el recurso.
 
@@ -53,10 +53,11 @@ La señal de renovación de MobileFirst contiene la siguiente información:
 * **Hora de vencimiento de la señal**: la hora a partir de la cual la señal se vuelve inválida (caduca), en segundo.
 
 #### Vencimiento de la señal
+{: #token-expiration}
 
-La señal de acceso garantizada continua siendo válida hasta que transcurre la hora de vencimiento. La hora de vencimiento de la señal de acceso se establece en la hora de vencimiento más corta de entre las horas de vencimiento de todas las comprobaciones de seguridad del ámbito. Sin embargo, si el período de tiempo hasta la hora de vencimiento más corta es más largo que el período máximo de vencimiento de la señal de la aplicación, la hora de vencimiento de la señal se establece en la hora actual más el período de vencimiento máximo. El período de vencimiento de señal máximo predeterminado (duración de validación) es 3.600 segundos (1 hora), pero puede configurarse estableciendo el valor de la propiedad ``maxTokenExpiration``.
+La señal de acceso otorgada continua siendo válida hasta que transcurre la hora de vencimiento. La hora de vencimiento de la señal de acceso se establece en la hora de vencimiento más corta de entre las horas de vencimiento de todas las comprobaciones de seguridad del ámbito. Sin embargo, si el período de tiempo hasta la hora de vencimiento más corta es más largo que el período máximo de vencimiento de la señal de la aplicación, la hora de vencimiento de la señal se establece en la hora actual más el período de vencimiento máximo. El período de vencimiento de señal máximo predeterminado (duración de validación) es 3.600 segundos (1 hora), pero puede configurarse estableciendo el valor de la propiedad ``maxTokenExpiration``.
 
-**Configuración del período de vencimiento de señal de acceso máximo**
+##### Configuración del período de vencimiento de señal de acceso máximo
 {: #acs_config-max-access-tokens}
 
 Configure el período de vencimiento de señal de acceso máximo de la aplicación utilizando uno de los métodos alternativos siguientes:
@@ -82,7 +83,7 @@ Configure el período de vencimiento de señal de acceso máximo de la aplicaci�
         {: codeblock}
     4. Despliegue el archivo JSON de configuración actualizando ejecutando el mandato: ``mfpdev app push``.
 
-**Estructura de respuesta de señal de acceso**
+##### Estructura de la respuesta de la señal de acceso
 {: #acs_access-tokens-structure}
 
 Una respuesta HTTP correcta a una solicitud de señal de acceso contiene un objeto JSON con la señal de acceso y datos adicionales. A continuación, se muestra un ejemplo de una respuesta de señal de acceso válida del servidor de autorización:
@@ -110,7 +111,7 @@ El objeto JSON de respuesta de señal tiene los siguientes objetos de propiedad:
 
 La información **expires_in** y **scope** también se encuentra en la misma señal (**access_token**).
 
->**Nota**: La estructura de una respuesta de señal de acceso válida es relevante si utiliza la clase de nivel bajo `WLAuthorizationManager` y gestiona la interacción OAuth entre el cliente y la autorización y los servidores de recurso usted mismo, o si utiliza un cliente confidencial. Si utiliza la clase de nivel alto `WLResourceRequest`, que encapsula el flujo OAuth para acceder a recursos protegidos, la infraestructura de seguridad maneja el proceso de las respuestas de señal de acceso en su lugar. Consulte [API de seguridad de cliente](http://www.ibm.com/support/knowledgecenter/en/SSHS8R_8.0.0/com.ibm.worklight.dev.doc/dev/c_oauth_client_apis.html?view=kc#c_oauth_client_apis) y [Clientes confidenciales](https://mobilefirstplatform.ibmcloud.com/tutorials/en/foundation/8.0/authentication-and-security/confidential-clients/).
+**Nota**: La estructura de una respuesta de señal de acceso válida es relevante si utiliza la clase de nivel bajo `WLAuthorizationManager` y gestiona la interacción OAuth entre el cliente y la autorización y los servidores de recurso usted mismo, o si utiliza un cliente confidencial. Si utiliza la clase de nivel alto `WLResourceRequest`, que encapsula el flujo OAuth para acceder a recursos protegidos, la infraestructura de seguridad maneja el proceso de las respuestas de señal de acceso en su lugar. Consulte [API de seguridad de cliente](http://www.ibm.com/support/knowledgecenter/en/SSHS8R_8.0.0/com.ibm.worklight.dev.doc/dev/c_oauth_client_apis.html?view=kc#c_oauth_client_apis) y [Clientes confidenciales](https://mobilefirstplatform.ibmcloud.com/tutorials/en/foundation/8.0/authentication-and-security/confidential-clients/).
 
 ### Señales de renovación
 {: #acs_refresh_tokens}
@@ -123,6 +124,7 @@ Señal de renovación de MobileFirst
 Una señal de renovación de MobileFirst es una entidad firmada digitalmente como señal de acceso que describe los permisos de autorización de un cliente. La señal de renovación se puede utilizar para obtener una nueva señal de acceso del mismo ámbito. Una vez que se otorga la solicitud de autorización del cliente para un ámbito específico y que el cliente está autenticado, el punto final de la señal del servidor de autorización envía al cliente una respuesta HTTP que contiene la señal de acceso y la señal de renovación solicitadas. Cuando caduca la señal de acceso, el cliente envía una señal de renovación al punto final de señal del servidor de autorización para obtener un nuevo conjunto de señales de acceso y de señales de renovación.
 
 #### Estructura de la señal de renovación
+{: #structure_refresh_tokens}
 
 De forma similar a la señal de acceso de MobileFirst, la señal de renovación de MobileFirst contiene la información siguiente:
 
@@ -130,30 +132,31 @@ De forma similar a la señal de acceso de MobileFirst, la señal de renovación 
 * **Ámbito**: el ámbito al que se otorgó la señal (ver ámbitos de OAuth). Este ámbito no incluye un ámbito de aplicación obligatorio.
 * **Hora de vencimiento de la señal**: la hora a partir de la cual la señal se vuelve inválida (caduca), en segundo.
 
-**Vencimiento de la señal**
+##### Vencimiento de la señal
+{: #str-token-expiration}
 
 El periodo de vencimiento de la señal para la señal de renovación es mayor que el periodo de vencimiento de la señal de acceso típico. La señal de renovación una vez otorgada continúa siendo válida hasta que transcurre la hora de vencimiento. Dentro de este periodo de validez, un cliente puede utilizar la señal de renovación para obtener un conjunto nuevo de señales de acceso y de señales de renovación. La señal de renovación tiene un periodo de vencimiento fijo de 30 días. Cada vez que el cliente recibe un conjunto nuevo de señales de acceso y de señales de renovación correctamente, se restablece el vencimiento de la señal de renovación, dando así al cliente una experiencia de una señal que no vence nunca. Las reglas de vencimiento de la señal de acceso permanecen igual que lo explicado en la sección **Señal de acceso**.
 
-**Habilitación de la característica de señal de renovación**
+##### Habilitación de la característica de señal de renovación
 {: #acs_enable-refresh-token}
 
 La característica de señal de renovación se puede habilitar utilizando las propiedades siguientes en el lado del cliente y del servidor, respectivamente.
 
-**Propiedad del lado del cliente (Android)**
+Propiedad del lado del cliente (Android):
 *Nombre de archivo*: mfpclient.properties
 *Nombre de propiedad*: wlEnableRefreshToken
 *Valor de propiedad*: true
 Por ejemplo,
 *wlEnableRefreshToken*=true
 
-**Propiedad del lado del cliente (iOS)**
+Propiedad del lado del cliente (iOS):
 *Nombre de archivo*: mfpclient.plist
 *Nombre de propiedad*: wlEnableRefreshToken
 *Valor de propiedad*: true
 Por ejemplo,
 *wlEnableRefreshToken*=true
 
-**Propiedad del lado del servidor**
+Propiedad del lado del servidor:
 *Nombre de archivo*: server.xml
 *Nombre de propiedad*: mfp.security.refreshtoken.enabled.apps
 *Valor de propiedad*: id de paquete de aplicación separado por ‘;’
@@ -166,7 +169,8 @@ Por ejemplo:
 {: codeblock}
 Utilice ID de paquetes distintos para distintas plataformas.
 
-**Estructura de respuesta de señal de renovación**
+##### Estructura de respuesta de señal de renovación
+{: #refresh-token-response-structure}
 
 A continuación, se muestra un ejemplo de una respuesta de señal de renovación válida del servidor de autorizaciones:
 
@@ -188,9 +192,9 @@ A continuación, se muestra un ejemplo de una respuesta de señal de renovación
 La respuesta de la señal de renovación tiene un objeto de propiedad adicional
 `refresh_token`, además de los otros objetos de propiedad que se describen como parte de la estructura de la respuesta de la señal de acceso.
 
->**Nota**: Las señales de renovación tienen una duración mayor que las señales de acceso. Por lo tanto, la característica de señal de renovación se debe utilizar con cuidado. Las aplicaciones donde la autenticación de usuario periódica no es necesaria son candidatos ideales para utilizar la característica de señal de renovación.
+**Nota**: Las señales de renovación tienen una duración mayor que las señales de acceso. Por lo tanto, la característica de señal de renovación se debe utilizar con cuidado. Las aplicaciones donde la autenticación de usuario periódica no es necesaria son candidatos ideales para utilizar la característica de señal de renovación.
 
->MobileFirst da soporte a la característica de señal de renovación en iOS a partir de CD Update 3.
+MobileFirst da soporte a la característica de señal de renovación en iOS a partir de CD Update 3.
 
 #### Comprobaciones de seguridad
 {: #acs_securitychecks}
@@ -199,7 +203,8 @@ Una comprobación de seguridad es una entidad de lado del servidor que implement
 
 Una comprobación de seguridad normalmente emite desafíos de seguridad que requieren que el cliente responda de forma específica para pasar la comprobación. Este reconocimiento se produce como parte del flujo de adquisición de señal de acceso de OAuth. El cliente utiliza los **manejadores de desafíos** para manejar los desafíos de las comprobaciones de seguridad.
 
-**Comprobaciones de seguridad incorporadas**
+##### Comprobaciones de seguridad incorporadas
+{: #builtin-sec-checks}
 
 Están disponibles las siguientes comprobaciones de seguridad predefinidas:
 
@@ -214,7 +219,7 @@ Al intentar acceder a un recurso protegido, es posible que el cliente se enfrent
 
 Un manejador de desafíos es una entidad del lado del cliente que implementa la lógica de seguridad del lado del cliente y la interacción de usuario relacionada.
 
->**Importante**: Una vez recibido el desafío, no puede ignorarse. Debe responder o cancelarlo. Ignorar un desafío puede provocar comportamientos inesperados.
+**Importante**: Una vez recibido el desafío, no puede ignorarse. Debe responder o cancelarlo. Ignorar un desafío puede provocar comportamientos inesperados.
 
 ### Ámbitos
 {: #scopes}
@@ -250,9 +255,9 @@ Por ejemplo: scope = `access-restricted deletePrivilege`
     * `access-restricted` se correlaciona con `PinCodeAttempts`.
     * `deletePrivilege` se correlaciona con `UserLogin`.
 
->Para correlacionar su elemento de ámbito con una cadena vacía, no seleccione ninguna comprobación de seguridad en el menú emergente **Añadir nueva correlación de elemento de ámbito**.
+Para correlacionar su elemento de ámbito con una cadena vacía, no seleccione ninguna comprobación de seguridad en el menú emergente **Añadir nueva correlación de elemento de ámbito**.
 
-![Correlación de ámbito](/images/scope_mapping.png)
+![Correlación de ámbito](/images/scope_mapping.png "Pantalla Añadir nueva correlación de elemento de ámbito")
 
 También puede editar manualmente el archivo JSON de configuración de la aplicación con la configuración necesaria y volver a enviar por push los cambios a un servidor de MobileFirst.
 
@@ -286,13 +291,13 @@ Puede proteger los recursos de varias maneras:
 
 A nivel de aplicación, puede definir un ámbito que se aplicará a todos los recursos utilizados en la aplicación. La infraestructura de seguridad ejecuta estas comprobaciones(si existen) además de las comprobaciones de seguridad del ámbito de recurso solicitado.
 
->**Nota**:
->* El ámbito de aplicación obligatorio no se aplica al acceder a un recurso desprotegido.
->* La señal de acceso que se garantiza para el ámbito de recursos no contiene el ámbito de aplicación obligatorio.
+**Nota**:
+   * El ámbito de aplicación obligatorio no se aplica al acceder a un recurso desprotegido.
+   * La señal de acceso que se otorgada para el ámbito de recursos no contiene el ámbito de aplicación obligatorio.
 
 En la Consola de operaciones de MobileFirst, seleccione la aplicación en la sección **Aplicaciones** de la barra lateral de navegación y, a continuación, seleccione el separador **Seguridad**. En **Ámbito de aplicación obligatorio**, seleccione **Añadir a ámbito**.
 
-![Ámbito de aplicación obligatorio](/images/mandatory-application-scope.png)
+![Ámbito de aplicación obligatorio](/images/mandatory-application-scope.png "Pantalla Configurar ámbito de aplicación obligatorio")
 
 También puede editar manualmente el archivo JSON de configuración de la aplicación con la configuración necesaria y volver a enviar por push los cambios a un servidor de MobileFirst.
 
@@ -305,7 +310,7 @@ También puede editar manualmente el archivo JSON de configuración de la aplica
     ```
 4. Despliegue el archivo JSON de configuración actualizando ejecutando el mandato: mfpdev app push.
 
->También puede enviar configuraciones actualizadas a servidores remotos.
+También puede enviar configuraciones actualizadas a servidores remotos.
 
 #### Protección de recursos de adaptador
 {: #protectadapterres}
@@ -328,9 +333,9 @@ Para inhabilitar una protección OAuth para el método o clase de recurso Java, 
 
 El valor predeterminado del elemento `enabled` de la anotación es `true`. Cuando el elemento `enabled` se establezca en `false`, el elemento `scope` se ignora y el recurso o clase de recurso queda desprotegido.
 
->**Nota**: Cuando asigne un ámbito a un método de una clase desprotegida, el método se protege pese a la anotación de clase, a menos que establezca el elemento `enabled` de la anotación de recurso en `false`.
+**Nota**: Cuando asigne un ámbito a un método de una clase desprotegida, el método se protege pese a la anotación de clase, a menos que establezca el elemento `enabled` de la anotación de recurso en `false`.
 
-**Ejemplos**
+Revise los ejemplos siguientes:
 
 El código siguiente inhabilita la protección de recurso de un método `helloUser`:
 
@@ -364,7 +369,7 @@ Para inhabilitar por completo la protección OAuth para un recurso de adaptador 
 
 Cuando el atributo `secured` se establece en `false`, el atributo `scope` se ignora y el recurso queda desprotegido.
 
-**Ejemplo**
+Revise el ejemplo siguiente:
 
 El código siguiente inhabilita la protección de recurso para un procedimiento `userName`:
 

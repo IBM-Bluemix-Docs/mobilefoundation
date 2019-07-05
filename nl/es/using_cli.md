@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated:  "2018-11-19"
+lastupdated: "2019-06-10"
 
 keywords: command line, cli, mfpdev-cli, cli commands
 
@@ -14,8 +14,9 @@ subcollection:  mobilefoundation
 {:screen: .screen}
 {:tip: .tip}
 {:pre: .pre}
+{:note: .note}
 
-#	CLI de Mobile Foundation
+# CLI de Mobile Foundation
 {: #mobile_foundation_cli}
 
 {{ site.data.keyword.mobilefoundation_short }} proporciona una herramienta de interfaz de línea de mandatos (CLI) a desarrolladores, **mfpdev**, para gestionar fácilmente los artefactos del cliente y del servidor de {{site.data.keyword.mobilefoundation_short}}.
@@ -34,27 +35,28 @@ node -v
 ```
 {: codeblock}
 
-> **Nota:** La versión de node.js mínima soportada es **4.2.3**. Además, con los paquetes de nodos y de npm de rápida evolución, la CLI de {{site.data.keyword.mobilefoundation_short}} podría no ser completamente funcional con todas las versiones disponibles del nodo y de npm, incluidas las versiones más recientes. Asegúrese de que el nodo se encuentra en la versión **6.11.1** y que la versión de npm es **3.10.10**, para el funcionamiento adecuado de la CLI.
+La versión de node.js mínima soportada es **4.2.3**. Además, con los paquetes de nodos y de npm de rápida evolución, la CLI de {{site.data.keyword.mobilefoundation_short}} podría no ser completamente funcional con todas las versiones disponibles del nodo y de npm, incluidas las versiones más recientes. Asegúrese de que el nodo se encuentra en la versión **6.11.1** y que la versión de npm es **3.10.10**, para el funcionamiento adecuado de la CLI.
+{: note}
 
-> Para las versiones de arreglos temporales de la CLI de MobileFirst *8.0.2018100112* y superiores, puede utilizar las versiones de Node 8.x o 10.x.
+Para las versiones de arreglos temporales de la CLI de MobileFirst *8.0.2018100112* y superiores, puede utilizar las versiones de Node 8.x o 10.x.
 
-Para instalar la CLI de {{site.data.keyword.mobilefoundation_short}}, ejecute el mandato siguiente:
-```bash
-npm install -g mfpdev-cli
-```
-{: codeblock}
+* Para instalar la CLI de {{site.data.keyword.mobilefoundation_short}}, ejecute el mandato siguiente:
+    ```bash
+    npm install -g mfpdev-cli
+    ```
+    {: codeblock}
 
-Si el archivo comprimido (*.zip*) de la CLI se ha descargado desde el Centro de descargas de la consola de operaciones de MobileFirst, utilice el mandato siguiente:
-```bash
-npm install -g <path-to-mfpdev-cli.tgz>
-```
-{: codeblock}
+* Si el archivo comprimido (*.zip*) de la CLI se ha descargado desde el Centro de descargas de la consola de operaciones de MobileFirst, utilice el mandato siguiente:
+    ```bash
+    npm install -g <path-to-mfpdev-cli.tgz>
+    ```
+    {: codeblock}
 
-Para instalar la CLI sin dependencias opcionales, añada el distintivo `--no-optional`:
-```bash
-npm install -g --no-optional path-to-mfpdev-cli.tgz
-```
-{: codeblock}
+* Para instalar la CLI sin dependencias opcionales, añada el distintivo `--no-optional`:
+    ```bash
+    npm install -g --no-optional path-to-mfpdev-cli.tgz
+    ```
+    {: codeblock}
 
 Al instalar la CLI de MobileFirst que utiliza Node 8, es posible que vea algunos de los siguientes errores en la ventana de terminal:
 ```text
@@ -84,35 +86,36 @@ gyp ERR! not ok
 > fsevents@1.2.4 install /usr/local/lib/node_modules/mfpdev-cli/node_modules/fsevents
 > node install
 ```
+{: codeblock}
 
 Este error es debido a un [error conocido en node-gyp ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://github.com/nodejs/node-gyp/issues/1547){: new_window}. Estos errores se pueden ignorar puesto que no afectan al funcionamiento de la CLI de MobileFirst. El problema se puede aplicar al nivel de arreglo temporal de `mfpdev-cli` *8.0.2018100112* y superior. Para evitar este error, utilice el distintivo `--no-optional` durante la instalación.
 
-Para confirmar que la CLI esté instalada correctamente, ejecute el mandato siguiente:
-```bash
-mfpdev
-```
-{: codeblock}
+* Para confirmar que la CLI esté instalada correctamente, ejecute el mandato siguiente:
+    ```bash
+    mfpdev
+    ```
+    {: codeblock}
 
-Se imprime la ayuda de la CLI como salida.
+* Se imprime la ayuda de la CLI como salida.
 
-```
- NAME
+    ```
+     NAME
      IBM MobileFirst Foundation Command Line Interface (CLI).
 
- SYNOPSIS
+     SYNOPSIS
      mfpdev <command> [options]
 
- DESCRIPTION
+     DESCRIPTION
      The IBM MobileFirst Foundation Command Line Interface (CLI) is a command-line
      for developing MobileFirst applications. The command-line can be used by itself, or in conjunction  with the IBM MobileFirst Foundation Operations Console. Some functions are available from  the command-line only and not the console.
 
-     For more information and a step-by-step example of using the CLI, see the IBM Knowledge Center for your version of IBM MobileFirst Foundation at
+         For more information and a step-by-step example of using the CLI, see the IBM Knowledge Center for your version of IBM MobileFirst Foundation at
      https://www.ibm.com/support/knowledgecenter.
-     ...
-     ...
-     ...
-```
-{: screen}
+         ...
+         ...
+         ...
+    ```
+    {: screen}
 
 ## Lista de mandatos de CLI de {{site.data.keyword.mobilefoundation_short}}
 {: #list_cli_commands}

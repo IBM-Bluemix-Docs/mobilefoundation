@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2018-11-19"
+lastupdated: "2019-06-06"
 
 keywords: mobile foundation security, authentication, using challenge handlers
 
@@ -50,7 +50,7 @@ private transient StepUpUserLogin userLogin;
 ```
 {: codeblock}
 
->**Importante**: las dos implementaciones de comprobación de seguridad deben estar empaquetadas dentro del mismo adaptador.
+**Importante**: las dos implementaciones de comprobación de seguridad deben estar empaquetadas dentro del mismo adaptador.
 {.important}
 
 Para resolver esta referencia, la infraestructura busca una comprobación de seguridad con la clase apropiada, y la añade a la referencia correspondiente en la comprobación de seguridad dependiente.

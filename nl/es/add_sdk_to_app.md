@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated:  "2019-01-04"
+lastupdated: "2019-06-06"
 
 keywords: Mobile Foundation SDK, android sdk, iOS sdk, cordova sdk, react native sdk
 
@@ -187,7 +187,7 @@ Para añadir las prestaciones de Mobile Foundation a una app de React Native exi
    ```
    {: codeblock}
    {: reactnative}
-5. En el caso de Android, realice los cambios siguientes en `AndroidManifest.xml` (`<PROJECT_ROOT>/android/app/src/main/`).
+5. Para Android, realice los campos siguientes en `AndroidManifest.xml` (`<PROJECT_ROOT>/android/app/src/main/`).
    ```xml
    <manifest 
           xmlns:android="http://schemas.android.com/apk/res/android" 

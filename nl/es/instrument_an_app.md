@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-01-30"
+lastupdated: "2019-06-10"
 
 keywords: mobile analytics, instrumenting cordova app, instrumenting iOS app, instrumenting android app
 
@@ -87,7 +87,7 @@ El SDK de cliente de Mobile Analytics se distribuye con Gradle, un gestor de dep
 4. Sincronice el proyecto con Gradle; para ello, pulse **Tools &gt; Android &gt; Sync Project with Gradle Files**.
 {: android}
 
-5. Abra el archivo `AndroidManifest.xml` del proyecto de Android. Puede encontrar este archivo en **app > manifests**. Añada permiso de acceso a Internet y de acceso de ubicación bajo el elemento `<manifest>`:
+5. Abra el archivo `AndroidManifest.xml` del proyecto de Android. Puede encontrar este archivo en **app > manifests**. Añada permisos de acceso a Internet y de acceso a ubicación bajo el elemento `<manifest>`:
 {: android}
 
   ```xml
@@ -95,7 +95,8 @@ El SDK de cliente de Mobile Analytics se distribuye con Gradle, un gestor de dep
 
   ```
   {: codeblock}
-  Si utiliza una versión de SDK superior a >= 1.2, debe incluir las líneas siguientes en el elemento `<application>` del archivo `AndroidManifest.xml`.
+  Si utiliza una versión de SDK mayor que >= 1.2, necesitará incluir las líneas siguientes dentro del elemento
+`<application>` del archivo `AndroidManifest.xml`.
   {: android}
 
   ```
@@ -447,7 +448,7 @@ El plugin de Cordova de Mobile Analytics le permite instrumentar la aplicación 
 1. Cree un proyecto de [Cordova ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](http://cordova.apache.org/#getstarted){: new_window} o abra uno existente.
     {: cordova}
 
-2. Añada las plataformas Android o iOS que prefiera a la aplicación de Cordova. Ejecute uno, o ambos, de los siguientes mandatos desde la línea de mandatos.<br/>
+2. Añada las plataformas Android o iOS que prefiera a la aplicación de Cordova. Ejecute uno, o ambos, de los siguientes mandatos desde la línea de mandatos. <br/>
     **Android**:
     ```
     cordova platform add android
@@ -788,4 +789,4 @@ Pruebe un ejemplo sencillo desde [aquí](https://github.com/MobileFirst-Platform
 
 Mobile Foundation Analytics Service proporciona API REST para ayudar a los desarrolladores a importar (POST) y a exportar (GET) datos de análisis.
 
-Pruebe la API REST de análisis en Swagger Docs desde [aquí](https://mobile-analytics-dashboard.ng.bluemix.net/analytics-service/).
+Pruebe la API REST de análisis en Swagger Docs desde [aquí](https://ma-server.us-south.mobile-analytics-prod.cloud.ibm.com/analytics-service/).

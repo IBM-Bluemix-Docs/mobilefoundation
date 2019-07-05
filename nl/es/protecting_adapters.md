@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2018-11-19"
+lastupdated: "2019-06-10"
 
 keywords: mobile foundation security, adapter security
 
@@ -31,10 +31,10 @@ En el adaptador puede especificar el ámbito de protección para el método Java
 
 El ámbito MobileFirst predeterminado es `RegisteredClient`, que requiere una señal de acceso para acceder al recurso y verifica que la solicitud de recurso procede de una aplicación que está registrada con el servidor de MobileFirst. Esta protección siempre se aplica, a menos que [inhabilite la protección de recurso](#disabling-resource-protection). Por lo tanto, incluso si no establece un ámbito para el recurso, este sigue protegido.
 
->**Nota**: `RegisteredClient` es una palabra clave reservada de MobileFirst. No defina elementos de ámbito de persona personalizados o comprobaciones de seguridad con este nombre.
-{.note}
+`RegisteredClient` es una palabra clave reservada de MobileFirst. No defina elementos de ámbito de persona personalizados o comprobaciones de seguridad con este nombre.
+{: note}
 
-### Protección de recursos de adaptador Java
+## Protección de recursos de adaptador Java
 {: #protect-java-adapter-resources}
 
 Para asignar un ámbito de protección a un método o clase JAX-RS añada la anotación `@OAuthSecurity` a la declaración de método o clase y establezca el elemento `scope` de la anotación a su ámbito preferido. Sustituya `YOUR_SCOPE` por una serie de uno o más elementos de ámbito (“scopeElement1 scopeElement2 …”):
@@ -46,10 +46,11 @@ Para asignar un ámbito de protección a un método o clase JAX-RS añada la ano
 
 Un ámbito de clase se aplica a todos los métodos de la clase, excepto los métodos que tienen su propia anotación `@OAuthSecurity`.
 
->**Nota**: Cuando el elemento habilitado de la anotación `@OAuthSecurity` se establece en `false`, el elemento de ámbito se ignora. Consulte [Inhabilitación de la protección de recursos Java](#disabling-java-resource-protection).
+Cuando el elemento habilitado de la anotación `@OAuthSecurity` se establece en `false`, el elemento de ámbito se ignora. Consulte [Inhabilitación de la protección de recursos Java](#disabling-java-resource-protection).
+{: note}
 
-**Ejemplos**
-
+### Ejemplos
+{: #protect-java-adap-res-example}
 El código siguiente protege un método `helloUser` con un ámbito que contiene los elementos de ámbito `UserAuthentication` y `Pincode`:
 
 ```java
@@ -73,7 +74,7 @@ public class WebSphereResources {
 ```
 {: codeblock}
 
-### Protección de recursos de adaptador JavaScript
+## Protección de recursos de adaptador JavaScript
 {: #protect-javascript-adapter-resources}
 
 Para asignar un ámbito de protección a un procedimiento JavaScript, en el archivo **adapter.xml**, establezca el atributo de ámbito del elemento <procedure> en el ámbito que prefiera. Sustituya `PROCEDURE_NANE` por el nombre del procedimiento y `YOUR SCOPE` por una serie de uno o más elementos de ámbito (“scopeElement1 scopeElement2 …”):
@@ -83,10 +84,11 @@ Para asignar un ámbito de protección a un procedimiento JavaScript, en el arch
 ```
 {: codeblock}
 
->**Nota**: Cuando el atributo `secured` del elemento <procedure> se establece en false, el atributo `scope` se ignora. Consulte [Inhabilitación de la protección de recursos JavaScript](#disabling-javascript-resource-protection).
-{.note}
+Cuando el atributo `secured` del elemento <procedure> se establece en false, el atributo `scope` se ignora. Consulte [Inhabilitación de la protección de recursos JavaScript](#disabling-javascript-resource-protection).
+{: note}
 
-**Ejemplo**
+### Ejemplo
+{: #protect-javascript-adap-res-example}
 
 El código siguiente protege un método `userName` con un ámbito que contiene los elementos de ámbito `UserAuthentication` y `Pincode`:
 
@@ -112,10 +114,11 @@ Para inhabilitar una protección OAuth para el método o clase de recurso Java, 
 
 El valor predeterminado del elemento `enabled` de la anotación es `true`. Cuando el elemento `enabled` se establezca en `false`, el elemento `scope` se ignora y el recurso o clase de recurso queda desprotegido.
 
->**Nota**: Cuando asigne un ámbito a un método de una clase desprotegida, el método se protege pese a la anotación de clase, a menos que establezca el elemento `enabled` de la anotación de recurso en `false`.
-{.note}
+Cuando asigne un ámbito a un método de una clase desprotegida, el método se protege pese a la anotación de clase, a menos que establezca el elemento `enabled` de la anotación de recurso en `false`.
+{: note}
 
-**Ejemplos**
+#### Ejemplos
+{: #disble-java-adap-res-example}
 
 El código siguiente inhabilita la protección de recurso de un método `helloUser`:
 
@@ -152,7 +155,8 @@ Para inhabilitar por completo la protección OAuth para un recurso de adaptador 
 
 Cuando el atributo `secured` se establece en `false`, el atributo `scope` se ignora y el recurso queda desprotegido.
 
-**Ejemplo**
+#### Ejemplo
+{: #disable-javascript-res-prot-example}
 
 El código siguiente inhabilita la protección de recurso para un procedimiento `userName`:
 

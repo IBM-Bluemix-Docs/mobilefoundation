@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-03-13"
+lastupdated: "2019-06-24"
 
 keywords: mobile foundation, integration, cloud object storage, COS, ibm cloud
 
@@ -43,7 +43,7 @@ subcollection:  mobilefoundation
 
 1. Instale [mfpdev-cli](https://www.ibm.com/support/knowledgecenter/en/SSHS8R_8.0.0/com.ibm.worklight.dev.doc/dev/c_wl_cli_description.html) ejecutando `npm install -g mfpdev-cli`. Esta cli se utiliza para registrar la app Ionic y desplegar el adaptador en el servidor de MF. Como alternativa, se pueden realizar estas actividades desde el panel de control del servidor de MF.
 
-2. Instale la [CLI de {{ site.data.keyword.cloud_notm}}](https://console.bluemix.net/docs/cli/index.html#overview) en su máquina.
+2. Instale la [CLI de {{ site.data.keyword.cloud_notm}}](https://cloud.ibm.com/docs/cli?topic=cloud-cli-ibmcloud-cli) en su máquina.
 
 3. Instale la cli ionic ejecutando `npm install -g ionic`
 
@@ -55,7 +55,7 @@ subcollection:  mobilefoundation
 
 El servidor de {{ site.data.keyword.mobilefoundation_short}} está establecido en {{ site.data.keyword.cloud_notm}}. Configure una instancia de {{ site.data.keyword.cloud_notm}} del servidor de {{ site.data.keyword.mobilefoundation_short}} de la siguiente manera,
 
-* En el catálogo de {{ site.data.keyword.cloud_notm}}, busque "{{ site.data.keyword.mobilefoundation_short}}". Pulse sobre el mosaico **{{ site.data.keyword.mobilefoundation_short}}**.
+* En el catálogo de {{ site.data.keyword.cloud_notm}}, busque *{{ site.data.keyword.mobilefoundation_short}}*. Pulse sobre el mosaico **{{ site.data.keyword.mobilefoundation_short}}**.
 
     ![MFPCatalog](images/mfp_catalog.png)
 
@@ -68,7 +68,7 @@ El servidor de {{ site.data.keyword.mobilefoundation_short}} está establecido e
     ![MFPLogin](images/mfp_login.png)
 
 * Las credenciales para iniciar sesión en el servidor de MF se pueden encontrar en el separador
-**Credenciales** del menú de la parte izquierda.
+**Credenciales** del menú.
 
     ![MFPcredentials](images/mfp_credentials.png)
 
@@ -80,7 +80,7 @@ El servidor de {{ site.data.keyword.mobilefoundation_short}} está establecido e
 ## Configuración de Cloud Object Storage
 {: #cloud-object-storage-setup}
 
-* En el catálogo de {{ site.data.keyword.cloud_notm}}, busque "Cloud Object Storage". Pulse sobre el mosaico **Almacenamiento de objetos**.
+* En el catálogo de {{ site.data.keyword.cloud_notm}}, busque *Cloud Object Storage*. Pulse sobre el mosaico **Almacenamiento de objetos**.
 
     ![Catálogo](images/catalog.png)
 
@@ -88,7 +88,7 @@ El servidor de {{ site.data.keyword.mobilefoundation_short}} está establecido e
 
     ![Crear COS](images/cos_create.png)
 
-* A continuación, pulse **Grupos** en las opciones del menú del panel de la izquierda. Proporcione un nombre adecuado (en este ejemplo hemos elegido denominar el grupo como `sharedgallery`) para el grupo y pulse **Crear**.
+* A continuación, pulse **Grupos** en las opciones del menú. Proporcione un nombre adecuado (en este ejemplo hemos elegido denominar el grupo como `sharedgallery`) para el grupo y pulse **Crear**.
 
     ![Crear grupo](images/bucketcreate.png)
 
@@ -169,7 +169,7 @@ Server profile 'mfpserver' added successfully.
 Para conectarse a su instancia de COS, es necesario proporcionar algunos detalles de la instancia de COS en el archivo
 `adapter.xml`. Suministre valores para los campos siguientes:
 
-1. **endpointURL**: este campo es el URL de punto final público para su objeto de COS. Este URL se puede encontrar en el panel de control de COS, en **Grupos (en las opciones del menú de la izquierda) -> <nombre-grupo> (`sharedgallery` en este ejemplo) -> Configuración -> Puntos finales -> Público**
+1. **endpointURL**: este campo es el URL de punto final público para su objeto de COS. Este URL se puede encontrar en el panel de control de COS, en **Grupos (en las opciones del menú) -> <nombre-grupo> (`sharedgallery` en este ejemplo) -> Configuración -> Puntos finales -> Público**
 2. **AuthToken**: en esta guía de aprendizaje, utilizaremos la autenticación de IAM.
 
 Para que el adaptador Java se conecte a su instancia de COS, se necesita autenticación que utilice IAM o HMAC. A continuación se indican los pasos para obtener la señal IAM. Para obtener información más detallada sobre los procesos de autenticación de IAM y HMAC, pulse
@@ -195,7 +195,7 @@ Para que el adaptador Java se conecte a su instancia de COS, se necesita autenti
 
 	Targeted resource group default
 
-	API endpoint:     https://api.ng.bluemix.net (API version: 	2.75.0)
+	API endpoint:     https://api.us-south.cf.cloud.ibm.com (API version: 	2.128.0)
 	Region:           us-south
 	User:             <email-address>
 	Account:          <account-name> (<account-id>)
@@ -269,7 +269,7 @@ mfpdev adapter deploy
 
 El adaptador se despliega en la instancia de MF.
 
-Como alternativa, el adaptador se puede desplegar en el panel de control del servidor de MF. Abra el panel de control del servidor de MF, en el menú del lado izquierdo, y pulse **Adaptadores -> Nuevo** para abrir la página según se muestra en la imagen siguiente.
+Como alternativa, el adaptador se puede desplegar en el panel de control del servidor de MF. Abra el panel de control del servidor de MF, en el menú, y pulse **Adaptadores -> Nuevo** para abrir la página según se muestra en la imagen siguiente.
 
 ![MFPNewAdapterRegister](images/mfp_new_adapter_register.png)
 
@@ -306,7 +306,8 @@ En la app, realice los pasos siguientes,
 	mfpdev app register
 	```
 
-	Como alternativa, se puede registrar la app en el panel de control del servidor de MF. Abra el panel de control del servidor de MF y, en el menú de la parte izquierda, pulse **Aplicaciones -> Nueva**.
+	Como alternativa, se puede registrar la app en el panel de control del servidor de MF. Abra el panel de control del servidor de MF y, en el menú,
+pulse **Aplicaciones -> Nueva**.
 
 	Se cargará la página tal como se muestra en la imagen siguiente.
 
@@ -349,7 +350,7 @@ La lista de objetos inicial de COS tiene un aspecto similar a la imagen siguient
 
 ![COS antes](images/cos_before.png)
 
-La página de inicio de la aplicación proporciona una opción para "Obtener todos los relatos" o "Añadir relato"
+La página de inicio de la aplicación proporciona una opción para *Obtener todos los relatos* o *Añadir relato*
 
 ![Pantalla de inicio de app](images/app-home-screen.png)
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-03-26"
+lastupdated: "2019-06-06"
 
 keywords: obfuscating resources, security
 
@@ -74,14 +74,14 @@ Si ejecuta alguno de los mandatos de la lista después de cifrar los recursos we
 
 1. Abra una ventana de terminal y vaya al directorio raíz de la app Cordova que desea cifrar.
 2. Prepare la app especificando uno de los siguientes mandatos:
-    * ```bash
+    ```bash
       cordova prepare
-      ```
-      {: codeblock}
-    * ```bash
+    ```
+    {: codeblock}
+    ```bash
       mfpdev app webupdate
-      ```
-      {: codeblock}
+    ```
+    {: codeblock}
 3. Complete uno de los siguientes procedimientos para cifrar el contenido,
     * Especifique el mandato siguiente:
       ```bash
@@ -97,7 +97,7 @@ Si ejecuta alguno de los mandatos de la lista después de cifrar los recursos we
       {: tip}
 
     * Los recursos web de sus paquetes de Cordova también se pueden cifrar añadiendo el distintivo `mfpwebencrypt` al mandato `cordova compile` o `cordova build` al compilar sus paquetes.
-       * ```bash
+        ```bash
          cordova compile -- --mfpwebencrypt
          ```
          {: codeblock}
@@ -112,13 +112,13 @@ se sustituye por un archivo **resources.zip** que contiene el contenido cifrado.
 4. Pruebe la aplicación con los recursos cifrados mediante el emulador que se proporciona con las herramientas específicas de la plataforma. Por ejemplo, se puede utilizar el emulador en Android Studio para Android o Xcode para iOS.
 
 No utilice los siguientes mandatos Cordova para probar la aplicación después de cifrarla,
-* ```bash
-  cordova run
-  ```
-  {: codeblock}
-* ```bash
-  cordova emulate
-  ```
-  {: codeblock}
+```bash
+cordova run
+```
+{: codeblock}
+```bash
+cordova emulate
+```
+{: codeblock}
 Estos mandatos renuevan el contenido cifrado en la carpeta www y lo guardan de nuevo como contenido descifrado. Si utiliza estos mandatos, recuerde completar el procedimiento de nuevo para cifrar antes de publicar la app.
 {: note}

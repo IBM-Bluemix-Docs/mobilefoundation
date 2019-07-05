@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-02-01"
+lastupdated: "2019-06-10"
 
 keywords: mobile analytics, charts, visualize data, analytics console
 
@@ -20,7 +20,7 @@ subcollection:  mobilefoundation
 # Visualización de conocimientos en la consola
 {: #visualize_insights_on_console}
 
-Para visualizar información de valor extraída de los datos de análisis capturados y enviados desde la aplicación, debe iniciar la consola de Mobile Analytics pulsando la opción **Consola de analíticas** en el panel de navegación izquierdo de la consola de Mobile Foundation Operations.
+Para visualizar información de valor extraída de los datos de análisis capturados y enviados desde la aplicación, debe iniciar la consola de Mobile Analytics pulsando la opción **Consola de analíticas** en la navegación de la consola de Mobile Foundation Operations.
 
 La consola de Mobile Analytics se puede ejecutar en dos modalidades:
   - **Demo Mode ON** (modalidad de demostración activada), que es puramente para fines de demostración y muestra las distintas vistas de análisis (gráficos y tablas) utilizando canales de información de datos simulados.
@@ -34,17 +34,17 @@ Para visualizar la información de su aplicación, asegúrese de lo siguiente.
   - Ha desactivado la modalidad de demostración en la consola de Analytics
   - Aplica los filtros adecuados. Por ejemplo, asegúrese de seleccionar un periodo de tiempo en el que la aplicación esté desplegada sobre el terreno y en el que esté activa con usuarios.
 
-La consola de Mobile Analytics proporciona distintos tipos de análisis del uso y el rendimiento de las aplicaciones móviles, tal y como se ha categorizado en el panel de navegación de la izquierda de la consola de Analytics.  En las secciones siguientes se detallan las diferentes vistas de analíticas:
+La consola de Mobile Analytics proporciona distintos tipos de análisis del uso y el rendimiento de las aplicaciones móviles, tal y como se ha categorizado en el panel de navegación de la consola de Analytics.  En las secciones siguientes se detallan las diferentes vistas de analíticas:
 
 
 ## Usuarios
 {: #reports_visualized_users}
-Esta vista le ayuda a obtener información sobre 'Patrones de incorporación de usuario', como el número de usuarios activos que han utilizado la app dentro de un intervalo de fechas especificado y una comparación del número de nuevos usuarios frente al número de usuarios existentes que vuelven a utilizar la app.
+Esta vista le ayuda a obtener información sobre *Patrones de incorporación de usuario*, como el número de usuarios activos que han utilizado la app dentro de un intervalo de fechas especificado y una comparación del número de nuevos usuarios frente al número de usuarios existentes que vuelven a utilizar la app.
 Los gráficos de esta vista se pueden filtrar en *nombre de app*, *sistema operativo* o *versión del sistema operativo*.
 
 ## Sesiones
 {: #reports_visualized_sessions}
-Esta vista le ayuda a obtener información sobre los 'Patrones de uso' de su aplicación en términos de *Sesiones de app* durante el intervalo de fechas especificado. Una sesión se graba cuando una app se lleva al primer plano de un dispositivo.  Obtendrá información sobre las horas del día en que su aplicación se utiliza más y menos, lo que puede generar información útil para el negocio. Los gráficos de esta vista se pueden filtrar en *nombre de app*, *sistema operativo* o *versión del sistema operativo*.
+Esta vista le ayuda a obtener información sobre los *Patrones de uso* de su aplicación en términos de *Sesiones de app* durante el intervalo de fechas especificado. Una sesión se graba cuando una app se lleva al primer plano de un dispositivo.  Obtendrá información sobre las horas del día en que su aplicación se utiliza más y menos, lo que puede generar información útil para el negocio. Los gráficos de esta vista se pueden filtrar en *nombre de app*, *sistema operativo* o *versión del sistema operativo*.
 
 ## Solicitudes de red
 {: #reports_visualized_network_requests}

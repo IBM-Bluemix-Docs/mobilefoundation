@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2018-02-12"
+lastupdated: "2019-06-10"
 
 keywords: troubleshooting techniques
 
@@ -39,7 +39,8 @@ Las respuestas a estas preguntas normalmente conducen a una buena descripción d
 
 ### ¿Cuáles son los síntomas del problema?
 
-Cuando empieza a describir un problema, la pregunta más obvia es "¿Cuál es el problema?" Esta pregunta puede parecer sencilla; sin embargo, puede dividirla en varias más precisas que creen una imagen más descriptiva del problema. Estas preguntas pueden incluir las siguientes,
+Cuando se empieza a describir un problema, la pregunta más obvia es:
+**¿Cuál es el problema?** Esta pregunta puede parecer sencilla; sin embargo, puede dividirla en varias más precisas que creen una imagen más descriptiva del problema. Estas preguntas pueden incluir las siguientes,
 
 - ¿Quién o qué está informando del problema?
 - ¿Cuáles son los códigos y los mensajes de error?
@@ -110,4 +111,4 @@ Si tiene preguntas técnicas sobre el desarrollo o el despliegue de una app con 
 Para formular preguntas sobre el servicio y obtener instrucciones de iniciación, utilice el foro [IBM developerWorks dW Answers ![icono de enlace externo](../../icons/launch-glyph.svg "icono de enlace externo")](https://developer.ibm.com/answers/topics/mobilefirst/?smartspace=bluemix){:new_window}. Incluya las etiquetas `bluemix` y `mobilefirst`.
 
 Para obtener más información sobre cómo abrir una incidencia de soporte de IBM, o sobre los niveles y la gravedad de la incidencia, consulte
-[Cómo obtener soporte](/docs/get-support?topic=get-support-getstarttssup#typesofsupport){: new_window}.
+[Cómo obtener soporte](https://cloud.ibm.com/docs/get-support?topic=get-support-getting-customer-support){: new_window}.

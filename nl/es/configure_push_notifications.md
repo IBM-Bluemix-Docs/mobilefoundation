@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-02-28"
+lastupdated: "2019-06-06"
 
 keywords: push notifications, notifications, FCM, GCM, APNS, WNS, authenticate notification
 
@@ -130,7 +130,7 @@ Para configurar WNS:
 1. Siga las [instrucciones que Microsoft proporciona](https://msdn.microsoft.com/en-in/library/windows/apps/hh465407.aspx) para generar los valores de **SID (Package Security Identifier)** y **Secreto de cliente**.
 2. En {{ site.data.keyword.mfp_oc_short_notm }} → **[su aplicación] → Push → Valores de push**, añada estos valores y pulse **Guardar**.
 
-> También puede configurar WNS utilizando la
+También puede configurar WNS utilizando la
 [API REST para el servicio Push de {{ site.data.keyword.mobilefirst_notm }}](http://www.ibm.com/support/knowledgecenter/en/SSHS8R_8.0.0/com.ibm.worklight.apiref.doc/rest_runtime/r_restapi_push_wns_settings_put.html?view=kc) o la
 [API REST para el servicio de administración de {{ site.data.keyword.mobilefirst_notm }}](http://www.ibm.com/support/knowledgecenter/en/SSHS8R_8.0.0/com.ibm.worklight.apiref.doc/apiref/r_restapi_update_wns_settings_put.html?view=kc)
 
@@ -144,27 +144,28 @@ Correlacione el elemento de ámbito **push.mobileclient** con la aplicación.
 1. Cargue {{ site.data.keyword.mfp_oc_short_notm }}, vaya a **[su aplicación] → Seguridad → Correlaciones de elementos de ámbito** y pulse en **Nueva**.
 2. Especifique "push.mobileclient" en el campo **Elemento de ámbito**. A continuación, pulse **Añadir**.
 
-**Lista de ámbitos adicionales disponibles**
+Lista de ámbitos adicionales disponibles:
 
-**Ámbitos** | **Descripción**
----|---
-apps.read | Permiso para leer recurso de aplicación.
-apps.write | Permiso para crear, actualizar, suprimir recurso de aplicación.
-gcmConf.read | Permiso para leer valores de configuración GCM (SenderID y clave de API).
-gcmConf.write | Permiso para actualizar, suprimir valores de configuración GCM.
-apnsConf.read | Permiso para leer valores de configuración de APN.
-apnsConf.write | Permiso para actualizar, suprimir valores de configuración APN.
-devices.read | Permiso para leer dispositivo.
-devices.write | Permiso para crear, actualizar y suprimir dispositivo.
-subscriptions.read | Permiso para leer suscripciones.
-subscriptions.write | Permiso para crear, actualizar, suprimir suscripciones.
-messages.write | Permiso para enviar notificaciones push.
-webhooks.read | Permiso para leer notificaciones de suceso.
-webhooks.write | Permiso para enviar notificaciones de suceso.
-smsConf.read | Permiso para leer valores de configuración SMS.
-smsConf.write | Permiso para actualizar, suprimir valores de configuración SMS.
-wnsConf.read | Permiso para leer valores de configuración WNS.
-wnsConf.write | Permiso para actualizar, suprimir valores de configuración WNS.
+|**Ámbitos** | **Descripción**|
+|---|---|
+|apps.read | Permiso para leer recurso de aplicación. |
+|apps.write | Permiso para crear, actualizar, suprimir recurso de aplicación. |
+|gcmConf.read | Permiso para leer valores de configuración GCM (SenderID y clave de API). |
+|gcmConf.write | Permiso para actualizar, suprimir valores de configuración GCM. |
+|apnsConf.read | Permiso para leer valores de configuración de APN. |
+|apnsConf.write | Permiso para actualizar, suprimir valores de configuración APN. |
+|devices.read | Permiso para leer dispositivo. |
+|devices.write | Permiso para crear, actualizar y suprimir dispositivo. |
+|subscriptions.read | Permiso para leer suscripciones. |
+|subscriptions.write | Permiso para crear, actualizar, suprimir suscripciones. |
+|messages.write | Permiso para enviar notificaciones push. |
+|webhooks.read | Permiso para leer notificaciones de suceso. |
+|webhooks.write | Permiso para enviar notificaciones de suceso.|
+|smsConf.read | Permiso para leer valores de configuración SMS.|
+|smsConf.write | Permiso para actualizar, suprimir valores de configuración SMS.|
+|wnsConf.read | Permiso para leer valores de configuración WNS.|
+|wnsConf.write | Permiso para actualizar, suprimir valores de configuración WNS.|
+{: caption="Tabla 1. Descripciones de ámbito" caption-side="top"}
 
 <img class="gifplayer" alt="Correlación de ámbito" src="images/scope-mapping.png"/>
 

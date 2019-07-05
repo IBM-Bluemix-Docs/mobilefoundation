@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated:  "2018-11-16"
+lastupdated: "2019-06-10"
 
 keywords: mobile foundation faq, updates to mobile foundation, custom domain
 
@@ -12,8 +12,10 @@ subcollection:  mobilefoundation
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:faq: data-hd-content-type='faq'}
+{:note: .note}
 
 # Preguntas más frecuentes
+{: #mfp-faq}
 
 Estas preguntas más frecuentes proporcionan respuestas a preguntas comunes sobre el servicio {{site.data.keyword.mobilefoundation_long}}.
 {: shortdesc}
@@ -37,10 +39,9 @@ La actualización del servicio {{site.data.keyword.mobilefoundation_short}} esta
 La actualización de {{site.data.keyword.mobilefoundation_short}} se puede aplicar pulsando **Recrear**.
 Al aplicar la actualización, la versión del servidor, que se muestra en {{site.data.keyword.mfp_oc_short_notm}}, se modificará y pasará a indicarse la versión de la actualización del servidor.
 
-> **Nota:**
->  * Los usuarios no pueden aplicar sus propios arreglos y actualizaciones a su instancia de servicio de {{site.data.keyword.mobilefoundation_short}}.
->  * Consulte [Recreación del servidor en el plan Professional Per Device](/docs/services/mobilefoundation?topic=mobilefoundation-c_using_mfs_p5#recreate_mobilefoundation_p5) y [Recreación del servidor en el plan Professional 1 Application](/docs/services/mobilefoundation?topic=mobilefoundation-c_using_mfs_p2#recreate_mobilefoundation_p2) para conocer la diferencia de comportamiento en los planes cuando se pulsa **Recrear**.
->
+* Los usuarios no pueden aplicar sus propios arreglos y actualizaciones a su instancia de servicio de {{site.data.keyword.mobilefoundation_short}}.
+* Consulte [Recreación del servidor en el plan Professional Per Device](/docs/services/mobilefoundation?topic=mobilefoundation-using_mobilefoundation_p5#recreate_mobilefoundation_p5) y [Recreación del servidor en el plan Professional 1 Application](/docs/services/mobilefoundation?topic=mobilefoundation-using_mobilefoundation_p2#recreate_mobilefoundation_p2) para conocer la diferencia de comportamiento en los planes cuando se pulsa **Recrear**.
+{: note}
 
 ## ¿Cómo configuro el dominio personalizado para mi instancia de servidor de {{site.data.keyword.mobilefoundation_short}}?
 {: #configcustomdomain}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-03-26"
+lastupdated: "2019-06-06"
 
 keywords: mobile foundation release notes, cd updates, updates, continuous delivery updates
 
@@ -17,7 +17,7 @@ subcollection:  mobilefoundation
 {:codeblock: .codeblock}
 {:screen: .screen}
 
-# Notas sobre el release
+# Notas del release
 {: #release_notes}
 
 Las actualizaciones del servicio de Mobile Foundation se proporcionan mediante arreglos temporales (iFixes) y actualizaciones de entrega continua. Los iFixes y las actualizaciones de entrega continua son acumulativos. Las actualizaciones de características se proporcionan en la actualización de entrega continua.

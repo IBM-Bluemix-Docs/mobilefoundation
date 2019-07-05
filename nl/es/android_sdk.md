@@ -2,20 +2,22 @@
 
 copyright:
   years: 2018, 2019
-lastupdated:  "2018-11-26"
+lastupdated: "2019-06-06"
 
 keywords: android sdk api
 
 subcollection:  mobilefoundation
 ---
 
+{:shortdesc: .shortdesc}
+{:external: target="_blank" .external}
 #	SDK de Android
 {: #android_sdk_api}
 
 Descargue los SDK de Android desde el repositorio de maven.
 
-* [SDK for Mobile Foundation ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://search.maven.org/search?q=a:ibmmobilefirstplatformfoundation)
-* [SDK for Push Notifications ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://search.maven.org/search?q=a:ibmmobilefirstplatformfoundationpush)
-* [SDK for Mobile Analytics ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://search.maven.org/search?q=a:ibmmobilefirstplatformfoundationanalytics)
-* [SDK for JSONStore ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://search.maven.org/search?q=a:ibmmobilefirstplatformfoundationjsonstore)
-* [SDK for LiveUpdate ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://search.maven.org/search?q=a:ibmmobilefirstplatformfoundationliveupdate)
+* [SDK for Mobile Foundation](https://search.maven.org/search?q=a:ibmmobilefirstplatformfoundation){: external}
+* [SDK for Push Notifications](https://search.maven.org/search?q=a:ibmmobilefirstplatformfoundationpush){: external}
+* [SDK for Mobile Analytics](https://search.maven.org/search?q=a:ibmmobilefirstplatformfoundationanalytics){: external}
+* [SDK for JSONStore](https://search.maven.org/search?q=a:ibmmobilefirstplatformfoundationjsonstore){: external}
+* [SDK for LiveUpdate](https://search.maven.org/search?q=a:ibmmobilefirstplatformfoundationliveupdate){: external}

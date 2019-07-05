@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2018-10-16"
+lastupdated: "2019-06-10"
 
 keywords: mobile foundation security, MIM attack, certificate pinning
 
@@ -35,7 +35,8 @@ El proceso de fijación de certificados consta de los pasos siguientes:
 
 Durante el reconocimiento SSL (primera solicitud al servidor), el SDK de cliente de Mobile Foundation verifica que la clave pública del certificado de servidor coincide con la clave pública del certificado que se almacena en la app.
 
->**Nota**: debe utilizar un certificado adquirido de una entidad emisora de certificados. **No se da soporte** a los certificados autofirmados.
+Debe utilizar un certificado obtenido de una entidad emisora de certificados. **No se da soporte** a los certificados autofirmados.
+{: note}
 
 ## Fijación de certificados
 {: #cert_pinning}
@@ -52,11 +53,10 @@ La fijación de certificados es el proceso de asociar un host con la clave públ
 También puede fijar varios certificados con su aplicación cliente. Coloque una copia de todos los certificados en la aplicación cliente. Durante el reconocimiento SSL (primera solicitud al servidor), el SDK de cliente de MobileFirst verifica que la clave pública del certificado de servidor coincide con la clave pública de uno de los certificados que se almacenan en la app.
 {: note}
 
-**Importante**
-
-* Es posible que algunos sistemas operativos móviles guarden en caché el resultado de la comprobación de la validación de certificado. Por lo tanto, el código llama al método de API de fijación de certificados **antes** de realizar una solicitud protegida. De lo contrario, es posible que cualquier solicitud posterior omita la validación de certificado y la comprobación de fijación.
-* Asegúrese de utilizar sólo las API de Mobile Foundation para todas las comunicaciones con el host relacionado, incluso después de la fijación de certificados. Es posible que la utilización de API de terceros para interaccionar con el mismo host provoque comportamientos inesperados como, por ejemplo, que un sistema operativo móvil almacene en memoria caché un certificado no verificado.
-* Si se vuelve a llamar el método API de fijación de certificados, se sustituye la operación de fijación previa.
+* **Importante**
+    * Es posible que algunos sistemas operativos móviles guarden en caché el resultado de la comprobación de la validación de certificado. Por lo tanto, el código llama al método de API de fijación de certificados **antes** de realizar una solicitud protegida. De lo contrario, es posible que cualquier solicitud posterior omita la validación de certificado y la comprobación de fijación.
+    * Asegúrese de utilizar sólo las API de Mobile Foundation para todas las comunicaciones con el host relacionado, incluso después de la fijación de certificados. Es posible que la utilización de API de terceros para interaccionar con el mismo host provoque comportamientos inesperados como, por ejemplo, que un sistema operativo móvil almacene en memoria caché un certificado no verificado.
+    * Si se vuelve a llamar el método API de fijación de certificados, se sustituye la operación de fijación previa.
 
 Si el proceso de fijación se realiza correctamente, la clave pública incluida en el certificado indicado se utiliza para verificar la integridad del certificado del servidor de MobileFirst durante el reconocimiento SSL/TLS de solicitud asegurada. Si el proceso de fijación falla, la aplicación de cliente rechaza todas las solicitudes SSL/TLS que se hagan al servidor.
 

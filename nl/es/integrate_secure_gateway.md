@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-02-13"
+lastupdated: "2019-06-06"
 
 keywords: integration, mobile foundation, secure gateway
 
@@ -42,7 +42,7 @@ node app.js
 
 La imagen siguiente ilustra la arquitectura que se utiliza en el escenario de integración explicado en esta guía de aprendizaje.
 
-![Diagrama de arquitectura](images/SecureGatewayArchi.png)
+![Diagrama de arquitectura](images/SecureGatewayArchi.png "Diagrama de arquitectura de dispositivo, servicio de nube y red local")
 
 ## Implementación de la integración de Secure Gateway
 {: #implementing_sg_integration}
@@ -50,29 +50,29 @@ La imagen siguiente ilustra la arquitectura que se utiliza en el escenario de in
 ### Crear una instancia de servicio de Secure Gateway
 Inicie sesión en IBM Cloud y cree una instancia del [servicio Secure Gateway](https://cloud.ibm.com/catalog/services/secure-gateway/).
 
-![IBM Cloud](images/SecureGatewayInst.gif)
+![IBM Cloud](images/SecureGatewayInst.gif "Creación de una instancia de Secure Gateway del catálogo de IBM Cloud")
 
-Después de crear la instancia de servicio de Secure Gateway, siga estos pasos para configurar el servicio Secure Gateway entre IBM Cloud y el entorno local.
+Después de crear la instancia de servicio de Secure Gateway, siga los pasos siguientes para configurar el servicio Secure Gateway entre IBM Cloud y el entorno local.
 
 ### Añadir una pasarela
 {: #add_gateway}
 
 En el panel de control del servicio Secure Gateway, pulse **Añadir pasarela** para crear una nueva pasarela proporcionando cualquier nombre de pasarela que desee.
 
-![Añadir pasarela](images/AcmeAddGateway.gif)
+![Añadir pasarela](images/AcmeAddGateway.gif "Pasos de la interfaz de usuario de Añadir pasarela")
 
 
 ### Añadir un cliente de Secure Gateway
 {: #add_sg_client}
 
-![Añadir cliente 2](images/AcmeAddClient.gif)
+![Añadir cliente](images/AcmeAddClient.gif "Pasos de la interfaz de usuario de Añadir cliente")
 
 Desde la nueva pasarela en el separador **Clientes**, pulse **Conectar cliente**.
 
 Puede utilizar cualquiera de los clientes de su elección y ejecutar el cliente de Secure Gateway en el entorno local. Los pasos para configurar el cliente de Secure Gateway están disponibles en la consola de Secure Gateway.
 
 En esta guía de aprendizaje, utilizaremos la opción de contenedor Docker para ejecutar el cliente de Secure Gateway.
-Realice los pasos siguientes:
+Siga los siguientes pasos:
 *   Instale Docker en la máquina local, si aún no está instalado.
 *   Inicie un terminal y ejecute el cliente de Secure Gateway en un contenedor utilizando el mandato que se muestra en la consola de servicio.
     ```bash
@@ -84,7 +84,7 @@ Realice los pasos siguientes:
 ### Añadir un destino
 {: #add_destination}
 
-![Añadir destino](images/AcmeAddDest.gif)
+![Añadir destino](images/AcmeAddDest.gif "Pasos de la interfaz de usuario de Añadir destino")
 
 Desde la nueva pasarela en el separador **Destinos**, pulse **Añadir destino**.
 
@@ -101,7 +101,7 @@ acl allow <resourceHost>:<resourcePort>
 
 El destino ya está configurado. El servicio Secure Gateway llenará los detalles de host y puerto de la nube, que se pueden utilizar para acceder al recurso local desde el entorno de nube.
 
-![Separador Destino](images/AcmeCloudPopulate.gif)
+![Separador Destino](images/AcmeCloudPopulate.gif "Pantalla Detalles de host y puerto")
 
 ### Configuración del servicio Secure Gateway con Mobile Foundation y adaptador de Mobile Foundation
 {: #configuration_sg_mfp}
@@ -113,7 +113,7 @@ En esta guía de aprendizaje, utilizaremos la instancia de servicio de Mobile Fo
 
 Cree una instancia del [servicio de Mobile Foundation](https://cloud.ibm.com/catalog/services/mobile-foundation) desde la consola de IBM Cloud.
 
-Desde la consola de servicio de Mobile Foundation, cree el [servidor de Mobile Foundation ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://mobilefirstplatform.ibmcloud.com/tutorials/en/foundation/8.0/bluemix/using-mobile-foundation/).
+Desde la consola de servicio de Mobile Foundation, cree el [servidor de Mobile Foundation ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://mobilefirstplatform.ibmcloud.com/tutorials/en/foundation/8.0/ibmcloud/using-mobile-foundation/).
 
 
 ### Creación y despliegue del adaptador de Mobile Foundation
@@ -133,7 +133,7 @@ Obtenga información sobre la creación y el despliegue de adaptadores desde [aq
 
 Proporcione los detalles de host y el puerto de la nube para el punto final de recurso en el adaptador JavaHTTP, obtenido de la sección anterior.
 
-![Configuración de adaptador](images/AdapterConfiguration.png)
+![AdapterConfiguration ](images/AdapterConfiguration.png "Página de configuraciones HTTP de Java")
 
 donde `cap-sg-prd-5.securegateway.appdomain.cloud` y `18946` son el host y el puerto de Secure Gateway, respectivamente.
 
@@ -146,7 +146,7 @@ Descargue la app de ejemplo de Mobile Foundation desde [aquí](https://github.co
 
 Ejecute la app, proporcione las credenciales para iniciar la sesión y pulse el botón *Iniciar sesión*. Pulse el botón *Captar escritores Acme* para llamar a su punto final local a través de Secure Gateway utilizando el adaptador JavaHTTP desplegado en la consola de operaciones de Mobile Foundation. Reciba los datos deseados del entorno local.
 
-![La app recibe datos locales](images/AcmePublishersApp.gif)
+![App que recibe datos locales](images/AcmePublishersApp.gif "App de ejemplo que recibe datos")
 
 Puede conectarse a varios puntos finales locales configurando varios destinos en el servicio Secure Gateway y desplegando los adaptadores de Mobile Foundation para conectarse al host de nube respectivo del punto final. También puede configurar el servicio Secure Gateway con seguridad adicional para asegurarse de que la comunicación con el punto final se realice a través de HTTPS y de seguridad del lado de la aplicación. Encontrará los [detalles aquí](/docs/services/SecureGateway?topic=securegateway-getting-started-with-sg#getting-started-with-sg).
 

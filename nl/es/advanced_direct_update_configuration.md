@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-02-14"
+lastupdated: "2019-06-06"
 
 keywords: Direct Update, CDN support, secure direct update
 
@@ -94,6 +94,7 @@ Los métodos del escucha se inician durante el proceso de actualización directa
 | `FAILURE_ALREADY_IN_PROGRESS` | Se ha llamado al método de inicio mientras ya se estaba ejecutando una actualización directa. |
 | `FAILURE_INTEGRITY` | No se ha podido verificar el archivo de actualización. |
 | `FAILURE_UNKNOWN` | Error interno inesperado. |
+{: caption="Tabla 1. Códigos de estado" caption-side="top"}
 
 Si implementa un escucha de actualización directa personalizado, debe asegurarse de que la app se recarga cuando se complete el proceso de dicha actualización directa y se haya llamado al método `onFinish()`. También se debe llamar a `wl_directUpdateChalengeHandler.submitFailure()` si el proceso de actualización directa no se completa de forma satisfactoria.
 
@@ -294,42 +295,44 @@ Establezca el nuevo dominio `cdn.yourcompany.com` como un URL del servidor de Mo
 {: #akamai-administrator }
 1. Debería abrir el gestor de propiedades de Akamai y establecer la propiedad de **nombre de host** con el valor del nuevo dominio.
 
-    ![Establezca el nombre de host de la propiedad en el valor del nuevo dominio](images/direct_update_cdn_3.jpg)
+    ![Establecer la propiedad de nombre de host en el valor del nuevo dominio](images/direct_update_cdn_3.jpg "Establecer la propiedad de nombre de host en el valor del nuevo dominio")
 
 2. En el separador Regla predeterminada, configure el host y el puerto del servidor de Mobile Foundation originales, y establezca el valor **Custom Forward Host Header** al dominio recién creado.
 
-    ![Establezca el valor Custom Forward Host Header al dominio recién creado](images/direct_update_cdn_4.jpg)
+    ![Establecer el valor de Custom Forward Host Header en el dominio recién creado](images/direct_update_cdn_4.jpg "Establecer el valor de Custom Forward Host Header en el dominio recién creado")
 
 3. En la lista de **Opción de almacenamiento en caché**, seleccionar **No almacenar**.
 
-    ![En la lista de Opción de almacenamiento en caché, seleccione No almacenar](images/direct_update_cdn_5.jpg)
+    ![En la lista Opción de almacenamiento en caché, seleccione No almacenar](images/direct_update_cdn_5.jpg "En la lista Opción de almacenamiento en caché, seleccione No almacenar")
 
 4. En el separador **Configuración de contenido estático**, configurar el criterio coincidente de acuerdo con el URL de Direct Update de la aplicación. Por ejemplo, debería crear una condición que indique `Si la vía de acceso coincide con un URL_de_direct_update`.
 
-    ![Configure los criterios de coincidencia según el URL de Direct Update de la aplicación](images/direct_update_cdn_6.jpg)
+    ![Configurar los criterios de coincidencia según el URL de Direct Update de la aplicación](images/direct_update_cdn_6.jpg "Configurar los criterios de coincidencia según el URL de Direct Update de la aplicación")
 
 5. Configuración del comportamiento de clave de caché para utilizar todos los parámetros de solicitud en la clave de caché (es necesario hacerlo para almacenar en caché archivadores de Direct Update diferentes para distintas aplicaciones o versiones). Por ejemplo, desde la lista **Comportamiento**, seleccione `Incluir todos los parámetros (conservar el orden de la solicitud)`.
 
-    ![Configure el comportamiento de la clave de memoria caché para utilizar todos los parámetros de solicitud en la clave de la memoria caché](images/direct_update_cdn_8.jpg)
+    ![Configurar el comportamiento de la clave de caché para utilizar todos los parámetros de solicitud en la clave de caché](images/direct_update_cdn_8.jpg "Configurar el comportamiento de la clave de caché para utilizar todos los parámetros de solicitud en la clave de caché")
 
 6. Debería establecer valores similares a los siguientes para configurar el comportamiento del almacenamiento en caché para el URL de Direct Update y para configurar TTL.
 
-      ![Establezca valores para configurar el comportamiento del almacenamiento en memoria caché](images/direct_update_cdn_7.jpg)
+      ![Establecer valores para configurar el comportamiento de almacenamiento en caché](images/direct_update_cdn_7.jpg "Establecer valores para configurar el comportamiento de almacenamiento en caché")
 
 | Campo | Valor |
 |:------|:------|
 | Opción de almacenamiento en caché | Caché |
 | Forzar la reevaluación de objetos obsoletos | Servir obsoleto si no es posible validar |
 | Edad máxima | 3 minutos |
+{: caption="Tabla 2. Campos y valores para configurar el comportamiento de almacenamiento en caché" caption-side="top"}
 
 ## Direct Update seguro
 {: #secure-dc }
 
 Inhabilitado de forma predeterminada, Direct Update seguro impide a un atacante de terceros alterar los recursos web que se transmiten desde el servidor de Mobile Foundation (o desde una CDN (Content Delivery Network, red de entrega de contenido)) a la aplicación cliente.
 
-**Para habilitar la autenticación de Direct Update:**  
+### Habilitación de la autenticidad de Direct Update
+{: #enable-direct-update-authenticity}
 Mediante la herramienta de su elección, extraiga la clave pública del almacén de claves del servidor de Mobile Foundation y conviértala a base64.  
-El valor generado se debería utilizar entonces tal como se indica a continuación:
+El valor generado se debería utilizar tal como se indica en los pasos siguientes:
 
 1. Abra una ventana de **línea de mandatos** y vaya a la raíz del proyecto de Cordova.
 2. Ejecute el mandato `mfpdev app config` y seleccione la opción **Clave pública de autenticidad de Direct Update**.
@@ -400,8 +403,7 @@ Hay muchas herramientas disponibles para generar certificados y extraer las clav
 
 2. Siga uno de los siguientes procedimientos:
     * Copie el texto resultante, sin los marcadores `BEGIN PUBLIC KEY` y `END PUBLIC KEY` en el archivo de propiedades mfpclient de la aplicación, inmediatamente después de `wlSecureDirectUpdatePublicKey`.
-    * Desde el indicador de mandatos, emita el siguiente mandato:
-`mfpdev app config direct_update_authenticity_public_key <public_key>`
+    * Desde el indicador de mandatos, emita el siguiente mandato: `mfpdev app config direct_update_authenticity_public_key <public_key>`
 
     Para `<public_key>`, pegue el texto que se obtiene del Paso 1, sin los marcadores `BEGIN PUBLIC KEY` ni `END PUBLIC KEY`.
 
