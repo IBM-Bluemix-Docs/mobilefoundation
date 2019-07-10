@@ -3,8 +3,7 @@
 {: topicgroup: .topicgroup}
 
 {: .toc subcollection="mobilefoundation" category="mobile" audience="service" arm="3663370" href="/docs/services/mobilefoundation?topic=mobilefoundation-getting-started#getting-started" path="services/mobilefoundation"}
-Mobile
-Foundation
+Mobile Foundation
 
     {: .navgroup id="learn"}
     getting-started.md
