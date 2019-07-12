@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2018-11-19"
+lastupdated: "2019-06-06"
 
 keywords: mobile foundation security, restrict backend access, tampered apps
 
@@ -27,15 +27,14 @@ Mit der Anwendungsauthentizität kann die Gültigkeit einer Anwendung vor dem Ak
 
 Um Ihre Anwendung ordnungsgemäß zu sichern, aktivieren Sie die vordefinierte Sicherheitsprüfung der MobileFirst-Anwendungsauthentizität (``appAuthenticity``). Diese Überprüfung validiert die Authentizität der Anwendung, bevor Services für die Anwendung bereitgestellt werden. Für Anwendungen in der Produktionsumgebung sollte diese Funktion aktiviert sein.
 
-Zum Aktivieren der Anwendungsauthentizität können Sie die unter **MobileFirst Operations Console → [Ihre Anwendung] → Authentizität** befolgen oder sich die nachstehenden Informationen durchlesen.
+Zum Aktivieren der Anwendungsauthentizität können Sie die Anweisungen unter **MobileFirst Operations Console → [Ihre Anwendung] → Authentizität** befolgen oder sich die folgenden Informationen durchlesen.
 
-* **Verfügbarkeit**
-
-    Die Anwendungsauthentizität ist auf allen unterstützten Plattformen (iOS, Android, Windows 8.1 Universal, Windows 10 UWP) für Cordova-Anwendungen und native Anwendungen verfügbar.
-
-* **Einschränkungen**
-
-    Die Anwendungsauthentizität bietet unter iOS keine Unterstützung für **Bitcode**. Bevor Sie die Anwendungsauthentizität verwenden, müssen Sie daher Bitcode in den Xcode-Projekteigenschaften inaktivieren.
+<dl>
+  <dt>Verfügbarkeit</dt>
+  <dd>Die Anwendungsauthentizität ist auf allen unterstützten Plattformen (iOS, Android, Windows 8.1 Universal, Windows 10 UWP) für Cordova-Anwendungen und native Anwendungen verfügbar.</dd>
+  <dt>Einschränkungen</dt>
+  <dd>Die Anwendungsauthentizität bietet unter iOS keine Unterstützung für **Bitcode**. Bevor Sie die Anwendungsauthentizität verwenden, müssen Sie daher Bitcode in den Xcode-Projekteigenschaften inaktivieren.</dd>
+</dl>
 
 ## Ablauf für Anwendungsauthentizität
 {: #appauthenticityflow}
@@ -96,7 +95,7 @@ Verwenden Sie das Tool wie folgt in Xcode:
 
 1. Klicken Sie auf der Registerkarte **Build Phases** auf die Schaltfläche mit dem **+** und erstellen Sie eine neue Scriptausführungsphase (**Run Script Phase**).
 2. Kopieren Sie den Pfad des BTS-Tools und fügen Sie ihn in die neu erstellte Phase ein.
-3. Ziehen Sie die Scriptausführungsphase mit der Maus an eine Position oberhalb der Ressourcenkompilierungsphase (**Compile sources phase**).
+3. Ziehen Sie die Scriptausführungsphase mit der Maus an eine Position vor der Ressourcenkompilierungsphase (**Compile sources phase**).
 
 Das Tool sollte bei der Erstellung einer Produktionsversion der Anwendung verwendet werden.
 

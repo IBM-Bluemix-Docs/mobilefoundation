@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2018-11-19"
+lastupdated: "2019-06-06"
 
 keywords: mobile foundation security, authentication, using challenge handlers
 
@@ -50,7 +50,7 @@ private transient StepUpUserLogin userLogin;
 ```
 {: codeblock}
 
->**Wichtig**: Beide Implementierungen von Sicherheitsprüfungen müssen in einem Adapter gebündelt werden.
+**Wichtig**: Beide Implementierungen von Sicherheitsprüfungen müssen in einem Adapter gebündelt werden.
 {.important}
 
 Zum Auflösen dieser Referenz sucht das Framework nach einer Sicherheitsprüfung mit der entsprechenden Klasse und fügt diese Referenz in die abhängige Sicherheitsprüfung ein.

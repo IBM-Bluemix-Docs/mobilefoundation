@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated:  "2018-11-16"
+lastupdated: "2019-06-10"
 
 keywords: mobile foundation faq, updates to mobile foundation, custom domain
 
@@ -12,8 +12,10 @@ subcollection:  mobilefoundation
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:faq: data-hd-content-type='faq'}
+{:note: .note}
 
 # Häufig gestellte Fragen
+{: #mfp-faq}
 
 Im Folgenden sind Antworten auf häufig gestellte Fragen im Zusammenhang mit dem {{site.data.keyword.mobilefoundation_long}}-Service aufgeführt.
 {: shortdesc}
@@ -37,10 +39,8 @@ Die {{site.data.keyword.mobilefoundation_short}}-Serviceaktualisierung steht zur
 Die Aktualisierung für {{site.data.keyword.mobilefoundation_short}} kann durch Klicken auf die Option für die Neuerstellung angewendet werden.
 Bei der Anwendung der Aktualisierung wird die Version des Servers, die in der {{site.data.keyword.mfp_oc_short_notm}} zu sehen ist, so geändert, dass die Version der Serveraktualisierung angezeigt wird.
 
-> **Hinweis:**
->  * Benutzer können keine eigenen Fixes und Aktualisierungen auf ihre Instanz des {{site.data.keyword.mobilefoundation_short}}-Service anwenden.
->  * Lesen Sie [Server in Professional Per Device-Plan neu erstellen](/docs/services/mobilefoundation?topic=mobilefoundation-c_using_mfs_p5#recreate_mobilefoundation_p5) und [Server in Professional 1 Application-Plan neu erstellen](/docs/services/mobilefoundation?topic=mobilefoundation-c_using_mfs_p2#recreate_mobilefoundation_p2), um den Unterschied im Verhalten zwischen den Plänen zu verstehen, wenn auf **Neu erstellen** geklickt wird.
->
+* Benutzer können keine eigenen Fixes und Aktualisierungen auf ihre Instanz des {{site.data.keyword.mobilefoundation_short}}-Service anwenden.
+* Lesen Sie [Server in Professional Per Device-Plan neu erstellen](/docs/services/mobilefoundation?topic=mobilefoundation-using_mobilefoundation_p5#recreate_mobilefoundation_p5) und [Server in Professional 1 Application-Plan neu erstellen](/docs/services/mobilefoundation?topic=mobilefoundation-using_mobilefoundation_p2#recreate_mobilefoundation_p2), um den Unterschied im Verhalten zwischen den Plänen zu verstehen, wenn auf **Neu erstellen** geklickt wird.{: note}
 
 ## Wie konfiguriere ich eine angepasste Domäne für meine {{site.data.keyword.mobilefoundation_short}}-Serverinstanz?
 {: #configcustomdomain}

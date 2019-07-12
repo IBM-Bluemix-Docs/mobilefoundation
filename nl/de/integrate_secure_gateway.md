@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-02-13"
+lastupdated: "2019-06-06"
 
 keywords: integration, mobile foundation, secure gateway
 
@@ -42,7 +42,7 @@ node app.js
 
 Die folgende Abbildung veranschaulicht die Architektur, die im in diesem Lernprogramm erläuterten Integrationsszenario verwendet wird.
 
-![Architekturdiagramm](images/SecureGatewayArchi.png)
+![Architekturdiagramm](images/SecureGatewayArchi.png "Architekturdiagramm des Geräts, des Cloud-Service und der lokalen Netzarchitektur")
 
 ## Secure Gateway-Integration implementieren
 {: #implementing_sg_integration}
@@ -50,7 +50,7 @@ Die folgende Abbildung veranschaulicht die Architektur, die im in diesem Lernpro
 ### Secure Gateway-Serviceinstanz erstellen
 Melden Sie sich bei IBM Cloud an und erstellen Sie eine Instanz des [Secure Gateway-Service](https://cloud.ibm.com/catalog/services/secure-gateway/).
 
-![IBM Cloud](images/SecureGatewayInst.gif)
+![IBM Cloud](images/SecureGatewayInst.gif "Secure Gateway-Instanz aus dem IBM Cloud-Katalog erstellen")
 
 Nachdem Sie die Secure Gateway-Serviceinstanz erstellt haben, führen Sie die folgenden Schritte aus, um den Secure Gateway-Service zwischen IBM Cloud und Ihrer On-Premises-Umgebung zu konfigurieren.
 
@@ -59,13 +59,13 @@ Nachdem Sie die Secure Gateway-Serviceinstanz erstellt haben, führen Sie die fo
 
 Klicken Sie im Dashboard des Secure Gateway-Service auf **Gateway hinzufügen**, um ein neues Gateway zu erstellen. Geben Sie dazu einen Gateway-Namen Ihrer Wahl an.
 
-![Gateway hinzufügen](images/AcmeAddGateway.gif)
+![Gateway hinzufügen](images/AcmeAddGateway.gif "Gateway-Benutzerschnittstellenschritte hinzufügen")
 
 
 ### Secure Gateway-Client hinzufügen
 {: #add_sg_client}
 
-![Client2 hinzufügen](images/AcmeAddClient.gif)
+![Client2 hinzufügen](images/AcmeAddClient.gif "Clientbenutzerschnittstellenschritte hinzufügen")
 
 Klicken Sie in Ihrem neuen Gateway auf der Registerkarte **Clients** auf **Client verbinden**.
 
@@ -79,12 +79,12 @@ Führen Sie die folgenden Schritte aus:
     docker run –it ibmcom/secure-gateway-client <gateway-id>
     ```
     {: codeblock}
-    Den Wert für `gateway-id` finden Sie in der Konsole, wie in der Abbildung oben gezeigt.
+    Den Wert für `gateway-id` finden Sie in der Konsole, wie in der vorigen Abbildung dargestellt.
 
 ### Ziel hinzufügen
 {: #add_destination}
 
-![Ziel hinzufügen](images/AcmeAddDest.gif)
+![Ziel hinzufügen](images/AcmeAddDest.gif "Zielbenutzerschnittstellenschritte hinzufügen")
 
 Klicken Sie in Ihrem neuen Gateway auf der Registerkarte **Ziele** auf **Ziel hinzufügen**.
 
@@ -97,11 +97,11 @@ Führen Sie den folgenden Befehl auf dem Terminal des Secure Gateway-Client (der
 acl allow <ressourcen-host>:<ressourcen-port>
 ```
 {: codeblock}
-`resssourcen-host` und `ressourcen-port` beziehen sich auf die Details des On-Premises-Ressourcenendpunkts.
+`ressourcen-host` und `ressourcen-port` beziehen sich auf die Details des On-Premises-Ressourcenendpunkts.
 
 Das Ziel ist jetzt konfiguriert. Der Secure Gateway-Service füllt die Host- und Portdetails für die Cloud, die für den Zugriff auf die On-Premises-Ressource aus der Cloud-Umgebung verwendet werden können.
 
-![Registerkarte 'Ziel'](images/AcmeCloudPopulate.gif)
+![Registerkarte 'Ziel'](images/AcmeCloudPopulate.gif "Anzeige mit Host- und Portdetails")
 
 ### Secure Gateway-Service mit Mobile Foundation und Mobile Foundation-Adapter konfigurieren
 {: #configuration_sg_mfp}
@@ -113,13 +113,13 @@ In diesem Lernprogramm verwenden Sie die Mobile Foundation-Serviceinstanz in IBM
 
 Erstellen Sie eine Instanz des [Mobile Foundation-Service](https://cloud.ibm.com/catalog/services/mobile-foundation) über die IBM Cloud-Konsole.
 
-Erstellen Sie den [Mobile Foundation-Server ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://mobilefirstplatform.ibmcloud.com/tutorials/en/foundation/8.0/bluemix/using-mobile-foundation/) in der Konsole des Mobile Foundation-Service.
+Erstellen Sie den [Mobile Foundation-Server ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://mobilefirstplatform.ibmcloud.com/tutorials/en/foundation/8.0/ibmcloud/using-mobile-foundation/) in der Konsole des Mobile Foundation-Service.
 
 
 ### Mobile Foundation-Adapter erstellen und bereitstellen
 {: #deploying_mf_adapter}
 
-In diesem Lernprogramm stellen Sie mit einem Mobile Foundation-Adapter eine Verbindung zum Secure Gateway-Endpunkt her. [Laden Sie ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link") den Mobile Foundation-JavaHTTP-Adapter herunter](https://github.com/MobileFirst-Platform-Developer-Center/Adapters/tree/release80/JavaHTTP).
+In diesem Lernprogramm stellen Sie mit einem Mobile Foundation-Adapter eine Verbindung zum Secure Gateway-Endpunkt her. [Laden Sie ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link") den Mobile Foundation-Java-HTTP-Adapter herunter](https://github.com/MobileFirst-Platform-Developer-Center/Adapters/tree/release80/JavaHTTP).
 
 Erstellen und implementieren Sie den Adapter in der Mobile Foundation Operations Console mit Befehlen der [mfpdev-CLI](/docs/services/mobilefoundation?topic=mobilefoundation-mobile_foundation_cli#mobile_foundation_cli).
 ```bash
@@ -131,9 +131,9 @@ mfpdev adapter deploy
 Informationen zum Erstellen und Bereitstellen von Adaptern erhalten Sie [hier ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://mobilefirstplatform.ibmcloud.com/tutorials/en/foundation/8.0/adapters/).
 {: tip}
 
-Geben Sie die Host- und Portdetails der Cloud für den Ressourcenendpunkt im JavaHTTP-Adapter aus dem vorherigen Abschnitt an.
+Geben Sie die Host- und Portdetails der Cloud für den Ressourcenendpunkt im Java-HTTP-Adapter aus dem vorherigen Abschnitt an.
 
-![Adapterkonfiguration](images/AdapterConfiguration.png)
+![Adapterkonfiguration ](images/AdapterConfiguration.png "Seite für Java-HTTP-Konfiguration")
 
 Dabei sind `cap-sg-prd-5.securegateway.appdomain.cloud` und `18946` entsprechend der Secure Gateway-Host und -Port.
 
@@ -144,9 +144,9 @@ Der Mobile Foundation-Adapter ist jetzt konfiguriert und der Mobile Foundation-S
 
 Laden Sie die Mobile Foundation-Beispielapp [hier](https://github.com/MobileFirst-Platform-Developer-Center/MFPSecureGatewayIonic/) herunter, befolgen Sie die Anweisungen aus der `Readme` und registrieren Sie die App in der Mobile Foundation Operations Console.
 
-Führen Sie die App aus, stellen Sie Berechtigungsnachweise bereit, um sich anzumelden, und klicken Sie auf die Schaltfläche *Anmelden*. Klicken Sie auf die Schaltfläche *Acme Writers abrufen*, um Ihren On-Premises-Endpunkt über Secure Gateway unter Verwendung des JavaHTTP-Adapters aufzurufen, der in der Mobile Foundation Operations Console implementiert ist. Empfangen Sie die gewünschten Daten aus der On-Premises-Umgebung.
+Führen Sie die App aus, stellen Sie Berechtigungsnachweise bereit, um sich anzumelden, und klicken Sie auf die Schaltfläche *Anmelden*. Klicken Sie auf die Schaltfläche *Acme Writers abrufen*, um Ihren On-Premises-Endpunkt über Secure Gateway unter Verwendung des Java-HTTP-Adapters aufzurufen, der in der Mobile Foundation Operations Console implementiert ist. Empfangen Sie die gewünschten Daten aus der On-Premises-Umgebung.
 
-![App empfängt On-Premises-Daten](images/AcmePublishersApp.gif)
+![Empfang von lokalen Daten durch die App](images/AcmePublishersApp.gif "Beispielapp mit Datenempfang")
 
 Sie können eine Verbindung zu mehreren On-Premises-Endpunkten herstellen, indem Sie mehrere Ziele für den Secure Gateway-Service konfigurieren und Mobile Foundation-Adapter bereitstellen, um eine Verbindung zum jeweiligen Cloud-Host des Endpunkts herzustellen. Sie können den Secure Gateway-Service auch mit zusätzlicher Sicherheit konfigurieren, um sicherzustellen, dass die Kommunikation mit dem Endpunkt über die HTTPS- und die anwendungsseitige Sicherheit erfolgt. Die entsprechenden [Details finden Sie hier](/docs/services/SecureGateway?topic=securegateway-getting-started-with-sg#getting-started-with-sg).
 

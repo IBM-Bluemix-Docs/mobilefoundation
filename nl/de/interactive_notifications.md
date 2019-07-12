@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-02-28"
+lastupdated: "2019-06-10"
 
 keywords: push notifications, sending interactive notification
 
@@ -65,7 +65,7 @@ Gehen Sie wie folgt vor, um interaktive Benachrichtigungen zu empfangen:
                 //Beim Senden der Benachrichtigung verwendete Kategorie-ID.
                 id : "poll",
 
-                //Optionales Array mit Aktionen, um zusammen mit der Nachricht die Aktionsschaltflächen anzuzeigen.
+                //Optionales Array mit Aktionen, um zusammen mit der Nachricht die Aktionsschaltflächen anzuzeigen.    
                 actions: [{
                     //Aktions-ID
                     id: "poll_ok",
@@ -117,7 +117,7 @@ Gehen Sie wie folgt vor, um interaktive Benachrichtigungen zu empfangen:
 
 Führen Sie für den Empfang interaktiver Benachrichtigungen die folgenden Schritte aus:
 
-1. Aktivieren Sie die Anwendungsfunktion für die Ausführung von Hintergrundtasks beim Empfang der fernen Benachrichtigungen. Dieser Schritt ist erforderlich, wenn einige der Aktionen im Hintergrund ausgeführt werden können.
+1. Aktivieren Sie die Anwendungsfunktion für die Ausführung von Hintergrundtasks beim Empfang der fernen Benachrichtigungen. Dieser Schritt ist erforderlich, wenn einige der Aktionen im Hintergrund aktiviert sind.
 2. Definieren Sie registrierte Kategorien für interaktive Benachrichtigungen und übergeben Sie sie als Optionen an `MFPPush.registerDevice`.
 
    ```swift

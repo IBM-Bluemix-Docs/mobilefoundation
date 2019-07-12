@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-03-13"
+lastupdated: "2019-06-24"
 
 keywords: mobile foundation, integration, cloud object storage, COS, ibm cloud
 
@@ -43,7 +43,7 @@ subcollection:  mobilefoundation
 
 1. Installieren Sie die [CLI (mfpdev-Befehle)](https://www.ibm.com/support/knowledgecenter/en/SSHS8R_8.0.0/com.ibm.worklight.dev.doc/dev/c_wl_cli_description.html), indem Sie den Befehl `npm install -g mfpdev-cli` ausführen. Diese CLI wird verwendet, um die Ionic-App zu registrieren und den Adapter auf dem MF-Server zu implementieren. Alternativ können diese Aktivitäten auch über das MF-Server-Dashboard ausgeführt werden.
 
-2. Installieren Sie die [{{ site.data.keyword.cloud_notm}}-CLI](https://console.bluemix.net/docs/cli/index.html#overview) auf Ihrer Maschine.
+2. Installieren Sie die [{{ site.data.keyword.cloud_notm}}-CLI](https://cloud.ibm.com/docs/cli?topic=cloud-cli-ibmcloud-cli) auf Ihrer Maschine.
 
 3. Installieren Sie die Ionic-ClI, indem Sie den Befehl `npm install -g ionic` ausführen.
 
@@ -55,7 +55,7 @@ subcollection:  mobilefoundation
 
 Der {{ site.data.keyword.mobilefoundation_short}}-Server wird unter {{ site.data.keyword.cloud_notm}} konfiguriert. Richten Sie eine {{site.data.keyword.cloud_notm}}-Instanz des {{site.data.keyword.mobilefoundation_short}}-Servers wie folgt ein:
 
-* Suchen Sie im {{site.data.keyword.cloud_notm}}-Katalog nach "{{site.data.keyword.mobilefoundation_short}}". Klicken Sie auf die Kachel für **{{site.data.keyword.mobilefoundation_short}}**.
+* Suchen Sie im {{ site.data.keyword.cloud_notm}}-Katalog nach '*{{ site.data.keyword.mobilefoundation_short}}*'. Klicken Sie auf die Kachel für **{{site.data.keyword.mobilefoundation_short}}**.
 
     ![MFP-Katalog](images/mfp_catalog.png)
 
@@ -67,7 +67,7 @@ Der {{ site.data.keyword.mobilefoundation_short}}-Server wird unter {{ site.data
 
     ![MFP-Anmeldung](images/mfp_login.png)
 
-* Die Berechtigungsnachweise für die Anmeldung beim MF-Server befinden sich auf der Registerkarte **Berechtigungsnachweise** im Menü auf der linken Seite.
+* Die Berechtigungsnachweise für die Anmeldung beim MF-Server befinden sich auf der Registerkarte **Berechtigungsnachweise** im Menü. 
 
     ![MF-Berechtigungsnachweise](images/mfp_credentials.png)
 
@@ -79,7 +79,7 @@ Der {{ site.data.keyword.mobilefoundation_short}}-Server wird unter {{ site.data
 ## Cloud Object Storage konfigurieren
 {: #cloud-object-storage-setup}
 
-* Suchen Sie im {{site.data.keyword.cloud_notm}}-Katalog nach "Cloud Object Storage". Klicken Sie auf die Kachel für **Object Storage**.
+* Suchen Sie im {{ site.data.keyword.cloud_notm}}-Katalog nach '*Cloud Object Storage*'. Klicken Sie auf die Kachel für **Object Storage**.
 
     ![Katalog](images/catalog.png)
 
@@ -87,7 +87,7 @@ Der {{ site.data.keyword.mobilefoundation_short}}-Server wird unter {{ site.data
 
     ![COS erstellen](images/cos_create.png)
 
-* Klicken Sie als Nächstes in den Menüoptionen im linken Fensterbereich auf **Buckets**. Geben Sie einen geeigneten Namen (in diesem Beispiel heißt das Bucket `sharedgallery`) für das Bucket an und klicken Sie auf **Erstellen**.
+* Klicken Sie als Nächstes in den Menüoptionen im Fensterbereich auf **Buckets**. Geben Sie einen geeigneten Namen (in diesem Beispiel heißt das Bucket `sharedgallery`) für das Bucket an und klicken Sie auf **Erstellen**.
 
     ![Bucket erstellen](images/bucketcreate.png)
 
@@ -166,7 +166,7 @@ Serverprofil 'mfpserver' erfolgreich hinzugefügt.
 
 Um eine Verbindung zu Ihrer COS-Instanz herzustellen, müssen einige Details Ihrer COS-Instanz in der Datei `adapter.xml` angegeben werden. Geben Sie Werte für die folgenden Felder ein:
 
-1. **endpointURL**: Dieses Feld ist die URL des öffentlichen Endpunkts für Ihr COS-Objekt. Diese URL befindet sich im COS-Dashboard unter **Buckets (Optionen im linken Menü) -> <name_des_buckets> (`sharedgallery` in diesem Beispiel) -> Konfiguration -> Endpunkte -> Öffentlich**.
+1. **endpointURL**: Dieses Feld ist die URL des öffentlichen Endpunkts für Ihr COS-Objekt. Diese URL befindet sich im COS-Dashboard unter **Buckets (Optionen im Menü) -> <name_des_buckets> (`sharedgallery` in diesem Beispiel) -> Konfiguration -> Endpunkte -> Öffentlich**.
 2. **AuthToken**: In diesem Lernprogramm wird die IAM-Authentifizierung verwendet.
 
 Damit der Java-Adapter eine Verbindung zu Ihrer Instanz von COS herstellen kann, ist eine Authentifizierung erforderlich, die IAM oder HMAC verwendet. Im Folgenden sind die Schritte zum Abrufen des IAM-Tokens angegeben. Weitere Einzelheiten zu IAM- und HMAC-Authentifizierungsprozessen finden Sie [hier](https://cloud.ibm.com/docs/services/cloud-object-storage/api-reference/api-reference-buckets.html#bucket-operations#AuthenticationOptions).
@@ -175,7 +175,7 @@ Damit der Java-Adapter eine Verbindung zu Ihrer Instanz von COS herstellen kann,
 {: #obtaining-iam-oath-token-using-ibm-cloud-cli}
 
 1. Stellen Sie zunächst sicher, dass Sie über einen API-Schlüssel verfügen. Rufen Sie den API-Schlüssel über [{{site.data.keyword.cloud_notm}} Identity and Access Management](https://cloud.ibm.com/iam/#/users) ab.
-2. Melden Sie sich mithilfe der CLi bei der {{ site.data.keyword.cloud_notm}}-Plattform an.
+2. Melden Sie sich mithilfe der CLI bei der {{ site.data.keyword.cloud_notm}}-Plattform an.
 
   ```bash
 	ibmcloud login --apikey <wert>
@@ -191,7 +191,7 @@ Damit der Java-Adapter eine Verbindung zu Ihrer Instanz von COS herstellen kann,
 
 	Standard der zielgruppenspezifischen Ressourcengruppe
 
-	API endpoint:     https://api.ng.bluemix.net (API version: 	2.75.0)
+	API-Endpunkt:     https://api.us-south.cf.cloud.ibm.com (API version: 	2.128.0)
 	Region:           us-south
 	User:             <e-mail-adresse>
 	Account:          <kontoname> (<konto-id>)
@@ -265,7 +265,7 @@ mfpdev adapter deploy
 
 Der Adapter wird für die MF-Instanz bereitgestellt.
 
-Alternativ kann der Adapter auch im Dashboard des MF-Servers implementiert werden. Öffnen Sie dazu das Dashboard und klicken Sie im Menü auf der linken Seite auf **Adapter -> Neu**, um die Seite zum Erstellen eines neuen Adapters (wie nachfolgend dargestellt) zu öffnen.
+Alternativ kann der Adapter auch im Dashboard des MF-Servers implementiert werden. Öffnen Sie dazu das Dashboard und klicken Sie im Menü auf **Adapter -> Neu**, um die Seite zum Erstellen eines neuen Adapters (wie nachfolgend dargestellt) zu öffnen.
 
 ![MFPNewAdapterRegister](images/mfp_new_adapter_register.png)
 
@@ -302,7 +302,7 @@ Führen Sie in der App die folgenden Schritte aus:
 	mfpdev app register
 	```
 
-	Alternativ kann die App auch im Dashboard des MF-Servers registriert werden. Öffnen Sie dazu das Dashboard und klicken Sie im Menü auf der linken Seite auf **Anwendungen -> Neu**.
+	Alternativ kann die App auch im Dashboard des MF-Servers registriert werden. Öffnen Sie dazu das Dashboard und klicken Sie im Menü auf **Anwendungen -> Neu**.
 
 	Die folgende Seite wird geladen.
 
@@ -338,13 +338,13 @@ Führen Sie in der App die folgenden Schritte aus:
 ### In der Ionic-Anwendung navigieren
 {: #navigating-the-ionic-application}
 
-Die Ionic-Anwendung zeigt eine Liste von Short Stories an, die zuvor (als letzter Schritt im Abschnitt [Cloud Object Storage konfigurieren](#cloud-object-storage-setup)) von der erstellten COS-Instanz hochgeladen wurden. Wenn Sie eine bestimmte Story-Option auswählen, wird die ausgewählte Story geladen und angezeigt. Es wird auch eine Option zum Hinzufügen einer Story bereitgestellt, die dann in die COS-Instanz hochgeladen wird.
+Die Ionic-Anwendung zeigt eine Liste von Short Storys an, die zuvor (als letzter Schritt im Abschnitt [Cloud Object Storage konfigurieren](#cloud-object-storage-setup)) von der erstellten COS-Instanz hochgeladen wurden. Wenn Sie eine bestimmte Story-Option auswählen, wird die ausgewählte Story geladen und angezeigt. Es wird auch eine Option zum Hinzufügen einer Story bereitgestellt, die dann in die COS-Instanz hochgeladen wird.
 
 Die anfängliche COS-Objektliste sieht folgendermaßen aus.
 
 ![COS vorher](images/cos_before.png)
 
-Auf der Startseite der Anwendung können Benutzer entweder 'Alle Storys abrufen' oder eine 'Story hinzufügen'.
+Auf der Startseite der Anwendung können Benutzer entweder *Alle Storys abrufen* oder eine *Story hinzufügen*
 
 ![Startseite der App](images/app-home-screen.png)
 

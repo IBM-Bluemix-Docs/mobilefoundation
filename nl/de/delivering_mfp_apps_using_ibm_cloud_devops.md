@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-03-13"
+lastupdated: "2019-06-10"
 
 keywords: mobile foundation, integration, devops, ibmcloud, pipeline
 
@@ -40,7 +40,7 @@ Dieses Lernprogramm unterstützt Sie bei der automatisierten Bereitstellung von 
 
 Die folgende Abbildung zeigt eine Übersicht der Pipeline.
 
-![Übersicht der Pipeline](images/p00_overview_of_pipeline.png)
+![overview_of_pipeline](images/p00_overview_of_pipeline.png "Sechs Phasen der DevOps-Pipeline")
 
 
 ## Voraussetzungen
@@ -50,7 +50,7 @@ Die folgende Abbildung zeigt eine Übersicht der Pipeline.
 * Die [mfpdev-cli](https://www.npmjs.com/package/mfpdev-cli) (IBM MobileFirst Platform Foundation Development Command Line Interface)
 * Eine Beispielapp und einen [MFP-Adapter](https://mobilefirstplatform.ibmcloud.com/tutorials/en/foundation/8.0/adapters/)
 * Ein [GitHub](http://github.com/)-Konto
-* **Optional:** Eine [Bitbar](https://bitbar.com/testing/)-Instanz und ein Bitbar-API-Schlüssel (Sie können einen beliebigen Service gemäß Ihren Anforderungen verwenden).
+* *Optional:* [Bitbar](https://bitbar.com/testing/)-Instanz und Bitbar-API-Schlüssel (Sie können einen beliebigen Service gemäß Ihren Anforderungen verwenden).
 
 
 ## Continuous Delivery-Service und Toolchain erstellen
@@ -59,14 +59,13 @@ Die folgende Abbildung zeigt eine Übersicht der Pipeline.
 * Suchen Sie nach 'Continuous Delivery' im {{ site.data.keyword.cloud_notm }}-Katalog (oder [klicken Sie hier](https://cloud.ibm.com/catalog/services/continuous-delivery)).
 * Erstellen Sie den Service, indem Sie den Servicenamen, die Region usw. bereitstellen.
 
-    Im folgenden Beispiel werden der Servicename als 'Bereitstellungstest für MFP-App/Adapter', die Region/der Standort als 'London' und die Ressourcengruppe als 'Standard' angegeben.
+    Im folgenden Beispiel werden der Servicename als *Bereitstellungstest für MFP-App/Adapter*, die Region/der Standort als *London* und die Ressourcengruppe als *Standard* angegeben.
 
-    ![Konfiguration des Continuous Delivery-Service](images/p01_configuring_continuous_delivery_service.png)
+    ![configuring_continuous_delivery_service](images/p01_configuring_continuous_delivery_service.png "Katalogerstellungsseite für Mobile Foundation-Serviceinstanzen")
 
-* Erstellen Sie im Abschnitt zu {{ site.data.keyword.jazzhub_title }}
- im Hamburger-Menü auf der linken Seite eine Toolchain und suchen Sie nach 'Eigene Toolchain erstellen', um eine völlig neue Toolchain zu erstellen.
+* Wählen Sie im Navigationsmenü **DevOps** aus und klicken Sie anschließend auf **Toolchain erstellen**, suchen Sie dann nach “Eigene Toolchain erstellen”, um eine völlig neue Toolchain zu erstellen. 
 
-    ![Nach 'Eigene Toolchain erstellen' suchen](images/p02_search_build_your_own_toolchain.png)
+    ![search_build_your_own_toolchain](images/p02_search_build_your_own_toolchain.png "Seite zum Erstellen einer eigenen Toolchain mit Suchergebnis zum Erstellen einer eigenen Toolchain")
 
 * Geben Sie den Toolchainnamen, die Region usw. für die Konfiguration an.
 
@@ -74,13 +73,13 @@ Die folgende Abbildung zeigt eine Übersicht der Pipeline.
 ## Integration von GitHub mit der Toolchain für Versionssteuerung und für Pipelineauslöser
 {: #integrating-github-with-the-toolchain}
 
-* Klicken Sie in der Toolchain-Übersicht im linken Menü auf **Tool hinzufügen** und suchen Sie nach GitHub.
+* Klicken Sie auf der Seite **Übersicht** in der Navigation auf **Tool hinzufügen** und suchen Sie nach einem GitHub.
 * Konfigurieren Sie das GitHub-Tool für die **GitHub-Server-Adresse**, den **Repository-Typ** und die **Repository-URL**.
 * Sie können ein neues Repository erstellen oder ein vorhandenes Repository aufspalten, klonen oder verwenden.
 
-    Im folgenden Beispiel werden der GitHub-Server als '[https://github.com](http://github.com/)', der Repository-Typ als 'Vorhanden' und die Repository-URL als 'https://github.com/sagar20896/mfp-devops-20181210030116092' angegeben.
+    Im folgenden Beispiel werden der GitHub-Server als '[https://github.com](http://github.com/)', der Repository-Typ als '*Vorhanden*' und die Repository-URL als '*https://github.com/sagar20896/mfp-devops-20181210030116092*' angegeben.
 
-    ![Konfiguration der Toolchain](images/p03_configuring_toolchain.png)
+    ![configuring_toolchain](images/p03_configuring_toolchain.png "Anzeige zur Konfiguration der Integration mit den Feldern für GitHub-Server, Repositorytyp und Repository-URL")
 
 ### Delivery Pipeline zur Toolchain hinzufügen
 {: #adding-the-delivery-pipeline-to-the-toolchain}
@@ -98,7 +97,7 @@ In dieser Stufe richten Sie eine Instanz von {{ site.data.keyword.mobilefoundati
 
 Im folgenden Beispiel werden der Eingabetyp als *Git-Repository*, das Git-Repository als *mfp-devops-20181210030116092* und die Git-URL als *https://github.com/sagar20896/mfp-devops-20181210030116092* und der Zweig als *Master* angegeben.
 
-![Erste Stufe Git-Eingabe](images/p4_first_stage_git_input.png)
+![first_stage_git_input](images/p4_first_stage_git_input.png "Anzeige zum Einrichten der Mobile Foundation mit der ausgewählten Registerkarte für die Eingabe")
 
 - Klicken Sie auf **Stufe hinzufügen** und konfigurieren Sie die Registerkarte **Eingabe** so, dass sie auf das GitHub-Repository verweist, wie in der Abbildung dargestellt.
 - Klicken Sie auf der Registerkarte **Jobs** auf **Job hinzufügen** und wählen Sie *Bereitstellen* als Jobtyp aus. Wählen Sie **Cloud Foundry** als *Bereitstellertyp* aus.
@@ -134,13 +133,13 @@ Wählen Sie die anderen Felder nach Bedarf aus bzw. füllen Sie sie aus. Fügen 
 ```
 {: codeblock}
 
-Im obigen Script wird die Cloud Foundry-CLI zum Erstellen einer {{ site.data.keyword.mobilefoundation_short }}-Serviceinstanz verwendet.
+Im vorherigen Script wird die Cloud Foundry-CLI zum Erstellen einer {{ site.data.keyword.mobilefoundation_short }}-Serviceinstanz verwendet.
 
-![Stufe 1 - Konfiguration der Registerkarte 'Jobs'](images/p05_stage1_jobs_tab_config.png)
+![stage1_jobs_tab_config](images/p05_stage1_jobs_tab_config.png "Anzeige zum Einrichten der Mobile Foundation mit der ausgewählten Registerkarte für Jobs")
 
 Fügen Sie auf der Registerkarte **Umgebungseigenschaften** die Eigenschaft *INSTANCE\_NAME* (als Texteigenschaft) als den Namen der MobileFoundation-Instanz hinzu. Dieser wird als Kennung über viele Stufen hinweg verwendet.
 
-![Stufe 1 - Umgebungseigenschaften](images/p06_stage1_environment_properties.png)
+![stage1_environment_properties](images/p06_stage1_environment_properties.png "Anzeige zum Einrichten der Mobile Foundation mit der ausgewählten Registerkarte für die Umgebung")
 
 #### Stufe 2 - Adapter erstellen
 {: #stage2-building-an-adapter}
@@ -166,11 +165,11 @@ In dieser Stufe extrahieren Sie den Quellcode des Adapters und erstellen den Ada
 ```
 {: codeblock}
 
-Im obigen Script installieren Sie die [mfpdev-cli](https://www.npmjs.com/package/mfpdev-cli) (IBM MobileFirst Platform Foundation Development Command Line Interface) zum Erstellen von Adaptern, indem Sie einen Adapterbefehl im Verzeichnis `adapters/JavaAdapter` des Repositorys verwenden.
+Im vorherigen Script installieren Sie die [mfpdev-cli](https://www.npmjs.com/package/mfpdev-cli) (IBM MobileFirst Platform Foundation Development Command Line Interface) zum Erstellen von Adaptern, indem Sie einen Adapterbefehl im Verzeichnis `adapters/JavaAdapter` des Repositorys verwenden.
 
 Im folgenden Beispiel werden *npm* als **Builder-Typ** und das Script verwendet, das im Build-Script angegeben ist. Lassen Sie die Parameter für **Arbeitsverzeichnis** und **Archivverzeichnis erstellen** leer.
 
-![Konfiguration von Stufenjobs zum Erstellen von Adaptern](images/p07_build_adapter_stage_jobs_config.png)
+![build_adapter_stage_jobs_config](images/p07_build_adapter_stage_jobs_config.png "Anzeige des Buildadapters mit der ausgewählten Registerkarte für Jobs")
 
 #### Stufe 3 - Adapter bereitstellen
 {: #stage3-deploying-an-adapter}
@@ -186,7 +185,7 @@ In dieser Stufe stellen Sie den Adapter in der {{ site.data.keyword.mobilefounda
 
 Im folgenden Beispiel wird *Cloud Foundry* als **Bereitstellertyp** verwendet und als **{{ site.data.keyword.cloud_notm }}-Region** ist *Dallas* angegeben. Der API-Schlüssel entspricht dem in Stufe 1 erstellten Schlüssel.
 
-![Adapter bereitstellen](images/p08_deploy_adapter.png)
+![deploy_adapter](images/p08_deploy_adapter.png "Anzeige für die Bereitstellung mit der ausgewählten Registerkarte für Jobs")
 
 
 Verwenden Sie das nachfolgende **Bereitstellungsscript**:
@@ -368,8 +367,8 @@ Verwenden Sie das folgende Script, um die App zu erstellen:
 ```
 {: codeblock}
 
-Im obigen Script wird `mfpdev-cli` zum Registrieren der App bei {{ site.data.keyword.mobilefoundation_short }}
- [Fastlane](https://fastlane.tools/) verwendet, um die App zu erstellen und freizugeben.
+Im vorherigen Script wird `mfpdev-cli` verwendet, um die App bei {{ site.data.keyword.mobilefoundation_short }}
+ [Fastlane](https://fastlane.tools/) zu registrieren, um die App zu erstellen und freizugeben. 
 
 Die Umgebungsvariablen, die im Script verwendet werden, werden auf der nächsten Registerkarte **Umgebungseigenschaften** definiert.
 
@@ -389,7 +388,7 @@ Fügen Sie in den Umgebungseigenschaften die folgenden Eigenschaften hinzu:
 
 Diese Stufe ist auch offen ohne Ende konzipiert. Sie können jedes Testframework basierend auf Ihren Anforderungen verwenden. In diesem Beispiel wird [Bitbar](https://bitbar.com/testing/) verwendet.
 
-- Fügen Sie die GitHub-Repositorydetails zu Ihrem Testprojekt hinzu (dieses Projekt umfasst alle Testscripts und Artifakte, die unterstützend zum Testen verwendet werden).
+- Fügen Sie die GitHub-Repositorydetails zu Ihrem Testprojekt hinzu (dieses Projekt umfasst alle Testscripts und Artefakte, die unterstützend zum Testen verwendet werden).
 
 - Fügen Sie für Bitbar einen Buildjob auf der Registerkarte **Jobs** hinzu und wählen Sie als **Builder-Typ** die Option *Maven* aus.
 
@@ -402,7 +401,7 @@ Verwenden Sie ein Build-Script ähnlich dem folgenden Script:
 ```
 {: codeblock}
 
-Für das obige Script benötigen Sie einige Umgebungsvariablen.
+Für das vorherige Script benötigen Sie einige Umgebungsvariablen.
 
 - *screenshot\_dir* als **/home/pipeline/home/pipeline/$BUILD\_ID/target**
 - *applicationPath* als **GitHub-Pfad** zu der Anwendung, die Sie testen möchten

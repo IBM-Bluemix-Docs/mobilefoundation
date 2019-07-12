@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-02-28"
+lastupdated: "2019-06-06"
 
 keywords: push notifications, notifications, FCM, GCM, APNS, WNS, authenticate notification
 
@@ -123,8 +123,7 @@ Gehen Sie wie folgt vor, um WNS zu konfigurieren:
 1. Folgen Sie den [Anweisungen von Microsoft](https://msdn.microsoft.com/en-in/library/windows/apps/hh465407.aspx) für das Generieren der Werte für **Paketsicherheits-ID (SID)** und **Geheimer Clientschlüssel**.
 2. Fügen Sie diese Werte in der {{ site.data.keyword.mfp_oc_short_notm }} unter **[Ihre Anwendung] → Push → Push-Einstellungen** hinzu und klicken Sie auf **Speichern**.
 
-> Sie können WNS auch mit der [REST-API für den {{ site.data.keyword.mobilefirst_notm }}-Push-Service](http://www.ibm.com/support/knowledgecenter/en/SSHS8R_8.0.0/com.ibm.worklight.apiref.doc/rest_runtime/r_restapi_push_wns_settings_put.html?view=kc) oder der [REST-API für den {{ site.data.keyword.mobilefirst_notm }}-Verwaltungsservice](http://www.ibm.com/support/knowledgecenter/en/SSHS8R_8.0.0/com.ibm.worklight.apiref.doc/apiref/r_restapi_update_wns_settings_put.html?view=kc) konfigurieren.
-
+Sie können WNS auch mit der [REST-API für den {{ site.data.keyword.mobilefirst_notm }}-Push-Service](http://www.ibm.com/support/knowledgecenter/en/SSHS8R_8.0.0/com.ibm.worklight.apiref.doc/rest_runtime/r_restapi_push_wns_settings_put.html?view=kc) oder der [REST-API für den {{ site.data.keyword.mobilefirst_notm }}-Verwaltungsservice](http://www.ibm.com/support/knowledgecenter/en/SSHS8R_8.0.0/com.ibm.worklight.apiref.doc/apiref/r_restapi_update_wns_settings_put.html?view=kc) konfigurieren.
 
 <img class="gifplayer" alt="Hinzufügen der WNS-Berechtigungsnachweise" src="images/wns-setup.png"/>
 
@@ -136,27 +135,28 @@ Ordnen Sie das Bereichselement **push.mobileclient** der Anwendung zu.
 1. Laden Sie die {{ site.data.keyword.mfp_oc_short_notm }}, navigieren Sie zu **[Ihre Anwendung] → Sicherheit → Zuordnung von Bereichselementen** und klicken Sie auf **Neu**.
 2. Schreiben Sie 'psh.mobileclient' in das Feld **Bereichselement**. Klicken Sie dann auf **Hinzufügen**.
 
-**Liste zusätzlich verfügbarer Bereiche**
+Liste zusätzlich verfügbarer Bereiche:
 
-**Bereiche** | **Beschreibung**
----|---
-apps.read | Berechtigung zum Lesen der Anwendungsressource.
-apps.write | Berechtigung zum Erstellen, Aktualisieren und Löschen der Anwendungsressource.
-gcmConf.read | Berechtigung zum Lesen der GCM-Konfigurationseinstellungen (API-Schlüssel und Absender-ID).
-gcmConf.write | Berechtigung zum Aktualisieren und Löschen der GCM-Konfigurationseinstellungen.
-apnsConf.read | Berechtigung zum Lesen der APNS-Konfigurationseinstellungen.
-apnsConf.write | Berechtigung zum Aktualisieren und Löschen der APNS-Konfigurationseinstellungen.
-devices.read | Berechtigung zum Lesen eines Geräts.
-devices.write | Berechtigung zum Erstellen, Aktualisieren und Löschen eines Geräts.
-subscriptions.read | Berechtigung zum Lesen von Abonnements.
-subscriptions.write | Berechtigung zum Erstellen, Aktualisieren und Löschen von Abonnements.
-messages.write | Berechtigung zum Senden von Push-Benachrichtigungen.
-webhooks.read | Berechtigung zum Lesen von Ereignisbenachrichtigungen.
-webhooks.write | Berechtigung zum Senden von Ereignisbenachrichtigungen.
-smsConf.read | Berechtigung zum Lesen von SMS-Konfigurationseinstellungen.
-smsConf.write | Berechtigung zum Aktualisieren und Löschen von SMS-Konfigurationseinstellungen.
-wnsConf.read | Berechtigung zum Lesen der WNS-Konfigurationseinstellungen.
-wnsConf.write | Berechtigung zum Aktualisieren und Löschen der WNS-Konfigurationseinstellungen.
+|**Bereiche** | **Beschreibung**|
+|---|---|
+|apps.read | Berechtigung zum Lesen der Anwendungsressource. |
+|apps.write | Berechtigung zum Erstellen, Aktualisieren und Löschen der Anwendungsressource. |
+|gcmConf.read | Berechtigung zum Lesen der GCM-Konfigurationseinstellungen (API-Schlüssel und Absender-ID). |
+|gcmConf.write | Berechtigung zum Aktualisieren und Löschen der GCM-Konfigurationseinstellungen. |
+|apnsConf.read | Berechtigung zum Lesen der APNS-Konfigurationseinstellungen. |
+|apnsConf.write | Berechtigung zum Aktualisieren und Löschen der APNS-Konfigurationseinstellungen. |
+|devices.read | Berechtigung zum Lesen eines Geräts. |
+|devices.write | Berechtigung zum Erstellen, Aktualisieren und Löschen eines Geräts. |
+|subscriptions.read | Berechtigung zum Lesen von Abonnements. |
+|subscriptions.write | Berechtigung zum Erstellen, Aktualisieren und Löschen von Abonnements. |
+|messages.write | Berechtigung zum Senden von Push-Benachrichtigungen. |
+|webhooks.read | Berechtigung zum Lesen von Ereignisbenachrichtigungen. |
+|webhooks.write | Berechtigung zum Senden von Ereignisbenachrichtigungen.|
+|smsConf.read | Berechtigung zum Lesen von SMS-Konfigurationseinstellungen.|
+|smsConf.write | Berechtigung zum Aktualisieren und Löschen von SMS-Konfigurationseinstellungen.|
+|wnsConf.read | Berechtigung zum Lesen der WNS-Konfigurationseinstellungen.|
+|wnsConf.write | Berechtigung zum Aktualisieren und Löschen der WNS-Konfigurationseinstellungen.|
+{: caption="Tabelle 1. Bereichsbeschreibungen" caption-side="top"}
 
 <img class="gifplayer" alt="Bereichszuordnung" src="images/scope-mapping.png"/>
 

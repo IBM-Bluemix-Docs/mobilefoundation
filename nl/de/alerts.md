@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2018-11-23"
+lastupdated: "2019-06-06"
 
 keywords: mobile analytics, set up alerts, alert definitions
 
@@ -43,14 +43,14 @@ Sie können eine Alertdefinition erstellen, die auf Anwendungsprotokollen basier
     * **Ereignistyp**: *App-Protokolle*
         * **Eigenschaft**: *Protokollebene*
             * **Wert**: *Fehler*
-            * **Schwellenwert**: *Gesamt für Anwendungsinstanz*<br/>
-              Wenn Sie die Option für den Anwendungsdurchschnitt auswählen, wird aus den App-Protokollen und der Anzahl der Geräte ein Durchschnittswert berechnet. Beispiel: Wenn Sie über zwei Geräte verfügen und von einem Gerät sechs App-Protokolle gesendet werden, vom anderen Gerät dagegen nur drei Protokolle, beträgt der Durchschnitt 4,5 Protokolle.
+            * **Schwellenwert**: *Summe für Anwendungsinstanz*<br/>
+              Wenn Sie die Option *Durchschnitt für Anwendung* ausgewählt haben, wird aus den App-Protokollen und der Anzahl der Geräte ein Durchschnittswert berechnet. Beispiel: Wenn Sie über zwei Geräte verfügen und von einem Gerät sechs App-Protokolle gesendet werden, vom anderen Gerät dagegen nur drei Protokolle, beträgt der Durchschnitt 4,5 Protokolle.
               {: note}
             * **Operator**: *Größer gleich*
             * Schwellenwert: *3*
 4.  Klicken Sie auf **Weiter** und geben Sie den folgenden Wert an:
     * **Methode**: *Nur Analytics Console*<br/>
-      Wählen Sie außerdem die Option für *Analytics Console und Network Post* aus, wenn Sie zusätzlich eine POST-Nachricht mit einer JSON-Nutzlast an die angepasste URL senden wollen. Wenn Sie diese Option auswählen, sind die folgenden Felder verfügbar.
+      Wählen Sie außerdem die Option für *Analytics Console und Network Post* aus, wenn Sie zusätzlich eine POST-Nachricht mit einer JSON-Nutzlast an Ihre angepasste URL senden wollen. Wenn Sie diese Option auswählen, sind die folgenden Felder verfügbar.
       * **Network Post-URL**
       * **Header**
       * **Authentifizierungstyp**
@@ -65,7 +65,7 @@ Dieser Alert bleibt so lange aktiv und führt die Überwachung mit der eingerich
 ## Alertdefinition für Anwendungsabstürze erstellen
 {: #creating_alert_crashes}
 
-Im Folgenden finden Sie ein Beispiel für das Einrichten von Alerts für Anwendungsabstürze. Dabei findet die Überwachung alle zwei Minuten statt und es werden alle Anwendungsabstürze festgestellt; anschließend wird ein Alert ausgelöst, wenn die Anzahl der festgestellten Abstürze über 5 liegt.
+Im Folgenden finden Sie ein Beispiel für das Einrichten von Alerts für Anwendungsabstürze.  Dabei findet die Überwachung alle zwei Minuten statt und es werden alle Anwendungsabstürze festgestellt; anschließend wird ein Alert ausgelöst, wenn die Anzahl der festgestellten Abstürze über 5 liegt.
 
 1.  Klicken Sie in der Mobile Analytics-Konsole auf **Definitionen**, um zur Seite mit den Alertdefinitionen zu wechseln.
 2.  Klicken Sie auf **Alert erstellen**.
@@ -81,7 +81,7 @@ Im Folgenden finden Sie ein Beispiel für das Einrichten von Alerts für Anwendu
     * Schwellenwert: *5*
 4.  Klicken Sie auf **Verteilungsmethode** oder auf **Weiter** und geben Sie den folgenden Wert an:
     * **Methode**: *Nur Analytics Console*<br/>
-      Wählen Sie außerdem die Option für *Analytics Console und Network Post* aus, wenn Sie zusätzlich eine POST-Nachricht mit einer JSON-Nutzlast an die angepasste URL senden wollen. Wenn Sie diese Option auswählen, sind die folgenden Felder verfügbar.
+      Wählen Sie außerdem die Option für *Analytics Console und Network Post* aus, wenn Sie zusätzlich eine POST-Nachricht mit einer JSON-Nutzlast an Ihre angepasste URL senden wollen. Wenn Sie diese Option auswählen, sind die folgenden Felder verfügbar.
       * **Network Post-URL**
       * **Header**
       * **Authentifizierungstyp**

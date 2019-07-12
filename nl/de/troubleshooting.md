@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2018-02-12"
+lastupdated: "2019-06-10"
 
 keywords: troubleshooting techniques
 
@@ -39,7 +39,7 @@ Die Antworten auf diese Fragen liefern in der Regel eine gute Beschreibung des P
 
 ### Welche Symptome weist das Problem auf?
 
-Bei der Beschreibung eines Problems lautet die offensichtlichste Frage "Was ist das Problem?" Diese Frage erscheint zunächst einfach. Sie können sie jedoch in mehrere fokussiertere Fragen unterteilen, die ein weitaus genaueres Bild des Problems liefern. Hierzu können die beispielsweise die folgenden Fragen gehören:
+Bei der Beschreibung eines Problems lautet die offensichtlichste Frage **Was ist das Problem?** Diese Frage erscheint zunächst einfach. Sie können sie jedoch in mehrere fokussiertere Fragen unterteilen, die ein weitaus genaueres Bild des Problems liefern. Hierzu können die beispielsweise die folgenden Fragen gehören:
 
 - Wer oder was meldet das Problem?
 - Wie lauten die Fehlercodes und -nachrichten?
@@ -108,4 +108,4 @@ Bei technischen Fragen zur Entwicklung und zur Bereitstellung einer App mit {{si
 
 Bei Fragen zum Service sowie zu einführenden Anweisungen können Sie das Forum [IBM developerWorks dW Answers ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://developer.ibm.com/answers/topics/mobilefirst/?smartspace=bluemix){:new_window} verwenden. Verwenden Sie dabei die Tags `bluemix` und `mobilefirst`.
 
-Weitere Informationen zum Öffnen eines IBM Support-Tickets oder zu Supportebenen und zur Priorität von Tickets finden Sie im Abschnitt zum [Kontaktieren des Supports](/docs/get-support?topic=get-support-getstarttssup#typesofsupport){: new_window}.
+Weitere Informationen zum Öffnen eines IBM Support-Tickets oder zu Supportebenen und zur Priorität von Tickets finden Sie im Abschnitt zum [Kontaktieren des Supports](https://cloud.ibm.com/docs/get-support?topic=get-support-getting-customer-support){: new_window}.

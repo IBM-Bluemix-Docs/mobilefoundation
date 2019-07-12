@@ -2,7 +2,7 @@
 
 copyright:
   years: 2016, 2019
-lastupdated:  "2019-03-14"
+lastupdated: "2019-06-06"
 
 keywords: getting started, mobile foundation, plans, configure mobile foundation server, sample app, setup
 
@@ -17,10 +17,9 @@ subcollection:  mobilefoundation
 {:note: .note}
 
 # Einführung - Lernprogramm
-{: #getting-started-tutorial}
+{: #getting-started}
 
 {{site.data.keyword.mobilefoundation_long}} beschleunigt die Einrichtung einer {{site.data.keyword.mfp_full}}-Umgebung, mit der Sie mobile Unternehmens-Apps entwickeln, testen und ausführen können. {{site.data.keyword.mobilefoundation_short}} bietet die folgenden unterschiedlichen Servicepläne:
-* **Lite**: Stellt eine gehostete Instanz von Foundation Server bereit, die durch Speicher und CPU begrenzt ist. Lässt eine beliebige Anzahl von Anwendungen zu, wobei die Gesamtanzahl der verbundenen Geräte über alle Anwendungen hinweg auf 10 begrenzt ist. Dieser Plan ist kostenlos und nur zu Testzwecken zu verwenden.
 * **Developer**: Stellt eine Instanz von Foundation Server im Konto des Benutzers bereit. Lässt eine beliebige Anzahl von Anwendungen zu, wobei die Gesamtanzahl der verbundenen Geräte über alle Anwendungen hinweg auf 10 begrenzt ist. Dieser Plan ist kostenlos und nur für Entwicklungs- und Testzwecke zu verwenden.
 * **Professional Per Device**: Stellt eine Instanz von Foundation Server im Konto des Benutzers bereit und wird anhand der aktiv verbundenen Geräte berechnet.
 * **Professional 1 Application**: Stellt eine Instanz von Foundation Server im Konto des Benutzers bereit und ermöglicht es, dass eine beliebige Anzahl von Benutzern und Geräten nur für eine einzige Anwendung aktiv verbunden werden kann.    
@@ -48,18 +47,6 @@ Sie benötigen ein {{site.data.keyword.Bluemix}}-Konto und eine {{site.data.keyw
 {: #buildmobilechannel}
 
 
-### Für {{site.data.keyword.mobilefoundation_short}}: Lite-Plan
-{: #buildchannelliteplan}
-Nachdem Sie eine Instanz von {{site.data.keyword.mobilefoundation_short}}: Lite erstellt haben, können Sie mit der Erstellung Ihres mobilen Kanals beginnen, indem Sie die folgenden Schritte ausführen.
-
-* Sie können sofort auf die gehostete Instanz des Mobile Foundation-Servers zugreifen und diese bearbeiten.
-
-  Bei Auswahl dieser Option wird eine gehostete Instanz von {{site.data.keyword.mfserver_long_notm}} mit den folgenden Einstellungen erstellt:
-  *	1 GB Speicher, was ausreichend ist, um die Funktionalität von {{site.data.keyword.mfserver_long_notm}} auszuprobieren.  
-
-  * Für den Zugriff auf den Mobile Foundation-Server über die Befehlszeilenschnittstelle (CLI) benötigen Sie die Berechtigungsnachweise, die zur Verfügung stehen, wenn Sie auf **Serviceberechtigungsnachweise** im linken Navigationsbereich der IBM Cloud-Konsole klicken.
-
-
 ### Für {{site.data.keyword.mobilefoundation_short}}: Developer-Plan
 {: #buildchanneldevplan}
 
@@ -68,9 +55,9 @@ Nachdem Sie eine Instanz von {{site.data.keyword.mobilefoundation_short}}: Devel
 * Sie können sofort auf den Mobile Foundation-Server zugreifen und diesen verwenden.
 
   Diese Auswahl erstellt einen {{site.data.keyword.mfserver_long_notm}} mit den folgenden Einstellungen:
-  *	1 GB Hauptspeicher. Diese Größe ist für Entwicklungs- und kleinere Testaktivitäten sowie für kleinere Produktionsworkloads ausreichend.
+  *	1 GB Hauptspeicher. Diese Größe ist für die Entwicklung und kleinere Tests ausreichend.
 
-  * Für den Zugriff auf den Mobile Foundation-Server über die Befehlszeilenschnittstelle (CLI) benötigen Sie die Berechtigungsnachweise, die zur Verfügung stehen, wenn Sie auf **Serviceberechtigungsnachweise** im linken Navigationsbereich der IBM Cloud-Konsole klicken.
+  * Für den Zugriff auf den Mobile Foundation-Server über die Befehlszeilenschnittstelle (CLI) benötigen Sie die Berechtigungsnachweise, die zur Verfügung stehen, wenn Sie auf **Serviceberechtigungsnachweise** im Navigationsbereich der IBM Cloud-Konsole klicken.
 
 ### Für {{site.data.keyword.mobilefoundation_short}}: Professional Per Device-Plan
 {: #buildchannelprofdeviceplan}
@@ -107,7 +94,7 @@ Nachdem Sie eine Instanz von {{site.data.keyword.mobilefoundation_short}}: Profe
 
       +	Klicken Sie auf **Konsole starten**, um die {{site.data.keyword.mfp_oc_short_notm}} zu öffnen.      
 
-      Zur Erstellung einer {{site.data.keyword.mobilefirst_notm}}-Serverinstanz mit erweiterter Konfiguration für Topologie, Sicherheit und weitere Serverkonfigurationen klicken Sie auf **Server mit erweiterter Konfiguration starten**. Weitere Informationen hierzu finden Sie im Abschnitt [Erweiterte Konfiguration einrichten](/docs/services/mobilefoundation?topic=mobilefoundation-c_using_mfs_p5#using_mfs_advanced_p5).
+      Zur Erstellung einer {{site.data.keyword.mobilefirst_notm}}-Serverinstanz mit erweiterter Konfiguration für Topologie, Sicherheit und weitere Serverkonfigurationen klicken Sie auf **Server mit erweiterter Konfiguration starten**. Weitere Informationen hierzu finden Sie im Abschnitt [Erweiterte Konfiguration einrichten](/docs/services/mobilefoundation?topic=mobilefoundation-using_mobilefoundation_p5#using_mfs_advanced_p5).
       {: tip}
 
 ### Für {{site.data.keyword.mobilefoundation_short}}: Professional 1 Application-Plan
@@ -145,10 +132,10 @@ Nachdem Sie eine Instanz von {{site.data.keyword.mobilefoundation_short}}: Profe
 
       +  Klicken Sie auf **Konsole starten**, um die {{site.data.keyword.mfp_oc_short_notm}} zu öffnen.  
 
-      Zur Erstellung einer {{site.data.keyword.mobilefirst_notm}}-Serverinstanz mit erweiterter Konfiguration für Topologie, Sicherheit und weitere Serverkonfigurationen klicken Sie auf **Server mit erweiterter Konfiguration starten**. Weitere Informationen hierzu finden Sie im Abschnitt [Erweiterte Konfiguration einrichten](/docs/services/mobilefoundation?topic=mobilefoundation-c_using_mfs_p2#using_mfs_advanced_p2).
+      Zur Erstellung einer {{site.data.keyword.mobilefirst_notm}}-Serverinstanz mit erweiterter Konfiguration für Topologie, Sicherheit und weitere Serverkonfigurationen klicken Sie auf **Server mit erweiterter Konfiguration starten**. Weitere Informationen hierzu finden Sie im Abschnitt [Erweiterte Konfiguration einrichten](/docs/services/mobilefoundation?topic=mobilefoundation-using_mobilefoundation_p2#using_mfs_advanced_p2).
       {: tip}
 
-Weitere Informationen zur Einführung in {{site.data.keyword.mobilefoundation_short}} finden Sie in [MobileFirst-Server mithilfe des Mobile Foundation-Service einrichten![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://mobilefirstplatform.ibmcloud.com/tutorials/en/foundation/8.0/bluemix/using-mobile-foundation/){: new_window}.
+Weitere Informationen zur Einführung in {{site.data.keyword.mobilefoundation_short}} finden Sie in [MobileFirst-Server mithilfe des Mobile Foundation-Service einrichten![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://mobilefirstplatform.ibmcloud.com/tutorials/en/foundation/8.0/ibmcloud/using-mobile-foundation/){: new_window}.
 {: note}
 
 ## Schritt 3: Anwendung in {{site.data.keyword.mobilefoundation_short}} registrieren

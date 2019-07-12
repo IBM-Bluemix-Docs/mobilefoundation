@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2018-10-16"
+lastupdated: "2019-06-10"
 
 keywords: mobile foundation security, MIM attack, certificate pinning
 
@@ -35,7 +35,8 @@ Der Prozess des Certificate Pinning setzt sich aus den folgenden Schritten zusam
 
 Während des SSL-Handshake (erste Anforderung an den Server) überprüft das Mobile Foundation-Client-SDK, ob der öffentliche Schlüssel des Serverzertifikats mit dem öffentlichen Schlüssel des Zertifikats übereinstimmt, das in der App gespeichert ist.
 
->**Hinweis**: Sie müssen ein Zertifikat verwenden, das von einer Zertifizierungsstelle erworben wurde. Selbst signierte Zertifikate werden **nicht unterstützt**.
+Sie müssen ein Zertifikat verwenden, das von einer Zertifizierungsstelle erworben wurde. Selbst signierte Zertifikate werden **nicht unterstützt**.
+{: note}
 
 ## Certificate Pinning
 {: #cert_pinning}
@@ -52,11 +53,10 @@ Beim Certificate Pinning wird einem Host sein erwarteter öffentlicher Schlüsse
 Sie können auch mehrere Zertifikate mit Ihrer Clientanwendung verknüpfen. Platzieren Sie eine Kopie aller Zertifikate in Ihrer Clientanwendung. Während des SSL-Handshake (erste Anforderung an den Server) überprüft das MobileFirst-Client-SDK, ob der öffentliche Schlüssel des Serverzertifikats mit dem öffentlichen Schlüssel eines der Zertifikate übereinstimmt, die in der App gespeichert sind.
 {: note}
 
-**Wichtig**
-
-* Einige Betriebssysteme für mobile Geräte stellen das Ergebnis der Gültigkeitsprüfung für das Zertifikat möglicherweise in den Cache. Daher ruft der Code die API-Methode für das Certificate Pinning **vor** dem Durchführen einer geschützten Anwendung auf. Andernfalls kann es sein, dass nachfolgende Anforderungen die Zertifikatsprüfung und Certificate Pinning-Prüfung überspringen.
-* Stellen Sie sicher, dass nur Mobile Foundation-APIs für die gesamte Kommunikation mit dem zugehörigen Host verwendet werden, selbst nach dem Certificate Spinning. Die Verwendung von APIs anderer Anbieter für die Interaktion mit demselben Host kann zu einem unerwarteten Verhalten führen, z. B. dem Caching eines nicht geprüften Zertifikats durch das Betriebssystem für mobile Geräte.
-* Bei einem weiteren Aufruf der API-Methode für das Certifiate Pinning wird die vorherige Pinning-Operation überschrieben.
+* **Wichtig**
+    * Einige Betriebssysteme für mobile Geräte stellen das Ergebnis der Gültigkeitsprüfung für das Zertifikat möglicherweise in den Cache. Daher ruft der Code die API-Methode für das Certificate Pinning **vor** dem Durchführen einer geschützten Anwendung auf. Andernfalls kann es sein, dass nachfolgende Anforderungen die Zertifikatsprüfung und Certificate Pinning-Prüfung überspringen.
+    * Stellen Sie sicher, dass nur Mobile Foundation-APIs für die gesamte Kommunikation mit dem zugehörigen Host verwendet werden, selbst nach dem Certificate Spinning. Die Verwendung von APIs anderer Anbieter für die Interaktion mit demselben Host kann zu einem unerwarteten Verhalten führen, z. B. dem Caching eines nicht geprüften Zertifikats durch das Betriebssystem für mobile Geräte.
+    * Bei einem weiteren Aufruf der API-Methode für das Certifiate Pinning wird die vorherige Pinning-Operation überschrieben.
 
 Wenn der Pinning-Prozess erfolgreich ist, wird mit dem öffentlichen Schlüssel im bereitgestellten Zertifikat die Integrität des MobileFirst Server-Zertifikats während des SSL/TLS-Hndshakes der geschützten Anforderung geprüft. Wenn der Pinning-Prozess fehlschlägt, werden alle SSL/TLS-Anforderungen an den Server von der Clientanwendung zurückgewiesen.
 

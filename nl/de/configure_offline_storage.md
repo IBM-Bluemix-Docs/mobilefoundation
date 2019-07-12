@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-02-12"
+lastupdated: "2019-06-06"
 
 keywords: JSONStore, offline storage, add jsonstore to cordova, add jsonstore to iOS, add jsonstore to android, jsonstore methods, jsonstore operations
 
@@ -487,7 +487,7 @@ Folgen Sie dem Lernprogramm [Mobile Foundation-SDK zu Android-Anwendungen hinzuf
    ```
    {: codeblock}
    {: android}
-   `abiFilters` wird hinzugefügt, um sicherzustellen, dass die Apps mit JSONStore in allen oben angegebenen Architekturen funktionieren. Dies ist erforderlich, da JSONStore von einer Bibliothek eines anderen Anbieters abhängig ist, die nur diese Architekturen unterstützt.
+   `abiFilters` wird hinzugefügt, um sicherzustellen, dass die Apps mit JSONStore in allen zuvor angegebenen Architekturen funktionieren. Dies ist erforderlich, da JSONStore von einer Bibliothek eines anderen Anbieters abhängig ist, die nur diese Architekturen unterstützt.
    {: note}
    {: android}
 
@@ -567,7 +567,7 @@ try {
 {: #find_jsonstore_android}
 {: android}
 
-Verwenden Sie `findDocuments`, um mithilfe einer Abfrage ein Dokument in einer Sammlung zu lokalisieren. Verwenden Sie `findAllDocuments`, um alle Dokumente in einer Sammlung abzurufen. Verwenden Sie  ` findDocumentById ` , um nach der eindeutigen Dokumentkennung zu suchen.
+Verwenden Sie `findDocuments`, um mithilfe einer Abfrage ein Dokument in einer Sammlung zu lokalisieren. Verwenden Sie `findAllDocuments`, um alle Dokumente in einer Sammlung abzurufen. Verwenden Sie `findDocumentById`, um nach der eindeutigen Dokumentkennung zu suchen.
 {: android}
 
 ```java

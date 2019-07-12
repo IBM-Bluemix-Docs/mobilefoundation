@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-02-14"
+lastupdated: "2019-06-06"
 
 keywords: Direct Update, CDN support, secure direct update
 
@@ -41,7 +41,7 @@ Sind die Webressourcen auf dem Mobile Foundation-Server neuer als in der Anwendu
 
 Die Funktion bietet ein Standard-Design für Direct Update: einen Dialog mit einer Standardnachricht, der angezeigt wird, wenn ein Direct Update verfügbar ist, und eine Standard-Fortschrittsanzeige, die angezeigt wird, wenn der Direct Update-Prozess initiiert wird. Sie können ein angepasstes Verhalten der Direct Update-Benutzerschnittstelle implementieren oder aber den Dialog für Direct Update anpassen, indem Sie diese Funktion außer Kraft setzen und Ihre eigene Logik implementieren.
 
-Im nachfolgenden Beispielcode implementiert eine `handleDirectUpdate`-Funktion eine angepasste Nachricht im Dialog für Direct Update. Fügen Sie diesen Code zur Datei `www/js/index.js` Ihres Cordova-Projekts hinzu.
+Im folgenden Beispielcode implementiert eine `handleDirectUpdate`-Funktion eine angepasste Nachricht im Dialog für Direct Update. Fügen Sie diesen Code zur Datei `www/js/index.js` Ihres Cordova-Projekts hinzu.
 Weitere Beispiele für eine angepasste Direct Update-Benutzerschnittstelle:
 * Ein Dialog, der unter Verwendung eines JavaScript-Frameworks eines anderen Anbieters (wie z. B. Dojo oder jQuery Mobile, Ionic u. ä.) erstellt wird
 * Eine vollständig native Benutzerschnittstelle durch Ausführung eines Cordova-Plug-ins
@@ -94,6 +94,7 @@ Die Listenermethoden werden während des Direct Update-Prozesses nach den folgen
 | `FAILURE_ALREADY_IN_PROGRESS` | Die Startmethode wurde aufgerufen, während Direct Update bereits ausgeführt wurde. |
 | `FAILURE_INTEGRITY` | Die Authentizität der Aktualisierungsdatei kann nicht verifiziert werden. |
 | `FAILURE_UNKNOWN` | Unerwarteter interner Fehler. |
+{: caption="Tabelle 1. Statuscodes" caption-side="top"}
 
 Wenn Sie einen angepassten Listener für Direct Update implementieren, achten Sie darauf, dass die App neu geladen wird, nachdem der Direct Update-Prozess abgeschlossen ist, und die Methode `onFinish()` aufgerufen wurde. Wenn der Direct Update-Prozess nicht erfolgreich beendet wird, müssen Sie zudem `wl_directUpdateChalengeHandler.submitFailure()` aufrufen.
 
@@ -101,15 +102,15 @@ Das folgende Beispiel zeigt eine Implementierung eines angepassten Listeners fü
 ```JavaScript
 var directUpdateCustomListener = {
   onStart: function(totalSize){
-    //show custom progress dialog
+    //angepassten Fortschrittsdialog anzeigen
   },
   onProgress: function(status,totalSize,completedSize){
-    //update custom progress dialog
+    //angepassten Fortschrittsdialog aktualisieren
   },
   onFinish: function(status){
 
     if (status == 'SUCCESS'){
-      //show success message
+      //Nachricht über erfolgreiche Ausführung anzeigen
       WL.Client.reloadApp();
     }
     else {
@@ -294,42 +295,44 @@ Legen Sie die neue Domäne `cdn.yourcompany.com` als Mobile Foundation-Server-UR
 {: #akamai-administrator }
 1. Öffnen Sie den Akamai-Eigenschaftenmanager und legen Sie die Eigenschaft **host name** auf den Wert der neuen Domäne fest.
 
-    ![Legen Sie den Hostnamen der Eigenschaft auf den Wert der neuen Domäne fest](images/direct_update_cdn_3.jpg)
+    ![Legen Sie den Hostnamen der Eigenschaft auf den Wert der neuen Domäne fest](images/direct_update_cdn_3.jpg "Legen Sie den Hostnamen der Eigenschaft auf den Wert der neuen Domäne fest")
 
 2. Auf der Registerkarte für Standardregeln konfigurieren Sie den ursprünglichen Host und Port des Mobile Foundation-Servers und legen den Wert für **Benutzerdefinierten Host-Header weiterleiten** auf die neu erstellte Domäne fest.
 
-    ![Legen Sie den Wert für 'Benutzerdefinierten Host-Header weiterleiten' auf den Wert der neu erstellten Domäne fest](images/direct_update_cdn_4.jpg)
+    ![Legen Sie den Wert für 'Benutzerdefinierten Host-Header weiterleiten' auf den Wert der neu erstellten Domäne fest](images/direct_update_cdn_4.jpg "Legen Sie den Wert für 'Benutzerdefinierten Host-Header weiterleiten' auf den Wert der neu erstellten Domäne fest")
 
 3. Wählen Sie aus der Liste **Caching-Option** den Eintrag **Kein Speicher**.
 
-    ![Wählen Sie aus der Liste 'Caching-Option' 'Kein Speicher' aus](images/direct_update_cdn_5.jpg)
+    ![Wählen Sie aus der Liste 'Caching-Option' 'Kein Speicher' aus](images/direct_update_cdn_5.jpg "Wählen Sie aus der Liste 'Caching-Option' 'Kein Speicher' aus")
 
 4. Konfigurieren Sie auf der Registerkarte **Konfiguration von statischem Inhalt** die Übereinstimmungskriterien entsprechend der Direct Update-URL der Anwendung. Erstellen Sie z. B. eine Bedingung, die aussagt: `If Path matches one of direct_update_URL` (Wenn Pfad mit einer Direct Update-URL übereinstimmt).
 
-    ![Konfigurieren Sie die Übereinstimmungskriterien entsprechend der Direct Update-URL der Anwendung](images/direct_update_cdn_6.jpg)
+    ![Konfigurieren Sie die Übereinstimmungskriterien entsprechend der Direct Update-URL der Anwendung](images/direct_update_cdn_6.jpg "Konfigurieren Sie die Übereinstimmungskriterien entsprechend der Direct Update-URL der Anwendung")
 
 5. Konfigurieren Sie das Cacheschlüsselverhalten für die Verwendung aller Anforderungsparameter im Cacheschlüssel (dies ist erforderlich, um verschiedene Direct Update-Archive für unterschiedliche Anwendungen oder Versionen zwischenzuspeichern). Wählen Sie beispielsweise aus der Liste **Verhalten** den Eintrag `Include all parameters (preserve order from request)` (Alle Parameter einschließen (Reihenfolge der Anforderung beibehalten)) aus.
 
-    ![Konfigurieren Sie das Cacheschlüsselverhalten für die Verwendung aller Anforderungsparameter im Cacheschlüssel](images/direct_update_cdn_8.jpg)
+    ![Konfigurieren Sie das Cacheschlüsselverhalten für die Verwendung aller Anforderungsparameter im Cacheschlüssel](images/direct_update_cdn_8.jpg "Konfigurieren Sie das Cacheschlüsselverhalten für die Verwendung aller Anforderungsparameter im Cacheschlüssel")
 
 6. Legen Sie Werte ähnlich den folgenden Werten fest, um das Caching-Verhalten so zu konfigurieren, dass die Direct Update-URL zwischengespeichert wird, und um TTL festzulegen.
 
-      ![Legen Sie Werte für zur Konfiguration des Caching-Verhaltens fest](images/direct_update_cdn_7.jpg)
+      ![Legen Sie Werte für die Konfiguration des Caching-Verhaltens fest](images/direct_update_cdn_7.jpg "Legen Sie Werte für die Konfiguration des Caching-Verhaltens fest")
 
 | Feld | Wert |
 |:------|:------|
 | Caching-Option | Cache |
 | Neubewertung veralteter Objekt erzwingen | Veraltete Objekte bedienen, wenn sie nicht validiert werden können |
 | Höchstalter | 3 Minuten |
+{: caption="Tabelle 2. Felder und Werte für die Konfiguration des Caching-Verhaltens" caption-side="top"}
 
 ## Secure Direct Update
 {: #secure-dc }
 
 Secure Direct Update, das standardmäßig inaktiviert ist, hindert Angreifer von außen daran, die Webressourcen zu ändern, die vom Mobile Foundation-Server (oder von einem CDN (Content Delivery Network)) an die Clientanwendung übertragen werden.
 
-**Um die Direct Update-Authentizität zu aktivieren, gehen Sie folgendermaßen vor:**  
+### Direct Update-Authentizität aktivieren
+{: #enable-direct-update-authenticity}
 Extrahieren Sie mit Ihrem bevorzugten Werkzeug den öffentlichen Schlüssel vom Mobile Foundation-Server-Keystore und konvertieren Sie ihn nach Base64.  
-Der erzeugte Wert sollte anschließend wie unten beschrieben verwendet werden:
+Der erzeugte Wert sollte anschließend wie in den folgenden Schritten beschrieben verwendet werden:
 
 1. Öffnen Sie ein **Befehlszeilenfenster** und navigieren Sie zum Stamm des Cordova-Projekts.
 2. Führen Sie den Befehl `mfpdev app config` aus und wählen Sie die Option **Öffentlicher Schlüssel für Direct Update-Authentizität** aus.
@@ -402,6 +405,6 @@ Zum Generieren von Zertifikaten und Extrahieren von öffentlichen Schlüsseln au
     * Kopieren Sie den Ergebnistext ohne die Markierungen `BEGIN PUBLIC KEY` und `END PUBLIC KEY` in die Eigenschaftendatei 'mfpclient' der Anwendung direkt nach `wlSecureDirectUpdatePublicKey`.
     * Geben Sie über die Eingabeaufforderung den folgenden Befehl aus: `mfpdev app config direct_update_authenticity_public_key <public_key>`
 
-    Für `<public_key>` fügen Sie den resultierenden Text aus Schritt 1 ohne die Markierungen `BEGIN PUBLIC KEY` und `END PUBLIC KEY` ein.
+    Fügen Sie für `<public_key>` den resultierenden Text aus Schritt 1 ohne die Markierungen `BEGIN PUBLIC KEY` und `END PUBLIC KEY` ein. 
 
 3. Führen Sie den Cordova-Buildbefehl aus, um den öffentlichen Schlüssel in der Anwendung zu speichern.

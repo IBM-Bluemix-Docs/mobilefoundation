@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-02-01"
+lastupdated: "2019-06-10"
 
 keywords: mobile analytics, charts, visualize data, analytics console
 
@@ -20,7 +20,7 @@ subcollection:  mobilefoundation
 # Informationen in der Konsole visualisieren
 {: #visualize_insights_on_console}
 
-Zur Visualisierung von Insights aus den Analysedaten, die erfasst und von Ihrer Anwendung gesendet wurden, müssen Sie die Mobile Analytics Console über die Mobile Foundation Operations Console durch Klicken auf **Analytics Console** im linken Navigationsbereich starten.
+Zur Visualisierung von Insights aus den Analysedaten, die erfasst und von Ihrer Anwendung gesendet wurden, müssen Sie die Mobile Analytics Console über die Mobile Foundation Operations Console durch Klicken auf **Analytics Console** im Navigationsbereich starten.
 
 Die Mobile Analytics Console kann in zwei Modi ausgeführt werden:
   - **Demo-Modus EIN** Dieser Modus ist ausschließlich für Demonstrationszwecke; dabei werden mithilfe von Simulationsdatenfeeds unterschiedliche Analyseansichten (Diagramme und Tabellen) dargestellt.
@@ -33,21 +33,21 @@ Zur Visualisierung von Insights für Ihre Anwendung müssen Sie Folgendes sicher
   - Sie haben den Demo-Modus in der Analytics Console inaktiviert.
   - Sie wenden die richtigen Filter an. Wählen Sie z. B. einen Zeitraum für die Praxisbereitstellung Ihrer Anwendung sowie einen Zeitraum für die Nutzung durch Benutzer aus.
 
-Die Mobile Analytics Console stellt unterschiedliche Typen von Analyse für die Nutzung der mobilen Anwendung sowie zur Leistung bereit, und zwar auf Basis der Kategorisierung im linken Navigationsbereich der Analytics Console.  In den folgenden Abschnitten werden die verschiedenen Analyseansichten detailliert beschrieben:
+Die Mobile Analytics Console stellt unterschiedliche Typen von Analysen für die Nutzung der mobilen Anwendung sowie zur Leistung bereit, und zwar auf Basis der Kategorisierung im Navigationsbereich der Analytics Console. In den folgenden Abschnitten werden die verschiedenen Analyseansichten detailliert beschrieben:
 
 
 ## Benutzer
 {: #reports_visualized_users}
-Mit dieser Ansicht erhalten Sie Insights in Muster der Benutzereinbindung wie z. B. in Bezug auf die Anzahl der aktiven Benutzer an, die die App in einem angegebenen Datumsbereich verwendet haben sowie in Bezug auf einen Vergleich zwischen der Anzahl neuer Benutzer und der Anzahl bereits vorhandener Benutzer, die Ihre App wieder verwenden.
+Mit dieser Ansicht erhalten Sie Insights in *Muster der Benutzereinbindung* wie z. B. in Bezug auf die Anzahl der aktiven Benutzer, die die App in einem angegebenen Datumsbereich verwendet haben, sowie in Bezug auf einen Vergleich zwischen der Anzahl neuer Benutzer und der Anzahl bereits vorhandener Benutzer, die Ihre App wieder verwenden.
 Die Diagramme in dieser Ansicht können nach *App-Name*, *Betriebssystem* oder *Betriebssystemversion* gefiltert werden.
 
 ## Sitzungen
 {: #reports_visualized_sessions}
-Mithilfe dieser Ansicht können Sie Insights zu den 'Verwendungsmustern' Ihrer Anwendung hinsichtlich der *App-Sitzungen* für den angegebenen Datumsbereich erhalten. Eine Sitzung wird aufgezeichnet, wenn eine App in den Vordergrund eines Geräts gebracht wird.  Sie erhalten Insights dazu, zu welchen Uhrzeiten Ihre Anwendung am meisten und am wenigsten genutzt wird; diese Informationen können für nützliche Business Insights genutzt werden. Die Diagramme in dieser Ansicht können nach *App-Name*, *Betriebssystem* oder *Betriebssystemversion* gefiltert werden.
+Mithilfe dieser Ansicht können Sie Insights zu den *Verwendungsmustern* Ihrer Anwendung hinsichtlich der *App-Sitzungen* für den angegebenen Datumsbereich erhalten. Eine Sitzung wird aufgezeichnet, wenn eine App in den Vordergrund eines Geräts gebracht wird.  Sie erhalten Insights dazu, zu welchen Uhrzeiten Ihre Anwendung am meisten und am wenigsten genutzt wird; diese Informationen können für nützliche Business Insights genutzt werden. Die Diagramme in dieser Ansicht können nach *App-Name*, *Betriebssystem* oder *Betriebssystemversion* gefiltert werden.
 
 ## Netzanforderungen
 {: #reports_visualized_network_requests}
-Mithilfe dieser Ansicht können Sie Insights zur Oberfläche und Bedienbarkeit Ihrer Anwendung erhalten, da API-Aufrufe für die Back-End-Systeme getätigt werden.  In dieser Ansicht sind Tabellen und Diagramme enthalten, die Ihnen einen Einblick in die am häufigsten verwendeten Funktionen Ihrer Back-End-Systeme verschafft und Ihnen zeigt, wie es mit der bisherigen Antwortzeit und Stabilität aussieht und ob Sie eine Neuverteilung Ihrer Back-End-Systeme in Betracht ziehen mssen.
+Mithilfe dieser Ansicht können Sie Insights zur Oberfläche und Bedienbarkeit Ihrer Anwendung erhalten, da API-Aufrufe für die Back-End-Systeme getätigt werden.  In dieser Ansicht sind Tabellen und Diagramme enthalten, die Ihnen einen Einblick in die am häufigsten verwendeten Funktionen Ihrer Back-End-Systeme verschaffen und Ihnen zeigen, wie es mit der bisherigen Antwortzeit und Stabilität aussieht und ob Sie eine Neuverteilung Ihrer Back-End-Systeme in Betracht ziehen müssen.
 
 Diese Ansicht enthält Diagramme, die in Abhängigkeit eines ausgewählten Datenbereichs die durchschnittliche Umlaufzeit der ausgehenden API-Aufrufe Ihrer Anwendung, die Anzahl der Anforderungen pro API-Aufruf sowie die Anzahl erfolgreicher und fehlgeschlagener Anforderungen nach Antwortcodes aufzeichnen.  Die Diagramme in dieser Ansicht können nach App-Name, Betriebssystem oder Betriebssystemversion gefiltert werden.
 
@@ -73,4 +73,4 @@ In dieser Ansicht werden Insights in Bezug auf die tatsächliche interaktive Obe
 * **App-Eigner** und **Entwickler** können mithilfe dieser Ansicht auch Aktionen zum empfangenen Feedback verwalten, z. B. das Erfassen von Kommentaren oder Links zu Problemen, die auf Fehlersuchsystemen erstellt wurden.  Für jedes Feedback kann auch ein allgemeiner Prüfstatus festgelegt werden, den Sie zur Auswertung der Aktionen zum Benutzerfeedback nutzen können.
 
 ## Angepasste Diagramme
-Mit dieser Ansicht wird Mobile Analytics um angepasste Fälle erweitert, bei denen **App-Eigner** und **Entwickler** ihre eigenen anwendungsspezifischen Analysen erstellen können. Mit dieser Funktion können Sie Ihre eigenen Analyseansichten (Diagramme, Tabellen usw.) um die Standardanalysedaten, die vom Client SDK erfasst werden, und auch angepasste Daten oder anwendungsspezifische Daten, die protokolliert werden, erstellen.  Weitere Informationen zu dieser erweiterten Analysefunktion finden Sie [hier](/docs/services/mobilefoundation?topic=mobilefoundation-build_custom_charts#build_custom_charts).
+Mit dieser Ansicht wird Mobile Analytics um angepasste Fälle erweitert, bei denen **App-Eigner** und **Entwickler** ihre eigenen anwendungsspezifischen Analysen erstellen können.   Mit dieser Funktion können Sie Ihre eigenen Analyseansichten (Diagramme, Tabellen usw.) um die Standardanalysedaten, die vom Client SDK erfasst werden, und auch angepasste Daten oder anwendungsspezifische Daten, die protokolliert werden, erstellen.  Weitere Informationen zu dieser erweiterten Analysefunktion finden Sie [hier](/docs/services/mobilefoundation?topic=mobilefoundation-build_custom_charts#build_custom_charts).

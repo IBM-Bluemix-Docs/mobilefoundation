@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-02-28"
+lastupdated: "2019-06-10"
 
 keywords: push notifications, notifications, sending notification, HTTP/2
 
@@ -69,14 +69,14 @@ Wählen Sie in der {{ site.data.keyword.mfp_oc_short_notm }} auf der Registerkar
 
 Wenn sie die REST-APIs zu senden von Benachrichtigungen verwenden, können alle Arten von Benachrichtigungen gesendet werden: tagbasierte Benachrichtigungen und Broadcastbenachrichtigungen sowie authentifizierte Benachrichtigungen.
 
-Für das Senden einer Benachrichtigung wird eine POST-Anforderung an den REST-Endpunkt abgesetzt: `imfpush/v1/apps/<application-identifier>/messages`.  
+Zum Senden einer Benachrichtigung wird eine POST-Anforderung an den REST-Endpunkt abgesetzt: `imfpush/v1/apps/<application-identifier>/messages`.  
 Beispiel-URL:
 
 ```
 https://myserver.com:443/imfpush/v1/apps/com.sample.PinCodeSwift/messages
 ```
 
-> Eine Übersicht über alle REST-APIs für Push-Benachrichtigungen finden Sie im Abschnitt [REST-API-Laufzeitservices](https://www.ibm.com/support/knowledgecenter/SSHS8R_8.0.0/com.ibm.worklight.apiref.doc/rest_runtime/c_restapi_runtime.html) in der Benutzerdokumentation.
+Eine Übersicht über alle REST-APIs für Push-Benachrichtigungen finden Sie im Abschnitt [REST-API-Laufzeitservices](https://www.ibm.com/support/knowledgecenter/SSHS8R_8.0.0/com.ibm.worklight.apiref.doc/rest_runtime/c_restapi_runtime.html) in der Benutzerdokumentation.
 
 ### Nutzdaten von Benachrichtigungen
 {: #notification-payload }
@@ -85,15 +85,16 @@ Die Anforderung kann die folgenden Nutzdateneigenschaften enthalten:
 
 |Eigenschaften von Nutzdaten| Definition
 |--- | ---
-|message | Die zu sendende Alertnachricht.
-|settings | Die Einstellungen sind die verschiedenen Attribute der Benachrichtigung.
-|target | Ziele können Consumer-IDs, Geräte, Plattformen oder Tags sein. Es kann nur ein Ziel festgelegt werden.
-|deviceIds | Ein Array der Geräte, die durch die Gerätekennungen repräsentiert werden. Geräte mit diesen IDs empfangen die Benachrichtigung. Es handelt sich hierbei um eine Unicastbenachrichtigung.
-|notificationType | Ganzzahliger Wert für den Kanal (Push/SMS), über den die Nachricht gesendet wird. Gültige Werte sind 1 (nur Push), 2 (nur SMS) und 3 (Push und SMS).
-|platforms | Ein Array von Geräteplattformen. Geräte, die auf diesen Plattformen ausgeführt werden, erhalten die Benachrichtigung. Unterstützte Werte sind A (Apple/iOS), G (Google/Android) und M (Microsoft/Windows).
-|tagNames | Ein Array mit Tags, die als Tagnamen angegeben sind. Geräte, die diese Tags abonniert haben, empfangen die Benachrichtigung. Verwenden Sie diesen Typ von Ziel für tagbasierte Benachrichtigungen.
-|userIds | Array mit Benutzern, repräsentiert durch die Benutzer-IDs, an die eine Unicastbenachrichtigung gesendet wird.
-|phoneNumber | Die Telefonnummer für die Registrierung des Geräts und den Empfang von Unicastbenachrichtigungen.
+|message | Die zu sendende Alertnachricht. |
+|settings | Die Einstellungen sind die verschiedenen Attribute der Benachrichtigung. |
+|target | Ziele können Consumer-IDs, Geräte, Plattformen oder Tags sein. Es kann nur ein Ziel festgelegt werden. |
+|deviceIds | Ein Array der Geräte, die durch die Gerätekennungen repräsentiert werden. Geräte mit diesen IDs empfangen die Benachrichtigung. Es handelt sich hierbei um eine Unicastbenachrichtigung. |
+|notificationType | Ganzzahliger Wert für den Kanal (Push/SMS), über den die Nachricht gesendet wird. Gültige Werte sind 1 (nur Push), 2 (nur SMS) und 3 (Push und SMS). |
+|platforms | Ein Array von Geräteplattformen. Geräte, die auf diesen Plattformen ausgeführt werden, erhalten die Benachrichtigung. Unterstützte Werte sind A (Apple/iOS), G (Google/Android) und M (Microsoft/Windows). |
+|tagNames | Ein Array mit Tags, die als Tagnamen angegeben sind. Geräte, die diese Tags abonniert haben, empfangen die Benachrichtigung. Verwenden Sie diesen Typ von Ziel für tagbasierte Benachrichtigungen. |
+|userIds | Array mit Benutzern, repräsentiert durch die Benutzer-IDs, an die die Benachrichtigung gesendet wird. Es handelt sich hierbei um eine Unicastbenachrichtigung. |
+|phoneNumber | Die Telefonnummer, die für die Registrierung der Einheit und für den Empfang von Benachrichtigungen verwendet wird. Es handelt sich hierbei um eine Unicastbenachrichtigung. |
+{: caption="Tabelle 1. Eigenschaften der Nutzdaten" caption-side="top"}
 
 **JSON-Beispiel für die Nutzdaten von Push-Benachrichtigungen**
 
@@ -147,7 +148,7 @@ Die Anforderung kann die folgenden Nutzdateneigenschaften enthalten:
 Die Benachrichtigung kann mit verschiedenen Tools gesendet werden. Nachfolgend wird zu Testzwecken **Postman** verwendet.
 
 1. [Konfigurieren Sie einen vertraulichen Client](https://mobilefirstplatform.ibmcloud.com/tutorials/en/foundation/8.0/authentication-and-security/confidential-clients/).
-  Wenn Sie eine Push-Benachrichtigung über die REST-API senden, werden die durch Leerzeichen getrennten Bereichselemente `messages.write` und `push.application verwendet.<applicationId>.`
+  Wenn Sie eine Push-Benachrichtigung über die REST-API senden, werden die durch Leerzeichen getrennten Bereichselemente `messages.write` und `push.application<applicationId> verwendet.`
   <img class="gifplayer" alt="Vertraulichen Client konfigurieren" src="images/push-confidential-client.png"/>
 2. [Erstellen Sie ein Zugriffstoken](https://mobilefirstplatform.ibmcloud.com/tutorials/en/foundation/8.0/authentication-and-security/confidential-clients#obtaining-an-access-token).  
 3. Setzen Sie eine **POST**-Anforderung an **http://localhost:9080/imfpush/v1/apps/com.sample.PushNotificationsAndroid/messages** ab.
@@ -156,7 +157,7 @@ Die Benachrichtigung kann mit verschiedenen Tools gesendet werden. Nachfolgend w
 4. Legen Sie einen Header fest:
     - `**Authorization**: Bearer eyJhbGciOiJSUzI1NiIsImp ...`
     - Ersetzen Sie den Wert nach **Bearer** durch den Wert Ihres Zugriffstokens aus Schritt (1).
-    ![Berechtigungsheader](images/postman_authorization_header.png)
+    ![Berechtigungsheader](images/postman_authorization_header.png "Berechtigungsheader")
 5. Legen Sie einen Hauptteil fest:
   - Aktualisieren Sie die Eigenschaften gemäß der Beschreibung im obigen Abschnitt [Nutzdaten von Berechtigungen](#notification-payload).
   - Fügen Sie beispielsweise die Eigenschaft **target** mit dem Attribut **userIds** hinzu, wenn Sie eine Benachrichtigung an bestimmte registrierte Benutzer senden möchten.
@@ -168,11 +169,11 @@ Die Benachrichtigung kann mit verschiedenen Tools gesendet werden. Nachfolgend w
     }
     ```
 
-    ![Berechtigungsheader](images/postman_json.png)
+    ![Berechtigungshauptteil](images/postman_json.png "Berechtigungshauptteil")
 
     Nachdem Sie auf die Schaltfläche **Senden** geklickt haben, empfängt das Gerät eine Benachrichtigung:
 
-    ![Abbildung der Beispielanwendung](images/notifications-app.png)
+    ![Abbildung der Beispielanwendung](images/notifications-app.png "Push-Benachrichtigung auf einem Mobilgerät")
 
 ## Benachrichtigungen anpassen
 {: #customizing-notifications }
@@ -192,7 +193,7 @@ Erweitern Sie in der {{ site.data.keyword.mfp_oc_short_notm }} auf der Registerk
 
 * Benachrichtigungston, angepasste Nutzdaten, Titel für Aktionsschlüssel, Benachrichtigungstyp und Badgenummer.
 
-  ![Push-Benachrichtigungen anpassen](images/customizing-push-notifications.png)
+  ![Push-Benachrichtigungen anpassen](images/customizing-push-notifications.png "Push-Seite der Mobile First-Operationskonsole mit ausgewählter Registerkarte zum Senden von Push-Benachrichtigungen")
 
 ## HTTP/2-Unterstützung für Push-Benachrichtigungen von APNS
 {: #http2-support-for-apns-push-notifications}
@@ -212,6 +213,7 @@ HTTP/2-basierte Benachrichtigungen können über eine JNDI-Eigenschaft aktiviert
 ```xml
 <jndiEntry jndiName="imfpush/mfp.push.apns.http2.enabled" value= "true"/>
 ```
+{: codeblock}
 
 Wenn die obige JNDI-Eigenschaft hinzugefügt wird, werden keine traditionellen, auf TCP-Sockets basierenden Benachrichtigungen verwendet, sondern nur die HTTP/2-basierten Benachrichtigungen.
 {: note}

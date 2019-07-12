@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-01-30"
+lastupdated: "2019-06-10"
 
 keywords: mobile analytics, instrumenting cordova app, instrumenting iOS app, instrumenting android app
 
@@ -75,7 +75,7 @@ Im Lieferumfang des Client-SDKs für Mobile Analytics ist derzeit Gradle enthalt
   dependencies {
     compile 'com.ibm.mobile.foundation:ibmmobilefirstplatformfoundation:8.0.+'
     compile 'com.ibm.mobile.foundation:ibmmobilefirstplatformfoundationanalytics:8.0.+@aar'
-    // other dependencies
+    // andere Abhängigkeiten
   }
   ```
   {: codeblock}
@@ -144,7 +144,6 @@ Im Lieferumfang des Client-SDKs für Mobile Analytics ist derzeit Gradle enthalt
    {: android}
 
 2. Um Anwendungslebenszyklusereignisse wie Anwendungssitzungs- und Absturzinformationen zu erfassen, konfigurieren Sie Ihre Anwendung durch Hinzufügen des folgenden Codes:
-    
   ```Java
     WLAnalytics.addDeviceEventListener(WLAnalytics.DeviceEvent.LIFECYCLE);
   ```
@@ -158,14 +157,15 @@ Im Lieferumfang des Client-SDKs für Mobile Analytics ist derzeit Gradle enthalt
   {: codeblock}
   {: android}
 
-4. Sie haben Ihre Anwendung jetzt initialisiert, um Analysedaten zu erfassen.  Als Nächstes müssen Sie die erfassten Daten an den Mobile Analytics-Service senden. Verwenden Sie die folgende API, um Analysedaten an den Mobile Analytics-Service zu senden.
+4. Sie haben Ihre Anwendung jetzt initialisiert, um Analysedaten zu erfassen.  Als Nächstes müssen Sie die erfassten Daten an den Mobile Analytics-Service senden.
+   Verwenden Sie die folgende API, um Analysedaten an den Mobile Analytics-Service zu senden.
    ```java
     WLAnalytics.send();
    ```
    {: codeblock}
    {: android}
 
-  Sie können frei entscheiden, wann diese API in Ihrem Anwendungsablauf aufgerufen werden soll, um die erfassten Analysedaten an den Mobile Analytics-Service zu senden. Bis zum Senden dieser Daten werden alle erfassten Analysedaten lokal auf dem Gerät gespeichert.
+  Sie können frei entscheiden, wann diese API in Ihrem Anwendungsablauf aufgerufen werden soll, um die erfassten Analysedaten an den Mobile Analytics-Service zu senden.  Bis zum Senden dieser Daten werden alle erfassten Analysedaten lokal auf dem Gerät gespeichert.
   {: android}
 
 5. Zum Erfassen und Senden von Anwendungsprotokollen an den Mobile Analytics-Service verwenden Sie die Protokollierungs-APIs des Mobile Analytics-Client-SDKs.     
@@ -201,7 +201,7 @@ Im Lieferumfang des Client-SDKs für Mobile Analytics ist derzeit Gradle enthalt
    {: codeblock}
    {: android}
 
-6.  Um Einblicke zu Mustern der Benutzereinbindung (neue Benutzer im Vergleich zu wiederkehrenden Benutzern) zu erhalten, müssen Sie Ihrer Anwendungssitzung eine Benutzeridentität zuordnen. Dies kann durch Aufrufen der folgenden API erreicht werden:
+6.  Um Einblicke zu Mustern der Benutzereinbindung (neue Benutzer im Vergleich zu wiederkehrenden Benutzern) zu erhalten, müssen Sie Ihrer Anwendungssitzung eine Benutzeridentität zuordnen.  Dies kann durch Aufrufen der folgenden API erreicht werden:
     ```java
       WLAnalytics.setUserContext("userName or userIdentity");
     ```
@@ -354,7 +354,7 @@ Das Swift-SDK ist für iOS und watchOS verfügbar.
    {: ios}
 
     Sie können frei entscheiden, wann diese API in Ihrem Anwendungsablauf aufgerufen werden soll, um die erfassten Analysedaten an den Mobile Analytics-Service zu senden.  Bis zum Senden dieser Daten werden alle erfassten Analysedaten lokal auf dem Gerät gespeichert.
-  {: ios}
+    {: ios}
 
 5. Zum Erfassen und Senden von Anwendungsprotokollen an den Mobile Analytics-Service verwenden Sie die Protokollierungs-APIs des Mobile Analytics-Client-SDKs.
    Das Protokollierungsframework des Mobile Analytics-Client-SDKs unterstützt die folgenden Protokollebenen, die nachfolgend nach Ausführlichkeit mit empfohlenen Richtlinien für die Verwendung aufgeführt sind:
@@ -369,7 +369,7 @@ Das Swift-SDK ist für iOS und watchOS verfügbar.
 
     Im [Lernprogramm ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://mobilefirstplatform.ibmcloud.com/tutorials/en/foundation/8.0/application-development/client-side-log-collection/ios/) finden Sie Code-Snippets für die Protokollierung zum Hinzufügen von Protokollfunktionen in iOS-Anwendungen.
 
-6.  Um Einblicke zu Mustern der Benutzereinbindung (neue Benutzer im Vergleich zu wiederkehrenden Benutzern) zu erhalten, müssen Sie Ihrer Anwendungssitzung eine Benutzeridentität zuordnen. Dies kann durch Aufrufen der folgenden API erreicht werden:
+6.  Um Einblicke zu Mustern der Benutzereinbindung (neue Benutzer im Vergleich zu wiederkehrenden Benutzern) zu erhalten, müssen Sie Ihrer Anwendungssitzung eine Benutzeridentität zuordnen.  Dies kann durch Aufrufen der folgenden API erreicht werden:
     ```Swift
       WLAnalytics.sharedInstance().setUserContext("userName or userIdentity")
     ```
@@ -436,7 +436,7 @@ Das Swift-SDK ist für iOS und watchOS verfügbar.
 Schritte zum Instrumentieren der Cordova-Anwendung:
 {: cordova}
 
-#### Step 1: Foundation- und Analytics-Client-SDK-Plug-in für Cordova importieren und installieren
+#### Schritt 1: Foundation- und Analytics-Client-SDK-Plug-in für Cordova importieren und installieren
 {: #install_analytics_sdk_cordova }
 Mit dem Cordova-Plug-in von Mobile Analytics können Sie Ihre mobile Anwendung instrumentieren.
 {: cordova}
@@ -490,7 +490,7 @@ Mit dem Cordova-Plug-in von Mobile Analytics können Sie Ihre mobile Anwendung i
 
 1. In Cordova-Anwendungen ist keine Konfiguration erforderlich und die Initialisierung ist integriert.
 
-   Bevor Sie eine der Analysemethoden aufrufen, müssen Sie sicherstellen, dass Ihre Anwendung den erforderlichen Code einbettet, um die Einheit mit dem Mobile Foundation-Service zu authentifizieren und zu autorisieren.  Dies ist ein gängiger Schritt, der für alle Mobile Foundation-Serviceanwendungen erforderlich ist und nicht speziell für die Erfassung von Analysedaten verwendet wird. <!--  Refer <need to link doc that talks about auth> -->
+   Bevor Sie eine der folgenden Analysemethoden aufrufen, müssen Sie sicherstellen, dass Ihre Anwendung den erforderlichen Code einbettet, um die Einheit mit dem Mobile Foundation-Service zu authentifizieren und zu autorisieren. Dies ist ein gängiger Schritt, der für alle Mobile Foundation-Serviceanwendungen erforderlich ist und nicht speziell für die Erfassung von Analysedaten verwendet wird. <!--  Refer <need to link doc that talks about auth> -->
    {: cordova}
 
    Nach Abschluss der Initialisierung ist Ihre Anwendung nun für die Erfassung von Einheitendaten und Mobile Analytics-SDK-Protokollen aktiviert, ohne dass weiterer Code hinzugefügt wurde.  Alle weiteren APIs und Code, die in den folgenden Abschnitten beschrieben werden, sind optional und können basierend auf der Art der Analysedaten, die Sie erfassen möchten, hinzugefügt werden.
@@ -574,7 +574,7 @@ Mit dem Cordova-Plug-in von Mobile Analytics können Sie Ihre mobile Anwendung i
     {: codeblock}
     {: cordova}
 
-5.  Um Einblicke zu Mustern der Benutzereinbindung (neue Benutzer im Vergleich zu wiederkehrenden Benutzern) zu erhalten, müssen Sie Ihrer Anwendungssitzung eine Benutzeridentität zuordnen. Auf der JavaScript-Ebene sind keine spezifischen APIs verfügbar. Dies kann jedoch mit nativen Code durch das Aufrufen der folgenden API durchgesetzt werden:
+5.  Um Einblicke zu Mustern der Benutzereinbindung (neue Benutzer im Vergleich zu wiederkehrenden Benutzern) zu erhalten, müssen Sie Ihrer Anwendungssitzung eine Benutzeridentität zuordnen.  Auf der JavaScript-Ebene sind keine spezifischen APIs verfügbar. Dies kann jedoch mit nativen Code durch das Aufrufen der folgenden API durchgesetzt werden:
 
     **Android:**
       ```java
@@ -670,7 +670,7 @@ Mit dem Mobile Analytics-SDK können Sie Ihre Webanwendung instrumentieren.
     {: codeblock}
     {: web}
 
-2. Initialisieren Sie das Mobile Foundation-Web-SDK, indem Sie die Werte für das Kontextstammelement und die Anwendungs-ID in der JavaScript-Hautptdatei Ihrer Webanwendung angeben.
+2. Initialisieren Sie das Mobile Foundation-Web-SDK, indem Sie die Werte für das Kontextstammelement und die Anwendungs-ID in der JavaScript-Hauptdatei Ihrer Webanwendung angeben.
 
     ```Javascript
       var wlInitOptions = {
@@ -687,7 +687,7 @@ Mit dem Mobile Analytics-SDK können Sie Ihre Webanwendung instrumentieren.
     {: codeblock}
     {: web}
 
-   Bevor Sie eine der Analysemethoden aufrufen, müssen Sie sicherstellen, dass Ihre Anwendung den erforderlichen Code einbettet, um das Gerät mit dem Mobile Foundation-Service zu authentifizieren und zu autorisieren.  Dies ist ein gängiger Schritt, der für alle Mobile Foundation-Serviceanwendungen erforderlich ist und nicht speziell für die Erfassung von Analysedaten verwendet wird. <!--  Refer <need to link doc that talks about auth> -->
+   Bevor Sie eine der folgenden Analysemethoden aufrufen, müssen Sie sicherstellen, dass Ihre Anwendung den erforderlichen Code einbettet, um die Einheit mit dem Mobile Foundation-Service zu authentifizieren und zu autorisieren. Dies ist ein gängiger Schritt, der für alle Mobile Foundation-Serviceanwendungen erforderlich ist und nicht speziell für die Erfassung von Analysedaten verwendet wird. <!--  Refer <need to link doc that talks about auth> -->
    {: web}
 
    Nach Abschluss der Initialisierung ist Ihre Anwendung nun für die Erfassung von Einheitendaten und Mobile Analytics-SDK-Protokollen aktiviert, ohne dass weiterer Code hinzugefügt wurde.  Alle weiteren APIs und Code, die in den folgenden Abschnitten beschrieben werden, sind optional und können basierend auf der Art der Analysedaten, die Sie erfassen möchten, hinzugefügt werden.
@@ -710,7 +710,7 @@ Mit dem Mobile Analytics-SDK können Sie Ihre Webanwendung instrumentieren.
    {: web}
 
     Sie können frei entscheiden, wann diese API in Ihrem Anwendungsablauf aufgerufen werden soll, um die erfassten Analysedaten an den Mobile Analytics-Service zu senden.  Bis zum Senden dieser Daten werden alle erfassten Analysedaten lokal auf dem Gerät gespeichert.
-  {: web}
+    {: web}
 
 5. Zum Erfassen und Senden von Anwendungsprotokollen an den Mobile Analytics-Service verwenden Sie die Protokollierungs-APIs des Mobile Analytics-Client-SDKs.
    Das Protokollierungsframework des Mobile Analytics-Client-SDKs unterstützt die folgenden Protokollebenen, die nachfolgend nach Ausführlichkeit mit empfohlenen Richtlinien für die Verwendung aufgeführt sind:
@@ -745,7 +745,7 @@ Mit dem Mobile Analytics-SDK können Sie Ihre Webanwendung instrumentieren.
    {: note}
    {: web}
 
-6. Um Einblicke zu Mustern der Benutzereinbindung (neue Benutzer im Vergleich zu wiederkehrenden Benutzern) zu erhalten, müssen Sie Ihrer Anwendungssitzung eine Benutzeridentität zuordnen. Dies kann durch Aufrufen der folgenden API erreicht werden:
+6. Um Einblicke zu Mustern der Benutzereinbindung (neue Benutzer im Vergleich zu wiederkehrenden Benutzern) zu erhalten, müssen Sie Ihrer Anwendungssitzung eine Benutzeridentität zuordnen.  Dies kann durch Aufrufen der folgenden API erreicht werden:
     ```Javascript
     ibmmfpfanalytics.setUserContext("userName or userIdentity");
     ```
@@ -755,7 +755,7 @@ Mit dem Mobile Analytics-SDK können Sie Ihre Webanwendung instrumentieren.
     Alle Analysedaten, die lokal erfasst und lokal gespeichert werden, werden nur dann an den Mobile Analytics-Service gesendet, wenn die API 'ibmmfpfanalytics.send()' aufgerufen wird.
     {: web}
 
-7.  Um Einblicke in Muster der HTTP-Netzinteraktionen Ihrer Anwendungen zu erhalten, wie z. B. HTTP-APIs, Anzahl der Anforderungen und durchschnittliche Antwortzeiten, müssen Sie die Klasse 'WLResourceRequest des Mobile Foundation Service-Client-SDKs verwenden, um die HTTP-Aufrufe abzusetzen.  Obwohl Sie Analytics für die Erfassung von Netzereignissen initialisiert haben, ermöglicht die Verwendung von `WLResourceRequest` die Anbindung von Mobile Analytics an Netzaufrufe und die Erfassung der relevanten Daten.  Führen Sie die HTTP-Aufrufe wie mit dem folgenden Code dargestellt durch.
+7.  Um Einblicke in Muster der HTTP-Netzinteraktionen Ihrer Anwendungen zu erhalten, wie z. B. HTTP-APIs, Anzahl der Anforderungen und durchschnittliche Antwortzeiten, müssen Sie die Klasse 'WLResourceRequest' des Mobile Foundation Service-Client-SDKs verwenden, um die HTTP-Aufrufe abzusetzen. Obwohl Sie Analytics für die Erfassung von Netzereignissen initialisiert haben, ermöglicht die Verwendung von `WLResourceRequest` die Anbindung von Mobile Analytics an Netzaufrufe und die Erfassung der relevanten Daten.  Führen Sie die HTTP-Aufrufe wie mit dem folgenden Code dargestellt durch.
     ```Javascript
       var resourceRequest = new WL.ResourceRequest("url_path", WLResourceRequest.GET);
       resourceRequest.send().then(function(response) {
@@ -767,7 +767,8 @@ Mit dem Mobile Analytics-SDK können Sie Ihre Webanwendung instrumentieren.
     {: codeblock}
     {: web}
 
-8.  Um benutzerdefinierte Analysen zu definieren und eigene Analysedaten anzugeben, die über das hinausgehen, was im Client-SDK unterstützt wird, können Sie die angepasste Protokollierungs-API verwenden:
+8.  Um benutzerdefinierte Analysen zu definieren und eigene Analysedaten anzugeben, die über das hinausgehen, was im Client-SDK unterstützt wird, können Sie die angepasste Protokollierungs-API verwenden.
+    
 
     ```Javascript
         //Angepasste Daten werden mit der Methode 'addEvent' gesendet
@@ -785,8 +786,8 @@ Mit dem Mobile Analytics-SDK können Sie Ihre Webanwendung instrumentieren.
 ## Nächste Schritte
 {: #next_steps_analytics}
 
-Probieren Sie [hier](https://github.com/MobileFirst-Platform-Developer-Center/mfp-analytics-samples) ein einfaches Beispiel aus.  In weniger als 5 Minuten können Sie die Beispielanwendung ausführen und sich ein Bild davon machen, was mit der API möglich ist.  Sie können auch feststellen, wie Analysen als unterschiedliche Einblicke in die Analysekonsole angezeigt werden.  
+Probieren Sie [hier](https://github.com/MobileFirst-Platform-Developer-Center/mfp-analytics-samples) ein einfaches Beispiel aus.  In weniger als 5 Minuten können Sie die Beispielanwendung ausführen und sich ein Bild davon machen, was mit der API möglich ist. Sie können auch feststellen, wie Analysen als unterschiedliche Einblicke in die Analysekonsole angezeigt werden.  
 
 Mobile Foundation Analytics Service stellt REST-APIs bereit, die Entwicklern beim Importieren (POST) und beim Exportieren (GET) von Analysedaten helfen.
 
-Testen Sie [hier](https://mobile-analytics-dashboard.ng.bluemix.net/analytics-service/) die REST-API für Analysen für Swagger-Dokumente.
+Testen Sie [hier](https://ma-server.us-south.mobile-analytics-prod.cloud.ibm.com/analytics-service/) die REST-API für Analysen für Swagger-Dokumente.

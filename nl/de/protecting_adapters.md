@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2018-11-19"
+lastupdated: "2019-06-10"
 
 keywords: mobile foundation security, adapter security
 
@@ -31,10 +31,10 @@ In Ihrem Adapter können Sie einen Schutzbereich für die Prozedur einer Java-Me
 
 Der MobileFirst-Standardbereich ist `RegisteredClient`, für den ein Zugriffstoken für den Zugriff auf die Ressource erforderlich ist, und der prüft, ob die Ressourcenanforderung von einer Anwendung ist, die bei MobileFirst Server registriert ist. Dieser Schutz wird immer angewendet, es sei denn, Sie [inaktivieren den Ressourcenschutz](#disabling-resource-protection). Daher ist die Ressource auch dann geschützt, wenn Sie keinen Bereich für die Ressource festlegen.
 
->**Hinweis**: `RegisteredClient` ist ein reserviertes MobileFirst-Schlüsselwort. Definieren Sie keine angepassten Bereichselemente oder Sicherheitsprüfungen mit diesem Namen.
-{.note}
+`RegisteredClient` ist ein reserviertes MobileFirst-Schlüsselwort. Definieren Sie keine angepassten Bereichselemente oder Sicherheitsprüfungen mit diesem Namen.
+{: note}
 
-### Java-Adapterressourcen schützen
+## Java-Adapterressourcen schützen
 {: #protect-java-adapter-resources}
 
 Um einen Schutzbereich einer JAX-RS-Methode oder -Klasse zuzuordnen, fügen Sie die Annotation `@OAuthSecurity` der Methoden- oder Klassendeklaration hinzu und setzen Sie das Element `scope` der Annotation auf Ihren bevorzugten Bereich. Ersetzen Sie `YOUR_SCOPE` durch eine Zeichenfolge aus einem oder mehreren Bereichselementen (“Bereichselement1 Bereichselement2 …”):
@@ -46,10 +46,11 @@ Um einen Schutzbereich einer JAX-RS-Methode oder -Klasse zuzuordnen, fügen Sie 
 
 Ein Klassenbereich gilt für alle Methoden in der Klasse, mit Ausnahme der Methoden, die über eine eigene Annotation `@OAuthSecurity` verfügen.
 
->**Hinweis**: Wenn das aktivierte Element der Annotation `@OAuthSecurity` auf `false` gesetzt ist, wird das Bereichselement ignoriert. Weitere Informationen finden Sie im Abschnitt [Java-Ressourcenschutz inaktivieren](#disabling-java-resource-protection).
+Wenn für das aktivierte Element der Anmerkung `@OAuthSecurity` der Wert `false` festgelegt ist, wird das Bereichselement ignoriert. Weitere Informationen finden Sie im Abschnitt [Java-Ressourcenschutz inaktivieren](#disabling-java-resource-protection).
+{: note}
 
-**Beispiele**
-
+### Beispiel
+{: #protect-java-adap-res-example}
 Der folgende Code schützt eine `helloUser`-Methode mit einem Bereich, der die Bereichselemente `UserAuthentication` und `Pincode` enthält:
 
 ```java
@@ -73,7 +74,7 @@ public class WebSphereResources {
 ```
 {: codeblock}
 
-### JavaScript-Adapterressourcen schützen
+## JavaScript-Adapterressourcen schützen
 {: #protect-javascript-adapter-resources}
 
 Um einen Schutzbereich einer JavaScript-Prozedur zuzuordnen, setzen Sie in der Datei **adapter.xml** das Bereichsattribut ('scope') des Elements <procedure> auf Ihren bevorzugten Bereich. Ersetzen Sie `PROCEDURE_NAME` durch den Namen Ihrer Prozedur und `YOUR_SCOPE` durch eine Zeichenfolge aus einem oder mehreren Bereichselementen (“Bereichselement1 Bereichselement2 …”):
@@ -83,10 +84,11 @@ Um einen Schutzbereich einer JavaScript-Prozedur zuzuordnen, setzen Sie in der D
 ```
 {: codeblock}
 
->**Hinweis**: Wenn das Attribut `secured` des Elements <procedure> auf 'false' gesetzt ist, wird das Attribut `scope` ignoriert. Weitere Informationen finden Sie im Abschnitt [Java-Ressourcenschutz inaktivieren](#disabling-javascript-resource-protection).
-{.note}
+Wenn für das Attribut `secured` des Elements <procedure> der Wert 'false' festgelegt ist, wird das Attribut `scope` ignoriert. Weitere Informationen finden Sie im Abschnitt [Java-Ressourcenschutz inaktivieren](#disabling-javascript-resource-protection).
+{: note}
 
-**Beispiel**
+### Beispiel
+{: #protect-javascript-adap-res-example}
 
 Der folgende Code schützt eine `userName`-Prozedur mit einem Bereich, der die Bereichselemente `UserAuthentication` und `Pincode` enthält:
 
@@ -112,10 +114,11 @@ Um den OAuth-Schutz für eine Java-Ressourcenmethode oder -klasse vollständig z
 
 Der Standardwert für das Element `enabled` der Annotation ist `true`. Wenn das Element `enabled` auf `false` gesetzt ist, wird das Element `scope` ignoriert und die Ressource oder Ressourcenklasse ist ungeschützt.
 
->**Hinweis**: Wenn Sie einem Bereich eine Methode einer ungeschützte Klasse zuordnen, wird die Methode trotz der Klassenannotation geschützt, es sei denn, Sie setzen das Element `enabled` der Ressourcenannotation auf `false`.
-{.note}
+Wenn Sie einem Bereich eine Methode einer ungeschützten Klasse zuordnen, wird die Methode trotz der Klassenannotation geschützt, es sei denn, Sie setzen das Element `enabled` der Ressourcenannotation auf `false`.
+{: note}
 
-**Beispiele**
+#### Beispiele
+{: #disble-java-adap-res-example}
 
 Mit dem folgenden Code wird der Ressourcenschutz für eine Methode `helloUser` inaktiviert:
 
@@ -152,7 +155,8 @@ Um den OAuth-Schutz für eine JavaScript-Adapterressource (Prozedur) vollständi
 
 Wenn das Attribut `secured` auf `false` gesetzt ist, wird das Attribut `scope` ignoriert und die Ressource ist ungeschützt.
 
-**Beispiel**
+#### Beispiel
+{: #disable-javascript-res-prot-example}
 
 Mit dem folgenden Code wird der Ressourcenschutz für eine Prozedur `userName` inaktiviert:
 

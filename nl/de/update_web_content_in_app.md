@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-02-14"
+lastupdated: "2019-06-06"
 
 keywords: update web content, update apps
 
@@ -29,7 +29,7 @@ Direct Update wird auf der Cordova iOS- und der Cordova Android-Plattform unters
 
 Für die Live-Produktion oder die Vorproduktions-Testphase wird empfohlen, Secure Direct Update zu implementieren, bevor Sie Ihre Anwendung im App Store veröffentlichen. Für Secure Direct Update ist ein RSA-Schlüsselpaar erforderlich, welches aus einem reellen signierten Serverzertifikat extrahiert wird.
 
-1. Achten Sie darauf, die Keystore-Konfiguration nicht mehr zu ändern, nachdem die Anwendung veröffentlicht ist. Heruntergeladene Aktualisierungen können erst authentifiziert werden, nachdem die Anwendung mit einem neuen öffentlichen Schlüssel rekonfiguriert und erneut veröffentlicht wurde. Werden die zwei obigen Schritte nicht ausgeführt, schlägt Direct Update beim Client fehl.
+1. Achten Sie darauf, die Keystore-Konfiguration nicht mehr zu ändern, nachdem die Anwendung veröffentlicht ist. Heruntergeladene Aktualisierungen können erst authentifiziert werden, nachdem die Anwendung mit einem neuen öffentlichen Schlüssel rekonfiguriert und erneut veröffentlicht wurde. Werden die beiden vorherigen Schritte nicht ausgeführt, schlägt Direct Update beim Client fehl. 
 2. Mit Direct Update werden nur die Webressourcen der Anwendung aktualisiert. Um native Ressourcen zu aktualisieren, muss eine neue Anwendungsversion an das jeweilige App Store übergeben werden.
 3. Wenn Sie die Funktion des Direct Update nutzen und die Prüfsummen-Funktion für Webressourcen aktiviert ist, wird mit jedem Direct Update eine neue Kontrollsummenbasis eingerichtet.
 4. Wurde der Mobile Foundation-Server aufgerüstet, bedient er Direct Updates weiterhin ordnungsgemäß. Wurde jedoch ein erst kürzlich erstelltes Direct Update-Archiv (ZIP-Datei) hochgeladen, kann dieses Aktualisierungen an älteren Clients stoppen. Der Grund dafür ist, dass das Archiv die Version des `cordova-plugin-mfp`-Plug-ins enthält. Bevor er mit diesem Archiv einen mobilen Client bedient, vergleicht der Server die Clientversion mit der Plug-in-Version. Liegen die beiden Versionen nahe genug beieinander (d. h. die drei wichtigsten Ziffern sind identisch), wird Direct Update normal durchgeführt. Andernfalls überspringt der Mobile Foundation-Server im Hintergrund die Aktualisierung. Eine Lösung für die Versionsabweichung ist das Herunterladen von `cordova-plugin-mfp` mit derselben Version wie die in Ihrem ursprünglichen Cordova-Projekt und das Neugenerieren des Direct Update-Archivs.

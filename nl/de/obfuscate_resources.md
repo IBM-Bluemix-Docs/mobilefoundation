@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-03-26"
+lastupdated: "2019-06-06"
 
 keywords: obfuscating resources, security
 
@@ -73,14 +73,14 @@ Wenn Sie einen der aufgeführten Befehle ausführen, nachdem Sie die Webressourc
 
 1. Öffnen Sie ein Terminalfenster und navigieren Sie zum Stammverzeichnis der Cordova-App, die Sie verschlüsseln möchten.
 2. Bereiten Sie die App vor, indem Sie einen der folgenden Befehle eingeben:
-    * ```bash
+    ```bash
       cordova prepare
-      ```
-      {: codeblock}
-    * ```bash
+    ```
+    {: codeblock}
+    ```bash
       mfpdev app webupdate
-      ```
-      {: codeblock}
+    ```
+    {: codeblock}
 3. Führen Sie eine der folgenden Prozeduren aus, um den Inhalt zu verschlüsseln:
     * Geben Sie den folgenden Befehl ein:
       ```bash
@@ -88,7 +88,7 @@ Wenn Sie einen der aufgeführten Befehle ausführen, nachdem Sie die Webressourc
       ```
       {: codeblock}
 
-      Sie können Informationen zu dem Befehl `mfpdev app webencrypt` anzeigen, indem Sie Folgendes eingeben:
+      Sie können Informationen zu dem Befehl `mfpdev app webencrypt` anzeigen, indem Sie Folgendes eingeben: 
       ```bash
       mfpdev help app webencrypt
       ```
@@ -96,7 +96,7 @@ Wenn Sie einen der aufgeführten Befehle ausführen, nachdem Sie die Webressourc
       {: tip}
 
     * Sie können die Webressourcen Ihrer Cordova-Pakete auch verschlüsseln, indem Sie das Flag `mfpwebencrypt` zum Befehl `cordova compile` oder `cordova build` hinzufügen, wenn Sie die Pakete erstellen.
-       * ```bash
+        ```bash
          cordova compile -- --mfpwebencrypt
          ```
          {: codeblock}
@@ -110,13 +110,13 @@ Wenn Sie einen der aufgeführten Befehle ausführen, nachdem Sie die Webressourc
 4. Testen Sie die Anwendung mit den verschlüsselten Ressourcen, indem Sie den Emulator verwenden, der mit den plattformspezifischen Tools bereitgestellt wird. Sie können beispielsweise den Emulator in Android Studio für Android oder Xcode für iOS verwenden.
 
 Verwenden Sie die folgenden Cordova-Befehle nicht, um die Anwendung zu testen, nachdem Sie sie verschlüsselt haben.
-* ```bash
-  cordova run
-  ```
-  {: codeblock}
-* ```bash
-  cordova emulate
-  ```
-  {: codeblock}
+```bash
+cordova run
+```
+{: codeblock}
+```bash
+cordova emulate
+```
+{: codeblock}
 Diese Befehle aktualisieren den Inhalt, der im 'www'-Ordner verschlüsselt wurde, und speichern ihn erneut als entschlüsselten Inhalt. Wenn Sie diese Befehle verwenden, müssen Sie die Prozedur erneut ausführen, um die App zu verschlüsseln, bevor Sie sie veröffentlichen.
 {: note}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2018-11-19"
+lastupdated: "2019-06-10"
 
 keywords: security, basic authentication, protecting resources, tokens, scopemapping
 
@@ -53,10 +53,11 @@ Das MobileFirst-Zugriffstoken enthält die folgenden Informationen:
 * **Tokenablaufzeit**: Die Zeit (in Sekunden), nach der das Token ungültig wird (abläuft).
 
 #### Tokenablaufzeit
+{: #token-expiration}
 
 Das ausgestellte Zugriffstoken bleibt gültig, bis der Ablaufzeitpunkt erreicht ist. Die Ablaufzeit des Zugriffstokens ist, verglichen mit den Ablaufzeiten aller Sicherheitsprüfungen im Bereich, die kürzeste. Wenn jedoch die kürzeste Ablaufzeit länger als der maximale Tokenablaufzeitraum der Anwendung ist, wird die Ablaufzeit des Tokens auf die aktuelle Zeit zuzüglich des maximalen Ablaufzeitraums gesetzt. Der Standardwert für den maximalen Tokenablaufzeitraum (d. h. die maximale Gültigkeitsdauer) liegt bei 3.600 Sekunden (1 Stunde). Der Wert kann jedoch konfiguriert werden, indem der Wert der Eigenschaft ``maxTokenExpiration`` angegeben wird.
 
-**Maximalen Ablaufzeitzeitraum für Zugriffstoken konfigurieren**
+##### Maximalen Ablaufzeitzeitraum für Zugriffstoken konfigurieren
 {: #acs_config-max-access-tokens}
 
 Wählen Sie eine der folgenden alternativen Methoden aus, um für die Anwendung den maximalen Ablaufzeitraum für Zugriffstoken zu konfigurieren:
@@ -82,7 +83,7 @@ Wählen Sie eine der folgenden alternativen Methoden aus, um für die Anwendung 
         {: codeblock}
     4. Implementieren Sie die aktualisierte JSON-Konfigurationsdatei. Führen Sie dazu den Befehl ``mfpdev app push`` aus.
 
-**Antwortstruktur für Zugriffstokens**
+##### Antwortstruktur für Zugriffstokens
 {: #acs_access-tokens-structure}
 
 Eine erfolgreiche HTTP-Antwort auf eine Zugriffstokenanforderung enthält ein JSON-Objekt mit dem Zugriffstoken und zusätzlichen Daten. Das folgende Beispiel zeigt eine Antwort mit gültigem Token vom Autorisierungsserver:
@@ -110,7 +111,7 @@ Das JSON-Objekt für die Tokenantwort weist die folgenden Eigenschaftsobjekte au
 
 Die Informationen für **expires_in** und **scope** sind auch in dem Token selbst enthalten (**access_token**).
 
->**Hinweis**: Die Struktur einer gültigen Zugriffstokenantwort ist relevant, wenn Sie die untergeordnete Klasse `WLAuthorizationManager` verwenden und selbst die OAuth-Interaktion zwischen dem Client und dem Autorisierungsserver sowie den Ressourcenservern verwalten oder einen vertraulichen Client verwenden. Falls Sie die übergeordnete Klasse `WLResourceRequest` verwenden, die den OAuth-Ablauf für den Zugriff auf geschützte Ressourcen einbindet, verarbeitet das Sicherheitsframework die Zugriffstokenantworten für Sie. Weitere Informationen finden Sie in [APIs für die Clientsicherheit](http://www.ibm.com/support/knowledgecenter/en/SSHS8R_8.0.0/com.ibm.worklight.dev.doc/dev/c_oauth_client_apis.html?view=kc#c_oauth_client_apis) und [Vertrauliche Clients](https://mobilefirstplatform.ibmcloud.com/tutorials/en/foundation/8.0/authentication-and-security/confidential-clients/).
+**Hinweis**: Die Struktur einer gültigen Zugriffstokenantwort ist relevant, wenn Sie die untergeordnete Klasse `WLAuthorizationManager` verwenden und selbst die OAuth-Interaktion zwischen dem Client und dem Autorisierungsserver sowie den Ressourcenservern verwalten oder einen vertraulichen Client verwenden. Falls Sie die übergeordnete Klasse `WLResourceRequest` verwenden, die den OAuth-Ablauf für den Zugriff auf geschützte Ressourcen einbindet, verarbeitet das Sicherheitsframework die Zugriffstokenantworten für Sie. Weitere Informationen finden Sie in [APIs für die Clientsicherheit](http://www.ibm.com/support/knowledgecenter/en/SSHS8R_8.0.0/com.ibm.worklight.dev.doc/dev/c_oauth_client_apis.html?view=kc#c_oauth_client_apis) und [Vertrauliche Clients](https://mobilefirstplatform.ibmcloud.com/tutorials/en/foundation/8.0/authentication-and-security/confidential-clients/).
 
 ### Aktualisierungstokens
 {: #acs_refresh_tokens}
@@ -123,6 +124,7 @@ MobileFirst-Aktualisierungstoken
 Ein MobileFirst-Aktualisierungstoken ist eine digital signierte Entität wie ein Zugriffstoken, die die Autorisierungsberechtigungen eines Clients beschreibt. Aktualisierungstokens können verwendet werden, um neue Zugriffstoken desselben Bereichs zu erhalten. Wenn der Autorisierungsanforderung des Clients für einen bestimmten Bereich entsprochen und der Client authentifiziert wurde, sendet der Tokenendpunkt des Autorisierungsservers eine HTTP-Antwort mit dem angeforderten Zugriffstoken- und Aktualisierungstoken an den Client. Wenn das Zugriffstoken abläuft, sendet der Client ein Aktualisierungstoken an den Tokenendpunkt des Autorisierungsservers, um ein neues Zugriffstoken und ein neues Aktualisierungstoken zu erhalten.
 
 #### Struktur des Aktualisierungstokens
+{: #structure_refresh_tokens}
 
 Das MobileFirst-Aktualisierungstoken enthält ähnlich wie ein MobileFirst-Zugriffstoken die folgenden Informationen:
 
@@ -130,30 +132,31 @@ Das MobileFirst-Aktualisierungstoken enthält ähnlich wie ein MobileFirst-Zugri
 * **Bereich**: Der Bereich, für den das Token ausgestellt wurde (siehe "OAuth-Bereiche"). Dieser Bereich umfasst nicht den obligatorischen Anwendungsbereich.
 * **Tokenablaufzeit**: Die Zeit (in Sekunden), nach der das Token ungültig wird (abläuft).
 
-**Tokenablaufzeit**
+##### Tokenablaufzeit
+{: #str-token-expiration}
 
 Der Ablaufzeitraum für Aktualisierungstokens ist länger als der normale Ablaufzeitraum für Zugriffstokens. Ein einmal ausgestelltes Aktualisierungstoken bleibt gültig, bis der Ablaufzeitpunkt erreicht ist. In diesem Gültigkeitszeitraum kann ein Client das Aktualisierungstoken verwenden, um um ein neues Zugriffstoken und ein neues Aktualisierungstoken abzurufen. Der Ablaufzeitraum eines Aktualisierungstokens ist festgelegt und liegt bei 30 Tagen. Jedes Mal, wenn der Client erfolgreich ein neues Zugriffstoken und Aktualisierungstoken erhält, wird der Ablaufzeitraum des Aktualisierungstokens zurückgesetzt, sodass der Client den Eindruck hat, das Token würde nie ablaufen. Die Regeln für die Ablaufzeit des Zugriffstokens entsprechen den im Abschnitt **Zugriffstoken** erläuterten Regeln.
 
-**Aktualisierungstoken aktivieren**
+##### Funktion zum Aktivieren des Aktualisierungstokens
 {: #acs_enable-refresh-token}
 
 Aktualisierungstokens können mit den folgenden Eigenschaften jeweils auf der Client- und der Serverseite aktiviert werden.
 
-**Clientseitige Eigenschaft (Android)**
+Clientseitige Eigenschaft (Android):
 *Dateiname*: mfpclient.properties
 *Eigenschaftsname*: wlEnableRefreshToken
 *Eigenschaftswert*: true
 Beispiel:
 *wlEnableRefreshToken*=true
 
-**Clientseitige Eigenschaft (iOS)**
+Clientseitige Eigenschaft (iOS):
 *Dateiname*: mfpclient.plist
 *Eigenschaftsname*: wlEnableRefreshToken
 *Eigenschaftswert*: true
 Beispiel:
 *wlEnableRefreshToken*=true
 
-**Serverseitige Eigenschaft**
+Serverseitige Eigenschaft:
 *Dateiname*: server.xml
 *Eigenschaftsname*: mfp.security.refreshtoken.enabled.apps
 *Eigenschaftswert*: application bundle id separated by ‘;’
@@ -166,7 +169,8 @@ Beispiel:
 {: codeblock}
 Verwenden Sie unterschiedliche Bundle-IDs für verschiedene Plattformen.
 
-**Struktur der Aktualisierungstokenantwort**
+##### Antwortstruktur des Aktualisierungstokens
+{: #refresh-token-response-structure}
 
 Das folgende Beispiel zeigt eine gültige Aktualisierungstokenantwort vom Autorisierungsserver:
 
@@ -187,9 +191,9 @@ Das folgende Beispiel zeigt eine gültige Aktualisierungstokenantwort vom Autori
 
 Die Aktualisierungstokenantwort verfügt neben einem Eigenschaftsobjekten, die im Abschnitt zur Struktur der Zugriffstokenantwort erklärt sind, über das Eigenschaftsobjekt `refresh_token`.
 
->**Hinweis**: Die Aktualisierungstokens sind im Vergleich zu Zugriffstokens langlebig. Daher sollten Sie Aktualisierungstokens mit Vorsicht verwenden. Anwendungen, bei denen eine regelmäßige Benutzerauthentifizierung nicht erforderlich ist, sind ideale Kandidaten für die Verwendung von Aktualisierungstokens.
+**Hinweis**: Die Aktualisierungstokens sind im Vergleich zu Zugriffstokens langlebig. Daher sollten Sie Aktualisierungstokens mit Vorsicht verwenden. Anwendungen, bei denen eine regelmäßige Benutzerauthentifizierung nicht erforderlich ist, sind ideale Kandidaten für die Verwendung von Aktualisierungstokens.
 
->Ab CD-Update 3 unterstützt MobileFirst Aktualisierungstoken für iOS.
+Ab CD-Update 3 unterstützt MobileFirst Aktualisierungstoken für iOS.
 
 #### Sicherheitsprüfungen
 {: #acs_securitychecks}
@@ -198,7 +202,8 @@ Eine Sicherheitsprüfung ist eine serverseitige Entität, die die Sicherheitslog
 
 Eine Sicherheitsprüfung setzt normalerweise Sicherheitsabfragen ab, auf die der Client in einer bestimmten Weise antworten muss, um die Prüfung zu bestehen. Dieser Handshake erfolgt im Rahmen des OAuth-Ablaufs für die Anforderung eines Zugriffstokens. Der Client verwendet **Abfrage-Handler** für die Behandlung von Abfragen der Sicherheitsprüfungen.
 
-**Integrierte Sicherheitsprüfungen**
+##### Integrierte Sicherheitsprüfungen
+{: #builtin-sec-checks}
 
 Die folgenden vordefinierten Sicherheitsprüfungen sind verfügbar:
 
@@ -213,7 +218,7 @@ Wenn Sie versuchen, auf eine geschützte Ressource zuzugreifen, kann der Client 
 
 Ein Abfrage-Handler ist eine clientseitige Entität, die die clientseitige Sicherheitslogik und die zugehörige Benutzerinteraktion implementiert.
 
->**Wichtig**: Nachdem eine Abfrage empfangen wurde, kann sie nicht ignoriert werden. Sie muss beantwortet werden oder der laufende Vorgang muss abgebrochen werden. Das Ignorieren einer Abfrage kann zu unerwartetem Verhalten führen.
+**Wichtig**: Nachdem eine Abfrage empfangen wurde, kann sie nicht ignoriert werden. Sie muss beantwortet werden oder der laufende Vorgang muss abgebrochen werden. Das Ignorieren einer Abfrage kann zu unerwartetem Verhalten führen.
 
 ### Bereiche
 {: #scopes}
@@ -248,9 +253,9 @@ Beispiel: scope = `access-restricted deletePrivilege`
     * `access-restricted` ist `PinCodeAttempts` zugeordnet.
     * `deletePrivilege` ist `UserLogin` zugeordnet.
 
->Wenn Sie Ihr Bereichselement einer leeren Zeichenfolge zuordnen, wählen Sie im Popup-Menü **Neue Zuordnung von Bereichselementen hinzufügen** keine Sicherheitsprüfung aus.
+Wenn Sie Ihr Bereichselement einer leeren Zeichenfolge zuordnen, wählen Sie im Popup-Menü **Neue Zuordnung von Bereichselementen hinzufügen** keine Sicherheitsprüfung aus.
 
-![Bereichszuordnung](/images/scope_mapping.png)
+![Bereichszuordnung](/images/scope_mapping.png "Anzeige 'Neue Zuordnung von Bereichselementen hinzufügen'")
 
 Sie können die JSON-Datei der Anwendung auch manuell mit der erforderlichen Konfiguration bearbeiten und die Änderungen mit Push-Operation zurück an einen MobileFirst-Server übertragen.
 
@@ -284,13 +289,13 @@ Sie können Ihre Ressourcen auf verschiedene Arten schützen:
 
 Auf der Anwendungsebene können Sie einen Bereich definieren, der für alle Ressourcen gilt, die von der Anwendung verwendet werden. Das Sicherheitsframework führt diese Prüfungen (sofern vorhanden) zusätzlich zu den Sicherheitsprüfungen des angeforderten Ressourcenbereichs aus.
 
->**Hinweis**:
->* Der obligatorische Anwendungsbereich wird nicht angewendet, wenn Sie auf eine ungeschützte Ressource zugreifen.
->* Das Zugriffstoken, das für den Ressourcenbereich gewährt wird, enthält nicht den obligatorischen Anwendungsbereich.
+**Hinweis**:
+   * Der obligatorische Anwendungsbereich wird nicht angewendet, wenn Sie auf eine ungeschützte Ressource zugreifen.
+   * Das Zugriffstoken, das für den Ressourcenbereich gewährt wird, enthält nicht den obligatorischen Anwendungsbereich.
 
 Wählen Sie in der Navigationsseitenleiste der MobileFirst Operations Console im Abschnitt **Anwendungen** Ihre Anwendung und dann die Registerkarte **Sicherheit** aus. Wählen Sie unter **Obligatorischer Anwendungsbereich** die Option **Zum Bereich hinzufügen** aus.
 
-![Obligatorischer Anwendungsbereich](/images/mandatory-application-scope.png)
+![Obligatorischer Anwendungsbereich](/images/mandatory-application-scope.png "Anzeige 'Obligatorischen Anwendungsbereich konfigurieren'")
 
 Sie können die JSON-Datei der Anwendung auch manuell mit der erforderlichen Konfiguration bearbeiten und die Änderungen mit Push-Operation zurück an einen MobileFirst-Server übertragen.
 
@@ -303,7 +308,7 @@ Sie können die JSON-Datei der Anwendung auch manuell mit der erforderlichen Kon
     ```
 4. Implementieren Sie die aktualisierte JSON-Konfigurationsdatei. Führen Sie dazu den Befehl 'mfpdev app push' aus.
 
->Sie können aktualisierte Konfigurationen auch mit Push-Operation an ferne Server übertragen.
+Sie können aktualisierte Konfigurationen auch mit Push-Operation an ferne Server übertragen.
 
 #### Adapterressourcen schützen
 {: #protectadapterres}
@@ -326,9 +331,9 @@ Um den OAuth-Schutz für eine Java-Ressourcenmethode oder -klasse vollständig z
 
 Der Standardwert für das Element `enabled` der Annotation ist `true`. Wenn das Element `enabled` auf `false` gesetzt ist, wird das Element `scope` ignoriert und die Ressource oder Ressourcenklasse ist ungeschützt.
 
->**Hinweis**: Wenn Sie einem Bereich eine Methode einer ungeschützte Klasse zuordnen, wird die Methode trotz der Klassenannotation geschützt, es sei denn, Sie setzen das Element `enabled` der Ressourcenannotation auf `false`.
+**Hinweis**: Wenn Sie einem Bereich eine Methode einer ungeschützten Klasse zuordnen, wird die Methode trotz der Klassenannotation geschützt, es sei denn, Sie setzen das Element `enabled` der Ressourcenannotation auf `false`.
 
-**Beispiele**
+Sehen Sie sich die folgenden Beispiele an:
 
 Mit dem folgenden Code wird der Ressourcenschutz für eine Methode `helloUser` inaktiviert:
 
@@ -362,7 +367,7 @@ Um den OAuth-Schutz für eine JavaScript-Adapterressource (Prozedur) vollständi
 
 Wenn das Attribut `secured` auf `false` gesetzt ist, wird das Attribut `scope` ignoriert und die Ressource ist ungeschützt.
 
-**Beispiel**
+Sehen Sie sich das folgende Beispiel an:
 
 Mit dem folgenden Code wird der Ressourcenschutz für eine Prozedur `userName` inaktiviert:
 
