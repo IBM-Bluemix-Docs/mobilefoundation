@@ -2,7 +2,7 @@
 
 copyright:
   years: 2016, 2019
-lastupdated: "2019-06-06"
+lastupdated: "2019-07-31"
 
 keywords: mobile foundation developer, mobile analytics
 
@@ -29,6 +29,9 @@ After you create the {{site.data.keyword.mobilefoundation_short}} service instan
   *	1 GB of memory. This size is enough for development, light testing activities, and small scale production workloads.
 
   * To access the MobileFirst Server by using CLI you need the credentials, which are available when you click **Service credentials** from the navigation pane of the IBM Cloud console.
+
+    The Developer plan does not offer a persistent database, as such be sure to backup your configuration as explained in the [FAQ section](/docs/services/mobilefoundation?topic=mobilefoundation-mfp-faq#persistentdatabase).
+    {: note}
 
 You can now manage your mobile apps and mobile devices, use your server as a mobile backend, send push notifications, and do more.
 

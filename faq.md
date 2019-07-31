@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-06-10"
+lastupdated: "2019-07-31"
 
 keywords: mobile foundation faq, updates to mobile foundation, custom domain
 
@@ -70,3 +70,26 @@ To use your own domain, you need to configure custom domain by performing the fo
 + Go to the DNS provider for your domain, and add a CNAME entry, which routes the traffic from your domain to the default {{site.data.keyword.Bluemix_notm}} route, where the server is running.
 
 + If you would like to configure `https` for your custom domain, then upload the SSL certificate for your domain in {{site.data.keyword.Bluemix_notm}}. To upload the SSL certificate, go to **Manage Organizations > DOMAINS**, select the custom domain that you want to configure SSL certificate for, click the **Upload Certificate** to upload SSL certificate for your domain. For more information, see [this post ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://developer.ibm.com/bluemix/2014/09/28/ssl-certificates-bluemix-custom-domains/){: new_window}.
+
+## How do I backup my configuration and quickly onboard when there is no persistent database (Developer Plan)?
+{: #persistentdatabase}
+{: faq}
+
+The Developer plan does not offer a persistent database, which could cause at times loss of data. To quickly onboard in such cases, be sure to follow these best practices:
+
+* Every time you make any of the following server-side actions:
+    * Deploy an adapter or update any adapter configuration or property value
+    * Perform any security configuration such scope-mapping and alike
+
+    Run the following from the command-line to download your configuration to a .zip file:
+
+  ```bash
+  $curl -X GET -u admin:admin -o export.zip http://<App Name>.mybluemix.net/mfpadmin/management-apis/2.0/runtimes/mfp/export/all
+  ```
+
+* In case you recreate your server or lose your configuration, run the following from the command-line to import the configuration to the server:
+
+  ```bash
+  $curl -X POST -u admin:admin -F file=@./export.zip http://<App Name>.mybluemix.net/mfpadmin/management-apis/2.0/runtimes/mfp/deploy/multi
+  ```
+

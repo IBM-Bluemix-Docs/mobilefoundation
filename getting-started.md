@@ -2,7 +2,7 @@
 
 copyright:
   years: 2016, 2019
-lastupdated: "2019-07-11"
+lastupdated: "2019-07-31"
 
 keywords: getting started, mobile foundation, plans, configure mobile foundation server, sample app, setup
 
@@ -58,6 +58,9 @@ After you create an instance of the {{site.data.keyword.mobilefoundation_short}}
   *	1 GB of memory. This size is enough for development and light testing activities.
 
   * To access the Mobile Foundation Server by using CLI you need the credentials, which are available when you click **Service credentials** from the navigation pane of the IBM Cloud console.
+
+The Developer plan does not offer a persistent database, as such be sure to backup your configuration as explained in the [FAQ section](/docs/services/mobilefoundation?topic=mobilefoundation-mfp-faq#persistentdatabase).
+{: note}
 
 ### For {{site.data.keyword.mobilefoundation_short}}: Professional Per Device plan
 {: #buildchannelprofdeviceplan}
