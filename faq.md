@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-07-31"
+lastupdated: "2019-08-23"
 
 keywords: mobile foundation faq, updates to mobile foundation, custom domain
 
@@ -69,7 +69,7 @@ To use your own domain, you need to configure custom domain by performing the fo
 
 + Go to the DNS provider for your domain, and add a CNAME entry, which routes the traffic from your domain to the default {{site.data.keyword.Bluemix_notm}} route, where the server is running.
 
-+ If you would like to configure `https` for your custom domain, then upload the SSL certificate for your domain in {{site.data.keyword.Bluemix_notm}}. To upload the SSL certificate, go to **Manage Organizations > DOMAINS**, select the custom domain that you want to configure SSL certificate for, click the **Upload Certificate** to upload SSL certificate for your domain. For more information, see [this post ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://developer.ibm.com/bluemix/2014/09/28/ssl-certificates-bluemix-custom-domains/){: new_window}.
++ If you would like to configure `https` for your custom domain, then upload the SSL certificate for your domain in {{site.data.keyword.Bluemix_notm}}. To upload the SSL certificate, go to **Manage Organizations > DOMAINS**, select the custom domain that you want to configure SSL certificate for, click the **Upload Certificate** to upload SSL certificate for your domain. For more information, see [this post ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/cloud/blog/ssl-certificates-bluemix-custom-domains){: new_window}.
 
 ## How do I backup my configuration and quickly onboard when there is no persistent database (Developer Plan)?
 {: #persistentdatabase}
