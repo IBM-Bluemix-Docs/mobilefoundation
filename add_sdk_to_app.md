@@ -2,9 +2,9 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-06-06"
+lastupdated: "2019-08-30"
 
-keywords: Mobile Foundation SDK, android sdk, iOS sdk, cordova sdk, react native sdk
+keywords: Mobile Foundation SDK, android sdk, iOS sdk, cordova sdk, react native sdk, adding sdks to app
 
 subcollection:  mobilefoundation
 ---
