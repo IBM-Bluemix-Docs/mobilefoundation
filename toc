@@ -104,6 +104,7 @@ Mobile Foundation
 	mfp_activity_tracker.md
     mfp-compliance.md
     mfp-logging-and-tracing.md
+	mfp-hadr.md
 
     {: .topicgroup}
     Samples
