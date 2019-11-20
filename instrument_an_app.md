@@ -816,5 +816,3 @@ The Mobile Analytics SDK enables you to instrument your web application.
 Try a simple sample from [here](https://github.com/MobileFirst-Platform-Developer-Center/mfp-analytics-samples).  In less than 5 minutes you can run the sample application and get a feel of what the API does. You can also notice how analytics shows up as different insights on the Analytics console.  
 
 Mobile Foundation Analytics Service provides REST APIs to help developers with importing (POST) and exporting (GET) analytics data.
-
-Try out the analytics REST API on Swagger Docs from [here](https://ma-server.us-south.mobile-analytics-prod.cloud.ibm.com/analytics-service/).
