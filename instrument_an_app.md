@@ -2,22 +2,26 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-06-10"
+lastupdated: "2019-11-15"
 
 keywords: mobile analytics, instrumenting cordova app, instrumenting iOS app, instrumenting android app
 
 subcollection:  mobilefoundation
+
 ---
 
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:tip: .tip}
-{:pre: .pre}
 {:codeblock: .codeblock}
+{:pre: .pre}
 {:screen: .screen}
-{:note: .note}
+{:tsSymptoms: .tsSymptoms}
+{:tsCauses: .tsCauses}
+{:tsResolve: .tsResolve}
+{:tip: .tip}
 {:important: .important}
-{:deprecated: .deprecated}
+{:note: .note}
+{:download: .download}
 {:java: .ph data-hd-programlang='java'}
 {:ruby: .ph data-hd-programlang='ruby'}
 {:c#: .ph data-hd-programlang='c#'}
@@ -31,93 +35,94 @@ subcollection:  mobilefoundation
 {:ios: .ph data-hd-programlang='iOS'}
 {:android: .ph data-hd-programlang='Android'}
 {:cordova: .ph data-hd-programlang='Cordova'}
+{:xml: .ph data-hd-programlang='xml'}
 {:web: .ph data-hd-programlang='Web'}
 
 # Instrument your app
 {: #instrument_your_app}
 
-Mobile Analytics is a feature that is embedded within the {{ site.data.keyword.mobilefoundation_short }} service. Mobile Analytics provides key application usage and application performance insights for mobile application developers and application owners.
+{{site.data.keyword.mobileanalytics_short}} is a feature that is embedded within the {{site.data.keyword.mobilefoundation_short}} service. {{site.data.keyword.mobileanalytics_short}} provides key application usage and application performance insights for mobile application developers and application owners.
 
-You need to instrument your mobile application to use the Mobile Analytics feature to monitor your application usage, performance and to get other statistics. Instrumenting you application has the following steps:
+You need to instrument your mobile application to use the {{site.data.keyword.mobileanalytics_short}} feature to monitor your application usage, performance and to get other statistics. 
+Instrumenting you application has the following steps:
 
-1.  Import and install the Mobile Analytics Client SDK.
-2.  Instrument your application based on the type of analytics data you want to collect.
+1. Import and install the Mobile Analytics Client SDK.
+1. Instrument your application based on the type of analytics data you want to collect.
 
 The following sections provide the details for these steps, for each of the supported platforms.
 
-### Instrument an Android application
+## Instrument an Android application
 {: #instrument_android_app}
 {: android}
-#### Step 1: Import and install the Mobile Analytics Client SDK for Android
+### Step 1: Import and install the {{site.data.keyword.mobileanalytics_short}} Client SDK for Android
 {: #install_analytics_sdk_android }
 {: android}
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.ibm.mobile.foundation/ibmmobilefirstplatformfoundation/badge.svg) ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://maven-badges.herokuapp.com/maven-central/com.ibm.mobile.foundation/ibmmobilefirstplatformfoundation)
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.ibm.mobile.foundation/ibmmobilefirstplatformfoundationanalytics/badge.svg) ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://maven-badges.herokuapp.com/maven-central/com.ibm.mobile.foundation/ibmmobilefirstplatformfoundationanalytics)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.ibm.mobile.foundation/ibmmobilefirstplatformfoundation/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.ibm.mobile.foundation/ibmmobilefirstplatformfoundation){: external}
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.ibm.mobile.foundation/ibmmobilefirstplatformfoundationanalytics/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.ibm.mobile.foundation/ibmmobilefirstplatformfoundationanalytics){: external}
 {: android}
 
-The Mobile Analytics Client SDK is distributed with Gradle, a dependency manager for Android projects. Gradle automatically downloads artifacts from repositories and makes them available to your Android application.
+The {{site.data.keyword.mobileanalytics_short}} Client SDK is distributed with Gradle, a dependency manager for Android projects. Gradle automatically downloads artifacts from repositories and makes them available to your Android application.
 {: android}
 
-1. Create an [Android Studio ![External link icon](../../icons/launch-glyph.svg "External link icon")](http://developer.android.com/sdk/index.html){: new_window} project or open an existing project.
+1. Create an [Android Studio](http://developer.android.com/sdk/index.html){: external} project or open an existing project.
 {: android}
 
-2. Open the `build.gradle` file that is in your **app module**.
+1. Open the `build.gradle` file that is in your **app module**.
 {: android}
 
-  Your Android project might have two `build.gradle` files: one for the project and one for the app module. Make sure to use the **app module** file.
-  {: tip}
-  {: android}
+   Your Android project might have two `build.gradle` files: one for the project and one for the app module. Make sure to use the **app module** file.
+   {: tip}
+   {: android}
 
-3. Find the `Dependencies` section of the `build.gradle` file and add a compile dependency for the {{site.data.keyword.mobileanalytics_short}} Client SDK. Your repositories statement must be similar to the following code example:
+1. Find the `Dependencies` section of the `build.gradle` file and add a compile dependency for the {{site.data.keyword.mobileanalytics_short}} Client SDK. Your repositories statement must be similar to the following code example:
 {: android}
 
-  ```
-  dependencies {
-    compile 'com.ibm.mobile.foundation:ibmmobilefirstplatformfoundation:8.0.+'
-    compile 'com.ibm.mobile.foundation:ibmmobilefirstplatformfoundationanalytics:8.0.+@aar'
-    // other dependencies
-  }
-  ```
-  {: codeblock}
-  {: android}
+   ```
+   dependencies {
+     compile 'com.ibm.mobile.foundation:ibmmobilefirstplatformfoundation:8.0.+'
+     compile 'com.ibm.mobile.foundation:ibmmobilefirstplatformfoundationanalytics:8.0.+@aar'
+     // other dependencies
+   }
+   ```
+   {: codeblock}
+   {: android}
 
-  The first dependency is for the Mobile Analytics client sdk for capturing and logging application runtime events
-  and the second dependency is for enabling in-app user feedback interacting with the application user. The second dependency is only required if you enable in-app user feedback
-  {: android}
+   The first dependency is for the {{site.data.keyword.mobileanalytics_short}} client sdk for capturing and logging application runtime events and the second dependency is for enabling in-app user feedback interacting with the application user. The second dependency is only required if you enable in-app user feedback.
+   {: android}
 
-4. Synchronize your project with Gradle by clicking **Tools &gt; Android &gt; Sync Project with Gradle Files**.
+1. Synchronize your project with Gradle by clicking **Tools &gt; Android &gt; Sync Project with Gradle Files**.
 {: android}
 
-5. Open the `AndroidManifest.xml` file for your Android project. You can find this file in **app > manifests**. Add internet access and location access permission under the `<manifest>` element:
+1. Open the `AndroidManifest.xml` file for your Android project. You can find this file in **app > manifests**. Add internet access and location access permission under the `<manifest>` element:
 {: android}
 
-  ```xml
-   <uses-permission android:name="android.permission.INTERNET" />
+   ```xml
+    <uses-permission android:name="android.permission.INTERNET" />
+   ```
+   {: codeblock}
 
-  ```
-  {: codeblock}
-  If you're using SDK version greater than >= 1.2, then you need to put the following lines inside the `<application>` element of the `AndroidManifest.xml` file.
-  {: android}
+   If you're using SDK version greater than >= 1.2, then you need to put the following lines inside the `<application>` element of the `AndroidManifest.xml` file.
+   {: android}
 
-  ```
-    <activity
-  android:name="com.ibm.mobilefirstplatform.clientsdk.android.ui.UIActivity"
-  android:label="@string/app_name"
-  android:launchMode="singleTask">
-  <intent-filter>
-  <action android:name="android.intent.action.MAIN" />
-  <category android:name="android.intent.category.LAUNCHER" />
-  </intent-filter>
-  </activity>
-  ```
-  {: codeblock}
-  {: android}
+   ```
+   <activity
+   android:name="com.ibm.mobilefirstplatform.clientsdk.android.ui.UIActivity"
+   android:label="@string/app_name"
+   android:launchMode="singleTask">
+   <intent-filter>
+   <action android:name="android.intent.action.MAIN" />
+   <category android:name="android.intent.category.LAUNCHER" />
+   </intent-filter>
+   </activity>
+   ```
+   {: codeblock}
+   {: android}
 
-#### Step 2: Instrument your Android application based on the type of analytics data you want to collect
+### Step 2: Instrument your Android application based on the type of analytics data you want to collect
 {: #instrument_app_based_on_data_android }
 {: android}
 
-1. Initialize your application to capture and send analytics data to Mobile Analytics service.  First, add the following `import` statements to the beginning of your application or activity class:
+1. Initialize your application to capture and send analytics data to {{site.data.keyword.mobileanalytics_short}} service.  First, add the following `import` statements to the beginning of your application or activity class:
 {: android}
 
    ```Java
@@ -127,7 +132,8 @@ The Mobile Analytics Client SDK is distributed with Gradle, a dependency manager
    {: codeblock}
    {: android}
 
-   Next, use the Mobile Analytics Client SDK to set up or initialize the capture of analytics data.  
+   Next, use the Mobile Analytics Client SDK to set up or initialize the capture of analytics data. 
+
    Add the initialization code in the `onCreate` method of the main activity in your Android application, or in a location that works best for your application project.
    {: android}
 
@@ -137,49 +143,57 @@ The Mobile Analytics Client SDK is distributed with Gradle, a dependency manager
    {: codeblock}
    {: android}
 
-   Before calling the init method, you must ensure that your application embeds the required code to authenticate and authorize the device with the MobileFoundation service.  This step is a common step that is required of all Mobile Foundation services applications and is not specific to Analytics data capture. <!--  Refer <need to link doc that talks about auth> -->
+   Before calling the init method, you must ensure that your application embeds the required code to authenticate and authorize the device with the {{site.data.keyword.mobilefoundation_short}} service. This step is a common step that is required of all {{site.data.keyword.mobilefoundation_short}} services applications and is not specific to Analytics data capture. <!--  Refer <need to link doc that talks about auth> -->
    {: android}
 
-   With initialization complete, your application is now enabled to capture device information and Mobile Analytics SDK logs with no further code added.  Any further APIs and code that is discussed in the following sections is optional and can be added based on what sort of analytics data you want to capture.
+   With initialization complete, your application is now enabled to capture device information and {{site.data.keyword.mobileanalytics_short}} SDK logs with no further code added. Any further APIs and code that is discussed in the following sections is optional and can be added based on what sort of analytics data you want to capture.
    {: android}
 
-2. To capture application lifecycle events such as application session and crash information, configure your application by adding the following line of code:
-  ```Java
-    WLAnalytics.addDeviceEventListener(WLAnalytics.DeviceEvent.LIFECYCLE);
-  ```
-  {: codeblock}
-  {: android}
+1. To capture application lifecycle events such as application session and crash information, configure your application by adding the following line of code:
 
-3. To capture network events that capture the applications network interactions, configure your application by adding the following line of code:
-  ```Java
+   ```Java
+     WLAnalytics.addDeviceEventListener(WLAnalytics.DeviceEvent.LIFECYCLE);
+   ```
+   {: codeblock}
+   {: android}
+
+1. To capture network events that capture the applications network interactions, configure your application by adding the following line of code:
+
+   ```Java
     WLAnalytics.addDeviceEventListener(WLAnalytics.DeviceEvent.NETWORK);
-  ```
-  {: codeblock}
-  {: android}
+   ```
+   {: codeblock}
+   {: android}
 
-4. You now initialized your application to capture analytics data.  Next, you must send the captured data to the Mobile Analytics service.
-   Use the following API to send analytics data to the Mobile Analytics service.
+1. You now initialized your application to capture analytics data.  Next, you must send the captured data to the {{site.data.keyword.mobileanalytics_short}} service.
+
+   Use the following API to send analytics data to the {{site.data.keyword.mobileanalytics_short}} service.
+
    ```java
     WLAnalytics.send();
    ```
    {: codeblock}
    {: android}
 
-  You are free to decide when to call this API in your application flow to send the captured analytics data to the Mobile Analytics service.  Until this sends, all captured analytics data is stored locally on the device.
-  {: android}
+   You are free to decide when to call this API in your application flow to send the captured analytics data to the {{site.data.keyword.mobileanalytics_short}} service. Until this sends, all captured analytics data is stored locally on the device.
+   {: android}
 
-5. To capture and send application logs to the Mobile Analytics service, use the Mobile Analytics Client SDK logger APIs.     
+1. To capture and send application logs to the Mobile Analytics service, use the Mobile Analytics Client SDK logger APIs.     
+
    The Mobile Analytics Client SDK logging framework supports the following log levels, which are listed from least to most verbose, with recommended use guidelines:
-    * FATAL - Use for unrecoverable crashes or hangs. The FATAL level is reserved for logging unrecoverable errors, which appear to users as an application crash
-    * ERROR - Use for unexpected exceptions or unexpected network protocol errors
-    * WARN - Use to log usage warnings that aren’t considered critical errors, such as usage of deprecated APIs or slow network response
-    * INFO - Use for reporting initialization events and other data that might be important, but not urgent
-    * DEBUG - Use for reporting debug statements to help developers resolve application defects.
-    When the logger level is set DEBUG, you also get Mobile Analytics Client SDK logs, which are included when you send logs.
+
+   * FATAL - Use for unrecoverable crashes or hangs. The FATAL level is reserved for logging unrecoverable errors, which appear to users as an application crash
+   * ERROR - Use for unexpected exceptions or unexpected network protocol errors
+   * WARN - Use to log usage warnings that aren’t considered critical errors, such as usage of deprecated APIs or slow network response
+   * INFO - Use for reporting initialization events and other data that might be important, but not urgent
+   * DEBUG - Use for reporting debug statements to help developers resolve application defects.
+
+   When the logger level is set DEBUG, you also get Mobile Analytics Client SDK logs, which are included when you send logs.
    {: note}
    {: android}
 
    The following code snippets show sample Logger usage for Android:
+
    ```java
    // Set the logging level (optional)
    // The default setting is Logger.LEVEL.DEBUG
@@ -201,70 +215,75 @@ The Mobile Analytics Client SDK is distributed with Gradle, a dependency manager
    {: codeblock}
    {: android}
 
-6.  To get insights on user onboarding patterns (new users versus returning users), you must associate a user identity with your application session.  This step can be done by calling the following API
-    ```java
-      WLAnalytics.setUserContext("userName or userIdentity");
-    ```
-    {: codeblock}
-    {: android}
+1. To get insights on user onboarding patterns (new users versus returning users), you must associate a user identity with your application session.  This step can be done by calling the following API:
 
-    All analytics data captured and stored locally is sent to the Mobile Analytics service only when the WLAnalytics.send() API is called.
-    {: android}
+   ```java
+     WLAnalytics.setUserContext("userName or userIdentity");
+   ```
+   {: codeblock}
+   {: android}
 
-7.  To get insights into your applications HTTP network interaction patterns such as HTTP APIs called, number of requests and average response times you must use the Mobile Foundation Service Client SDK's WLResourceRequest class to make the HTTP calls.  Although you initialized Analytics for the capture of Network events, by using `WLResourceRequest` enables the Mobile Analytics to hook into the network calls and capture the relevant data.  Make your HTTP calls as in the following code.
-    ```java
-      WLResourceRequest request = new WLResourceRequest(new URI(url), WLResourceRequest.GET);
-            request.send(new WLResponseListener() {
+   All analytics data captured and stored locally is sent to the Mobile Analytics service only when the WLAnalytics.send() API is called.
+   {: android}
 
-                @Override
-                public void onSuccess(WLResponse wlResponse) {
-                    //handle success of HTTP call and use wlResponse
-                }
+1. To get insights into your applications HTTP network interaction patterns such as HTTP APIs called, number of requests and average response times you must use the Mobile Foundation Service Client SDK's WLResourceRequest class to make the HTTP calls.  Although you initialized Analytics for the capture of Network events, by using `WLResourceRequest` enables the Mobile Analytics to hook into the network calls and capture the relevant data.  Make your HTTP calls as in the following code.
 
-                @Override
-                public void onFailure(WLFailResponse wlFailResponse) {
-                    //handle failure of HTTP call and use wlFailResponse
-                }
-            });
-    ```
-    {: codeblock}
-    {: android}
+   ```java
+     WLResourceRequest request = new WLResourceRequest(new URI(url), WLResourceRequest.GET);
+           request.send(new WLResponseListener() {
 
-8.  To get Crash Analytics and logs, you could call the following the API during start of your application to check whether the previous session crashed and accordingly send the capture crash logs to the Mobile Analytics service.
-    ```java
-      if (Logger.isUnCaughtExceptionDetected()) {
-            //add any other handling you may want and call the following APIs
-            WLAnalytics.send();
-            Logger.send();
-      }
-    ```
-    {: codeblock}
-    {: android}
+               @Override
+               public void onSuccess(WLResponse wlResponse) {
+                   //handle success of HTTP call and use wlResponse
+               }
 
-9.  To define Custom Analytics and define your own analytics data over what is supported inherently in the Client SDK, you could use the custom logging API
-    ```java
-        //create a JSON to capture the custom data
-        JSONObject jsonObject = new JSONObject();
-        jsonObject.put("FromPage", "LoginPage");
+               @Override
+               public void onFailure(WLFailResponse wlFailResponse) {
+                   //handle failure of HTTP call and use wlFailResponse
+               }
+           });
+   ```
+   {: codeblock}
+   {: android}
 
-        //log the custom data with a message
-        WLAnalytics.log("log message", jsonObject);
+1. To get Crash Analytics and logs, you could call the following the API during start of your application to check whether the previous session crashed and accordingly send the capture crash logs to the Mobile Analytics service.
 
-        //Send the captured custom data and log to the Mobile Analytics service
-        WLAnalytics.send();
-    ```
-    {: codeblock}
-    {: android}
+   ```java
+     if (Logger.isUnCaughtExceptionDetected()) {
+           //add any other handling you may want and call the following APIs
+           WLAnalytics.send();
+           Logger.send();
+     }
+   ```
+   {: codeblock}
+   {: android}
 
-    The logged custom data can be plotted over custom charts you can define in the Mobile Analytics console to derive custom insights.
-    {: android}
+1. To define Custom Analytics and define your own analytics data over what is supported inherently in the Client SDK, you could use the custom logging API
+
+   ```java
+       //create a JSON to capture the custom data
+       JSONObject jsonObject = new JSONObject();
+       jsonObject.put("FromPage", "LoginPage");
+
+       //log the custom data with a message
+       WLAnalytics.log("log message", jsonObject);
+
+       //Send the captured custom data and log to the Mobile Analytics service
+       WLAnalytics.send();
+   ```
+   {: codeblock}
+   {: android}
+
+   The logged custom data can be plotted over custom charts you can define in the Mobile Analytics console to derive custom insights.
+   {: android}
 
 10. Use In-App User Feedback to deepen your application performance analysis. You can enable your application **users and testers** to provide rich contextual feedback to the app owners. **App owners** get real-time feedback from its users on the application usage experience which **App owners** and **Developers** can further act on.  This feature brings in significant agility to application up-keep.  Use the following API to switch your application to Interactive Feedback Mode in any action handler in your application, for example, when you handle the click of a button or the selection of a menu item.
-    ```java
-        WLAnalytics.triggerFeedbackMode();
-    ```
-    {: codeblock}
-    {: android}
+
+   ```java
+       WLAnalytics.triggerFeedbackMode();
+   ```
+   {: codeblock}
+   {: android}
 
 ### Instrument an iOS application
 {: #instrument_ios_app}
@@ -277,14 +296,15 @@ Steps to instrument your iOS application:
 {: #install_analytics_sdk_ios }
 {: ios}
 
-[![CocoaPods Compatible](https://img.shields.io/cocoapods/v/IBMMobileFirstPlatformFoundation.svg)](https://cocoapods.org/pods/IBMMobileFirstPlatformFoundation)
-[![CocoaPods Compatible](https://img.shields.io/cocoapods/v/IBMMobileFirstPlatformFoundationAnalytics.svg)](https://cocoapods.org/pods/IBMMobileFirstPlatformFoundationAnalytics)
+[![CocoaPods Compatible](https://img.shields.io/cocoapods/v/IBMMobileFirstPlatformFoundation.svg)](https://cocoapods.org/pods/IBMMobileFirstPlatformFoundation){: external}
+[![CocoaPods Compatible](https://img.shields.io/cocoapods/v/IBMMobileFirstPlatformFoundationAnalytics.svg)](https://cocoapods.org/pods/IBMMobileFirstPlatformFoundationAnalytics){: external}
 {: ios}
 
 The Swift SDK is available for iOS and watchOS.
 {: ios}
 
 1. Add the following to the existing podfile, which is located at the root of the Xcode project
+
    ```bash
    use_frameworks!
    platform :ios, 8.0
@@ -296,7 +316,8 @@ The Swift SDK is available for iOS and watchOS.
    {: codeblock}
    {: ios}
 
-2. From a Command-line window, navigate to the root of the Xcode project and run the following command
+1. From a Command-line window, navigate to the root of the Xcode project and run the following command
+
    ```bash
    pod update
    ```
@@ -309,11 +330,12 @@ The Swift SDK is available for iOS and watchOS.
 
 1. Initialize your application to enable sending logs to the Mobile Analytics.
    The Swift SDK is available for iOS and watchOS. Import the `BMSCore` and `BMSAnalytics` frameworks by adding the following `import` statements to the beginning of your `AppDelegate.swift` project file:
-    ```Swift
-    import IBMMobileFirstPlatformFoundation
-    ```
-    {: codeblock}
-    {: ios}
+
+   ```Swift
+   import IBMMobileFirstPlatformFoundation
+   ```
+   {: codeblock}
+   {: ios}
 
    Next, use the Mobile Analytics Client SDK to set up or initialize the capture of analytics data.
    Add the initialization code in a location that works best for your application project.
@@ -331,69 +353,75 @@ The Swift SDK is available for iOS and watchOS.
    With initialization, complete your application is now enabled to capture device information and Mobile Analytics SDK logs with no further code added.  Any further APIs and code that is discussed in the following sections is optional and can be added based on what sort of analytics data you want to capture.
    {: ios}
 
-2. To capture application lifecycle events such as application session and crash information configure your application by adding the following line of code:
-    ```Swift
-      WLAnalytics.sharedInstance().addDeviceEventListener(LIFECYCLE)
-    ```
-    {: codeblock}
-    {: ios}
+1. To capture application lifecycle events such as application session and crash information configure your application by adding the following line of code:
 
-3. To capture network events that capture the applications network interactions, configure your application by adding the following line of code:
-    ```Swift
-      WLAnalytics.sharedInstance().addDeviceEventListener(NETWORK)
-    ```
-    {: codeblock}
-    {: ios}
+   ```Swift
+     WLAnalytics.sharedInstance().addDeviceEventListener(LIFECYCLE)
+   ```
+   {: codeblock}
+   {: ios}
 
-4. You now initialized your application to capture analytics data.  Next, you must send the captured data to the Mobile Analytics service.
+1. To capture network events that capture the applications network interactions, configure your application by adding the following line of code:
+
+   ```Swift
+     WLAnalytics.sharedInstance().addDeviceEventListener(NETWORK)
+   ```
+   {: codeblock}
+   {: ios}
+
+1. You now initialized your application to capture analytics data.  Next, you must send the captured data to the Mobile Analytics service.
    Use the following API to send analytics data to the Mobile Analytics service.
+
    ```Swift
     WLAnalytics.sharedInstance().send();
    ```
    {: codeblock}
    {: ios}
 
-    You are free to decide when to call this API in your application flow to send the captured analytics data to the Mobile Analytics service.  Until this, send all captured analytics data is stored locally on the device.
-    {: ios}
+   You are free to decide when to call this API in your application flow to send the captured analytics data to the Mobile Analytics service.  Until this, send all captured analytics data is stored locally on the device.
+   {: ios}
 
-5. To capture and send application logs to the Mobile Analytics service, use the Mobile Analytics Client SDK logger APIs.
+1. To capture and send application logs to the Mobile Analytics service, use the Mobile Analytics Client SDK logger APIs.
    The Mobile Analytics Client SDK logging framework supports the following log levels, which are listed from least to most verbose, with recommended use guidelines:
-    * FATAL - Use for unrecoverable crashes or hangs. The FATAL level is reserved for logging unrecoverable errors, which appear to users as an application crash
-    * ERROR - Use for unexpected exceptions or unexpected network protocol errors
-    * WARN - Use to log usage warnings that aren’t considered critical errors, such as usage of deprecated APIs or slow network response
-    * INFO - Use for reporting initialization events and other data that might be important, but not urgent
-    * DEBUG - Use for reporting debug statements to help developers resolve application defects.
-    When the logger level is set DEBUG, you also get Mobile Analytics Client SDK logs, which are included when you send logs.
+   * FATAL - Use for unrecoverable crashes or hangs. The FATAL level is reserved for logging unrecoverable errors, which appear to users as an application crash
+   * ERROR - Use for unexpected exceptions or unexpected network protocol errors
+   * WARN - Use to log usage warnings that aren’t considered critical errors, such as usage of deprecated APIs or slow network response
+   * INFO - Use for reporting initialization events and other data that might be important, but not urgent
+   * DEBUG - Use for reporting debug statements to help developers resolve application defects.
+
+   When the logger level is set DEBUG, you also get Mobile Analytics Client SDK logs, which are included when you send logs.
    {: note}
    {: ios}
 
-    Follow [the tutorial ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://mobilefirstplatform.ibmcloud.com/tutorials/en/foundation/8.0/application-development/client-side-log-collection/ios/) for code snippets for Logger in order to add logging capabilities in iOS applications.
+   Follow [the tutorial](https://mobilefirstplatform.ibmcloud.com/tutorials/en/foundation/8.0/application-development/client-side-log-collection/ios/){: external} for code snippets for Logger in order to add logging capabilities in iOS applications.
 
-6.  To get insights on user onboarding patterns (new users versus returning users), you must associate a user identity with your application session.  This association can be done by calling the following API
-    ```Swift
-      WLAnalytics.sharedInstance().setUserContext("userName or userIdentity")
-    ```
-    {: codeblock}
-    {: ios}
+1. To get insights on user onboarding patterns (new users versus returning users), you must associate a user identity with your application session. This association can be done by calling the following API:
 
-    All analytics data captured and stored locally is sent to the Mobile Analytics service only when the `WLAnalytics.sharedInstance().send()` API is called.
-    {: ios}
+   ```Swift
+     WLAnalytics.sharedInstance().setUserContext("userName or userIdentity")
+   ```
+   {: codeblock}
+   {: ios}
 
-7.  To get insights into your applications HTTP network interaction patterns such as HTTP APIs called, number of requests and average response times you must use the Mobile Foundation Service Client SDK's WLResourceRequest class to make the HTTP calls.  Although you initialized Analytics for the capture of Network events, the use of  `WLResourceRequest` enables the Mobile Analytics to hook into the network calls and capture the relevant data.  Make your HTTP calls as in the following code.
-    ```Swift
-      let request = WLResourceRequest( url: URL(string: "/adapters/JavaAdapter/users"), method: WLHttpMethodGet )
+   All analytics data captured and stored locally is sent to the Mobile Analytics service only when the `WLAnalytics.sharedInstance().send()` API is called.
+   {: ios}
 
-      request!.send { (response, error) -> Void in
-          if(error == nil){
-              //handle failure of HTTP call and use wlFailResponse
-          }
-          else{
-              //handle success of HTTP call and use wlResponse
-          }
-      }
-    ```
-    {: codeblock}
-    {: ios}
+1. To get insights into your applications HTTP network interaction patterns such as HTTP APIs called, number of requests and average response times you must use the Mobile Foundation Service Client SDK's WLResourceRequest class to make the HTTP calls. Although you initialized Analytics for the capture of Network events, the use of  `WLResourceRequest` enables the Mobile Analytics to hook into the network calls and capture the relevant data. Make your HTTP calls as in the following code.
+
+   ```Swift
+     let request = WLResourceRequest( url: URL(string: "/adapters/JavaAdapter/users"), method: WLHttpMethodGet )
+
+     request!.send { (response, error) -> Void in
+         if(error == nil){
+             //handle failure of HTTP call and use wlFailResponse
+         }
+         else{
+             //handle success of HTTP call and use wlResponse
+         }
+     }
+   ```
+   {: codeblock}
+   {: ios}
 
 8.  To get Crash Analytics and logs, you could call the following the API during start of your application to check whether the previous session crashed and send the capture crash logs to the Mobile Analytics service.
     ```Swift

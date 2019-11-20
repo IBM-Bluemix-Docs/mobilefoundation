@@ -2,20 +2,40 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-06-06"
+lastupdated: "2019-11-15"
 
 keywords: Direct Update, CDN support, secure direct update
 
 subcollection:  mobilefoundation
+
 ---
 
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:note: .note}
-{:tip: .tip}
-{:pre: .pre}
 {:codeblock: .codeblock}
+{:pre: .pre}
 {:screen: .screen}
+{:tsSymptoms: .tsSymptoms}
+{:tsCauses: .tsCauses}
+{:tsResolve: .tsResolve}
+{:tip: .tip}
+{:important: .important}
+{:note: .note}
+{:download: .download}
+{:java: .ph data-hd-programlang='java'}
+{:ruby: .ph data-hd-programlang='ruby'}
+{:c#: .ph data-hd-programlang='c#'}
+{:objectc: .ph data-hd-programlang='Objective C'}
+{:python: .ph data-hd-programlang='python'}
+{:javascript: .ph data-hd-programlang='javascript'}
+{:php: .ph data-hd-programlang='PHP'}
+{:swift: .ph data-hd-programlang='swift'}
+{:reactnative: .ph data-hd-programlang='React Native'}
+{:csharp: .ph data-hd-programlang='csharp'}
+{:ios: .ph data-hd-programlang='iOS'}
+{:android: .ph data-hd-programlang='Android'}
+{:cordova: .ph data-hd-programlang='Cordova'}
+{:xml: .ph data-hd-programlang='xml'}
 
 # Advanced Direct Update configuration
 {: #advanced_direct_update_configuration}
@@ -27,6 +47,7 @@ Described here are some of the advanced ways in which you can configure and work
 
 Direct Update UI presented to the end-user can be customized.
 Add the following inside the `wlCommonInit()` function in **index.js**:
+
 ```JavaScript
 wl_DirectUpdateChallengeHandler.handleDirectUpdate = function(directUpdateData, directUpdateContext) {
     // Implement custom Direct Update logic
@@ -34,8 +55,8 @@ wl_DirectUpdateChallengeHandler.handleDirectUpdate = function(directUpdateData, 
 ```
 {: codeblock}
 
-*directUpdateData* is a JSON object containing the downloadSize property that represents the file size (in bytes) of the update package to be downloaded from Mobile Foundation server.
-*directUpdateContext* is a JavaScript object exposing the .start() and .stop() functions, which start and stop the Direct Update flow.
+`directUpdateData` is a JSON object containing the downloadSize property that represents the file size (in bytes) of the update package to be downloaded from Mobile Foundation server.
+`directUpdateContext` is a JavaScript object exposing the .start() and .stop() functions, which start and stop the Direct Update flow.
 
 If the web resources are newer on the Mobile Foundation server than in the application, Direct Update challenge data is added to the server response. Whenever the Mobile Foundation client-side framework detects this direct update challenge, it invokes the `wl_directUpdateChallengeHandler.handleDirectUpdate` function.
 
@@ -43,9 +64,11 @@ The function provides a default Direct Update design: A default message dialog t
 
 In the following example code, a `handleDirectUpdate` function implements a custom message in the Direct Update dialog. Add this code into the `www/js/index.js` file of the Cordova project.
 Additional examples for a customized Direct Update UI:
+
 * A dialog that is created by using a third-party JavaScript framework (such as Dojo or jQuery Mobile, Ionic, …)
 * Fully native UI by executing a Cordova plug-in
 * An alternate HTML that is presented to the user with options
+
 and so on.
 
 ```JavaScript
@@ -65,6 +88,7 @@ wl_directUpdateChallengeHandler.handleDirectUpdate = function(directUpdateData, 
 You can start the Direct Update process by running the `directUpdateContext.start()` method whenever the user clicks the dialog button. The default progress screen, which resembles the one in previous versions of Mobile Foundation server is shown.
 
 This method supports the following types of invocation:
+
 * When no parameters are specified, the Mobile Foundation server uses the default progress screen.
 * When a listener function such as `directUpdateContext.start(directUpdateCustomListener)` is supplied, the Direct Update process runs in the background while the process sends lifecycle events to the listener. The custom listener must implement the following methods:
 
@@ -78,6 +102,7 @@ var  directUpdateCustomListener  = {
 {: codeblock}
 
 The listener methods are started during the direct update process according to following rules:
+
 * `onStart` is called with the `totalSize` parameter that holds the size of the update file.
 * `onProgress` is called multiple times with status `DOWNLOAD_IN_PROGRESS`, `totalSize`, and `completedSize` (the volume that is downloaded so far).
 * `onProgress` is called with status `UNZIP_IN_PROGRESS`.
@@ -99,6 +124,7 @@ The listener methods are started during the direct update process according to f
 If you implement a custom direct update listener, you must ensure that the app is reloaded when the direct update process is complete and the `onFinish()` method has been called. You must also call `wl_directUpdateChalengeHandler.submitFailure()` if the direct update process fails to complete successfully.
 
 The following example shows an implementation of a custom direct update listener:
+
 ```JavaScript
 var directUpdateCustomListener = {
   onStart: function(totalSize){
@@ -136,11 +162,13 @@ wl_directUpdateChallengeHandler.handleDirectUpdate = function(directUpdateData, 
 
 ## Running UI-less direct updates
 {: #scenario-running-ui-less-direct-updates }
+
 {{site.data.keyword.mobilefoundation_short}} supports UI-less direct update when the application is in the foreground.
 
 To run UI-less direct updates, implement `directUpdateCustomListener`. Provide empty function implementations to the `onStart` and `onProgress` methods. Empty implementations cause the direct update process to run in the background.
 
 To complete the direct update process, the application must be reloaded. The following options are available:
+
 * The `onFinish` method can be empty as well. In this case, direct update will apply after the application has restarted.
 * You can implement a custom dialog that informs or requires the user to restart the application. (See the following example.)
 * The `onFinish` method can enforce a reload of the application by calling `WL.Client.reloadApp()`.
@@ -178,69 +206,75 @@ When the application is sent to the background, the direct-update process is sus
 
 ## Handling a direct update failure
 {: #scenario-handling-a-direct-update-failure }
+
 This section demonstrates how to handle a direct update failure that might occur, for example, by loss of connectivity. In this scenario, the user is prevented from using the app even in offline mode. A dialog is displayed offering the user the option to try again.
 
-1.  Create a global variable to store the direct update context so that you can use it subsequently when the direct update process fails. For example:
-    ```JavaScript
-    var savedDirectUpdateContext;
-    ```
-    {: codeblock}
+1. Create a global variable to store the direct update context so that you can use it subsequently when the direct update process fails. For example:
 
-2.  Implement a direct update challenge handler. Save the direct update context here. For example:
-    ```JavaScript
-    wl_directUpdateChallengeHandler.handleDirectUpdate = function(directUpdateData, directUpdateContext){
+   ```JavaScript
+   var savedDirectUpdateContext;
+   ```
+   {: codeblock}
 
-      savedDirectUpdateContext = directUpdateContext; // save direct update context
+1. Implement a direct update challenge handler. Save the direct update context here. For example:
 
-      var downloadSizeInMB = (directUpdateData.downloadSize / 1048576).toFixed(1).replace(".", WL.App.getDecimalSeparator());
-      var directUpdateMsg = WL.Utils.formatString(WL.ClientMessages.directUpdateNotificationMessage, downloadSizeInMB);
+   ```JavaScript
+   wl_directUpdateChallengeHandler.handleDirectUpdate = function(directUpdateData, directUpdateContext){
 
-      WL.SimpleDialog.show(WL.ClientMessages.directUpdateNotificationTitle, directUpdateMsg, [{
-        text : WL.ClientMessages.update,
-        handler : function() {
-          directUpdateContext.start(directUpdateCustomListener);
-        }
-      }]);
-    };
-    ```
-    {: codeblock}
+     savedDirectUpdateContext = directUpdateContext; // save direct update context
 
-3.  Create a function that starts the direct update process by using the direct update context. For example:
-    ```JavaScript
-    restartDirectUpdate = function () {
-      savedDirectUpdateContext.start(directUpdateCustomListener); // use saved direct update context to restart direct update
-    };
-    ```
-    {: codeblock}
+     var downloadSizeInMB = (directUpdateData.downloadSize / 1048576).toFixed(1).replace(".", WL.App.getDecimalSeparator());
+     var directUpdateMsg = WL.Utils.formatString(WL.ClientMessages.directUpdateNotificationMessage, downloadSizeInMB);
 
-4.  Implement `directUpdateCustomListener`. Add status checking in the `onFinish` method. If the status starts with `FAILURE`, open a modal only dialog with the option **Try Again**. For example:
-    ```JavaScript
-    var directUpdateCustomListener = {
-      onStart: function(totalSize){
-        alert('onStart: totalSize = ' + totalSize + 'Byte');
-      },
-      onProgress: function(status,totalSize,completeSize){
-        alert('onProgress: status = ' + status + ' completeSize = ' + completeSize + 'Byte');
-      },
-      onFinish: function(status){
-        alert('onFinish: status = ' + status);
-        var pos = status.indexOf("FAILURE");
-        if (pos > -1) {
-          WL.SimpleDialog.show('Update Failed', 'Press try again button', [ {
-            text : "Try Again",
-            handler : restartDirectUpdate // restart direct update
-          }]);
-        }
-      }
-    };
-    ```
-    {: codeblock}
+     WL.SimpleDialog.show(WL.ClientMessages.directUpdateNotificationTitle, directUpdateMsg, [{
+       text : WL.ClientMessages.update,
+       handler : function() {
+         directUpdateContext.start(directUpdateCustomListener);
+       }
+     }]);
+   };
+   ```
+   {: codeblock}
 
-    When the user clicks the **Try Again** button, the application restarts the direct update process.
-    {: note}
+1. Create a function that starts the direct update process by using the direct update context. For example:
+
+   ```JavaScript
+   restartDirectUpdate = function () {
+     savedDirectUpdateContext.start(directUpdateCustomListener); // use saved direct update context to restart direct update
+   };
+   ```
+   {: codeblock}
+
+1. Implement `directUpdateCustomListener`. Add status checking in the `onFinish` method. If the status starts with `FAILURE`, open a modal only dialog with the option **Try Again**. For example:
+
+   ```JavaScript
+   var directUpdateCustomListener = {
+     onStart: function(totalSize){
+       alert('onStart: totalSize = ' + totalSize + 'Byte');
+     },
+     onProgress: function(status,totalSize,completeSize){
+       alert('onProgress: status = ' + status + ' completeSize = ' + completeSize + 'Byte');
+     },
+     onFinish: function(status){
+       alert('onFinish: status = ' + status);
+       var pos = status.indexOf("FAILURE");
+       if (pos > -1) {
+         WL.SimpleDialog.show('Update Failed', 'Press try again button', [ {
+           text : "Try Again",
+           handler : restartDirectUpdate // restart direct update
+         }]);
+       }
+     }
+   };
+   ```
+   {: codeblock}
+
+   When the user clicks the **Try Again** button, the application restarts the direct update process.
+   {: note}
 
 ## Delta and Full Direct Update
 {: #delta-and-full-direct-update }
+
 Delta Direct Updates enables an application to download only the files that were changed since the last update instead of the entire web resources of the application. This reduces download time, conserves bandwidth, and improves overall user experience.
 
 A **delta update** is possible only if the client application's web resources are one version behind the application that is currently deployed on the server. Client applications that are more than one version behind the currently deployed application (meaning the application was deployed to the server at least twice since the client application was updated), receive a **full update** (meaning that the entire web resources are downloaded and updated).
@@ -251,21 +285,23 @@ See the Direct Update sample for Cordova app from the **Samples** section. This 
 ## CDN support
 {: #cdn_support}
 
-You can configure Direct Update requests to be served from a CDN (content delivery network) instead of from the Mobile Foundation server.
+You can configure Direct Update requests to be served from a CDN (content delivery network) instead of from the {{site.data.keyword.mobilefoundation_short}} server.
 
-Using a CDN instead of the Mobile Foundation server to serve Direct Update requests has the following advantages:
+Using a CDN instead of the {{site.data.keyword.mobilefoundation_short}} server to serve Direct Update requests has the following advantages:
 
-* Removes network overheads from the Mobile Foundation server.
-* Increases transfer rates higher than the 250 MB/second limit when serving requests from a Mobile Foundation server.
+* Removes network overheads from the {{site.data.keyword.mobilefoundation_short}} server.
+* Increases transfer rates higher than the 250 MB/second limit when serving requests from a {{site.data.keyword.mobilefoundation_short}} server.
 * Ensures a more uniform Direct Update experience for all users regardless of their geographical location.
 
 ### General requirements
 {: #general-requirements }
+
 To serve Direct Update requests from a CDN, ensure that your configuration conforms to the following conditions:
 
-* The CDN must be a reverse proxy in front of the Mobile Foundation server (or in front of another reverse proxy if needed).
-* When building the application from your development environment, set up your target server to the CDN host and port instead of the host and port of the Mobile Foundation server. For example, when running the Mobile Foundation CLI command `mfpdev server add`, provide the CDN host and port.
-* In the CDN administration panel, you need to mark the following Direct Update URLs for caching to ensure that the CDN passes all requests to the Mobile Foundation server except for the Direct Update requests. For Direct Update requests, the CDN determines whether it obtained the content. If it has, it returns it without going to the Mobile Foundation server; if not, it goes to the Mobile Foundation server, gets the Direct Update archive (.zip file), and stores it for the next requests for that specific URL. For applications that are built with v8.0 of {{site.data.keyword.mobilefoundation_short}}, the Direct Update URL is: `PROTOCOL://DOMAIN:PORT/CONTEXT_PATH/api/directupdate/VERSION/CHECKSUM/TYPE`.
+* The CDN must be a reverse proxy in front of the {{site.data.keyword.mobilefoundation_short}} server (or in front of another reverse proxy if needed).
+* When building the application from your development environment, set up your target server to the CDN host and port instead of the host and port of the {{site.data.keyword.mobilefoundation_short}} server. For example, when running the {{site.data.keyword.mobilefoundation_short}} CLI command `mfpdev server add`, provide the CDN host and port.
+* In the CDN administration panel, you need to mark the following Direct Update URLs for caching to ensure that the CDN passes all requests to the {{site.data.keyword.mobilefoundation_short}} server except for the Direct Update requests. For Direct Update requests, the CDN determines whether it obtained the content. If it has, it returns it without going to the {{site.data.keyword.mobilefoundation_short}} server; if not, it goes to the {{site.data.keyword.mobilefoundation_short}} server, gets the Direct Update archive (.zip file), and stores it for the next requests for that specific URL. For applications that are built with v8.0 of {{site.data.keyword.mobilefoundation_short}}, the Direct Update URL is: `PROTOCOL://DOMAIN:PORT/CONTEXT_PATH/api/directupdate/VERSION/CHECKSUM/TYPE`.
+
 The `PROTOCOL://DOMAIN:PORT/CONTEXT_PATH` prefix is constant for all runtime requests. For example: `http://my.cdn.com:9080/mfp/api/directupdate/0.0.1/742914155/full?appId=com.ibm.DirectUpdateTestApp&clientPlatform=android`
 
 In the example, there are additional request parameters that are also part of the request.
@@ -276,16 +312,21 @@ In the example, there are additional request parameters that are also part of th
 
 ### Example CDN configuration
 {: #example-cdn-configuration }
-This example is based on using an Akamai CDN configuration that caches the Direct Update archive. The following tasks are completed by the network administrator, the Mobile Foundation administrator, and the Akamai administrator:
+
+This example is based on using an Akamai CDN configuration that caches the Direct Update archive. The following tasks are completed by the network administrator, the {{site.data.keyword.mobilefoundation_short}} administrator, and the Akamai administrator:
 
 #### Network administrator
 {: #network-administrator }
-Create another domain in the DNS for your Mobile Foundation server. For example, if your server domain is `yourcompany.com` you need to create an additional domain such as `cdn.yourcompany.com`.
+
+Create another domain in the DNS for your {{site.data.keyword.mobilefoundation_short}} server. For example, if your server domain is `yourcompany.com` you need to create an additional domain such as `cdn.yourcompany.com`.
+
 In the DNS for the new `cdn.yourcompany.com` domain, set a `CNAME` to the domain name that is provided by Akamai. For example, `yourcompany.com.akamai.net`.
 
-#### Mobile Foundation administrator
+#### {{site.data.keyword.mobilefoundation_short}} administrator
 {: #mobilefoundation-administrator }
-Set the new `cdn.yourcompany.com` domain as the Mobile Foundation sever URL for the Mobile Foundation applications. For example, for the Ant builder task, the property is:
+
+Set the new `cdn.yourcompany.com` domain as the {{site.data.keyword.mobilefoundation_short}} sever URL for the {{site.data.keyword.mobilefoundation_short}} applications. For example, for the Ant builder task, the property is:
+
 ```xml
 <property name="wl.server" value="http://cdn.yourcompany.com/${contextPath}/"/>
 ```
@@ -293,29 +334,30 @@ Set the new `cdn.yourcompany.com` domain as the Mobile Foundation sever URL for 
 
 #### Akamai administrator
 {: #akamai-administrator }
+
 1. Open the Akamai property manager and set the property **host name** to the value of the new domain.
 
-    ![Set the property host name to the value of the new domain](images/direct_update_cdn_3.jpg "Set the property host name to the value of the new domain")
+   ![Set the property host name to the value of the new domain](images/direct_update_cdn_3.jpg "Set the property host name to the value of the new domain")
 
-2. On the Default Rule tab, configure the original Mobile Foundation server host and port, and set the **Custom Forward Host Header** value to the newly created domain.
+1. On the Default Rule tab, configure the original Mobile Foundation server host and port, and set the **Custom Forward Host Header** value to the newly created domain.
 
-    ![Set the Custom Forward Host Header value to the newly created domain](images/direct_update_cdn_4.jpg "Set the Custom Forward Host Header value to the newly created domain")
+   ![Set the Custom Forward Host Header value to the newly created domain](images/direct_update_cdn_4.jpg "Set the Custom Forward Host Header value to the newly created domain")
 
-3. From the **Caching Option** list, select **No Store**.
+1. From the **Caching Option** list, select **No Store**.
 
-    ![From the Caching Option list, select No Store](images/direct_update_cdn_5.jpg "From the Caching Option list, select No Store")
+   ![From the Caching Option list, select No Store](images/direct_update_cdn_5.jpg "From the Caching Option list, select No Store")
 
-4. From the **Static Content configuration** tab, configure the matching criteria according to the Direct Update URL of the application. For example, create a condition that states `If Path matches one of direct_update_URL`.
+1. From the **Static Content configuration** tab, configure the matching criteria according to the Direct Update URL of the application. For example, create a condition that states `If Path matches one of direct_update_URL`.
 
-    ![Configure the matching criteria according to the Direct Update URL of the application](images/direct_update_cdn_6.jpg "Configure the matching criteria according to the Direct Update URL of the application")
+   ![Configure the matching criteria according to the Direct Update URL of the application](images/direct_update_cdn_6.jpg "Configure the matching criteria according to the Direct Update URL of the application")
 
-5. Configure the cache key behavior to use all request parameters in the cache key (you must do so to cache different Direct Update archives for different applications or versions). For example, from the **Behavior** list, select `Include all parameters (preserve order from request)`.
+1. Configure the cache key behavior to use all request parameters in the cache key (you must do so to cache different Direct Update archives for different applications or versions). For example, from the **Behavior** list, select `Include all parameters (preserve order from request)`.
 
-    ![Configure the cache key behavior to use all request parameters in the cache key](images/direct_update_cdn_8.jpg "Configure the cache key behavior to use all request parameters in the cache key")
+   ![Configure the cache key behavior to use all request parameters in the cache key](images/direct_update_cdn_8.jpg "Configure the cache key behavior to use all request parameters in the cache key")
 
-6. Set values similar to the following values to configure the caching behavior to make cache the Direct Update URL and to set TTL.
+1. Set values similar to the following values to configure the caching behavior to make cache the Direct Update URL and to set TTL.
 
-      ![Set values to configure the caching behavior](images/direct_update_cdn_7.jpg "Set values to configure the caching behavior")
+   ![Set values to configure the caching behavior](images/direct_update_cdn_7.jpg "Set values to configure the caching behavior")
 
 | Field | Value |
 |:------|:------|
@@ -325,31 +367,32 @@ Set the new `cdn.yourcompany.com` domain as the Mobile Foundation sever URL for 
 {: caption="Table 2. Fields and values for configuring caching behavior" caption-side="top"}
 
 ## Secure Direct Update
-{: #secure-dc }
+{: #secure-dc}
 
-Disabled by default, Secure Direct Update prevents a 3rd-party attacker from altering the web resources that are transmitted from the Mobile Foundation server (or from a Content Delivery Network (CDN)) to the client application.
+Disabled by default, Secure Direct Update prevents a 3rd-party attacker from altering the web resources that are transmitted from the {{site.data.keyword.mobilefoundation_short}} server (or from a Content Delivery Network (CDN)) to the client application.
 
 ### Enabling Direct Update authenticity
 {: #enable-direct-update-authenticity}
+
 Using a preferred tool, extract the public key from the Mobile Foundation server keystore and convert it to base64.  
 The produced value should then be used as instructed in the following steps:
 
 1. Open a **Command-line** window and navigate to the root of the Cordova project.
-2. Run the command: `mfpdev app config` and select the **Direct Update Authenticity public key** option.
-3. Provide the public key and confirm.
+1. Run the command: `mfpdev app config` and select the **Direct Update Authenticity public key** option.
+1. Provide the public key and confirm.
 
 Any future Direct Update deliveries to client applications will be protected by Direct Update authenticity.
 
-For secure Direct Update to work, a user-defined keystore file must be deployed in Mobile Foundation server and a copy of the matching public key must be included in the deployed client application.
+For secure Direct Update to work, a user-defined keystore file must be deployed in {{site.data.keyword.mobilefoundation_short}} server and a copy of the matching public key must be included in the deployed client application.
 
-This topic describes how to bind a public key to new client applications and existing client applications that were upgraded. For more information on configuring the keystore in Mobile Foundation server, see [Configuring the Mobile Foundation server keystore ![External link icon](../../icons/launch-glyph.svg "External link icon")](http://mobilefirstplatform.ibmcloud.com/tutorials/en/foundation/8.0/authentication-and-security/configuring-the-mobilefirst-server-keystore/){: new_window}
+This topic describes how to bind a public key to new client applications and existing client applications that were upgraded. For more information on configuring the keystore in {{site.data.keyword.mobilefoundation_short}} server, see [Configuring the {{site.data.keyword.mobilefoundation_short}} server keystore](http://mobilefirstplatform.ibmcloud.com/tutorials/en/foundation/8.0/authentication-and-security/configuring-the-mobilefirst-server-keystore/){: external}
 
 The server provides a built-in keystore that can be used for testing secure Direct Update for development phases.
 
-After you bind the public key to the client application and rebuild it, you do not need to upload it again to the {{ site.data.keys.mf_server }}. However, if you previously published the application to the market, without the public key, you must republish it.
+After you bind the public key to the client application and rebuild it, you do not need to upload it again to the {{site.data.keyword.mobilefoundation_short}} server. However, if you previously published the application to the market, without the public key, you must republish it.
 {: note}
 
-For development purposes, the following default, dummy public key is provided with Mobile Foundation server:
+For development purposes, the following default, dummy public key is provided with {{site.data.keyword.mobilefoundation_short}} server:
 
 ```xml
 -----BEGIN PUBLIC KEY-----
@@ -375,9 +418,11 @@ Do not use the public key for production purposes.
 
 ### Generating and deploying the keystore
 {: #generating-and-deploying-the-keystore }
+
 There are many tools available for generating certificates and extracting public keys from a keystore. The following example demonstrates the procedures with the JDK keytool utility and openSSL.
 
 1. Extract the public key from the keystore file that is deployed in the {{ site.data.keys.mf_server }}.  
+
    The public key must be Base64 encoded.
    {: note}
 
@@ -401,10 +446,11 @@ There are many tools available for generating certificates and extracting public
    Keytool alone cannot extract public keys in Base64 format.
    {: note}
 
-2. Perform one of the following procedures:
-    * Copy the resulting text, without the `BEGIN PUBLIC KEY` and `END PUBLIC KEY` markers into the mfpclient property file of the application, immediately after `wlSecureDirectUpdatePublicKey`.
-    * From the command prompt, issue the following command: `mfpdev app config direct_update_authenticity_public_key <public_key>`
+1. Perform one of the following procedures:
 
-    For `<public_key>`, paste the text that results from Step 1, without the `BEGIN PUBLIC KEY` and `END PUBLIC KEY` markers.
+   * Copy the resulting text, without the `BEGIN PUBLIC KEY` and `END PUBLIC KEY` markers into the mfpclient property file of the application, immediately after `wlSecureDirectUpdatePublicKey`.
+   * From the command prompt, issue the following command: `mfpdev app config direct_update_authenticity_public_key <public_key>`
 
-3. Run the cordova build command to save the public key in the application.
+   For `<public_key>`, paste the text that results from Step 1, without the `BEGIN PUBLIC KEY` and `END PUBLIC KEY` markers.
+
+1. Run the cordova build command to save the public key in the application.

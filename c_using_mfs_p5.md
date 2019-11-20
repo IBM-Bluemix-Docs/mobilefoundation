@@ -2,41 +2,61 @@
 
 copyright:
   years: 2016, 2019
-lastupdated: "2019-07-11"
+lastupdated: "2019-11-15"
 
 keywords: mobile foundation, mobile analytics, professional plan, configure database
 
 subcollection:  mobilefoundation
+
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
-{:screen:  .screen}
-{:codeblock:  .codeblock}
+{:codeblock: .codeblock}
+{:pre: .pre}
+{:screen: .screen}
+{:tsSymptoms: .tsSymptoms}
+{:tsCauses: .tsCauses}
+{:tsResolve: .tsResolve}
 {:tip: .tip}
+{:important: .important}
 {:note: .note}
+{:download: .download}
+{:java: .ph data-hd-programlang='java'}
+{:ruby: .ph data-hd-programlang='ruby'}
+{:c#: .ph data-hd-programlang='c#'}
+{:objectc: .ph data-hd-programlang='Objective C'}
+{:python: .ph data-hd-programlang='python'}
+{:javascript: .ph data-hd-programlang='javascript'}
+{:php: .ph data-hd-programlang='PHP'}
+{:swift: .ph data-hd-programlang='swift'}
+{:reactnative: .ph data-hd-programlang='React Native'}
+{:csharp: .ph data-hd-programlang='csharp'}
+{:ios: .ph data-hd-programlang='iOS'}
+{:android: .ph data-hd-programlang='Android'}
+{:cordova: .ph data-hd-programlang='Cordova'}
+{:xml: .ph data-hd-programlang='xml'}
 
 #	Set up using the Professional Per Device plan
 {: #using_mobilefoundation_p5}
 
-With the Professional Per Device plan users can build, test, and run mobile applications in production, irrespective of the number of mobile users or devices. Charges are based on the number of daily client devices. This plan supports large deployments and High Availability.
-After you create the {{site.data.keyword.mobilefoundation_short}}: Professional Per Device service instance, read the following procedure to get started with the service.
+With the Professional Per Device plan users can build, test, and run mobile applications in production, irrespective of the number of mobile users or devices. Charges are based on the number of daily client devices. This plan supports large deployments and High Availability. After you create the {{site.data.keyword.mobilefoundation_short}}: Professional Per Device service instance, read the following procedure to get started with the service.
 
 ## Pre-requisites in Professional Per Device plan
 {: #prerequisites_p5}
 
-Consider the following before you configure  {{site.data.keyword.mobilefoundation_short}}: Professional Per Device service instance.
-* {{site.data.keyword.mobilefoundation_short}}: Professional Per Device is supported only with {{site.data.keyword.Db2_on_Cloud_short}} or {{site.data.keyword.composeForPostgreSQL}} or Databases for {{site.data.keyword.postgresql}} {{site.data.keyword.Bluemix_notm}} plans.
+Consider the following before you configure {{site.data.keyword.mobilefoundation_short}}: Professional Per Device service instance.
 
+* {{site.data.keyword.mobilefoundation_short}}: Professional Per Device is supported only with {{site.data.keyword.Db2_on_Cloud_short}} or {{site.data.keyword.composeForPostgreSQL}} or Databases for {{site.data.keyword.postgresql}} {{site.data.keyword.cloud_notm}} plans.
 * You require access to the {{site.data.keyword.Db2_on_Cloud_short}} or {{site.data.keyword.composeForPostgreSQL}} or Databases for {{site.data.keyword.postgresql}} service instance credentials before you can configure the settings of your {{site.data.keyword.mobilefoundation_short}} service instance.
 
-The {{site.data.keyword.Db2_on_Cloud_short}} or {{site.data.keyword.composeForPostgreSQL}} service instance can exist in any `Space` within your {{site.data.keyword.Bluemix_notm}} `Organization` or any other `Organization` that you have access to. Ensure that you have the permissions to access the `Space` where the {{site.data.keyword.Db2_on_Cloud_short}} or {{site.data.keyword.composeForPostgreSQL}} service instance exists. The Databases for {{site.data.keyword.postgresql}} service instance need to exist in the same `Resource Group` where you have the permission to access. 
+The {{site.data.keyword.Db2_on_Cloud_short}} or {{site.data.keyword.composeForPostgreSQL}} service instance can exist in any `Space` within your {{site.data.keyword.cloud_notm}} `Organization` or any other `Organization` that you have access to. Ensure that you have the permissions to access the `Space` where the {{site.data.keyword.Db2_on_Cloud_short}} or {{site.data.keyword.composeForPostgreSQL}} service instance exists. The Databases for {{site.data.keyword.postgresql}} service instance need to exist in the same `Resource Group` where you have the permission to access. 
 {: note}
 
 ## Adding the database connection
 {: #configure_dashdb_p5}
 
-###  First steps
+### First steps
 {: #firststeps_p5}
 
 After you create the {{site.data.keyword.mobilefoundation_short}}: Professional Per Device service instance, follow the procedure to get started.
@@ -51,27 +71,22 @@ You can also create a new {{site.data.keyword.Db2_on_Cloud_short}} or {{site.dat
 Follow these steps to create a new Db2 on Cloud service instance:
 
 1. In the *Overview* page, select **Create New Service** section.
+1. Select `Yes` on the **High availability configuration** option, if you want high available {{site.data.keyword.Db2_on_Cloud_short}} service instance.
+1. Review the plan details and click **Create**.
 
-+ Select `Yes` on the **High availability configuration** option, if you want high available {{site.data.keyword.Db2_on_Cloud_short}} service instance.
-
-+ Review the plan details and click **Create**.
-
-A new {{site.data.keyword.Db2_on_Cloud_short}} service instance is created, which provides a dedicated {{site.data.keyword.Db2_on_Cloud_short}} instance with 8 GB RAM and 2 vCPUs, and 500 GB of storage.
+   A new {{site.data.keyword.Db2_on_Cloud_short}} service instance is created, which provides a dedicated {{site.data.keyword.Db2_on_Cloud_short}} instance with 8 GB RAM and 2 vCPUs, and 500 GB of storage.
 
 Follow these steps to connect to an existing {{site.data.keyword.Db2_on_Cloud_short}} service instance or to the {{site.data.keyword.Db2_on_Cloud_short}} service instance that you created:
 
-1. Select the {{site.data.keyword.Bluemix_notm}} `Organization` where the {{site.data.keyword.Db2_on_Cloud_short}} service instance exists.
-
-+ Select the {{site.data.keyword.Bluemix_notm}} `Space` where the {{site.data.keyword.Db2_on_Cloud_short}} service instance exists, from the list of spaces available in the selected `Organization`.   
+1. Select the {{site.data.keyword.cloud_notm}} `Organization` where the {{site.data.keyword.Db2_on_Cloud_short}} service instance exists.
+1. Select the {{site.data.keyword.cloud_notm}} `Space` where the {{site.data.keyword.Db2_on_Cloud_short}} service instance exists, from the list of spaces available in the selected `Organization`.   
 If you don't see the `Organization` and `Space`, where your {{site.data.keyword.Db2_on_Cloud_short}} service instance exists, listed, then check whether you're a member of that `Organization` and `Space`. You're required to have a *Developer* role access to the organization and space, as the {{site.data.keyword.mobilefoundation_short}} service accesses the credentials from the {{site.data.keyword.Db2_on_Cloud_short}} service.
 {: note}
-+ Select the {{site.data.keyword.Db2_on_Cloud_short}} `Service Name` and `Credentials` to connect to the existing  {{site.data.keyword.Db2_on_Cloud_short}} service instance.
 
-+  Test the connection to the specified {{site.data.keyword.Db2_on_Cloud_short}} service instance.
-
-+  Click **Add**. This action creates the required tables in the configured {{site.data.keyword.Db2_on_Cloud_short}} database service instance.
-
-In a few seconds, you can access the `Overview` page that provides you with  tutorials and videos to help you get started with the  {{site.data.keyword.mobilefoundation_short}} service.
+1. Select the {{site.data.keyword.Db2_on_Cloud_short}} `Service Name` and `Credentials` to connect to the existing  {{site.data.keyword.Db2_on_Cloud_short}} service instance.
+1. Test the connection to the specified {{site.data.keyword.Db2_on_Cloud_short}} service instance.
+1. Click **Save**. This action creates the required tables in the configured {{site.data.keyword.Db2_on_Cloud_short}} database service instance.
+   In a few seconds, you can access the `Overview` page that provides you with  tutorials and videos to help you get started with the  {{site.data.keyword.mobilefoundation_short}} service.
 
 You can't change the {{site.data.keyword.Db2_on_Cloud_short}} service instance that is configured to be used by your {{site.data.keyword.mobilefoundation_short}} service instance. However, you can use the same {{site.data.keyword.Db2_on_Cloud_short}} service instance across multiple {{site.data.keyword.mobilefoundation_short}} service instances, as each {{site.data.keyword.mobilefoundation_short}} service instance creates its own schema in the selected {{site.data.keyword.Db2_on_Cloud_short}} service instance.
 {: note}
@@ -79,23 +94,18 @@ You can't change the {{site.data.keyword.Db2_on_Cloud_short}} service instance t
 ## Starting the MobileFirst server created by using Professional Per Device plan
 {: #start_mobilefoundation_p5}
 
-* To start the {{site.data.keyword.mfserver_short_notm}}, with default settings, click **Start Basic Server**.
-
+* To start the {{site.data.keyword.mfserver_short_notm}}, with default settings, click **Configure Server**.
 * This selection creates an {{site.data.keyword.mfserver_long_notm}} with the following settings:
-    -  Two nodes with 1 GB memory each. This size is good for development, moderate testing activities, and small scale production workloads.
+   - Two nodes with 1 GB memory each. This size is good for development, moderate testing activities, and small scale production workloads.
+   - The `username` and `password` are automatically generated for you. You have access to them when the server is up and running.
 
-    -	The `username` and `password` are automatically generated for you. You have access to them when the server is up and running.
+   The process of creating your server starts. This process takes about 10 minutes, and a message window indicates the progress of this operation. When complete a dashboard is displayed where you can see:
 
-The process of creating your server starts. This process takes about 10 minutes, and a message window indicates the progress of this operation. When complete a dashboard is displayed where you can see:
+   - The status of your server that is running (state, size).
+   - The server route is created for you. Use this route in your mobile application to connect to the {{site.data.keyword.mfserver_short_notm}}.
+   - Your personal `username` and `password` to access the {{site.data.keyword.mfp_oc_short_notm}}. The `password` is hidden. Click **Show Password** icon to visualize it.
 
-  -	The status of your server that is running (state, size).
-
-  -	The server route is created for you. Use this route in your mobile application to connect to the {{site.data.keyword.mfserver_short_notm}}.
-
-  -	Your personal `username` and `password` to access the {{site.data.keyword.mfp_oc_short_notm}}. The `password` is hidden. Click **Show Password** icon to visualize it.
-
-*	Click **Launch Console** to open the {{site.data.keyword.mfp_oc_short_notm}}.
-
+* Click **Launch Operation Console** to open the {{site.data.keyword.mfp_oc_short_notm}}.
 
 With the console, you can manage your mobile apps, adapters, and mobile devices, use your server as a mobile backend, send push notifications, and do more.
 
@@ -103,7 +113,6 @@ With the console, you can manage your mobile apps, adapters, and mobile devices,
 {: #recreate_mobilefoundation_p5}
 
 *	Click **Recreate** to re-create the server.
-
 * This action stops your existing server and deletes the data. A new server instance is created with an updated version, if available. This action takes a few minutes to complete.
 
 Data from your previous server instance that includes information on the apps and adapters is persisted in the configured {{site.data.keyword.Db2_on_Cloud_short}} service instance. This data is used to recreate your server.
@@ -116,14 +125,13 @@ Use the **Start Server with Advanced Configuration** from the `Overview` page to
 
 *	From the **Topology** tab, you can select the server size and number of server instances based on your need. The default 1 GB server is enough for development and light testing.
   - Select the correct size for your server based on your need.
-
   - **Instances** displays the number of instances that are created.
 
-## Mobile Analytics in Professional Per Device plan
+## {{site.data.keyword.mobileanalytics_short}} in Professional Per Device plan
 {: #mobile_analytics_p5}
 
-Mobile Analytics server is included and preconfigured with the Mobile Foundation: Developer plan service instance.
+{{site.data.keyword.mobileanalytics_short}} server is included and preconfigured with the {{site.data.keyword.mobilefoundation_short}} Professional per Device plan service instance.
 
-* Launch the Mobile Analytics Console from the {{site.data.keyword.mfp_oc_short_notm}}.
+* Launch the {{site.data.keyword.mobileanalytics_short}} Console from the {{site.data.keyword.mfp_oc_short_notm}}.
 
-For more information on Mobile Analytics, see [here](/docs/services/mobilefoundation?topic=mobilefoundation-instrument_your_app#instrument_your_app){: new_window}.
+For more information on Mobile Analytics, see [here](/docs/services/mobilefoundation?topic=mobilefoundation-instrument_your_app#instrument_your_app).

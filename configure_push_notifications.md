@@ -2,20 +2,26 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-06-06"
+lastupdated: "2019-11-15"
 
 keywords: push notifications, notifications, FCM, GCM, APNS, WNS, authenticate notification
 
 subcollection:  mobilefoundation
+
 ---
 
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:tip: .tip}
-{:note: .note}
-{:pre: .pre}
 {:codeblock: .codeblock}
+{:pre: .pre}
 {:screen: .screen}
+{:tsSymptoms: .tsSymptoms}
+{:tsCauses: .tsCauses}
+{:tsResolve: .tsResolve}
+{:tip: .tip}
+{:important: .important}
+{:note: .note}
+{:download: .download}
 {:java: .ph data-hd-programlang='java'}
 {:ruby: .ph data-hd-programlang='ruby'}
 {:c#: .ph data-hd-programlang='c#'}
@@ -31,11 +37,10 @@ subcollection:  mobilefoundation
 {:cordova: .ph data-hd-programlang='Cordova'}
 {:xml: .ph data-hd-programlang='xml'}
 
-
 # Configure Push Notifications
 {: #configure_push_notifications}
 
-In order to send push notifications to iOS, Android, or Windows devices, the {{ site.data.keyword.mfserver_short_notm }} first needs to be configured with the FCM details for Android, an APNS certificate for iOS or WNS credentials for Windows 8.1 Universal / Windows 10 UWP.
+In order to send push notifications to iOS, Android, or Windows devices, the {{site.data.keyword.mfserver_short_notm}} first needs to be configured with the FCM details for Android, an APNS certificate for iOS or WNS credentials for Windows 8.1 Universal / Windows 10 UWP.
 {: shortdesc}
 
 Notifications can then be sent by using following options:
@@ -51,14 +56,14 @@ Notifications can then be sent by using following options:
 ## Setting up Notifications
 {: #setting-up-notifications }
 
-Enabling notifications support involves several configuration steps in both {{ site.data.keyword.mfserver_short_notm }} and the client application. Continue reading for the server-side setup, or jump to [Client-side setup](#tutorials-to-follow-next).
+Enabling notifications support involves several configuration steps in both {{site.data.keyword.mfserver_short_notm}} and the client application. Continue reading for the server-side setup, or jump to [Client-side setup](#tutorials-to-follow-next).
 
-On the server-side, required set-up includes: configuring the needed vendor (APNS, FCM or WNS) and mapping the "push.mobileclient" scope.
+On the server-side, required set-up includes: configuring the needed vendor (APNS, FCM or WNS) and mapping the `push.mobileclient` scope.
 
 ### Firebase Cloud Messaging
 {: #firebase-cloud-messaging }
 
-Google [deprecated GCM](https://developers.google.com/cloud-messaging/faq) and has integrated Cloud Messaging with Firebase. If you are using a GCM project, ensure that you [migrate the GCM client apps on Android to FCM](https://developers.google.com/cloud-messaging/android/android-migrate-fcm).
+Google [deprecated GCM](https://developers.google.com/cloud-messaging/faq){: external} and has integrated Cloud Messaging with Firebase. If you are using a GCM project, ensure that you [migrate the GCM client apps on Android to FCM](https://developers.google.com/cloud-messaging/android/android-migrate-fcm){: external}.
 {: note}
 
 Android devices use the Firebase Cloud Messaging (FCM) service for push notifications.
@@ -66,9 +71,9 @@ Android devices use the Firebase Cloud Messaging (FCM) service for push notifica
 To set up FCM:
 
 1. Visit the [Firebase Console](https://console.firebase.google.com/?pli=1).
-2. Create a project and provide a project name.
-3. Click on the Settings "cog wheel" icon and select **Project settings**.
-4. Click the **Cloud Messaging** tab to generate a **Server API Key** and a **Sender ID** and click **Save**.
+1. Create a project and provide a project name.
+1. Click on the Settings "cog wheel" icon and select **Project settings**.
+1. Click the **Cloud Messaging** tab to generate a **Server API Key** and a **Sender ID** and click **Save**.
 
 You can also set up FCM by using either the [REST API for the {{ site.data.keyword.mobilefirst_notm }} Push service](http://www.ibm.com/support/knowledgecenter/en/SSHS8R_8.0.0/com.ibm.worklight.apiref.doc/rest_runtime/r_restapi_push_gcm_settings_put.html#Push-GCM-Settings--PUT-) or the [REST API for the {{ site.data.keyword.mobilefirst_notm }} administration service](http://www.ibm.com/support/knowledgecenter/en/SSHS8R_8.0.0/com.ibm.worklight.apiref.doc/apiref/r_restapi_update_gcm_settings_put.html#restservicesapi).
 {: note}
@@ -90,20 +95,21 @@ iOS devices use Apple's Push Notification Service (APNS) for push notifications.
 To set up APNS:
 
 1. Generate a push notification certificate for development or production. For detailed steps, refer the `For iOS` section [here](https://cloud.ibm.com/docs/services/mobilepush?topic=mobile-pushnotification-push_step_1#push_step_1).
-2. In the {{ site.data.keyword.mfp_oc_short_notm }} → **[your application] → Push → Push Settings**, select the certificate type and provide the certificate's file and password. Then, click **Save**.
+1. In the {{ site.data.keyword.mfp_oc_short_notm }} → **[your application] → Push → Push Settings**, select the certificate type and provide the certificate's file and password. Then, click **Save**.
 
-  * For push notifications to be sent, the following servers must be accessible from a {{ site.data.keyword.mfserver_short_notm }} instance,
-    * Sandbox servers:
-      * gateway.sandbox.push.apple.com:2195
-      * feedback.sandbox.push.apple.com:2196
-    * Production servers:
-      * gateway.push.apple.com:2195
-      * Feedback.push.apple.com:2196
-      * 1-courier.push.apple.com 5223
-  * During the development phase, use the apns-certificate-sandbox.p12 sandbox certificate file.
-  * During the production phase, use the apns-certificate-production.p12 production certificate file.
-    * The APNS production certificate can be tested only when the application that utilizes it is successfully submitted to the Apple App Store.
-    {: note }
+   * For push notifications to be sent, the following servers must be accessible from a {{ site.data.keyword.mfserver_short_notm }} instance,
+      * Sandbox servers:
+         * gateway.sandbox.push.apple.com:2195
+         * feedback.sandbox.push.apple.com:2196
+      * Production servers:
+         * gateway.push.apple.com:2195
+         * Feedback.push.apple.com:2196
+         * 1-courier.push.apple.com 5223
+   * During the development phase, use the apns-certificate-sandbox.p12 sandbox certificate file.
+   * During the production phase, use the apns-certificate-production.p12 production certificate file.
+
+      * The APNS production certificate can be tested only when the application that utilizes it is successfully submitted to the Apple App Store.
+      {: note }
 
 MobileFirst does not support Universal certificates.
 {: note }
@@ -121,7 +127,7 @@ Windows devices use the Windows Push Notifications Service (WNS) for push notifi
 To set up WNS:
 
 1. Follow the [instructions provided by Microsoft](https://msdn.microsoft.com/en-in/library/windows/apps/hh465407.aspx) to generate the **Package Security Identifier (SID)** and **Client secret** values.
-2. In the {{ site.data.keyword.mfp_oc_short_notm }} → **[your application] → Push → Push Settings**, add these values and click **Save**.
+1. In the {{ site.data.keyword.mfp_oc_short_notm }} → **[your application] → Push → Push Settings**, add these values and click **Save**.
 
 You can also set up WNS by using either the [REST API for the {{ site.data.keyword.mobilefirst_notm }} Push service](http://www.ibm.com/support/knowledgecenter/en/SSHS8R_8.0.0/com.ibm.worklight.apiref.doc/rest_runtime/r_restapi_push_wns_settings_put.html?view=kc) or the [REST API for the {{ site.data.keyword.mobilefirst_notm }} administration service](http://www.ibm.com/support/knowledgecenter/en/SSHS8R_8.0.0/com.ibm.worklight.apiref.doc/apiref/r_restapi_update_wns_settings_put.html?view=kc)
 
@@ -133,7 +139,7 @@ You can also set up WNS by using either the [REST API for the {{ site.data.keywo
 Map the **push.mobileclient** scope element to the application.
 
 1. Load the {{ site.data.keyword.mfp_oc_short_notm }} and navigate to **[your application] → Security → Scope-Elements Mapping**, click on **New**.
-2. Write "push.mobileclient" in the **Scope element** field. Then, click **Add**.
+1. Write "push.mobileclient" in the **Scope element** field. Then, click **Add**.
 
 List of more available scopes:
 
@@ -168,16 +174,17 @@ Authenticated notifications are notifications that are sent to one or more `user
 Map the **push.mobileclient** scope element to the security check used for the application.  
 
 1. Load the {{ site.data.keyword.mfp_oc_short_notm }} and navigate to **[your application] → Security → Scope-Elements Mapping**, click on **New** or edit an existing scope mapping entry.
-2. Select a security check. Then, click **Add**.
+1. Select a security check. Then, click **Add**.
 
-  <img class="gifplayer" alt="Authenticated notifications" src="images/authenticated-notifications.png"/>
+   <img class="gifplayer" alt="Authenticated notifications" src="images/authenticated-notifications.png"/>
 
 ## Defining Tags
 {: #defining-tags }
-In the {{ site.data.keyword.mfp_oc_short_notm }} → **[your application] → Push → Tags**, click **New**.  
-Provide the appropriate `Tag Name` and `Description` and click **Save**.
 
-<img class="gifplayer" alt="Adding tags" src="images/adding-tags.png"/>
+* In the {{ site.data.keyword.mfp_oc_short_notm }} → **[your application] → Push → Tags**, click **New**.  
+* Provide the appropriate `Tag Name` and `Description` and click **Save**.
+
+   <img class="gifplayer" alt="Adding tags" src="images/adding-tags.png"/>
 
 Subscriptions tie together a device registration and a tag. When a device is unregistered from a tag, all associated subscriptions are automatically unsubscribed from the device itself. In a scenario where multiple users of a device exist, subscriptions must be implemented in mobile applications based on user log-in criteria. For example, the subscribe call is made after a user successfully logs in to an application and the unsubscribe call is made explicitly as part of the logout action handling.
 

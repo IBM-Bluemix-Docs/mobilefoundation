@@ -2,20 +2,26 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-06-10"
+lastupdated: "2019-11-15"
 
 keywords: push notifications, notifications, set up android app for notification, set up iOS app for notification, set up cordova app for notification, set up windows app for notification
 
 subcollection:  mobilefoundation
+
 ---
 
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:tip: .tip}
-{:note: .note}
-{:pre: .pre}
 {:codeblock: .codeblock}
+{:pre: .pre}
 {:screen: .screen}
+{:tsSymptoms: .tsSymptoms}
+{:tsCauses: .tsCauses}
+{:tsResolve: .tsResolve}
+{:tip: .tip}
+{:important: .important}
+{:note: .note}
+{:download: .download}
 {:java: .ph data-hd-programlang='java'}
 {:ruby: .ph data-hd-programlang='ruby'}
 {:c#: .ph data-hd-programlang='c#'}
@@ -31,7 +37,6 @@ subcollection:  mobilefoundation
 {:cordova: .ph data-hd-programlang='Cordova'}
 {:xml: .ph data-hd-programlang='xml'}
 {:windows: .ph data-hd-programlang='Windows'}
-
 
 # Handling Push Notifications in client applications
 {: #handling_push_notifications_in_client_applications}
@@ -69,85 +74,87 @@ If the {{ site.data.keyword.mobilefirst_notm }} Native Android SDK is not alread
 1. In **Android → Gradle scripts**, select the **build.gradle (Module: app)** file and add the following lines to `dependencies`:
 {: android}
 
-    ```bash
-    com.google.android.gms:play-services-gcm:9.0.2
-    ```
-    {: codeblock}
-    {: android}
+   ```bash
+   com.google.android.gms:play-services-gcm:9.0.2
+   ```
+   {: codeblock}
+   {: android}
 
-    There is a [known Google defect](https://code.google.com/p/android/issues/detail?id=212879) preventing use of the latest Play Services version (currently at 9.2.0). Use a version that is less than 9.2.0.
-    {: note}
-    {: android}
+   There is a [known Google defect](https://code.google.com/p/android/issues/detail?id=212879){: external} preventing use of the latest Play Services version (currently at 9.2.0). Use a version that is less than 9.2.0.
+   {: note}
+   {: android}
 
-    And:
-    ```xml
-    compile group: 'com.ibm.mobile.foundation',
-             name: 'ibmmobilefirstplatformfoundationpush',
-             version: '8.0.+',
-             ext: 'aar',
-             transitive: true
-    ```
-    {: codeblock}
-    {: android}
+   And:
+   
+   ```xml
+   compile group: 'com.ibm.mobile.foundation',
+            name: 'ibmmobilefirstplatformfoundationpush',
+            version: '8.0.+',
+            ext: 'aar',
+            transitive: true
+   ```
+   {: codeblock}
+   {: android}
 
-    Or in a single line:
-    ```xml
-    compile 'com.ibm.mobile.foundation:ibmmobilefirstplatformfoundationpush:8.0.+'
-    ```
-    {: codeblock}
-    {: android}
+   Or in a single line:
+
+   ```xml
+   compile 'com.ibm.mobile.foundation:ibmmobilefirstplatformfoundationpush:8.0.+'
+   ```
+   {: codeblock}
+   {: android}
 
 1. In **Android → app → manifests**, open the `AndroidManifest.xml` file.
-    * Add the following permissions to the top the `manifest` tag:
+   * Add the following permissions to the top the `manifest` tag:
 
-        ```xml
-        <!-- Permissions -->
-        <uses-permission android:name="android.permission.WAKE_LOCK" />
+      ```xml
+      <!-- Permissions -->
+      <uses-permission android:name="android.permission.WAKE_LOCK" />
 
-        <!-- GCM Permissions -->
-        <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
-        <permission
-    	     android:name="your.application.package.name.permission.C2D_MESSAGE"
-    	     android:protectionLevel="signature" />
-        ```
-        {: codeblock}
-        {: android}
+      <!-- GCM Permissions -->
+      <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+      <permission
+        android:name="your.application.package.name.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+      ```
+      {: codeblock}
+      {: android}
 
-    * Add the following to the `application` tag:
+   * Add the following to the `application` tag:
 
-        ```xml
-        <!-- GCM Receiver -->
-        <receiver
-             android:name="com.google.android.gms.gcm.GcmReceiver"
-             android:exported="true"
-             android:permission="com.google.android.c2dm.permission.SEND">
-             <intent-filter>
-                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-                 <category android:name="your.application.package.name" />
-             </intent-filter>
-        </receiver>
+      ```xml
+      <!-- GCM Receiver -->
+      <receiver
+           android:name="com.google.android.gms.gcm.GcmReceiver"
+           android:exported="true"
+           android:permission="com.google.android.c2dm.permission.SEND">
+           <intent-filter>
+               <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+               <category android:name="your.application.package.name" />
+           </intent-filter>
+      </receiver>
 
-        <!-- MFPPush Intent Service -->
-        <service
-              android:name="com.ibm.mobilefirstplatform.clientsdk.android.push.api.MFPPushIntentService"
-              android:exported="false">
-              <intent-filter>
-                  <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-              </intent-filter>
-        </service>
+      <!-- MFPPush Intent Service -->
+      <service
+            android:name="com.ibm.mobilefirstplatform.clientsdk.android.push.api.MFPPushIntentService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+            </intent-filter>
+      </service>
 
-        <!-- MFPPush Instance ID Listener Service -->
-        <service
-              android:name="com.ibm.mobilefirstplatform.clientsdk.android.push.api.MFPPushInstanceIDListenerService"
-              android:exported="false">
-              <intent-filter>
-                  <action android:name="com.google.android.gms.iid.InstanceID" />
-              </intent-filter>
-        </service>
+      <!-- MFPPush Instance ID Listener Service -->
+      <service
+            android:name="com.ibm.mobilefirstplatform.clientsdk.android.push.api.MFPPushInstanceIDListenerService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.android.gms.iid.InstanceID" />
+            </intent-filter>
+      </service>
 
-        <activity android:name="com.ibm.mobilefirstplatform.clientsdk.android.push.api.MFPPushNotificationHandler"
-             android:theme="@android:style/Theme.NoDisplay"/>
- 	    ```
+      <activity android:name="com.ibm.mobilefirstplatform.clientsdk.android.push.api.MFPPushNotificationHandler"
+           android:theme="@android:style/Theme.NoDisplay"/>
+      ```
       {: codeblock}
       {: android}
 
@@ -155,15 +162,16 @@ If the {{ site.data.keyword.mobilefirst_notm }} Native Android SDK is not alread
       {: note}
       {: android}
 
-    * Add the following `intent-filter` to the application's activity.
-        ```xml
-        <intent-filter>
-            <action android:name="your.application.package.name.IBMPushNotification" />
-            <category android:name="android.intent.category.DEFAULT" />
-        </intent-filter>
-        ```
-        {: codeblock}
-        {: android}
+   * Add the following `intent-filter` to the application's activity.
+
+      ```xml
+      <intent-filter>
+          <action android:name="your.application.package.name.IBMPushNotification" />
+          <category android:name="android.intent.category.DEFAULT" />
+      </intent-filter>
+      ```
+      {: codeblock}
+      {: android}
 
 #### Notifications API
 {: #notifications-api }
@@ -195,7 +203,7 @@ Learn more about challenge handlers in the [credential validation ![External lin
 {: android}
 
 | Java Methods | Description |
-|-----------------------------------------------------------------------------------|-------------------------------------------------------------------------|
+|-----------------------------------------------------|-------------------------------------------|
 | [`initialize(Context context);`](#initialization) | Initializes MFPPush for supplied context. |
 | [`isPushSupported();`](#is-push-supported) | Does the device support push notifications. |
 | [`registerDevice(JSONObject, MFPPushResponseListener);`](#register-device) | Registers the device with the Push Notifications Service. |
@@ -401,18 +409,19 @@ In the activity in which you wish the handle push notifications.
 {: android}
 
 1. Add `implements MFPPushNofiticationListener` to the class declaration.
-2. Set the class to be the listener by calling `MFPPush.getInstance().listen(this)` in the `onCreate` method.
-2. Then you will need to add the following *required* method:
-    ```java
-    @Override
-    public void onReceive(MFPSimplePushNotification mfpSimplePushNotification) {
-         // Handle push notification here
-    }
-    ```
-    {: codeblock}
-    {: android}
+1. Set the class to be the listener by calling `MFPPush.getInstance().listen(this)` in the `onCreate` method.
+1. Then you will need to add the following *required* method:
 
-3. In this method you will receive the `MFPSimplePushNotification` and can handle the notification for the desired behavior.
+   ```java
+   @Override
+   public void onReceive(MFPSimplePushNotification mfpSimplePushNotification) {
+        // Handle push notification here
+   }
+   ```
+   {: codeblock}
+   {: android}
+
+1. In this method you will receive the `MFPSimplePushNotification` and can handle the notification for the desired behavior.
 {: android}
 
 ##### Option Two
@@ -420,6 +429,7 @@ In the activity in which you wish the handle push notifications.
 {: android}
 
 Create a listener by calling `listen(new MFPPushNofiticationListener())` on an instance of `MFPPush` as outlined in the following example:
+
 ```java
 MFPPush.getInstance().listen(new MFPPushNotificationListener() {
     @Override
@@ -457,97 +467,102 @@ Setting up an application in FCM is a bit different compared to the old GCM mode
 
 1. Obtain your notification provider credentials, create a FCM project and add the same to your Android application. Include the package name of your application as `com.ibm.mobilefirstplatform.clientsdk.android.push`. Refer the [documentation here](https://cloud.ibm.com/docs/services/mobilepush/push_step_1.html#push_step_1_android) , until the step where you have finished generating the `google-services.json` file
    {: android}
-2. Configure your Gradle file. Add the following in the app's `build.gradle` file
-    ```xml
-    dependencies {
-       ......
-       compile 'com.google.firebase:firebase-messaging:10.2.6'
-       .....
-    }
+1. Configure your Gradle file. Add the following in the app's `build.gradle` file
 
-    apply plugin: 'com.google.gms.google-services'
-    ```
-    {: codeblock}
-    {: android}
+   ```xml
+   dependencies {
+      ......
+      compile 'com.google.firebase:firebase-messaging:10.2.6'
+      .....
+   }
 
-    - Add the following dependency in the root build.gradle's `buildscript` section
+   apply plugin: 'com.google.gms.google-services'
+   ```
+   {: codeblock}
+   {: android}
+
+   - Add the following dependency in the root build.gradle's `buildscript` section
+
       `classpath 'com.google.gms:google-services:3.0.0'`
       {: codeblock}
       {: android}
 
-    - Remove after GCM plugin from build.gradle file `compile  com.google.android.gms:play-services-gcm:+`
-     {: android}
- 3. Configure the AndroidManifest file. Following changes are required in the `AndroidManifest.xml`
+   - Remove after GCM plugin from build.gradle file `compile  com.google.android.gms:play-services-gcm:+`
     {: android}
+ 
+ 1. Configure the AndroidManifest file. Following changes are required in the `AndroidManifest.xml`
+   {: android}
 
-    Remove the following entries :
-    {: android}
-    ```xml
-        <receiver android:exported="true" android:name="com.google.android.gms.gcm.GcmReceiver" android:permission="com.google.android.c2dm.permission.SEND">
-            <intent-filter>
-                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-                <category android:name="your.application.package.name" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
-                <category android:name="your.application.package.name" />
-            </intent-filter>
-        </receiver>  
+   Remove the following entries :
+   {: android}
 
-        <service android:exported="false" android:name="com.ibm.mobilefirstplatform.clientsdk.android.push.api.MFPPushInstanceIDListenerService">
-            <intent-filter>
-                <action android:name="com.google.android.gms.iid.InstanceID" />
-            </intent-filter>
-        </service>
+   ```xml
+       <receiver android:exported="true" android:name="com.google.android.gms.gcm.GcmReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+           <intent-filter>
+               <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+               <category android:name="your.application.package.name" />
+           </intent-filter>
+           <intent-filter>
+               <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+               <category android:name="your.application.package.name" />
+           </intent-filter>
+       </receiver>  
 
-        <uses-permission android:name="your.application.package.name.permission.C2D_MESSAGE" />
-        <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
-    ```
-    {: codeblock}
-    {: android}
+       <service android:exported="false" android:name="com.ibm.mobilefirstplatform.clientsdk.android.push.api.MFPPushInstanceIDListenerService">
+           <intent-filter>
+               <action android:name="com.google.android.gms.iid.InstanceID" />
+           </intent-filter>
+       </service>
 
-    The following entries need modification:
-    {: android}
+       <uses-permission android:name="your.application.package.name.permission.C2D_MESSAGE" />
+       <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+   ```
+   {: codeblock}
+   {: android}
 
-    ```xml
-        <service android:exported="true" android:name="com.ibm.mobilefirstplatform.clientsdk.android.push.api.MFPPushIntentService">
-            <intent-filter>
-                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-            </intent-filter>
-        </service>
-    ```
-    {: codeblock}
-    {: android}
+   The following entries need modification:
+   {: android}
 
-    Modify the entries to:
-    {: android}
+   ```xml
+       <service android:exported="true" android:name="com.ibm.mobilefirstplatform.clientsdk.android.push.api.MFPPushIntentService">
+           <intent-filter>
+               <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+           </intent-filter>
+       </service>
+   ```
+   {: codeblock}
+   {: android}
 
-    ```xml
-        <service android:exported="true" android:name="com.ibm.mobilefirstplatform.clientsdk.android.push.api.MFPPushIntentService">
-            <intent-filter>
-                <action android:name="com.google.firebase.MESSAGING_EVENT" />
-            </intent-filter>
-        </service>
-    ```
-    {: codeblock}
-    {: android}
+   Modify the entries to:
+   {: android}
 
-    Add the following entry:
-    {: android}
+   ```xml
+       <service android:exported="true" android:name="com.ibm.mobilefirstplatform.clientsdk.android.push.api.MFPPushIntentService">
+           <intent-filter>
+               <action android:name="com.google.firebase.MESSAGING_EVENT" />
+           </intent-filter>
+       </service>
+   ```
+   {: codeblock}
+   {: android}
 
-    ```xml
-        <service android:name="com.ibm.mobilefirstplatform.clientsdk.android.push.api.MFPPush"
-                android:exported="true">
-                <intent-filter>
-                    <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
-                </intent-filter>
-        </service>
-    ```
-    {: codeblock}
-    {: android}
+   Add the following entry:
+   {: android}
 
- 4. Open the app in Android Studio. Copy the `google-services.json` file that you have created in the **step-1** inside the app directory. Note that the `google-service.json` file includes the package name you have added.		
- 5. Compile the SDK. Build the application.
+   ```xml
+       <service android:name="com.ibm.mobilefirstplatform.clientsdk.android.push.api.MFPPush"
+               android:exported="true">
+               <intent-filter>
+                   <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+               </intent-filter>
+       </service>
+   ```
+   {: codeblock}
+   {: android}
+
+1. Open the app in Android Studio. Copy the `google-services.json` file that you have created in the **step-1** inside the app directory. Note that the `google-service.json` file includes the package name you have added.		
+
+1. Compile the SDK. Build the application.
 {: android}
 
 ### Handling Push Notifications in iOS
@@ -568,8 +583,8 @@ For information about Silent or Interactive notifications, see:
 {: #prereqs-ios}
 {: ios}
 
-* {{ site.data.keyword.mfserver_short }} to run locally, or a remotely running {{ site.data.keyword.mfserver_short }}.
-* {{ site.data.keyword.mfp_cli_long_notm }} installed on the developer workstation
+* {{site.data.keyword.mfserver_short}} to run locally, or a remotely running {{ site.data.keyword.mfserver_short }}.
+* {{site.data.keyword.mfp_cli_long_notm}} installed on the developer workstation
 {: ios}
 
 #### Notifications Configuration
@@ -577,7 +592,7 @@ For information about Silent or Interactive notifications, see:
 {: ios}
 
 Create a new Xcode project or use and existing one.
-If the {{ site.data.keyword.mobilefirst_notm }} Native iOS SDK is not already present in the project, follow the instructions in the [Adding the {{ site.data.keyword.mobilefoundation_short }} SDK to iOS applications](http://mobilefirstplatform.ibmcloud.com/tutorials/en/foundation/8.0/application-development/sdk/ios/) tutorial.
+If the {{site.data.keyword.mobilefirst_notm}} Native iOS SDK is not already present in the project, follow the instructions in the [Adding the {{ site.data.keyword.mobilefoundation_short }} SDK to iOS applications](http://mobilefirstplatform.ibmcloud.com/tutorials/en/foundation/8.0/application-development/sdk/ios/){: external} tutorial.
 {: ios}
 
 #### Adding the Push SDK
@@ -585,39 +600,41 @@ If the {{ site.data.keyword.mobilefirst_notm }} Native iOS SDK is not already pr
 {: ios}
 
 1. Open the project's existing **podfile** and add the following lines:
-    ```xml
-    use_frameworks!
 
-    platform :ios, 8.0
-    target "Xcode-project-target" do
-         pod 'IBMMobileFirstPlatformFoundation'
-         pod 'IBMMobileFirstPlatformFoundationPush'
-    end
+   ```xml
+   use_frameworks!
 
-    post_install do |installer|
-         workDir = Dir.pwd
+   platform :ios, 8.0
+   target "Xcode-project-target" do
+        pod 'IBMMobileFirstPlatformFoundation'
+        pod 'IBMMobileFirstPlatformFoundationPush'
+   end
 
-         installer.pods_project.targets.each do |target|
-             debugXcconfigFilename = "#{workDir}/Pods/Target Support Files/#{target}/#{target}.debug.xcconfig"
-             xcconfig = File.read(debugXcconfigFilename)
-             newXcconfig = xcconfig.gsub(/HEADER_SEARCH_PATHS = .*/, "HEADER_SEARCH_PATHS = ")
-             File.open(debugXcconfigFilename, "w") { |file| file << newXcconfig }
+   post_install do |installer|
+        workDir = Dir.pwd
 
-             releaseXcconfigFilename = "#{workDir}/Pods/Target Support Files/#{target}/#{target}.release.xcconfig"
-             xcconfig = File.read(releaseXcconfigFilename)
-             newXcconfig = xcconfig.gsub(/HEADER_SEARCH_PATHS = .*/, "HEADER_SEARCH_PATHS = ")
-             File.open(releaseXcconfigFilename, "w") { |file| file << newXcconfig }
-         end
-    end
-    ```
-    {: codeblock}
-    {: ios}
+        installer.pods_project.targets.each do |target|
+            debugXcconfigFilename = "#{workDir}/Pods/Target Support Files/#{target}/#{target}.debug.xcconfig"
+            xcconfig = File.read(debugXcconfigFilename)
+            newXcconfig = xcconfig.gsub(/HEADER_SEARCH_PATHS = .*/, "HEADER_SEARCH_PATHS = ")
+            File.open(debugXcconfigFilename, "w") { |file| file << newXcconfig }
 
-    - Replace **Xcode-project-target** with the name of your Xcode project's target.
-2. Save and close the **podfile**.
-3. From a **Command-line** window, navigate into to the project's root folder.
-4. Run the command `pod install`
-5. Open project using the **.xcworkspace** file.
+            releaseXcconfigFilename = "#{workDir}/Pods/Target Support Files/#{target}/#{target}.release.xcconfig"
+            xcconfig = File.read(releaseXcconfigFilename)
+            newXcconfig = xcconfig.gsub(/HEADER_SEARCH_PATHS = .*/, "HEADER_SEARCH_PATHS = ")
+            File.open(releaseXcconfigFilename, "w") { |file| file << newXcconfig }
+        end
+   end
+   ```
+   {: codeblock}
+   {: ios}
+
+   - Replace **Xcode-project-target** with the name of your Xcode project's target.
+
+1. Save and close the **podfile**.
+1. From a **Command-line** window, navigate into to the project's root folder.
+1. Run the command `pod install`
+1. Open project using the **.xcworkspace** file.
 {: ios}
 
 #### Notifications API
@@ -641,7 +658,7 @@ Alternatively you can call `MFPPush.sharedInstance().methodName()` for each inst
 If the `push.mobileclient` scope is mapped to a **security check**, you need to make sure matching **challenge handlers** exist and are registered before using any of the Push APIs.
 {: ios}
 
-Learn more about challenge handlers in the [credential validation ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://mobilefirstplatform.ibmcloud.com/tutorials/en/foundation/8.0/authentication-and-security/credentials-validation/ios/) tutorial.
+Learn more about challenge handlers in the [credential validation](https://mobilefirstplatform.ibmcloud.com/tutorials/en/foundation/8.0/authentication-and-security/credentials-validation/ios/){: external} tutorial.
 {: note}
 {: ios}
 
@@ -933,17 +950,19 @@ If the {{ site.data.keyword.mobilefirst_notm }} Cordova SDK is not already prese
 {: cordova}
 
 1. From a **command-line** window, navigate to the root of the Cordova project.  
-2. Add the push plug-in to by running the command:
-    ```bash
-    cordova plugin add cordova-plugin-mfp-push
-    ```
-    {: codeblock}
+1. Add the push plug-in to by running the command:
 
-3. Build the Cordova project by running the command:
-    ```bash
-    cordova build
-    ```
-    {: codeblock}
+   ```bash
+   cordova plugin add cordova-plugin-mfp-push
+   ```
+   {: codeblock}
+
+1. Build the Cordova project by running the command:
+
+   ```bash
+   cordova build
+   ```
+   {: codeblock}
 {: cordova}
 
 #### iOS platform
@@ -971,6 +990,7 @@ The Android platform requires an additional step.
 {: cordova}
 
 In Android Studio, add the following `activity` to the `application` tag:
+
 ```xml
 <activity android:name="com.ibm.mobilefirstplatform.clientsdk.android.push.api.MFPPushNotificationHandler" android:theme="@android:style/Theme.NoDisplay"/>
 ```
@@ -1221,8 +1241,8 @@ If the {{ site.data.keyword.mobilefirst_notm }} Native Windows SDK is not alread
 {: windows}
 
 1. Select Tools → NuGet Package Manager → Package Manager Console.
-2. Choose the project where you want to install the {{ site.data.keyword.mobilefirst_notm }} Push component.
-3. Add the {{ site.data.keyword.mobilefirst_notm }} Push SDK by running the **Install-Package IBM.MobileFirstPlatformFoundationPush** command.
+1. Choose the project where you want to install the {{ site.data.keyword.mobilefirst_notm }} Push component.
+1. Add the {{ site.data.keyword.mobilefirst_notm }} Push SDK by running the **Install-Package IBM.MobileFirstPlatformFoundationPush** command.
 {: windows}
 
 #### Pre-requisite WNS configuration
@@ -1230,8 +1250,8 @@ If the {{ site.data.keyword.mobilefirst_notm }} Native Windows SDK is not alread
 {: windows}
 
 1. Ensure the application is with Toast notification capability. This can be enabled in Package.appxmanifest.
-2. Ensure `Package Identity Name` and `Publisher` should be updated with the values registered with WNS.
-3. (Optional) Delete TemporaryKey.pfx file.
+1. Ensure `Package Identity Name` and `Publisher` should be updated with the values registered with WNS.
+1. (Optional) Delete TemporaryKey.pfx file.
 {: windows}
 
 #### Notifications API
@@ -1255,7 +1275,7 @@ Alternatively you can call `MFPPush.GetInstance().methodName()` for each instanc
 If the `push.mobileclient` scope is mapped to a **security check**, you need to make sure matching **challenge handlers** exist and are registered before using any of the Push APIs.
 {: windows}
 
-Learn more about challenge handlers in the [credential validation ![External link icon](../../icons/launch-glyph.svg "External link icon")](http://mobilefirstplatform.ibmcloud.com/tutorials/en/foundation/8.0/authentication-and-security/credentials-validation/windows-8-10/) tutorial.
+Learn more about challenge handlers in the [credential validation ![External link icon](../../icons/launch-glyph.svg "External link icon")](http://mobilefirstplatform.ibmcloud.com/tutorials/en/foundation/8.0/authentication-and-security/credentials-validation/windows-8-10/){: external} tutorial.
 {: note}
 {: windows}
 
@@ -1263,8 +1283,8 @@ Learn more about challenge handlers in the [credential validation ![External lin
 {: #client-side-windows}
 {: windows}
 
-| C Sharp Methods                                                                                                | Description                                                             |
-|--------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------|
+| C Sharp Methods          | Description          |
+|--------------------------|----------------------|
 | [`Initialize()`](#initialization-windows)                                                                            | Initializes MFPPush for supplied context.                               |
 | [`IsPushSupported()`](#is-push-supported-windows)                                                                    | Does the device support push notifications.                             |
 | [`RegisterDevice(JObject options)`](#register-device--send-device-token-windows)                  | Registers the device with the Push Notifications Service.               |
@@ -1448,19 +1468,20 @@ In order to handle a push notification you will need to set up a `MFPPushNotific
 
 1. Create a class by using interface of type MFPPushNotificationListener
 
-    ```csharp
-    internal class NotificationListner : MFPPushNotificationListener
-    {
-         public async void onReceive(String properties, String payload)
-    {
-         // Handle push notification here      
-    }
-    }
-    ```
-    {: codeblock}
+   ```csharp
+   internal class NotificationListner : MFPPushNotificationListener
+   {
+        public async void onReceive(String properties, String payload)
+   {
+        // Handle push notification here      
+   }
+   }
+   ```
+   {: codeblock}
 {: windows}
-2. Set the class to be the listener by calling `MFPPush.GetInstance().listen(new NotificationListner())`
-3. In the onReceive method you will receive the push notification and can handle the notification for the desired behavior.
+
+1. Set the class to be the listener by calling `MFPPush.GetInstance().listen(new NotificationListner())`
+1. In the onReceive method you will receive the push notification and can handle the notification for the desired behavior.
 {: windows}
 
 #### Windows Universal Push Notifications Service

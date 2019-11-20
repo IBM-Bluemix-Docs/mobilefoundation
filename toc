@@ -14,9 +14,7 @@ Mobile Foundation
         pricing.md
         release_notes.md
 
-    {: .topicgroup}
-    Push Notifications
-        about_push_notifications.md
+    about_push_notifications.md
 
     {: .topicgroup}
     Offline Storage
