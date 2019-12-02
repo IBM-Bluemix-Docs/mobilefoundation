@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2019-11-15"
+lastupdated: "2019-11-29"
 
 keywords: export apps, adapters export
 

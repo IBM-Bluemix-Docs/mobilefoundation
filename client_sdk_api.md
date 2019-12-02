@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-11-15"
+lastupdated: "2019-11-29"
 
 keywords: mobile foundation, client sdk, sdk api, javascript api, java api, react native api, objective-c api, csharp api
 
@@ -67,15 +67,15 @@ APIs for native iOS applications.
    Use this push API to develop apps for the iOS environment.
    {: ios }
 
-### Java
+### Java&trade;
 {: java }
 APIs for native Android applications.
 {: java }
 * **[Client-side API](http://mobilefirstplatform.ibmcloud.com/api-ref/wl-android-n-java-apidoc/html/refjava-worklight-android-native/html/index.html){: external}**  
-   You can use Java API to develop apps for the Android environment.
+   You can use Java&trade; API to develop apps for the Android environment.
    {: java }
 * **[Client-side push API](http://mobilefirstplatform.ibmcloud.com/api-ref/push-android-n-java-apidoc/html/refjava-mfp-push-android-native/html/index.html){: external}**  
-   You can use Java push API to develop apps for the Android environment.
+   You can use Java&trade; push API to develop apps for the Android environment.
    {: java }
 * **[Client side JSONStore API](http://mobilefirstplatform.ibmcloud.com/api-ref/mfp-client-android-jsonstore-8/html/refjava-mfp-client-android-jsonstore/html/){: external}**  
    You can use JSONStore API to work with the store for the Android environment.
@@ -95,7 +95,7 @@ APIs for React Native applications.
 
 ### C Sharp
 {: csharp}
-APIs for native Windows 10 UWP, Windows 8 Universal, Xamarin.iOS, and Xamarin.Android applications.
+APIs for native Windows&trade; 10 UWP, Windows&trade; 8 Universal, Xamarin.iOS, and Xamarin.Android applications.
 {: csharp}
 * **[Client-side API for Windows 10 Universal Windows Platform and Windows 8 Universal, Xamarin.iOS, and Xamarin.Android apps](http://public.dhe.ibm.com/software/products/en/MobileFirstPlatform/docs/v800/mfpf_csharp_win8_native_client_api.pdf){: external}**  
    You can use C# API to develop apps for the Windows 10 Universal Windows Platform (UWP), Windows 8 Universal,Xamarin.iOS, and Xamarin.Android environment.

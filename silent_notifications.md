@@ -2,20 +2,26 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-06-06"
+lastupdated: "2019-11-29"
 
 keywords: push notifications, notification, sending silent notifications
 
 subcollection:  mobilefoundation
+
 ---
 
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:tip: .tip}
-{:note: .note}
-{:pre: .pre}
 {:codeblock: .codeblock}
+{:pre: .pre}
 {:screen: .screen}
+{:tsSymptoms: .tsSymptoms}
+{:tsCauses: .tsCauses}
+{:tsResolve: .tsResolve}
+{:tip: .tip}
+{:important: .important}
+{:note: .note}
+{:download: .download}
 {:java: .ph data-hd-programlang='java'}
 {:ruby: .ph data-hd-programlang='ruby'}
 {:c#: .ph data-hd-programlang='c#'}
@@ -38,7 +44,7 @@ Silent notifications are notifications that do not display alerts or otherwise d
 {: shortdesc}
 
 ## Sending silent push notifications
-{: #sending-silent-push-notifications }
+{: #sending-silent-push-notifications}
 
 Prepare the notification and send notification. For more information, see [Sending push notifications](/docs/services/mobilefoundation?topic=mobilefoundation-send_push_notifications#send_push_notifications).
 
@@ -54,7 +60,7 @@ If the notification is silent, the **alert**, **sound**, and **badge** propertie
 ![Setting notification type for iOS silent notifications in the {{ site.data.keyword.mfp_oc_short_notm }}](images/notification-type-for-silent-notifications.png)
 
 ## Handling silent push notifications in Cordova applications
-{: #handling-silent-push-notifications-in-cordova-applications }
+{: #handling-silent-push-notifications-in-cordova-applications}
 
 In the JavaScript push notification callback method, you must do the following steps:
 
@@ -69,7 +75,7 @@ In the JavaScript push notification callback method, you must do the following s
    ```
    {: codeblock}
 
-2. If the notification is silent or mixed, after you complete the background job, invoke `WL.Client.Push.backgroundJobDone` API.
+1. If the notification is silent or mixed, after you complete the background job, invoke `WL.Client.Push.backgroundJobDone` API.
 
 ## Handling silent push notifications in native iOS applications
 {: #handling-silent-push-notifications-in-native-ios-applications }
@@ -77,5 +83,5 @@ In the JavaScript push notification callback method, you must do the following s
 You must follow these steps to receive silent notifications:
 
 1. Enable the application capability to perform background tasks on receiving the remote notifications.
-2. Check whether the notification is silent or not by checking that the `content-available` key is set to **1**.
-3. After you finish processing the notification, you must call the block in the handler parameter immediately, otherwise  your app will be terminated. Your app has up to 30 seconds to process the notification and call the specified completion handler block.
+1. Check whether the notification is silent or not by checking that the `content-available` key is set to **1**.
+1. After you finish processing the notification, you must call the block in the handler parameter immediately, otherwise your app will be terminated. Your app has up to 30 seconds to process the notification and call the specified completion handler block.

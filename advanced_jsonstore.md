@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-11-15"
+lastupdated: "2019-11-29"
 
 keywords: JSONStore, advanced jsonstore, Cordova secure jsonstore, iOS secure jsonstore, android jsonstore, adapter integration
 
@@ -279,7 +279,7 @@ You can achieve these goals by using `WLResourceRequest` or `jQuery.ajax` if you
    {: codeblock}
    {: cordova}
 
-1. To push changes to an adapter, call the `getAllDirty` to get a list of documents with modifications and then use `WLResourceRequest`. After the data is sent and a successful response is received make sure you call `markClean`.
+1. To push changes to an adapter, call the `getAllDirty` to get a list of documents with modifications and then use `WLResourceRequest`. After the data is sent and a successful response is received make sure, you call `markClean`.
 
    ```javascript
    try {
@@ -385,7 +385,7 @@ You can achieve these goals by using `WLResourceRequest`.
    To prevent JSONStore from marking the documents as "dirty", pass the option `{markDirty:false}` to `add`, `replace`, and `remove`.
    {: tip}
 
-1. To push changes to an adapter, call the `allDirty` to get a list of documents with modifications and then use `WLResourceRequest`. After the data is sent and a successful response is received make sure you call `markDocumentsClean`.
+1. To push changes to an adapter, call the `allDirty` to get a list of documents with modifications and then use `WLResourceRequest`. After the data is sent and a successful response is received make sure, you call `markDocumentsClean`.
 
    ```swift
     // Start - PushToAdapter
@@ -427,7 +427,7 @@ You can achieve these goals by using functions such as `WLResourceRequest` or yo
 {: android}
 
 1. Create an adapter and name it **JSONStoreAdapter**.
-1. Define it's procedures `addPerson`, `getPeople`, `pushPeople`, `removePerson`, and `replacePerson`.
+1. Define its procedures `addPerson`, `getPeople`, `pushPeople`, `removePerson`, and `replacePerson`.
 1. To load data from an adapter use `WLResourceRequest`.
 
    ```java
@@ -476,7 +476,7 @@ You can achieve these goals by using functions such as `WLResourceRequest` or yo
    {: tip}
    {: android}
 
-1. To push changes to an adapter, call the `findAllDirtyDocuments` to get a list of documents with modifications and then use `WLResourceRequest`. After the data is sent and a successful response is received make sure you call `markDocumentsClean`.
+1. To push changes to an adapter, call the `findAllDirtyDocuments` to get a list of documents with modifications and then use `WLResourceRequest`. After the data is sent and a successful response is received make sure, you call `markDocumentsClean`.
 
    ```java
     WLResponseListener responseListener = new WLResponseListener() {

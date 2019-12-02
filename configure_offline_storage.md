@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-11-15"
+lastupdated: "2019-11-29"
 
 keywords: JSONStore, offline storage, add jsonstore to cordova, add jsonstore to iOS, add jsonstore to android, jsonstore methods, jsonstore operations
 
@@ -204,7 +204,7 @@ WL.JSONStore.get(collectionName).replace(document, options).then(function (numbe
 {: codeblock}
 {: cordova}
 
-This examples assumes that the document `{_id: 1, json: {name: 'yoel', age: 23} }` is in the collection.
+This example assumes that the document `{_id: 1, json: {name: 'yoel', age: 23} }` is in the collection.
 {: cordova}
 
 ### Remove documents from a Cordova collection
@@ -250,7 +250,7 @@ Use `destroy` to remove the following data:
 {: #configure_offline_storage_ios}
 {: ios}
 
-Make sure the Mobile Foundation Native SDK was added to the Xcode project.
+Make sure that the Mobile Foundation Native SDK was added to the Xcode project.
 {: ios}
 
 Follow the [Adding the Mobile Foundation SDK to iOS applications](https://mobilefirstplatform.ibmcloud.com/tutorials/en/foundation/8.0/application-development/sdk/ios/){: external} tutorial.
@@ -476,7 +476,7 @@ do {
 {: #configure_offline_storage_android}
 {: android}
 
-Make sure the Mobile Foundation Native SDK was added to the Android Studio project.
+Make sure that the Mobile Foundation Native SDK was added to the Android Studio project.
 {: android}
 
 Follow the [Adding the Mobile Foundation SDK to Android applications](https://mobilefirstplatform.ibmcloud.com/tutorials/en/foundation/8.0/application-development/sdk/android/){: external} tutorial.

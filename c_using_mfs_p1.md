@@ -2,7 +2,7 @@
 
 copyright:
   years: 2016, 2019
-lastupdated: "2019-11-15"
+lastupdated: "2019-11-29"
 
 keywords: mobile foundation developer, mobile analytics
 

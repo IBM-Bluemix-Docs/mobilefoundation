@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-11-15"
+lastupdated: "2019-11-29"
 
 keywords: push notifications, notifications, set up android app for notification, set up iOS app for notification, set up cordova app for notification, set up windows app for notification
 
@@ -38,37 +38,37 @@ subcollection:  mobilefoundation
 {:xml: .ph data-hd-programlang='xml'}
 {:windows: .ph data-hd-programlang='Windows'}
 
-# Handling Push Notifications in client applications
+# Handling {{site.data.keyword.mobilepushshort}} in client applications
 {: #handling_push_notifications_in_client_applications}
 
-Before iOS, Android and Windows Native-based or Cordova-based applications are able to receive and display incoming push notifications, the application must first be set-up, and APIs must be implemented.
+Before iOS, Android and Windows&trade; Native-based or Cordova-based applications are able to receive and display incoming push notifications, the application must first be set up, and APIs must be implemented.
 {: shortdesc}
 
 Refer to the following sections to learn how to handle incoming push notifications in client applications:
 
-### Handling Push Notifications in Android
+## Handling {{site.data.keyword.mobilepushshort}} in Android
 {: #handling_push_notifications_in_android}
 {: android}
-Before Android applications are able to handle any received push notifications, support for Google Play Services needs to be configured. Once an application has been configured, {{ site.data.keyword.mobilefirst_notm }}-provided Notifications API can be used in order to register &amp; unregister devices, and subscribe &amp; unsubscribe to tags. In this tutorial, you will learn how to handle push notification in Android applications.
+Before Android applications are able to handle any received push notifications, support for Google Play Services needs to be configured. After an application is configured, {{site.data.keyword.mobilefirst_notm}}-provided Notifications API can be used to register &amp; unregister devices, and subscribe &amp; unsubscribe to tags. In this tutorial, you learn how to handle push notification in Android applications.
 {: android}
 
-#### Prerequisites
+### Prerequisites
 {: #prereqs-andriod}
 {: android}
-* {{ site.data.keyword.mfserver_short_notm }} to run locally, or a remotely running {{ site.data.keyword.mfserver_short_notm }}.
-* {{ site.data.keyword.mobilefirst_notm  }} CLI installed on the developer workstation
+* {{site.data.keyword.mfserver_short_notm}} to run locally, or a remotely running {{site.data.keyword.mfserver_short_notm}}.
+* {{site.data.keyword.mobilefirst_notm}} CLI installed on the developer workstation
 {: android}
 
-#### Notifications Configuration
-{: #notifications-configuration }
+### Notifications Configuration
+{: #notifications-configuration}
 {: android}
 
 Create a new Android Studio project or use an existing one.  
-If the {{ site.data.keyword.mobilefirst_notm }} Native Android SDK is not already present in the project, follow the instructions in the [Adding the {{ site.data.keyword.mobilefoundation_short }} SDK to Android applications](https://cloud.ibm.com/docs/services/mobilefoundation/add_sdk_to_app.html#add_sdk_to_app) tutorial.
+If the {{site.data.keyword.mobilefirst_notm}} Native Android SDK is not already present in the project, follow the instructions in the [Adding the {{site.data.keyword.mobilefoundation_short}} SDK to Android applications](https://cloud.ibm.com/docs/services/mobilefoundation/add_sdk_to_app.html#add_sdk_to_app) tutorial.
 {: android}
 
-##### Project setup
-{: #project-setup }
+### Project setup
+{: #project-setup}
 {: android}
 
 1. In **Android → Gradle scripts**, select the **build.gradle (Module: app)** file and add the following lines to `dependencies`:
@@ -173,12 +173,12 @@ If the {{ site.data.keyword.mobilefirst_notm }} Native Android SDK is not alread
       {: codeblock}
       {: android}
 
-#### Notifications API
-{: #notifications-api }
+### Notifications API
+{: #notifications-api}
 {: android}
 
-##### MFPPush Instance
-{: #mfppush-instance }
+#### MFPPush Instance
+{: #mfppush-instance}
 {: android}
 
 All API calls must be called on an instance of `MFPPush`.  This can be done by creating a class level field such as `private MFPPush push = MFPPush.getInstance();`, and then calling `push.<api-call>` throughout the class.
@@ -187,35 +187,35 @@ All API calls must be called on an instance of `MFPPush`.  This can be done by c
 Alternatively you can call `MFPPush.getInstance().<api_call>` for each instance in which you need to access the push API methods.
 {: android}
 
-##### Challenge Handlers
-{: #challenge-handlers }
+#### Challenge Handlers
+{: #challenge-handlers}
 {: android}
 
 If the `push.mobileclient` scope is mapped to a **security check**, you need to make sure matching **challenge handlers** exist and are registered before using any of the Push APIs.
 {: android}
 
-Learn more about challenge handlers in the [credential validation ![External link icon](../../icons/launch-glyph.svg "External link icon")](http://mobilefirstplatform.ibmcloud.com/tutorials/en/foundation/8.0/authentication-and-security/credentials-validation/android/) tutorial.
+Learn more about challenge handlers in the [credential validation](http://mobilefirstplatform.ibmcloud.com/tutorials/en/foundation/8.0/authentication-and-security/credentials-validation/android/){: external} tutorial.
 {: note}
 {: android}
 
-##### Client-side
-{: #client-side }
+#### Client-side
+{: #client-side}
 {: android}
 
-| Java Methods | Description |
+| Java&trade; Methods | Description |
 |-----------------------------------------------------|-------------------------------------------|
 | [`initialize(Context context);`](#initialization) | Initializes MFPPush for supplied context. |
 | [`isPushSupported();`](#is-push-supported) | Does the device support push notifications. |
 | [`registerDevice(JSONObject, MFPPushResponseListener);`](#register-device) | Registers the device with the Push Notifications Service. |
-| [`getTags(MFPPushResponseListener)`](#get-tags) | Retrieves the tag(s) available in a push notification service instance. |
-| [`subscribe(String[] tagNames, MFPPushResponseListener)`](#subscribe) | Subscribes the device to the specified tag(s). |
-| [`getSubscriptions(MFPPushResponseListener)`](#get-subscriptions) | Retrieves all tags the device is currently subscribed to. |
-| [`unsubscribe(String[] tagNames, MFPPushResponseListener)`](#unsubscribe) | Unsubscribes from a particular tag(s). |
+| [`getTags(MFPPushResponseListener)`](#get-tags) | Retrieves one or more tags available in a push notification service instance. |
+| [`subscribe(String[] tagNames, MFPPushResponseListener)`](#subscribe) | Subscribes the device to the specified tags. |
+| [`getSubscriptions(MFPPushResponseListener)`](#get-subscriptions) | Retrieves all tags that the device is subscribed to. |
+| [`unsubscribe(String[] tagNames, MFPPushResponseListener)`](#unsubscribe) | Unsubscribes from a particular tags. |
 | [`unregisterDevice(MFPPushResponseListener)`](#unregister) | Unregisters the device from the Push Notifications Service |
 {: caption="Table 1. Java methods" caption-side="top"}
 {: android}
 
-###### Initialization
+##### Initialization
 {: #initialization}
 {: android}
 
@@ -232,8 +232,8 @@ MFPPush.getInstance().initialize(this);
 {: codeblock}
 {: android}
 
-###### Is push supported
-{: #is-push-supported }
+##### Is push supported
+{: #is-push-supported}
 {: android}
 
 Checks if the device supports push notifications.
@@ -251,11 +251,11 @@ if (isSupported ) {
 {: codeblock}
 {: android}
 
-###### Register device
-{: #register-device }
+##### Register device
+{: #register-device}
 {: android}
 
-Register the device to the push notifications service.
+Register the device to the {{site.data.keyword.mobilepushshort}} service.
 {: android}
 
 ```java
@@ -274,8 +274,8 @@ MFPPush.getInstance().registerDevice(null, new MFPPushResponseListener<String>()
 {: codeblock}
 {: android}
 
-###### Get tags
-{: #get-tags }
+##### Get tags
+{: #get-tags}
 {: android}
 
 Retrieve all the available tags from the push notification service.
@@ -297,8 +297,8 @@ MFPPush.getInstance().getTags(new MFPPushResponseListener<List<String>>() {
 {: codeblock}
 {: android}
 
-###### Subscribe
-{: #subscribe }
+##### Subscribe
+{: #subscribe}
 {: android}
 
 Subscribe to desired tags.
@@ -322,11 +322,11 @@ MFPPush.getInstance().subscribe(tags, new MFPPushResponseListener<String[]>() {
 {: codeblock}
 {: android}
 
-###### Get subscriptions
-{: #get-subscriptions }
+##### Get subscriptions
+{: #get-subscriptions}
 {: android}
 
-Retrieve tags the device is currently subscribed to.
+Retrieve tags the device is subscribed to.
 {: android}
 
 ```java
@@ -345,8 +345,8 @@ MFPPush.getInstance().getSubscriptions(new MFPPushResponseListener<List<String>>
 {: codeblock}
 {: android}
 
-###### Unsubscribe
-{: #unsubscribe }
+##### Unsubscribe
+{: #unsubscribe}
 {: android}
 
 Unsubscribe from tags.
@@ -370,8 +370,8 @@ MFPPush.getInstance().unsubscribe(tags, new MFPPushResponseListener<String[]>() 
 {: codeblock}
 {: android}
 
-###### Unregister
-{: #unregister }
+##### Unregister
+{: #unregister}
 {: android}
 
 Unregister the device from push notification service instance.
@@ -394,23 +394,23 @@ MFPPush.getInstance().unregisterDevice(new MFPPushResponseListener<String>() {
 {: codeblock}
 {: android}
 
-#### Handling a push notification
-{: #handling-a-push-notification }
+### Handling a {{site.data.keyword.mobilepushshort}}
+{: #handling-a-push-notification}
 {: android}
 
-In order to handle a push notification you will need to set up a `MFPPushNotificationListener`.  This can be achieved by implementing one of the following methods.
+In order to handle a push notification, you need to set up a `MFPPushNotificationListener`. This can be achieved by implementing one of the following methods.
 {: android}
 
-##### Option One
-{: #option-one }
+#### Option One
+{: #option-one}
 {: android}
 
-In the activity in which you wish the handle push notifications.
+In the activity, in which you want the handle push notifications.
 {: android}
 
 1. Add `implements MFPPushNofiticationListener` to the class declaration.
 1. Set the class to be the listener by calling `MFPPush.getInstance().listen(this)` in the `onCreate` method.
-1. Then you will need to add the following *required* method:
+1. Then, you need to add the following *required* method:
 
    ```java
    @Override
@@ -421,11 +421,11 @@ In the activity in which you wish the handle push notifications.
    {: codeblock}
    {: android}
 
-1. In this method you will receive the `MFPSimplePushNotification` and can handle the notification for the desired behavior.
+1. In this method, you receive the `MFPSimplePushNotification` and can handle the notification for the desired behavior.
 {: android}
 
-##### Option Two
-{: #option-two }
+#### Option Two
+{: #option-two}
 {: android}
 
 Create a listener by calling `listen(new MFPPushNofiticationListener())` on an instance of `MFPPush` as outlined in the following example:
@@ -441,8 +441,8 @@ MFPPush.getInstance().listen(new MFPPushNotificationListener() {
 {: codeblock}
 {: android}
 
-#### Migrate your client Apps on Android to FCM
-{: #migrate-to-fcm }
+### Migrate your client Apps on Android to FCM
+{: #migrate-to-fcm}
 {: android}
 
 Google Cloud Messaging (GCM) has been [deprecated](https://developers.google.com/cloud-messaging/faq) and is integrated with Firebase Cloud Messaging (FCM). Google will turn off most GCM services by April 2019.
@@ -451,14 +451,14 @@ Google Cloud Messaging (GCM) has been [deprecated](https://developers.google.com
 If you are using a GCM project, [then migrate the GCM client apps on Android to FCM](https://developers.google.com/cloud-messaging/android/android-migrate-fcm) .
 {: android}
 
-For now, the existing applications using GCM services will continue to work as-is. Since the Push Notifications service has been updated to use the FCM endpoints, going forward all the new applications must be using FCM.
+For now, the existing applications using GCM services will continue to work as-is. Since the {{site.data.keyword.mobilepushshort}} service has been updated to use the FCM endpoints, going forward all the new applications must be using FCM.
 {: android}
 
 After migrating to FCM, update your project to use FCM credentials instead of the old GCM credentials.
 {: note}
 {: android}
 
-##### FCM Project Setup
+#### FCM Project Setup
 {: #fcm_project_setup}
 {: android}
 
@@ -493,29 +493,29 @@ Setting up an application in FCM is a bit different compared to the old GCM mode
  1. Configure the AndroidManifest file. Following changes are required in the `AndroidManifest.xml`
    {: android}
 
-   Remove the following entries :
+   Remove the following entries:
    {: android}
 
    ```xml
-       <receiver android:exported="true" android:name="com.google.android.gms.gcm.GcmReceiver" android:permission="com.google.android.c2dm.permission.SEND">
-           <intent-filter>
-               <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-               <category android:name="your.application.package.name" />
-           </intent-filter>
-           <intent-filter>
-               <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
-               <category android:name="your.application.package.name" />
-           </intent-filter>
-       </receiver>  
+   <receiver android:exported="true" android:name="com.google.android.gms.gcm.GcmReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+       <intent-filter>
+           <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+           <category android:name="your.application.package.name" />
+       </intent-filter>
+       <intent-filter>
+           <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+           <category android:name="your.application.package.name" />
+       </intent-filter>
+   </receiver>  
 
-       <service android:exported="false" android:name="com.ibm.mobilefirstplatform.clientsdk.android.push.api.MFPPushInstanceIDListenerService">
-           <intent-filter>
-               <action android:name="com.google.android.gms.iid.InstanceID" />
-           </intent-filter>
-       </service>
+   <service android:exported="false" android:name="com.ibm.mobilefirstplatform.clientsdk.android.push.api.MFPPushInstanceIDListenerService">
+       <intent-filter>
+           <action android:name="com.google.android.gms.iid.InstanceID" />
+       </intent-filter>
+   </service>
 
-       <uses-permission android:name="your.application.package.name.permission.C2D_MESSAGE" />
-       <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+   <uses-permission android:name="your.application.package.name.permission.C2D_MESSAGE" />
+   <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
    ```
    {: codeblock}
    {: android}
@@ -524,11 +524,11 @@ Setting up an application in FCM is a bit different compared to the old GCM mode
    {: android}
 
    ```xml
-       <service android:exported="true" android:name="com.ibm.mobilefirstplatform.clientsdk.android.push.api.MFPPushIntentService">
-           <intent-filter>
-               <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-           </intent-filter>
-       </service>
+   <service android:exported="true" android:name="com.ibm.mobilefirstplatform.clientsdk.android.push.api.MFPPushIntentService">
+       <intent-filter>
+           <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+       </intent-filter>
+   </service>
    ```
    {: codeblock}
    {: android}
@@ -537,11 +537,11 @@ Setting up an application in FCM is a bit different compared to the old GCM mode
    {: android}
 
    ```xml
-       <service android:exported="true" android:name="com.ibm.mobilefirstplatform.clientsdk.android.push.api.MFPPushIntentService">
-           <intent-filter>
-               <action android:name="com.google.firebase.MESSAGING_EVENT" />
-           </intent-filter>
-       </service>
+   <service android:exported="true" android:name="com.ibm.mobilefirstplatform.clientsdk.android.push.api.MFPPushIntentService">
+       <intent-filter>
+           <action android:name="com.google.firebase.MESSAGING_EVENT" />
+       </intent-filter>
+   </service>
    ```
    {: codeblock}
    {: android}
@@ -550,12 +550,12 @@ Setting up an application in FCM is a bit different compared to the old GCM mode
    {: android}
 
    ```xml
-       <service android:name="com.ibm.mobilefirstplatform.clientsdk.android.push.api.MFPPush"
-               android:exported="true">
-               <intent-filter>
-                   <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
-               </intent-filter>
-       </service>
+   <service android:name="com.ibm.mobilefirstplatform.clientsdk.android.push.api.MFPPush"
+           android:exported="true">
+           <intent-filter>
+               <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+           </intent-filter>
+   </service>
    ```
    {: codeblock}
    {: android}
@@ -565,11 +565,11 @@ Setting up an application in FCM is a bit different compared to the old GCM mode
 1. Compile the SDK. Build the application.
 {: android}
 
-### Handling Push Notifications in iOS
-{: #handling_push_notifications_in_ios }
+## Handling Push Notifications in iOS
+{: #handling_push_notifications_in_ios}
 {: ios}
 
-{{ site.data.keyword.mobilefirst_notm }}-provided Notifications API can be used in order to register &amp; unregister devices, and subscribe &amp; unsubscribe to tags. In this tutorial, you will learn how to handle push notification in iOS applications using Swift.
+{{site.data.keyword.mobilefirst_notm}}-provided Notifications API can be used in order to register &amp; unregister devices, and subscribe &amp; unsubscribe to tags. In this tutorial, you will learn how to handle push notification in iOS applications using Swift.
 {: shortdesc}
 {: ios}
 
@@ -579,24 +579,24 @@ For information about Silent or Interactive notifications, see:
 * [Interactive Notifications](/docs/services/mobilefoundation?topic=mobilefoundation-interactive_notifications#interactive_notifications)
 {: ios}
 
-#### Prerequisites
+### Prerequisites
 {: #prereqs-ios}
 {: ios}
 
-* {{site.data.keyword.mfserver_short}} to run locally, or a remotely running {{ site.data.keyword.mfserver_short }}.
+* {{site.data.keyword.mfserver_short}} to run locally, or a remotely running {{site.data.keyword.mfserver_short}}.
 * {{site.data.keyword.mfp_cli_long_notm}} installed on the developer workstation
 {: ios}
 
-#### Notifications Configuration
+### Notifications Configuration
 {: #notifications-configuration_ios}
 {: ios}
 
 Create a new Xcode project or use and existing one.
-If the {{site.data.keyword.mobilefirst_notm}} Native iOS SDK is not already present in the project, follow the instructions in the [Adding the {{ site.data.keyword.mobilefoundation_short }} SDK to iOS applications](http://mobilefirstplatform.ibmcloud.com/tutorials/en/foundation/8.0/application-development/sdk/ios/){: external} tutorial.
+If the {{site.data.keyword.mobilefirst_notm}} Native iOS SDK is not already present in the project, follow the instructions in the [Adding the {{site.data.keyword.mobilefoundation_short}} SDK to iOS applications](http://mobilefirstplatform.ibmcloud.com/tutorials/en/foundation/8.0/application-development/sdk/ios/){: external} tutorial.
 {: ios}
 
-#### Adding the Push SDK
-{: #adding-the-push-sdk }
+### Adding the Push SDK
+{: #adding-the-push-sdk}
 {: ios}
 
 1. Open the project's existing **podfile** and add the following lines:
@@ -637,11 +637,11 @@ If the {{site.data.keyword.mobilefirst_notm}} Native iOS SDK is not already pres
 1. Open project using the **.xcworkspace** file.
 {: ios}
 
-#### Notifications API
+### Notifications API
 {: #notifications-api-ios}
 {: ios}
 
-##### MFPPush Instance
+#### MFPPush Instance
 {: #mfppush-instance-ios}
 {: ios}
 
@@ -651,7 +651,7 @@ All API calls must be called on an instance of `MFPPush`. This can be done by us
 Alternatively you can call `MFPPush.sharedInstance().methodName()` for each instance in which you need to access the push API methods.
 {: ios}
 
-#### Challenge Handlers
+### Challenge Handlers
 {: #challenge-handlers-ios}
 {: ios}
 
@@ -662,7 +662,7 @@ Learn more about challenge handlers in the [credential validation](https://mobil
 {: note}
 {: ios}
 
-#### Client-side
+### Client-side
 {: #client-side-ios}
 {: ios}
 
@@ -680,7 +680,7 @@ Learn more about challenge handlers in the [credential validation](https://mobil
 {: caption="Table 2. Swift methods" caption-side="top"}
 {: ios}
 
-##### Initialization
+#### Initialization
 {: #initialization-ios}
 {: ios}
 
@@ -697,7 +697,7 @@ MFPPush.sharedInstance().initialize();
 {: codeblock}
 {: ios}
 
-##### Is push supported
+#### Is push supported
 {: #is-push-supported-ios}
 {: ios}
 
@@ -716,11 +716,11 @@ if isPushSupported {
 {: codeblock}
 {: ios}
 
-##### Register device &amp; send device token
+#### Register device &amp; send device token
 {: #register-device--send-device-token-ios}
 {: ios}
 
-Register the device to the push notifications service.
+Register the device to the {{site.data.keyword.mobilepushshort}} service.
 {: ios}
 
 ```swift
@@ -750,7 +750,7 @@ This is typically called in the **AppDelegate** in the `didRegisterForRemoteNoti
 {: note}
 {: ios}
 
-##### Get tags
+#### Get tags
 {: #get-tags-ios}
 {: ios}
 
@@ -779,7 +779,7 @@ MFPPush.sharedInstance().getTags { (response, error) -> Void in
 {: codeblock}
 {: ios}
 
-##### Subscribe
+#### Subscribe
 {: #subscribe-ios}
 {: ios}
 
@@ -802,7 +802,7 @@ MFPPush.sharedInstance().subscribe(self.tagsArray) { (response, error)  -> Void 
 {: codeblock}
 {: ios}
 
-##### Get subscriptions
+#### Get subscriptions
 {: #get-subscriptions-ios}
 {: ios}
 
@@ -831,7 +831,7 @@ MFPPush.sharedInstance().getSubscriptions { (response, error) -> Void in
 {: codeblock}
 {: ios}
 
-##### Unsubscribe
+#### Unsubscribe
 {: #unsubscribe-ios}
 {: ios}
 
@@ -855,7 +855,7 @@ MFPPush.sharedInstance().unsubscribe(self.tagsArray) { (response, error)  -> Voi
 {: codeblock}
 {: ios}
 
-##### Unregister
+#### Unregister
 {: #unregister-ios}
 {: ios}
 
@@ -878,7 +878,7 @@ MFPPush.sharedInstance().unregisterDevice { (response, error)  -> Void in
 {: codeblock}
 {: ios}
 
-#### Handling a push notification
+### Handling a push notification
 {: #handling-a-push-notification-ios}
 {: ios}
 
@@ -902,12 +902,12 @@ func application(_ application: UIApplication, didReceiveRemoteNotification user
 {: codeblock}
 {: ios}
 
-Learn more about handling notifications in iOS from the [Apple documentation ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://developer.apple.com/library/archive/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html#//apple_ref/doc/uid/TP40008194-CH8-SW1).
+Learn more about handling notifications in iOS from the [Apple documentation](https://developer.apple.com/library/archive/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html#//apple_ref/doc/uid/TP40008194-CH8-SW1){: external}.
 {: note}
 {: ios}
 
-### Handling Push Notifications in Cordova
-{: #handling_push_notifications_in_cordova }
+## Handling Push Notifications in Cordova
+{: #handling_push_notifications_in_cordova}
 {: cordova}
 
 Before iOS, Android and Windows Cordova applications are able to receive and display push notifications, the **cordova-plugin-mfp-push** Cordova plug-in needs to be added to the Cordova project. Once an application has been configured, {{ site.data.keyword.mobilefirst_notm }}-provided Notifications API can be used in order to register &amp; unregister devices, subscribe &amp; unsubscribe tags and handle notifications. In this tutorial, you will learn how to handle push notification in Cordova applications.
@@ -925,27 +925,27 @@ For information about Silent or Interactive notifications in iOS, see:
 * [Interactive Notifications](/docs/services/mobilefoundation?topic=mobilefoundation-interactive_notifications#interactive_notifications)
 {: cordova}
 
-#### Prerequisites
+### Prerequisites
 {: #prereqs-cordova}
 {: cordova}
 
-* {{ site.data.keyword.mfserver_short }} to run locally, or a remotely running {{ site.data.keyword.mfserver_short }}
-* {{ site.data.keyword.mfp_cli_long_notm }} installed on the developer workstation
+* {{site.data.keyword.mfserver_short}} to run locally, or a remotely running {{site.data.keyword.mfserver_short}}
+* {{site.data.keyword.mfp_cli_long_notm}} installed on the developer workstation
 * Cordova CLI installed on the developer workstation
 {: cordova}
 
-#### Notifications Configuration
+### Notifications Configuration
 {: #notifications-configuration-cordova}
 {: cordova}
 
 Create a new Cordova project or use an existing one, and add one or more of the supported platforms: iOS, Android, Windows.
 {: cordova}
 
-If the {{ site.data.keyword.mobilefirst_notm }} Cordova SDK is not already present in the project, follow the instructions in the [Adding the {{ site.data.keyword.mobilefirst_notm }} SDK to Cordova applications](http://mobilefirstplatform.ibmcloud.com/tutorials/en/foundation/8.0/application-development/sdk/cordova/) tutorial.
+If the {{site.data.keyword.mobilefirst_notm}} Cordova SDK is not already present in the project, follow the instructions in the [Adding the {{site.data.keyword.mobilefirst_notm}} SDK to Cordova applications](http://mobilefirstplatform.ibmcloud.com/tutorials/en/foundation/8.0/application-development/sdk/cordova/) tutorial.
 {: cordova}
 {: note}
 
-#### Adding the Push plug-in
+### Adding the Push plug-in
 {: #adding-the-push-plug-in-cordova}
 {: cordova}
 
@@ -965,8 +965,8 @@ If the {{ site.data.keyword.mobilefirst_notm }} Cordova SDK is not already prese
    {: codeblock}
 {: cordova}
 
-#### iOS platform
-{: #ios-platform }
+### iOS platform
+{: #ios-platform}
 {: cordova}
 
 The iOS platform requires an additional step.  
@@ -982,8 +982,8 @@ The bundleId selected for the application must match the AppId that you have pre
 ![image of where is the capability in Xcode](images/push-capability.png)
 {: cordova}
 
-#### Android platform
-{: #android-platform }
+### Android platform
+{: #android-platform}
 {: cordova}
 
 The Android platform requires an additional step.  
@@ -997,11 +997,11 @@ In Android Studio, add the following `activity` to the `application` tag:
 {: codeblock}
 {: cordova}
 
-#### Notifications API
+### Notifications API
 {: #notifications-api-cordova}
 {: cordova}
 
-##### Client-side
+#### Client-side
 {: #client-side-cordova}
 {: cordova}
 
@@ -1018,11 +1018,11 @@ In Android Studio, add the following `activity` to the `application` tag:
 {: caption="Table 3. Javascript functions" caption-side="top"}
 {: cordova}
 
-##### API implementation
-{: #api-implementation }
+#### API implementation
+{: #api-implementation}
 {: cordova}
 
-###### Initialization
+##### Initialization
 {: #initialization-cordova}
 {: cordova}
 
@@ -1048,7 +1048,7 @@ MFPPush.initialize (
 {: codeblock}
 {: cordova}
 
-###### Is push supported
+##### Is push supported
 {: #is-push-supported-cordova}
 {: cordova}
 
@@ -1068,11 +1068,11 @@ MFPPush.isPushSupported (
 {: codeblock}
 {: cordova}
 
-###### Register device
+##### Register device
 {: #register-device-cordova}
 {: cordova}
 
-Register the device to the push notifications service. If no options are required, options can be set to `null`.
+Register the device to the {{site.data.keyword.mobilepushshort}} service. If no options are required, options can be set to `null`.
 {: cordova}
 
 ```javascript
@@ -1090,7 +1090,7 @@ MFPPush.registerDevice(
 {: codeblock}
 {: cordova}
 
-###### Get tags
+##### Get tags
 {: #get-tags-cordova}
 {: cordova}
 
@@ -1110,7 +1110,7 @@ MFPPush.getTags (
 {: codeblock}
 {: cordova}
 
-###### Subscribe
+##### Subscribe
 {: #subscribe-cordova}
 {: cordova}
 
@@ -1133,7 +1133,7 @@ MFPPush.subscribe(
 {: codeblock}
 {: cordova}
 
-###### Get subscriptions
+##### Get subscriptions
 {: #get-subscriptions-cordova}
 {: cordova}
 
@@ -1153,7 +1153,7 @@ MFPPush.getSubscriptions (
 {: codeblock}
 {: cordova}
 
-###### Unsubscribe
+##### Unsubscribe
 {: #unsubscribe-cordova}
 {: cordova}
 
@@ -1176,7 +1176,7 @@ MFPPush.unsubscribe(
 {: codeblock}
 {: cordova}
 
-###### Unregister
+##### Unregister
 {: #unregister-cordova}
 {: cordova}
 
@@ -1196,7 +1196,7 @@ MFPPush.unregisterDevice(
 {: codeblock}
 {: cordova}
 
-#### Handling a push notification
+### Handling a push notification
 {: #handling-a-push-notification-cordova}
 {: cordova}
 
@@ -1211,14 +1211,14 @@ var notificationReceived = function(message) {
 {: codeblock}
 {: cordova}
 
-### Handling Push Notifications in Windows 8.1 Universal and Windows 10 UWP
-{: #handling_push_notifications_in_windows }
+## Handling Push Notifications in Windows 8.1 Universal and Windows 10 UWP
+{: #handling_push_notifications_in_windows}
 {: windows}
 
 {{ site.data.keyword.mobilefirst_notm }}-provided Notifications API can be used in order to register &amp; unregister devices, and subscribe &amp; unsubscribe to tags. In this tutorial, you will learn how to handle push notification in native Windows 8.1 Universal and Windows 10 UWP applications using C#.
 {: windows}
 
-#### Prerequisites
+### Prerequisites
 {: #prereqs-windows}
 {: windows}
 
@@ -1226,7 +1226,7 @@ var notificationReceived = function(message) {
 * {{ site.data.keyword.mobilefirst_notm  }} CLI installed on the developer workstation
 {: windows}
 
-#### Notifications Configuration
+### Notifications Configuration
 {: #notifications-configuration-windows}
 {: windows}
 
@@ -1236,7 +1236,7 @@ Create a new Visual Studio project or use an existing one.
 If the {{ site.data.keyword.mobilefirst_notm }} Native Windows SDK is not already present in the project, follow the instructions in the [Adding the {{ site.data.keyword.mobilefirst_notm }} SDK to Windows applications](http://mobilefirstplatform.ibmcloud.com/tutorials/en/foundation/8.0/application-development/sdk/windows-8-10/) tutorial.
 {: windows}
 
-#### Adding the Push SDK
+### Adding the Push SDK
 {: #adding-the-push-sdk-windows}
 {: windows}
 
@@ -1245,8 +1245,8 @@ If the {{ site.data.keyword.mobilefirst_notm }} Native Windows SDK is not alread
 1. Add the {{ site.data.keyword.mobilefirst_notm }} Push SDK by running the **Install-Package IBM.MobileFirstPlatformFoundationPush** command.
 {: windows}
 
-#### Pre-requisite WNS configuration
-{: pre-requisite-wns-configuration }
+### Pre-requisite WNS configuration
+{: pre-requisite-wns-configuration}
 {: windows}
 
 1. Ensure the application is with Toast notification capability. This can be enabled in Package.appxmanifest.
@@ -1254,11 +1254,11 @@ If the {{ site.data.keyword.mobilefirst_notm }} Native Windows SDK is not alread
 1. (Optional) Delete TemporaryKey.pfx file.
 {: windows}
 
-#### Notifications API
+### Notifications API
 {: #notifications-api-windows}
 {: windows}
 
-##### MFPPush Instance
+#### MFPPush Instance
 {: #mfppush-instance-windows}
 {: windows}
 
@@ -1268,7 +1268,7 @@ All API calls must be called on an instance of `MFPPush`.  This can be done by c
 Alternatively you can call `MFPPush.GetInstance().methodName()` for each instance in which you need to access the push API methods.
 {: windows}
 
-##### Challenge Handlers
+#### Challenge Handlers
 {: #challenge-handlers-windows}
 {: windows}
 
@@ -1279,7 +1279,7 @@ Learn more about challenge handlers in the [credential validation ![External lin
 {: note}
 {: windows}
 
-#### Client-side
+### Client-side
 {: #client-side-windows}
 {: windows}
 
@@ -1296,7 +1296,7 @@ Learn more about challenge handlers in the [credential validation ![External lin
 {: caption="Table 4. C Sharp methods" caption-side="top"}
 {: windows}
 
-##### Initialization
+#### Initialization
 {: #initialization-windows}
 {: windows}
 
@@ -1313,7 +1313,7 @@ MFPPush.GetInstance().Initialize();
 {: codeblock}
 {: windows}
 
-##### Is push supported
+#### Is push supported
 {: #is-push-supported-windows}
 {: windows}
 
@@ -1332,7 +1332,7 @@ if (isSupported ) {
 {: codeblock}
 {: windows}
 
-##### Register device &amp; send device token
+#### Register device &amp; send device token
 {: #register-device--send-device-token-windows}
 {: windows}
 
@@ -1352,7 +1352,7 @@ if (Response.Success == true)
 {: codeblock}
 {: windows}
 
-##### Get tags
+#### Get tags
 {: #get-tags-windows}
 {: windows}
 
@@ -1371,7 +1371,7 @@ if (Response.Success == true)
 {: codeblock}
 {: windows}
 
-##### Subscribe
+#### Subscribe
 {: #subscribe-windows}
 {: windows}
 
@@ -1395,7 +1395,7 @@ else
 {: codeblock}
 {: windows}
 
-##### Get subscriptions
+#### Get subscriptions
 {: #get-subscriptions-windows}
 {: windows}
 
@@ -1416,7 +1416,7 @@ else
 {: codeblock}
 {: windows}
 
-##### Unsubscribe
+#### Unsubscribe
 {: #unsubscribe-windows}
 {: windows}
 
@@ -1440,7 +1440,7 @@ else
 {: codeblock}
 {: windows}
 
-##### Unregister
+#### Unregister
 {: #unregister-windows}
 {: windows}
 
@@ -1459,7 +1459,7 @@ if (Response.Success == true)
 {: codeblock}
 {: windows}
 
-#### Handling a push notification
+### Handling a push notification
 {: #handling-a-push-notification-windows}
 {: windows}
 
@@ -1484,8 +1484,8 @@ In order to handle a push notification you will need to set up a `MFPPushNotific
 1. In the onReceive method you will receive the push notification and can handle the notification for the desired behavior.
 {: windows}
 
-#### Windows Universal Push Notifications Service
-{: #windows-universal-push-notifications-service }
+### Windows Universal Push Notifications Service
+{: #windows-universal-push-notifications-service}
 {: windows}
 
 No specific port needs to be open in your server configuration.

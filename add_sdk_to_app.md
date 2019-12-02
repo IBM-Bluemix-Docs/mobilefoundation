@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-11-15"
+lastupdated: "2019-11-29"
 
 keywords: Mobile Foundation SDK, android sdk, iOS sdk, cordova sdk, react native sdk, adding sdks to app
 
@@ -37,7 +37,7 @@ subcollection:  mobilefoundation
 {:cordova: .ph data-hd-programlang='Cordova'}
 {:xml: .ph data-hd-programlang='xml'}
 
-#	Add Mobile Foundation SDK to an app
+# Add Mobile Foundation SDK to an app
 {: #add_sdk_to_app}
 
 ## Adding the Android SDK to your app

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-11-15"
+lastupdated: "2019-11-29"
 
 keywords: mobile analytics, set up alerts, alert definitions
 
@@ -58,7 +58,7 @@ You can create an alert definition that is based on App Logs.  For example, if y
 1. Click **Create Alert**.
 1. Provide the following values:
    * **Alert Name**: *Alert for app logs*
-   * **Message**: *Error Message Alert*
+   * **Message**: *Error message Alert*
    * **Query Frequency**: *5 minutes*
    * **Event Type**: *App Logs*
       * **Property**: *Log Level*

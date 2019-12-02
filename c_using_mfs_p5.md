@@ -2,7 +2,7 @@
 
 copyright:
   years: 2016, 2019
-lastupdated: "2019-11-15"
+lastupdated: "2019-11-29"
 
 keywords: mobile foundation, mobile analytics, professional plan, configure database
 
@@ -83,15 +83,15 @@ Follow these steps to connect to an existing {{site.data.keyword.Db2_on_Cloud_sh
 If you don't see the `Organization` and `Space`, where your {{site.data.keyword.Db2_on_Cloud_short}} service instance exists, listed, then check whether you're a member of that `Organization` and `Space`. You're required to have a *Developer* role access to the organization and space, as the {{site.data.keyword.mobilefoundation_short}} service accesses the credentials from the {{site.data.keyword.Db2_on_Cloud_short}} service.
 {: note}
 
-1. Select the {{site.data.keyword.Db2_on_Cloud_short}} `Service Name` and `Credentials` to connect to the existing  {{site.data.keyword.Db2_on_Cloud_short}} service instance.
+1. Select the {{site.data.keyword.Db2_on_Cloud_short}} `Service Name` and `Credentials` to connect to the existing {{site.data.keyword.Db2_on_Cloud_short}} service instance.
 1. Test the connection to the specified {{site.data.keyword.Db2_on_Cloud_short}} service instance.
 1. Click **Save**. This action creates the required tables in the configured {{site.data.keyword.Db2_on_Cloud_short}} database service instance.
-   In a few seconds, you can access the `Overview` page that provides you with  tutorials and videos to help you get started with the  {{site.data.keyword.mobilefoundation_short}} service.
+   In a few seconds, you can access the `Overview` page that provides you with tutorials and videos to help you get started with the {{site.data.keyword.mobilefoundation_short}} service.
 
 You can't change the {{site.data.keyword.Db2_on_Cloud_short}} service instance that is configured to be used by your {{site.data.keyword.mobilefoundation_short}} service instance. However, you can use the same {{site.data.keyword.Db2_on_Cloud_short}} service instance across multiple {{site.data.keyword.mobilefoundation_short}} service instances, as each {{site.data.keyword.mobilefoundation_short}} service instance creates its own schema in the selected {{site.data.keyword.Db2_on_Cloud_short}} service instance.
 {: note}
 
-## Starting the MobileFirst server created by using Professional Per Device plan
+## Starting the MobileFirst server that is created by using Professional Per Device plan
 {: #start_mobilefoundation_p5}
 
 * To start the {{site.data.keyword.mfserver_short_notm}}, with default settings, click **Configure Server**.
@@ -125,7 +125,7 @@ Use the **Start Server with Advanced Configuration** from the `Overview` page to
 
 *	From the **Topology** tab, you can select the server size and number of server instances based on your need. The default 1 GB server is enough for development and light testing.
   - Select the correct size for your server based on your need.
-  - **Instances** displays the number of instances that are created.
+  - **Instances display the number of instances that are created.
 
 ## {{site.data.keyword.mobileanalytics_short}} in Professional Per Device plan
 {: #mobile_analytics_p5}

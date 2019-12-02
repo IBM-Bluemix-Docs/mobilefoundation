@@ -2,20 +2,26 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-06-10"
+lastupdated: "2019-11-29"
 
 keywords: push notifications, sending interactive notification
 
 subcollection:  mobilefoundation
+
 ---
 
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:tip: .tip}
-{:note: .note}
-{:pre: .pre}
 {:codeblock: .codeblock}
+{:pre: .pre}
 {:screen: .screen}
+{:tsSymptoms: .tsSymptoms}
+{:tsCauses: .tsCauses}
+{:tsResolve: .tsResolve}
+{:tip: .tip}
+{:important: .important}
+{:note: .note}
+{:download: .download}
 {:java: .ph data-hd-programlang='java'}
 {:ruby: .ph data-hd-programlang='ruby'}
 {:c#: .ph data-hd-programlang='c#'}
@@ -40,7 +46,7 @@ With interactive notification, when a notification arrives, users can act on the
 Interactive notifications are supported on devices with iOS version 8 and higher. If an interactive notification is sent to an iOS device with version earlier than 8, the notification actions are not displayed.
 
 ## Sending interactive push notification
-{: #sending-interactive-push-notification }
+{: #sending-interactive-push-notification}
 
 Prepare the notification and send notification. For more information, see [Sending push notifications](/docs/services/mobilefoundation?topic=mobilefoundation-send_push_notifications#send_push_notifications).
 
@@ -49,7 +55,7 @@ You can set a string to indicate the category of the notification with the notif
 ![Setting categories for iOS interactive notifications in the {{ site.data.keyword.mfp_oc_short_notm }}](images/categories-for-interactive-notifications.png)
 
 ## Handling interactive push notifications in Cordova applications
-{: #handling-interactive-push-notifications-in-cordova-applications }
+{: #handling-interactive-push-notifications-in-cordova-applications}
 
 To receive interactive notifications, follow these steps:
 
@@ -102,8 +108,9 @@ To receive interactive notifications, follow these steps:
         }
    }
    ```
+   {: codeblock}
 
-2. Pass the `options` object while registering device for push notifications.
+1. Pass the `options` object while registering device for push notifications.
 
    ```javascript
    MFPPush.registerDevice(options, function(successResponse) {
@@ -111,14 +118,15 @@ To receive interactive notifications, follow these steps:
   		enableButtons();
    });  
    ```
+   {: codeblock}
 
 ## Handling interactive push notifications in native iOS applications
-{: #handling-interactive-push-notifications-in-native-ios-applications }
+{: #handling-interactive-push-notifications-in-native-ios-applications}
 
 Follow these steps to receive interactive notifications:
 
 1. Enable the application capability to perform background tasks on receiving the remote notifications. This step is required if some of the actions are enabled at the background.
-2. Define registered categories for interactive notifications and pass them as options to `MFPPush.registerDevice`.
+1. Define registered categories for interactive notifications and pass them as options to `MFPPush.registerDevice`.
 
    ```swift
    //define categories for Interactive Push
@@ -143,3 +151,5 @@ Follow these steps to receive interactive notifications:
    // Register device
     MFPPush.sharedInstance().registerDevice(options as [NSObject : AnyObject], completionHandler: {(response: WLResponse!, error: NSError!) -> Void in
    ```
+   {: codeblock}
+   

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-11-15"
+lastupdated: "2019-11-29"
 
 keywords: JSONStore, offline storage, jsonstore error codes
 
@@ -53,13 +53,13 @@ Because it’s familiar to developers, relational database terminology is used i
 * Support for many users
 * AES 256 encryption of stored data provides security and confidentiality. You can segment protection by user with password-protection, if more than one user on a single device.
 
-A single store can have many collections, and each collection can have many documents. It’s also possible to have a MobileFirst application that consists of multiple stores. For information, see JSONStore multiple user support.
+A single store can have many collections, and each collection can have many documents. It’s also possible to have a MobileFirst application that consists of multiple stores. For information, see JSONStore multiple user supports.
 
 ## Support level
 {: #support-level-jsonstore }
 
-* JSONStore is supported in Native iOS and Android applications (no support for native Windows (Universal and UWP)).
-* JSONStore is supported in Cordova iOS, Android and Windows (Universal and UWP) applications.
+* JSONStore is supported in Native iOS and Android applications (no support for native Windows&trade; (Universal and UWP)).
+* JSONStore is supported in Cordova iOS, Android, and Windows&trade; (Universal and UWP) applications.
 
 ## General JSONStore Terminology
 {: #general-jsonstore-terminology }
@@ -170,7 +170,7 @@ var query2 = {name: 'carlos', age: 99};
 
 Query parts are used to build more advanced searches. Some JSONStore operations, such as some versions of `find` or `count` take query parts. Everything within a query part is joined by `AND` statements, while query parts themselves are joined by `OR` statements. The search criteria returns a match only if everything within a query part is **true**. You can use more than one query part to search for matches that satisfy one or more of the query parts.
 
-Find with query parts operate only on top level search fields. For example: `name`, and not `name.first`. Use multiple collections where all search fields are top level to get around this behavior. The query parts operations that work with non top level search fields are: `equal`, `notEqual`, `like`, `notLike`, `rightLike`, `notRightLike`, `leftLike`, and `notLeftLike`. The behavior is undetermined if you use non top level search fields.
+Find with query parts operate only on top-level search fields. For example: `name`, and not `name.first`. Use multiple collections where all search fields are top level to get around this behavior. The query parts operations that work with non top-level search fields are: `equal`, `notEqual`, `like`, `notLike`, `rightLike`, `notRightLike`, `leftLike`, and `notLeftLike`. The behavior is undetermined if you use non top-level search fields.
 
 ## Features table
 {: #features-table }
@@ -940,7 +940,7 @@ manually. This will remove the need for having platform specific code.
     }
     ```                                                                     
 
-This will wait for the `mfpjsonjsloaded` event (outside of `wlCommonInit`), this will ensure that the script has been loaded and will subsequently call `WL.Client.init` which will trigger `wlCommonInit`, this will then call `WL.JSONStore.init`.
+This will wait for the `mfpjsonjsloaded` event (outside of `wlCommonInit`), this will ensure that the script has been loaded and will subsequently call `WL.Client.init`, which will trigger `wlCommonInit`, this will then call `WL.JSONStore.init`.
 
 ## Store internals
 {: #store-internals }
@@ -1001,9 +1001,9 @@ NSError* error = nil;
 [JSONStore destroyDataAndReturnError:&error];
 ```
 
-### Java errors
+### Java&trade; errors
 {: #java-errors }
-All of the Java API calls throw a certain exception, depending on the error that happened. You can either handle each exception separately, or you can catch `JSONStoreException` as an umbrella for all JSONStore exceptions.
+All of the Java&trade; API calls throw a certain exception, depending on the error that happened. You can either handle each exception separately, or you can catch `JSONStoreException` as an umbrella for all JSONStore exceptions.
 
 ```java
 try {
@@ -1023,7 +1023,7 @@ List of common error codes and their description:
 |----------------|-------------|
 | -100 UNKNOWN_FAILURE | Unrecognized error. |
 | -75 OS\_SECURITY\_FAILURE | This error code is related to the requireOperatingSystemSecurity flag. It can occur if the destroy API fails to remove security metadata that is protected by operating system security (Touch ID with passcode fallback), or the init or open APIs are unable to locate the security metadata. It can also fail if the device does not support operating system security, but operating system security usage was requested. |
-| -50 PERSISTENT\_STORE\_NOT\_OPEN | JSONStore is closed. Try calling the open method in the JSONStore class class first to enable access to the store. |
+| -50 PERSISTENT\_STORE\_NOT\_OPEN | JSONStore is closed. Try calling the open method in the JSONStore class first to enable access to the store. |
 | -48 TRANSACTION\_FAILURE\_DURING\_ROLLBACK | There was a problem with rolling back the transaction. |
 | -47 TRANSACTION\\_FAILURE\_DURING\_REMOVE\_COLLECTION |Cannot call removeCollection while a transaction is in progress. |
 | -46 TRANSACTION\_FAILURE\_DURING\_DESTROY | Cannot call destroy while there are transactions in progress. |
@@ -1066,10 +1066,10 @@ List of common error codes and their description:
 | 13 BAD\_PARAMETER\_EXPECTED\_DOCUMENT\_OR\_ID | Validation error |
 | 14 CAN\_NOT\_REPLACE\_DEFAULT\_FUNCTIONS | Calling the enhance method in the JSONStoreCollection class to replace an existing function (find and add) is not allowed. |
 | 15 COULD\_NOT\_MARK\_DOCUMENT\_PUSHED | Push sends the document to an adapter but JSONStore fails to mark the document as not dirty. |
-| 16 COULD\_NOT\_GET\_SECURE\_KEY | To initiate a collection with a password there must be connectivity to the {{ site.data.keys.mf_server }} because it returns a 'secure random token'. IBM  Worklight  V5.0.6 and later allows developers to generate the secure random token locally passing {localKeyGen: true} to the init method via the options object. |
+| 16 COULD\_NOT\_GET\_SECURE\_KEY | To initiate a collection with a password there must be connectivity to the {{ site.data.keys.mf_server }} because it returns a 'secure random token'. IBM Worklight V5.0.6 and later allows developers to generate the secure random token locally passing {localKeyGen: true} to the init method via the options object. |
 | 17 FAILED\_TO\_LOAD\_INITIAL\_DATA\_FROM\_ADAPTER | Could not load data because WL.Client.invokeProcedure called the failure callback. |
 | 18 FAILED\_TO\_LOAD\_INITIAL\_DATA\_FROM\_ADAPTER\_INVALID\_LOAD\_OBJ | The load object that was passed to the init method did not pass the validation. |
-| 19 INVALID\_KEY\_IN\_LOAD\_OBJECT | There is a problem with the key used in the load object when you call the add method. |
+| 19 INVALID\_KEY\_IN\_LOAD\_OBJECT | There is a problem with the key that is used in the load object when you call the add method. |
 | 20 UNDEFINED\_PUSH\_OPERATION | No procedure is defined for pushing dirty documents to the server. For example: the init method (new document is dirty, `operation = 'add'`) and the push method (finds the new document with `operation = 'add'`) were called, but no add key with the add procedure was found in the adapter that is linked to the collection. Linking an adapter is done inside the init method. |
 | 21 INVALID\_ADD\_INDEX\_KEY | Problem with extra search fields. |
 | 22 INVALID\_SEARCH\_FIELD | One of your search fields is invalid. Verify that none of the search fields that are passed in are _id,json,_deleted, or _operation. |

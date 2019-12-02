@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-11-15"
+lastupdated: "2019-11-29"
 
 keywords: Direct Update, CDN support, secure direct update
 
@@ -45,7 +45,7 @@ Described here are some of the advanced ways in which you can configure and work
 ## Customizing the Direct Update UI
 {: #customize_du_ui}
 
-Direct Update UI presented to the end-user can be customized.
+Direct Update UI presented to the end user can be customized.
 Add the following inside the `wlCommonInit()` function in **index.js**:
 
 ```JavaScript
@@ -56,9 +56,9 @@ wl_DirectUpdateChallengeHandler.handleDirectUpdate = function(directUpdateData, 
 {: codeblock}
 
 `directUpdateData` is a JSON object containing the downloadSize property that represents the file size (in bytes) of the update package to be downloaded from Mobile Foundation server.
-`directUpdateContext` is a JavaScript object exposing the .start() and .stop() functions, which start and stop the Direct Update flow.
+`directUpdateContext` is a JavaScript object exposing the `.start()` and `.stop()` functions, which start and stop the Direct Update flow.
 
-If the web resources are newer on the Mobile Foundation server than in the application, Direct Update challenge data is added to the server response. Whenever the Mobile Foundation client-side framework detects this direct update challenge, it invokes the `wl_directUpdateChallengeHandler.handleDirectUpdate` function.
+If the web resources are newer on the Mobile Foundation server than in the application, Direct Update challenge data is added to the server response. Whenever the Mobile Foundation client-side framework detects this direct update challenge, it starts the `wl_directUpdateChallengeHandler.handleDirectUpdate` function.
 
 The function provides a default Direct Update design: A default message dialog that is displayed when a Direct Update is available and a default progress screen that is displayed when the direct update process is initiated. You can implement custom Direct Update user interface behavior or customize the Direct Update dialog box by overriding this function and implementing your own logic.
 
@@ -115,13 +115,13 @@ The listener methods are started during the direct update process according to f
 | `FAILURE_NETWORK_PROBLEM` | There was a problem with a network connection during the update. |
 | `FAILURE_DOWNLOADING` | The file was not downloaded completely. |
 | `FAILURE_NOT_ENOUGH_SPACE` | There is not enough space on the device to download and unpack the update file. |
-| `FAILURE_UNZIPPING` | There was a problem unpacking the update file. |
+| `FAILURE_UNZIPPING` | There was a problem in unpacking the update file. |
 | `FAILURE_ALREADY_IN_PROGRESS` | The start method was called while direct update was already running. |
 | `FAILURE_INTEGRITY` | Authenticity of update file cannot be verified. |
 | `FAILURE_UNKNOWN` | Unexpected internal error. |
 {: caption="Table 1. Status codes" caption-side="top"}
 
-If you implement a custom direct update listener, you must ensure that the app is reloaded when the direct update process is complete and the `onFinish()` method has been called. You must also call `wl_directUpdateChalengeHandler.submitFailure()` if the direct update process fails to complete successfully.
+If you implement a custom direct update listener, you must ensure that the app is reloaded when the direct update process is complete and the `onFinish()` method is called. You must also call `wl_directUpdateChalengeHandler.submitFailure()` if the direct update process fails to complete successfully.
 
 The following example shows an implementation of a custom direct update listener:
 
@@ -209,7 +209,7 @@ When the application is sent to the background, the direct-update process is sus
 
 This section demonstrates how to handle a direct update failure that might occur, for example, by loss of connectivity. In this scenario, the user is prevented from using the app even in offline mode. A dialog is displayed offering the user the option to try again.
 
-1. Create a global variable to store the direct update context so that you can use it subsequently when the direct update process fails. For example:
+1. Create a global variable to store the direct update context, you can use it subsequently when the direct update process fails. For example:
 
    ```JavaScript
    var savedDirectUpdateContext;
@@ -277,7 +277,7 @@ This section demonstrates how to handle a direct update failure that might occur
 
 Delta Direct Updates enables an application to download only the files that were changed since the last update instead of the entire web resources of the application. This reduces download time, conserves bandwidth, and improves overall user experience.
 
-A **delta update** is possible only if the client application's web resources are one version behind the application that is currently deployed on the server. Client applications that are more than one version behind the currently deployed application (meaning the application was deployed to the server at least twice since the client application was updated), receive a **full update** (meaning that the entire web resources are downloaded and updated).
+A **delta update** is possible only if the client application's web resources are one version behind the application that is deployed on the server. Client applications that are more than one version behind the currently deployed application (meaning the application was deployed to the server at least twice since the client application was updated), receive a **full update** (meaning that the entire web resources are downloaded and updated).
 {: note}
 
 See the Direct Update sample for Cordova app from the **Samples** section. This application demonstrates how to create a custom Direct Update dialog instead of the dialog provided by default.  
@@ -325,7 +325,7 @@ In the DNS for the new `cdn.yourcompany.com` domain, set a `CNAME` to the domain
 #### {{site.data.keyword.mobilefoundation_short}} administrator
 {: #mobilefoundation-administrator }
 
-Set the new `cdn.yourcompany.com` domain as the {{site.data.keyword.mobilefoundation_short}} sever URL for the {{site.data.keyword.mobilefoundation_short}} applications. For example, for the Ant builder task, the property is:
+Set the new `cdn.yourcompany.com` domain as the {{site.data.keyword.mobilefoundation_short}} server URL for the {{site.data.keyword.mobilefoundation_short}} applications. For example, for the Ant builder task, the property is:
 
 ```xml
 <property name="wl.server" value="http://cdn.yourcompany.com/${contextPath}/"/>
@@ -337,7 +337,7 @@ Set the new `cdn.yourcompany.com` domain as the {{site.data.keyword.mobilefounda
 
 1. Open the Akamai property manager and set the property **host name** to the value of the new domain.
 
-   ![Set the property host name to the value of the new domain](images/direct_update_cdn_3.jpg "Set the property host name to the value of the new domain")
+   ![Set the property host name to the value of the new domain](images/direct_update_cdn_3.jpg "Set the property hostname to the value of the new domain")
 
 1. On the Default Rule tab, configure the original Mobile Foundation server host and port, and set the **Custom Forward Host Header** value to the newly created domain.
 

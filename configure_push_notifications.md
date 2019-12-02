@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-11-15"
+lastupdated: "2019-11-29"
 
 keywords: push notifications, notifications, FCM, GCM, APNS, WNS, authenticate notification
 
@@ -72,13 +72,13 @@ To set up FCM:
 
 1. Visit the [Firebase Console](https://console.firebase.google.com/?pli=1).
 1. Create a project and provide a project name.
-1. Click on the Settings "cog wheel" icon and select **Project settings**.
+1. Click the Settings "cog wheel" icon and select **Project settings**.
 1. Click the **Cloud Messaging** tab to generate a **Server API Key** and a **Sender ID** and click **Save**.
 
 You can also set up FCM by using either the [REST API for the {{ site.data.keyword.mobilefirst_notm }} Push service](http://www.ibm.com/support/knowledgecenter/en/SSHS8R_8.0.0/com.ibm.worklight.apiref.doc/rest_runtime/r_restapi_push_gcm_settings_put.html#Push-GCM-Settings--PUT-) or the [REST API for the {{ site.data.keyword.mobilefirst_notm }} administration service](http://www.ibm.com/support/knowledgecenter/en/SSHS8R_8.0.0/com.ibm.worklight.apiref.doc/apiref/r_restapi_update_gcm_settings_put.html#restservicesapi).
 {: note}
 
-If your organization has a firewall that restricts the traffic to or from the Internet, you must go through the following steps:  
+If your organization has a firewall that restricts the traffic to or from the internet, you must go through the following steps:  
 * Configure the firewall to allow connectivity with FCM in order for your FCM client apps to receive messages.
 * The ports to open are 5228, 5229, and 5230. FCM typically uses only 5228, but it sometimes uses 5229 and 5230.
 * FCM does not provide specific IP, so you must allow your firewall to accept outgoing connections to all IP addresses contained in the IP blocks listed in Google’s ASN of 15169.
@@ -108,7 +108,7 @@ To set up APNS:
    * During the development phase, use the apns-certificate-sandbox.p12 sandbox certificate file.
    * During the production phase, use the apns-certificate-production.p12 production certificate file.
 
-      * The APNS production certificate can be tested only when the application that utilizes it is successfully submitted to the Apple App Store.
+      * The APNS production certificate can be tested only when the application that uses it is successfully submitted to the Apple App Store.
       {: note }
 
 MobileFirst does not support Universal certificates.
@@ -119,14 +119,14 @@ You can also set up APNS by using either the [REST API for the {{ site.data.keyw
 
 <img class="gifplayer" alt="Image of adding the APNS credentials" src="images/apns-setup.png"/>
 
-### Windows Push Notifications Service
+### Windows&trade; Push Notifications Service
 {: #windows-push-notifications-service }
 
-Windows devices use the Windows Push Notifications Service (WNS) for push notifications.  
+Windows&trade; devices use the Windows&trade; Push Notifications Service (WNS) for push notifications.  
 
 To set up WNS:
 
-1. Follow the [instructions provided by Microsoft](https://msdn.microsoft.com/en-in/library/windows/apps/hh465407.aspx) to generate the **Package Security Identifier (SID)** and **Client secret** values.
+1. Follow the [instructions provided by Microsoft&trade;](https://msdn.microsoft.com/en-in/library/windows/apps/hh465407.aspx) to generate the **Package Security Identifier (SID)** and **Client secret** values.
 1. In the {{ site.data.keyword.mfp_oc_short_notm }} → **[your application] → Push → Push Settings**, add these values and click **Save**.
 
 You can also set up WNS by using either the [REST API for the {{ site.data.keyword.mobilefirst_notm }} Push service](http://www.ibm.com/support/knowledgecenter/en/SSHS8R_8.0.0/com.ibm.worklight.apiref.doc/rest_runtime/r_restapi_push_wns_settings_put.html?view=kc) or the [REST API for the {{ site.data.keyword.mobilefirst_notm }} administration service](http://www.ibm.com/support/knowledgecenter/en/SSHS8R_8.0.0/com.ibm.worklight.apiref.doc/apiref/r_restapi_update_wns_settings_put.html?view=kc)

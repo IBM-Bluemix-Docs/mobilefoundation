@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-11-15"
+lastupdated: "2019-11-29"
 
 keywords: mobile foundation faq, updates to mobile foundation, custom domain
 
@@ -54,7 +54,7 @@ This FAQ provides answers to common questions about the {{site.data.keyword.mobi
 
 * {{site.data.keyword.mfserver_short_notm}}.
 * Underlying Liberty version.
-* Underlying Java Developer Kit version.
+* Underlying Java&trade; Developer Kit version.
 
 ## How do I apply the updates to {{site.data.keyword.mobilefoundation_short}} service?
 {: #apply_update_mf}
@@ -65,14 +65,14 @@ On applying the update, the version of the server, as seen in the {{site.data.ke
 
 * Users cannot apply their own fixes and updates to their {{site.data.keyword.mobilefoundation_short}} service instance.
 
-See [Re-creating server in Professional Per Device plan](/docs/services/mobilefoundation?topic=mobilefoundation-using_mobilefoundation_p5#recreate_mobilefoundation_p5) and [Re-creating server in Professional 1 Application plan](/docs/services/mobilefoundation?topic=mobilefoundation-using_mobilefoundation_p2#recreate_mobilefoundation_p2) to understand the difference in behavior across the plans  when **Recreate** is clicked.
+See [Re-creating server in Professional Per Device plan](/docs/services/mobilefoundation?topic=mobilefoundation-using_mobilefoundation_p5#recreate_mobilefoundation_p5) and [Re-creating server in Professional 1 Application plan](/docs/services/mobilefoundation?topic=mobilefoundation-using_mobilefoundation_p2#recreate_mobilefoundation_p2) to understand the difference in behavior across the plans when **Recreate** is clicked.
 {: note}
 
 ## How do I configure custom domain for my {{site.data.keyword.mobilefoundation_short}} server instance?
 {: #configcustomdomain}
 {: faq}
 
-{{site.data.keyword.mobilefoundation_short}} provisions a {{site.data.keyword.mfserver_short_notm}}, which is accessible by using a URL with the  domain names based on the {{site.data.keyword.cloud_notm}} **Region**. You can also configure your own custom domain.
+{{site.data.keyword.mobilefoundation_short}} provisions a {{site.data.keyword.mfserver_short_notm}}, which is accessible by using a URL with the domain names based on the {{site.data.keyword.cloud_notm}} **Region**. You can also configure your own custom domain.
 
 The URL or route is created with the default domain names based on the {{site.data.keyword.cloud_notm}} `Region`.
 
@@ -86,29 +86,29 @@ The URL or route is created with the default domain names based on the {{site.da
 
 To use your own domain, you need to configure custom domain by performing the following steps:
 
-1. Create a {{site.data.keyword.mfserver_short_notm}} instance  by creating the {{site.data.keyword.mobilefoundation_short}} service instance by choosing one of the supported plans.
+1. Create a {{site.data.keyword.mfserver_short_notm}} instance by creating the {{site.data.keyword.mobilefoundation_short}} service instance by choosing one of the supported plans.
 1. Add the custom domain that you would want to use, to your {{site.data.keyword.cloud_notm}} `Organization`. Go to **Manage Organizations > DOMAINS > ADD DOMAIN** to add your own domain.
 1. Set up a route for the server to use your custom domain.
 1. Go to the DNS provider for your domain, and add a CNAME entry, which routes the traffic from your domain to the default {{site.data.keyword.cloud_notm}} route, where the server is running.
 1. If you would like to configure `https` for your custom domain, then upload the SSL certificate for your domain in {{site.data.keyword.cloud_notm}}. To upload the SSL certificate, go to **Manage Organizations > DOMAINS**, select the custom domain that you want to configure SSL certificate for, click the **Upload Certificate** to upload SSL certificate for your domain. For more information, see [this post](https://www.ibm.com/cloud/blog/ssl-certificates-bluemix-custom-domains){: external}.
 
-## How do I backup my configuration and quickly onboard when there is no persistent database (Developer Plan)?
+## How do I back up my configuration and quickly onboard when there is no persistent database (Developer Plan)?
 {: #persistentdatabase}
 {: faq}
 
-The Developer plan does not offer a persistent database, which could cause at times loss of data. To quickly onboard in such cases, be sure to follow these best practices:
+The Developer plan does not offer a persistent database, which might cause at times loss of data. To quickly onboard in such cases, be sure to follow these best practices:
 
-* Every time you make any of the following server-side actions:
+* Every time that you make any of the following server-side actions:
    * Deploy an adapter or update any adapter configuration or property value
    * Perform any security configuration such scope-mapping and alike
 
-   Run the following from the command-line to download your configuration to a .zip file:
+   Run the following from the command line to download your configuration to a .zip file:
 
    ```bash
    $curl -X GET -u admin:admin -o export.zip http://<App Name>.mybluemix.net/mfpadmin/management-apis/2.0/runtimes/mfp/export/all
    ```
 
-* In case you recreate your server or lose your configuration, run the following from the command-line to import the configuration to the server:
+* In case you re-create your server or lose your configuration, run the following from the command line to import the configuration to the server:
 
    ```bash
    $curl -X POST -u admin:admin -F file=@./export.zip http://<App Name>.mybluemix.net/mfpadmin/management-apis/2.0/runtimes/mfp/deploy/multi

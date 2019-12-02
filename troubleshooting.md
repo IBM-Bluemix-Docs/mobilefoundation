@@ -2,19 +2,40 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-08-23"
+lastupdated: "2019-11-29"
 
 keywords: troubleshooting techniques
 
 subcollection:  mobilefoundation
+
 ---
 
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:tip: .tip}
-{:pre: .pre}
 {:codeblock: .codeblock}
+{:pre: .pre}
 {:screen: .screen}
+{:tsSymptoms: .tsSymptoms}
+{:tsCauses: .tsCauses}
+{:tsResolve: .tsResolve}
+{:tip: .tip}
+{:important: .important}
+{:note: .note}
+{:download: .download}
+{:java: .ph data-hd-programlang='java'}
+{:ruby: .ph data-hd-programlang='ruby'}
+{:c#: .ph data-hd-programlang='c#'}
+{:objectc: .ph data-hd-programlang='Objective C'}
+{:python: .ph data-hd-programlang='python'}
+{:javascript: .ph data-hd-programlang='javascript'}
+{:php: .ph data-hd-programlang='PHP'}
+{:swift: .ph data-hd-programlang='swift'}
+{:reactnative: .ph data-hd-programlang='React Native'}
+{:csharp: .ph data-hd-programlang='csharp'}
+{:ios: .ph data-hd-programlang='iOS'}
+{:android: .ph data-hd-programlang='Android'}
+{:cordova: .ph data-hd-programlang='Cordova'}
+{:xml: .ph data-hd-programlang='xml'}
 
 # General troubleshooting
 {: #general-troubleshooting}
@@ -91,21 +112,20 @@ However, problems that you can reproduce can have a disadvantage: If the problem
 - Are multiple users or applications encountering the same type of problem?
 - Can the problem be re-created by running a single command, a set of commands, or a particular application?
 
-
-##  Known limitations
+## Known limitations
 {: #knownlimitations_mfp}
 
 * The {{site.data.keyword.mobilefoundation_short}} service UI does not use the user-selected locale-specific pattern to display numbers.
 
-## Getting help and support for Mobile Foundation
+## Getting help and support for {{site.data.keyword.mobilefoundation_short}}
 {: #getting_help_mobilefoundation}
 
 If you have problems or questions when you use {{site.data.keyword.mobilefoundation_short}}, you can get help by searching for information or by asking questions through a forum. You can also open a support ticket.
 
 When you use the forums to ask a question, tag your question so that it is seen by the {{site.data.keyword.cloud_notm}} development teams.
 
-If you have technical questions about developing or deploying an app with {{site.data.keyword.mobilefoundation_short}}, post your question on [Stack Overflow ![External link icon](../../icons/launch-glyph.svg "External link icon")](http://stackoverflow.com/search?q=ibm-mobilefirst+cloud){:new_window} and tag your question with `bluemix` and `ibm-mobilefirst`.
+If you have technical questions about developing or deploying an app with {{site.data.keyword.mobilefoundation_short}}, post your question on [Stack Overflow](http://stackoverflow.com/search?q=ibm-mobilefirst+cloud){: external} and tag your question with `bluemix` and `ibm-mobilefirst`.
 
-For questions about the service and getting started instructions, use the [IBM developerWorks dW Answers ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://developer.ibm.com/answers/topics/mobilefirst/){:new_window} forum. Include the `bluemix` and  `mobilefirst` tags.
+For questions about the service and getting started instructions, use the [IBM IBM Developer dW Answers](https://developer.ibm.com/answers/topics/mobilefirst/){: external} forum. Include the `bluemix` and  `mobilefirst` tags.
 
-For more information on opening an IBM support ticket, or on support levels and ticket severities, see [Contacting support](https://cloud.ibm.com/docs/get-support?topic=get-support-getting-customer-support){: new_window}.
+For more information on opening an IBM support ticket or on support levels and ticket severities, see [Contacting support](https://cloud.ibm.com/docs/get-support?topic=get-support-getting-customer-support){: external}.
