@@ -37,7 +37,7 @@ subcollection:  mobilefoundation
 {:cordova: .ph data-hd-programlang='Cordova'}
 {:xml: .ph data-hd-programlang='xml'}
 
-#	Windows&trade; SDK
+#	Windows SDK
 {: #windows_sdk_api}
 
 Download the Windows&trade; SDKs from NuGet.

@@ -81,8 +81,8 @@ Mobile Foundation
     {: .topicgroup}
     Integrate with other IBM Cloud services
         integrate_secure_gateway.md
-		    delivering_mfp_apps_using_ibm_cloud_devops.md
-		    integrating_cloud_object_storage.md
+        delivering_mfp_apps_using_ibm_cloud_devops.md
+        integrating_cloud_object_storage.md
     {: .navgroup-end}
 
     {: .navgroup id="reference"}
