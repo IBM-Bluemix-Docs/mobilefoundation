@@ -98,7 +98,7 @@ Mobile Foundation
         ios_sdk.md
         cordova_sdk.md
         reactnative_sdk.md
-        [Windows SDK](https://cloud.ibm.com/docs/services/mobilefoundation?topic=mobilefoundation-windows_sdk_api)
+        Windows_sdk.md
         web_sdk.md
     using_cli.md
 	mfp_activity_tracker.md
