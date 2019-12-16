@@ -53,14 +53,14 @@ The following image provides an overview of the pipeline.
 * [mfpdev-cli](https://www.npmjs.com/package/mfpdev-cli){: external}
 * A sample App and [MFP Adapter](https://mobilefirstplatform.ibmcloud.com/tutorials/en/foundation/8.0/adapters/){: external}
 * [GitHub](http://github.com/){: external} Account
-* *Optional:* [Bitbar](https://bitbar.com/testing/){: external} instance and Bitbar API Key (You can use of any service as per your requirements).
+* *Optional:* [Bitbar](https://bitbar.com/testing/){: external} instance and Bitbar API Key (You can use of any service according to your requirements).
 
 ## Creating Continuous Delivery Service and Toolchain
 {: #creating-continuous-delivery-service-and-toolchain }
 
-* Search for "Continuous Delivery" the {{site.data.keyword.cloud_notm}} Catalog (or [click here](https://cloud.ibm.com/catalog/services/continuous-delivery)).
+* Search for "Continuous Delivery" the {{site.data.keyword.cloud_notm}} catalog (or [click here](https://cloud.ibm.com/catalog/services/continuous-delivery)).
 * Create the service by providing service name, region, and so on.
-   In the following example, we use the service name as `MFP App/Adapter delivery Test`, region/location as *London* and resource group as *Default*.
+   In the following example, the service name as `MFP App/Adapter delivery Test`, region/location as *London* and resource group as *Default* is used.
 
    ![configuring_continuous_delivery_service](images/p01_configuring_continuous_delivery_service.png "Catalog create page for Mobile Foundation service instance")
 
@@ -77,7 +77,7 @@ The following image provides an overview of the pipeline.
 * Configure GitHub tool for **GitHub server address**, **repository type**, and **repository URL**.
 * You can create a new repository, fork, clone or use an existing repository.
 
-   In the following example we use GitHub server as "[https://github.com](http://github.com/){: external}", repository type as *Existing* and Repository URL as *https://github.com/sagar20896/mfp-devops-20181210030116092*.
+   In the following example, GitHub server as "[https://github.com](http://github.com/){: external}", repository type as *Existing* and Repository URL as *https:// github .com/sagar20896/mfp-devops-20181210030116092* is used.
 
    ![configuring_toolchain](images/p03_configuring_toolchain.png "Configure the Integration screen showing GitHub server, Repository type, and Repository URL fields")
 
@@ -92,9 +92,9 @@ Use **Add Tool** and search for *Delivery Pipeline*. Configure pipeline and clic
 #### Stage 1 - Setting up {{site.data.keyword.mobilefoundation_short}}
 {: #stage1-setting-up-mobile-foundation}
 
-In this stage, we would be spinning up an instance of {{site.data.keyword.mobilefoundation_short}}. Adding GitHub to the pipeline would be in this stage and it triggers the pipeline whenever a change is pushed to the git repository. Following steps show the GitHub configuration. You can set the stage trigger based on your requirement. It could be manual or automatic.
+In this stage, we would be spinning up an instance of {{site.data.keyword.mobilefoundation_short}}. Adding GitHub to the pipeline would be in this stage and it triggers the pipeline whenever a change is pushed to the git repository. Following steps show the GitHub configuration. You can set the stage trigger based on your requirement. It might be manual or automatic.
 
-In the following example, we set Input Type as *Git repository*, Git repository as *mfp-devops-20181210030116092* and Git URL as *https://github.com/sagar20896/mfp-devops-20181210030116092* and branch as *master*.
+In the following example, Input Type as *Git repository*, Git repository as *mfp-devops-20181210030116092* and Git URL as *https:// github .com/sagar20896/mfp-devops-20181210030116092* and branch as *master* is set.
 
 ![first_stage_git_input](images/p4_first_stage_git_input.png "Set up Mobile Foundation screen with the Input tab selected")
 
@@ -132,11 +132,11 @@ Select/fill the other fields as required. Add the following lines in the **Deplo
 ```
 {: codeblock}
 
-In the preceding script, we use Cloud Foundry CLI to create a {{site.data.keyword.mobilefoundation_short}} service instance.
+In the preceding script, you can use Cloud Foundry CLI to create a {{site.data.keyword.mobilefoundation_short}} service instance.
 
 ![stage1_jobs_tab_config](images/p05_stage1_jobs_tab_config.png "Set up Mobile Foundation screen with the Jobs tab selected")
 
-In the **Environment properties** tab, Add property *INSTANCE\_NAME* (as text property) as what you want the MobileFoundation instance name to be. It would be  used as an identifier across many stages.
+In the **Environment properties** tab, Add property *INSTANCE\_NAME* (as text property) as what you want the MobileFoundation instance name to be. It would be used as an identifier across many stages.
 
 ![stage1_environment_properties](images/p06_stage1_environment_properties.png "Set up Mobile Foundation screen with the Environment properties tab selected")
 
@@ -424,3 +424,6 @@ There wouldn't be any input to this stage.
 {: codeblock}
 
 - Set *INSTANCE_NAME* in the **Environment properties** tab as the one set in first stage when {{site.data.keyword.mobilefoundation_short}} instance was created.
+
+You can automatically create a toolchain with sample code mentioned in this page. Refer to [readme](https://github.com/ShinojEdakkara/mfp-toolchain), and follow the instructions.
+{: note}

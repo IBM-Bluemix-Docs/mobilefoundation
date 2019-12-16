@@ -36,6 +36,8 @@ Mobile Foundation
         plan_migration.md
         export_import_apps_adapters.md
 
+    updating-your-mobile-foundation-instances.md
+
 	{: .topicgroup}
     Configure and Send Push Notifications
         configure_push_notifications.md
@@ -96,7 +98,7 @@ Mobile Foundation
         ios_sdk.md
         cordova_sdk.md
         reactnative_sdk.md
-        windows_sdk.md
+        [Windows SDK](https://cloud.ibm.com/docs/services/mobilefoundation?topic=mobilefoundation-windows_sdk_api)
         web_sdk.md
     using_cli.md
 	mfp_activity_tracker.md

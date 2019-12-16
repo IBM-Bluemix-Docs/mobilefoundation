@@ -154,8 +154,8 @@ Following tabs details the list of {{site.data.keyword.mobilefoundation_short}} 
 | `mfpdev config` | Sets your configuration preferences for preview browser type, preview timeout value, and server timeout value for the mfpdev command-line interface. |
 | `mfpdev info` | Displays information about your environment, including operating system, memory consumption, node version, and command-line interface version. If the current directory is a Cordova application, information that is provided by the Cordova `cordova info` command is also displayed. |
 | `mfpdev -v` | Displays the version number of the {{site.data.keyword.mobilefoundation_short}} CLI currently in use. |
-| `mfpdev [-d|--debug]` | Debug mode: Produces debug output. |
-| `mfpdev [-dd|--ddebug]` | Verbose debug mode: Produces verbose debug output. |
+| *`mfpdev [-d|--debug]`* | Debug mode: Produces debug output. |
+| *`mfpdev [-dd|--ddebug]`* | Verbose debug mode: Produces verbose debug output. |
 | `mfpdev -no-color` | Suppresses use of color in command output. |
 {: class="simple-tab-table"}
 {: caption="Table 1. General `mfpdev` commands" caption-side="top"}
@@ -179,7 +179,7 @@ Following tabs details the list of {{site.data.keyword.mobilefoundation_short}} 
 | `mfpdev app webupdate --encrypt` | There's also the option to encrypt the content of the package by using the `–encrypt` parameter. |
 {: class="simple-tab-table"}
 {: caption="Table 2. mfpdev `App` commands" caption-side="top"}
-{: #simpletabtable1}
+{: #simpletabtable2}
 {: tab-title="`app`"}
 {: tab-group="MFP-simple"}
 
@@ -195,7 +195,7 @@ Following tabs details the list of {{site.data.keyword.mobilefoundation_short}} 
 | `mfpdev server clean` | Unregisters apps and removes adapters from the {{site.data.keyword.mobilefoundation_short}} Server. |
 {: class="simple-tab-table"}
 {: caption="Table 3. mfpdev `server` commands" caption-side="top"}
-{: #simpletabtable1}
+{: #simpletabtable3}
 {: tab-title="`server`"}
 {: tab-group="MFP-simple"}
 
@@ -212,7 +212,7 @@ Following tabs details the list of {{site.data.keyword.mobilefoundation_short}} 
 | `mfpdev adapter push` | Sends adapter configuration to the server. |
 {: class="simple-tab-table"}
 {: caption="Table 4. mfpdev `adapter` commands" caption-side="top"}
-{: #simpletabtable1}
+{: #simpletabtable4}
 {: tab-title="`adapter`"}
 {: tab-group="MFP-simple"}
 
@@ -221,7 +221,7 @@ Following tabs details the list of {{site.data.keyword.mobilefoundation_short}} 
 | `mfpdev help <command name>` | Displays help for {{site.data.keyword.mobilefoundation_short}} CLI (`mfpdev`) commands. With command name as an argument, it displays more specific help text for each command type or command. For example, `mfpdev help server add`. |
 {: class="simple-tab-table"}
 {: caption="Table 5. mfpdev `help` command" caption-side="top"}
-{: #simpletabtable1}
+{: #simpletabtable5}
 {: tab-title="`help`"}
 {: tab-group="MFP-simple"}
 

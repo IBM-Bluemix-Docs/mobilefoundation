@@ -817,4 +817,4 @@ The {{site.data.keyword.mobileanalytics_short}} SDK enables you to instrument yo
 
 Try a simple sample from [here](https://github.com/MobileFirst-Platform-Developer-Center/mfp-analytics-samples). In less than 5 minutes you can run the sample application and get a feel of what the API does. You can also notice how analytics shows up as different insights on the Analytics console. 
 
-{{site.data.keyword.mobilefoundaiton_short}} Analytics Service provides ReST APIs to help developers with importing (POST) and exporting (GET) analytics data.
+{{site.data.keyword.mobilefoundation_short}} Analytics Service provides ReST APIs to help developers with importing (POST) and exporting (GET) analytics data.

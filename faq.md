@@ -44,6 +44,14 @@ subcollection:  mobilefoundation
 This FAQ provides answers to common questions about the {{site.data.keyword.mobilefoundation_long}} service.
 {: shortdesc}
 
+## Deleting or modifying {{site.data.keyword.mobilefoundation_short}} server application can cause {{site.data.keyword.mobilefoundation_short}} server downtime
+{: #cfapp-downtime}
+{: faq}
+
+The {{site.data.keyword.mobilefoundation_short}} service creates the {{site.data.keyword.mobilefoundation_short}} server as a Liberty Buildpack Cloud Foundary application. This Application will be listed in your {{site.data.keyword.cloud_notm}} console in the Cloud Foundry Application section. It will be with the `<name of instance>-Server`.
+
+This application is created and managed by {{site.data.keyword.mobilefoundation_short}}. Do not delete or modify this Cloud Foundry Application in any way, as it may affect the normal working of the {{site.data.keyword.mobilefoundation_short}} server.
+
 ## How do I know when updates to {{site.data.keyword.mobilefoundation_short}} service is made available?
 {: #maintupdates_mf}
 {: faq}
