@@ -151,78 +151,78 @@ Following tabs details the list of {{site.data.keyword.mobilefoundation_short}} 
 
 | Command | Actions |
 |:----------------------|:----------------------|
-| `mfpdev config` | Sets your configuration preferences for preview browser type, preview timeout value, and server timeout value for the mfpdev command-line interface. |
-| `mfpdev info` | Displays information about your environment, including operating system, memory consumption, node version, and command-line interface version. If the current directory is a Cordova application, information that is provided by the Cordova `cordova info` command is also displayed. |
-| `mfpdev -v` | Displays the version number of the {{site.data.keyword.mobilefoundation_short}} CLI currently in use. |
-| `mfpdev [-d &#x7c; --debug]` | Debug mode: Produces debug output. |
-| `mfpdev [-dd &#x7c; --ddebug]` | Verbose debug mode: Produces verbose debug output. |
-| `mfpdev -no-color` | Suppresses use of color in command output. |
+| mfpdev config | Sets your configuration preferences for preview browser type, preview timeout value, and server timeout value for the mfpdev command-line interface. |
+| mfpdev info | Displays information about your environment, including operating system, memory consumption, node version, and command-line interface version. If the current directory is a Cordova application, information that is provided by the Cordova `cordova info` command is also displayed. |
+| mfpdev -v | Displays the version number of the {{site.data.keyword.mobilefoundation_short}} CLI currently in use. |
+| mfpdev [-d &#x7c; --debug] | Debug mode: Produces debug output. |
+| mfpdev [-dd &#x7c; --ddebug] | Verbose debug mode: Produces verbose debug output. |
+| mfpdev -no-color | Suppresses use of color in command output. |
 {: class="simple-tab-table"}
-{: caption="Table 1. General `mfpdev` commands" caption-side="top"}
+{: caption="Table 1. General mfpdev commands" caption-side="top"}
 {: #simpletabtable1}
-{: tab-title="General `mfpdev` commands"}
+{: tab-title="General **mfpdev** commands"}
 {: tab-group="MFP-simple"}
 
 | Command | Actions |
 |:----------------------|:----------------------|
-| `mfpdev app register` | Registers your app with a {{site.data.keyword.mobilefoundation_short}} Server. |
-| `mfpdev app register <server> <runtime>` | Use this command to register an app to a non-default server and runtime. |
-| `mfpdev app register -w windows8` | For Cordova Windows&trade; platform, the `-w <platform>` argument must be added to the command. The platform argument is a comma-separated list of the windows platform to be registered. Valid values are windows, windows8 and windowsphone8. |
-| `mfpdev app config` | You can specify the backend server and runtime to use for your app. For Cordova apps, by using this command you can configure several more aspects such as the default language for system messages and whether to do a checksum security check. Other configuration parameters are included for Cordova apps. |
-| `mfpdev app pull` | Retrieves an existing app configuration from the server. |
-| `mfpdev app push` | Sends app configuration to the server. |
-| `mfpdev app preview` | Preview your Cordova app without requiring an actual device of the target platform type. You can view the preview in either the Mobile Browser Simulator or your web browser. |
-| `mfpdev app webupdate` | Packages the application resources present in the www directory into a compressed (*.zip*) file that can be used for the direct update process. <br>This command packages the updated web resources to a compressed (*.zip*) file and upload it to the default {{site.data.keyword.mobilefoundation_short}} Server registered. The packaged web resources can be found at the `[cordova-project-root-folder]/mobilefirst/` folder. |
-| `mfpdev app webupdate <server_name> <runtime>` | To upload the web resources to different server instance, provide the server name and runtime as part of the command |
-| `mfpdev app webupdate --build` | You can use the –build parameter to generate the compressed (*.zip*) file with the packaged web resources without uploading it to a server. |
-| `mfpdev app webupdate --file mobilefirst/com.ibm.test-android-1.0.0.zip` | To upload a package that was previously built, use the –file parameter. |
-| `mfpdev app webupdate --encrypt` | There's also the option to encrypt the content of the package by using the `–encrypt` parameter. |
+| mfpdev app register | Registers your app with a {{site.data.keyword.mobilefoundation_short}} Server. |
+| mfpdev app register &lt;server&gt; &lt;runtime&gt; | Use this command to register an app to a non-default server and runtime. |
+| mfpdev app register -w windows8 | For Cordova Windows&trade; platform, the `-w <platform>` argument must be added to the command. The platform argument is a comma-separated list of the windows platform to be registered. Valid values are windows, windows8 and windowsphone8. |
+| mfpdev app config | You can specify the backend server and runtime to use for your app. For Cordova apps, by using this command you can configure several more aspects such as the default language for system messages and whether to do a checksum security check. Other configuration parameters are included for Cordova apps. |
+| mfpdev app pull | Retrieves an existing app configuration from the server. |
+| mfpdev app push | Sends app configuration to the server. |
+| mfpdev app preview | Preview your Cordova app without requiring an actual device of the target platform type. You can view the preview in either the Mobile Browser Simulator or your web browser. |
+| mfpdev app webupdate | Packages the application resources present in the www directory into a compressed (*.zip*) file that can be used for the direct update process. <br>This command packages the updated web resources to a compressed (*.zip*) file and upload it to the default {{site.data.keyword.mobilefoundation_short}} Server registered. The packaged web resources can be found at the `[cordova-project-root-folder]/mobilefirst/` folder. |
+| mfpdev app webupdate &lt;server_name&gt; &lt;runtime&gt; | To upload the web resources to different server instance, provide the server name and runtime as part of the command |
+| mfpdev app webupdate --build | You can use the –build parameter to generate the compressed (*.zip*) file with the packaged web resources without uploading it to a server. |
+| mfpdev app webupdate --file mobilefirst/com.ibm.test-android-1.0.0.zip` | To upload a package that was previously built, use the –file parameter. |
+| mfpdev app webupdate --encrypt | There's also the option to encrypt the content of the package by using the `–encrypt` parameter. |
 {: class="simple-tab-table"}
-{: caption="Table 2. mfpdev `App` commands" caption-side="top"}
+{: caption="Table 2. mfpdev **App** commands" caption-side="top"}
 {: #simpletabtable2}
-{: tab-title="`app`"}
+{: tab-title="**app**"}
 {: tab-group="MFP-simple"}
 
 | Command | Actions |
 |:----------------------|:----------------------|
-| `mfpdev server info` | Displays information about the {{site.data.keyword.mobilefoundation_short}} Server. |
-| `mfpdev server add` | Adds a server definition to your environment. |
-| `mfpdev server edit` | Edit a server definition. |
-| `mfpdev server edit <server_name> --setdefault` | Use this command to set a server as the default server. |
-| `mfpdev server remove` | Removes a server definition from your environment. |
-| `mfpdev server console` | Opens the {{site.data.keyword.mobilefoundation_short}} Operations Console. |
-| `mfpdev server console <server-name>` | To open the console of another server, provide the server name as a parameter for the command. |
-| `mfpdev server clean` | Unregisters apps and removes adapters from the {{site.data.keyword.mobilefoundation_short}} Server. |
+| mfpdev server info | Displays information about the {{site.data.keyword.mobilefoundation_short}} Server. |
+| mfpdev server add | Adds a server definition to your environment. |
+| mfpdev server edit | Edit a server definition. |
+| mfpdev server edit &lt;server_name&gt; --setdefault | Use this command to set a server as the default server. |
+| mfpdev server remove | Removes a server definition from your environment. |
+| mfpdev server console | Opens the {{site.data.keyword.mobilefoundation_short}} Operations Console. |
+| mfpdev server console &lt;server-name&gt; | To open the console of another server, provide the server name as a parameter for the command. |
+| mfpdev server clean | Unregisters apps and removes adapters from the {{site.data.keyword.mobilefoundation_short}} Server. |
 {: class="simple-tab-table"}
-{: caption="Table 3. mfpdev `server` commands" caption-side="top"}
+{: caption="Table 3. mfpdev **server** commands" caption-side="top"}
 {: #simpletabtable3}
-{: tab-title="`server`"}
+{: tab-title="**server**"}
 {: tab-group="MFP-simple"}
 
 | Command | Actions |
 |:----------------------|:----------------------|
-| `mfpdev adapter create` | Creates an adapter. |
-| `mfpdev adapter build` | Builds an adapter. |
-| `mfpdev adapter build all` | Finds and builds all of the adapters in the current directory and its subdirectories. |
-| `mfpdev adapter deploy` | Deploys an adapter to the {{site.data.keyword.mobilefoundation_short}} Server. |
-| `mfpdev adapter deploy <server_name>` | Use this command to deploy the adapter to a different server. |
-| `mfpdev adapter deploy all` | Finds all of the adapters in the current directory and its subdirectories, and deploys them to the {{site.data.keyword.mobilefoundation_short}} Server. |
-| `mfpdev adapter call` | Calls an adapter’s procedure on the {{site.data.keyword.mobilefoundation_short}} Server. |
-| `mfpdev adapter pull` | Retrieves an existing adapter configuration from the server. |
-| `mfpdev adapter push` | Sends adapter configuration to the server. |
+| mfpdev adapter create | Creates an adapter. |
+| mfpdev adapter build | Builds an adapter. |
+| mfpdev adapter build all | Finds and builds all of the adapters in the current directory and its subdirectories. |
+| mfpdev adapter deploy | Deploys an adapter to the {{site.data.keyword.mobilefoundation_short}} Server. |
+| mfpdev adapter deploy &lt;server_name&gt; | Use this command to deploy the adapter to a different server. |
+| mfpdev adapter deploy all | Finds all of the adapters in the current directory and its subdirectories, and deploys them to the {{site.data.keyword.mobilefoundation_short}} Server. |
+| mfpdev adapter call | Calls an adapter’s procedure on the {{site.data.keyword.mobilefoundation_short}} Server. |
+| mfpdev adapter pull | Retrieves an existing adapter configuration from the server. |
+| mfpdev adapter push | Sends adapter configuration to the server. |
 {: class="simple-tab-table"}
-{: caption="Table 4. mfpdev `adapter` commands" caption-side="top"}
+{: caption="Table 4. mfpdev **adapter** commands" caption-side="top"}
 {: #simpletabtable4}
-{: tab-title="`adapter`"}
+{: tab-title="**adapter**"}
 {: tab-group="MFP-simple"}
 
 | Command | Actions |
 |:----------------------|:----------------------|
-| `mfpdev help <command name>` | Displays help for {{site.data.keyword.mobilefoundation_short}} CLI (`mfpdev`) commands. With command name as an argument, it displays more specific help text for each command type or command. For example, `mfpdev help server add`. |
+| mfpdev help &lt;command name&gt; | Displays help for {{site.data.keyword.mobilefoundation_short}} CLI (`mfpdev`) commands. With command name as an argument, it displays more specific help text for each command type or command. For example, `mfpdev help server add`. |
 {: class="simple-tab-table"}
-{: caption="Table 5. mfpdev `help` command" caption-side="top"}
+{: caption="Table 5. mfpdev **help** command" caption-side="top"}
 {: #simpletabtable5}
-{: tab-title="`help`"}
+{: tab-title="**help**"}
 {: tab-group="MFP-simple"}
 
 ## Updating and uninstalling {{site.data.keyword.mobilefoundation_short}} CLI
