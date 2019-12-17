@@ -154,8 +154,8 @@ Following tabs details the list of {{site.data.keyword.mobilefoundation_short}} 
 | `mfpdev config` | Sets your configuration preferences for preview browser type, preview timeout value, and server timeout value for the mfpdev command-line interface. |
 | `mfpdev info` | Displays information about your environment, including operating system, memory consumption, node version, and command-line interface version. If the current directory is a Cordova application, information that is provided by the Cordova `cordova info` command is also displayed. |
 | `mfpdev -v` | Displays the version number of the {{site.data.keyword.mobilefoundation_short}} CLI currently in use. |
-| `mfpdev [-d \| --debug]` | Debug mode: Produces debug output. |
-| `mfpdev [-dd \| --ddebug]` | Verbose debug mode: Produces verbose debug output. |
+| `mfpdev [-d &#x7c; --debug]` | Debug mode: Produces debug output. |
+| `mfpdev [-dd &#x7c; --ddebug]` | Verbose debug mode: Produces verbose debug output. |
 | `mfpdev -no-color` | Suppresses use of color in command output. |
 {: class="simple-tab-table"}
 {: caption="Table 1. General `mfpdev` commands" caption-side="top"}
