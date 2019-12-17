@@ -160,7 +160,7 @@ Following tabs details the list of {{site.data.keyword.mobilefoundation_short}} 
 {: class="simple-tab-table"}
 {: caption="Table 1. General mfpdev commands" caption-side="top"}
 {: #simpletabtable1}
-{: tab-title="General **mfpdev** commands"}
+{: tab-title="General mfpdev commands"}
 {: tab-group="MFP-simple"}
 
 | Command | Actions |
@@ -178,9 +178,9 @@ Following tabs details the list of {{site.data.keyword.mobilefoundation_short}} 
 | mfpdev app webupdate --file mobilefirst/com.ibm.test-android-1.0.0.zip` | To upload a package that was previously built, use the –file parameter. |
 | mfpdev app webupdate --encrypt | There's also the option to encrypt the content of the package by using the `–encrypt` parameter. |
 {: class="simple-tab-table"}
-{: caption="Table 2. mfpdev **App** commands" caption-side="top"}
+{: caption="Table 2. mfpdev App commands" caption-side="top"}
 {: #simpletabtable2}
-{: tab-title="**app**"}
+{: tab-title="app"}
 {: tab-group="MFP-simple"}
 
 | Command | Actions |
@@ -194,9 +194,9 @@ Following tabs details the list of {{site.data.keyword.mobilefoundation_short}} 
 | mfpdev server console &lt;server-name&gt; | To open the console of another server, provide the server name as a parameter for the command. |
 | mfpdev server clean | Unregisters apps and removes adapters from the {{site.data.keyword.mobilefoundation_short}} Server. |
 {: class="simple-tab-table"}
-{: caption="Table 3. mfpdev **server** commands" caption-side="top"}
+{: caption="Table 3. mfpdev server commands" caption-side="top"}
 {: #simpletabtable3}
-{: tab-title="**server**"}
+{: tab-title="server"}
 {: tab-group="MFP-simple"}
 
 | Command | Actions |
@@ -211,18 +211,18 @@ Following tabs details the list of {{site.data.keyword.mobilefoundation_short}} 
 | mfpdev adapter pull | Retrieves an existing adapter configuration from the server. |
 | mfpdev adapter push | Sends adapter configuration to the server. |
 {: class="simple-tab-table"}
-{: caption="Table 4. mfpdev **adapter** commands" caption-side="top"}
+{: caption="Table 4. mfpdev adapter commands" caption-side="top"}
 {: #simpletabtable4}
-{: tab-title="**adapter**"}
+{: tab-title="adapter"}
 {: tab-group="MFP-simple"}
 
 | Command | Actions |
 |:----------------------|:----------------------|
 | mfpdev help &lt;command name&gt; | Displays help for {{site.data.keyword.mobilefoundation_short}} CLI (`mfpdev`) commands. With command name as an argument, it displays more specific help text for each command type or command. For example, `mfpdev help server add`. |
 {: class="simple-tab-table"}
-{: caption="Table 5. mfpdev **help** command" caption-side="top"}
+{: caption="Table 5. mfpdev help command" caption-side="top"}
 {: #simpletabtable5}
-{: tab-title="**help**"}
+{: tab-title="help"}
 {: tab-group="MFP-simple"}
 
 ## Updating and uninstalling {{site.data.keyword.mobilefoundation_short}} CLI
