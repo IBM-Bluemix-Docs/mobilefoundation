@@ -45,9 +45,9 @@ The {{site.data.keyword.mobilefoundation_short}} service publishes regular updat
 
 These updates will have the latest fixes and feature updates. You can plan and update to the latest level of {{site.data.keyword.mobilefoundation_short}}. It is recommended that you are always on the latest level.
 
-To check if your {{site.data.keyword.mobilefoundation_short}} server has updates, login to the {{site.data.keyword.cloud_notm}} console, select your Mobile Service instance on the dashboard. Click on **Manage** on the left navigation menu. You will see a notice if there is a server update available.
+To check if your {{site.data.keyword.mobilefoundation_short}} server has updates, login to the {{site.data.keyword.cloud_notm}} console, select your Mobile Service instance on the dashboard. Click on **Manage** on the left-hand side navigation menu. You will see a notice if there is a server update available.
 
-To update to the latest level, you simply need to click **Update server** button that is available on the bottom of the same page.
+To update to the latest level, you simply need to click **Update server** button that is available at the end of the same page.
 
 Updating the {{site.data.keyword.mobilefoundation_short}} service results in restarting of the corresponding Cloud Foundry application. As a result, there may be a downtime. The updates need to be planned accordingly.
 {: important}

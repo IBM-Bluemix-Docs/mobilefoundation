@@ -113,7 +113,7 @@ You can access the logs through IBM Cloud console.
 
 1. Log in to [https://cloud.ibm.com/](https://cloud.ibm.com/).
 1. On the IBM Cloud dashboard, go to **Cloud Foundry Apps** and Select your app.
-1. Click on your app's entry to open the details, and then go to **Logs**. Current logs are shown with the most recent at the bottom. On the upper right, you can search for an entry or filter by log type. Select **Application (APP)**.
+1. Click on your app's entry to open the details, and then go to **Logs**. Current logs are shown with the most recent at the end. You can search for an entry or filter by log type. Select **Application (APP)**.
 1. Select your App and click **Logs → View in Kibana**.
 1. Select and copy the logs messages.
 

@@ -285,15 +285,15 @@ The {{site.data.keyword.mobileanalytics_short}} Client SDK is distributed with G
    {: codeblock}
    {: android}
 
-### Instrument an iOS application
+## Instrument an iOS application
 {: #instrument_ios_app}
 {: ios}
 
 Steps to instrument your iOS application:
 {: ios}
 
-#### Step 1: Import and install the Mobile Analytics Client SDK for iOS
-{: #install_analytics_sdk_ios }
+### Step 1: Import and install the Mobile Analytics Client SDK for iOS
+{: #install_analytics_sdk_ios}
 {: ios}
 
 [![CocoaPods Compatible - {{site.data.keyword.mobilefoundation_short}}](https://img.shields.io/cocoapods/v/IBMMobileFirstPlatformFoundation.svg)](https://cocoapods.org/pods/IBMMobileFirstPlatformFoundation){: external}
@@ -324,8 +324,8 @@ The Swift SDK is available for iOS and watchOS.
    {: codeblock}
    {: ios}
 
-#### Step 2: Instrument your iOS application based on the type of analytics data you want to collect
-{: #instrument_app_based_on_data_ios }
+### Step 2: Instrument your iOS application based on the type of analytics data you want to collect
+{: #instrument_app_based_on_data_ios}
 {: ios}
 
 1. Initialize your application to enable sending logs to the Mobile Analytics.
@@ -461,13 +461,13 @@ The Swift SDK is available for iOS and watchOS.
    {: codeblock}
    {: ios}
 
-### Instrument a Cordova application
+## Instrument a Cordova application
 {: #instrument_cordova_app}
 {: cordova}
 Steps to instrument your Cordova application:
 {: cordova}
 
-#### Step 1: Import and install the Foundation and Analytics Client SDK plug-in for Cordova
+### Step 1: Import and install the Foundation and Analytics Client SDK plug-in for Cordova
 {: #install_analytics_sdk_cordova }
 The Mobile Analytics Cordova plug-in enables you to instrument your mobile application.
 {: cordova}
@@ -515,7 +515,7 @@ The Mobile Analytics Cordova plug-in enables you to instrument your mobile appli
    {: codeblock}
    {: cordova}
 
-#### Step 2: Instrument your Cordova application based on the type of analytics data you want to collect
+### Step 2: Instrument your Cordova application based on the type of analytics data you want to collect
 {: #instrument_app_based_on_data_cordova }
 {: cordova}
 
@@ -661,14 +661,14 @@ The Mobile Analytics Cordova plug-in enables you to instrument your mobile appli
    {: codeblock}
    {: cordova}
 
-### Instrument a Web application
+## Instrument a Web application
 {: #instrument_web_app}
 {: web}
 
 Steps to instrument your Web application:
 {: web}
 
-#### Step 1: Import and install the {{site.data.keyword.mobileanalytics_short}} Client SDK for Web
+### Step 1: Import and install the {{site.data.keyword.mobileanalytics_short}} Client SDK for Web
 {: #install_analytics_sdk_web }
 {: web}
 
@@ -684,7 +684,7 @@ The {{site.data.keyword.mobileanalytics_short}} SDK enables you to instrument yo
    {: codeblock}
    {: web}
 
-#### Step 2: Instrument your Web application based on the type of analytics data you want to collect
+### Step 2: Instrument your Web application based on the type of analytics data you want to collect
 {: #instrument_app_based_on_data_web }
 {: web}
 
