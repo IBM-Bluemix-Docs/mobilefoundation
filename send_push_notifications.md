@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2019
-lastupdated: "2019-11-29"
+  years: 2018, 2020
+lastupdated: "2020-01-07"
 
 keywords: push notifications, notifications, sending notification, HTTP/2
 
@@ -211,9 +211,9 @@ In the {{site.data.keyword.mfp_oc_short_notm}} → **[your application] → Push
 ## HTTP/2 Support for APNs {{site.data.keyword.mobilepushshort}}
 {: #http2-support-for-apns-push-notifications}
 
-Apple Push Notification service (APNs) supports a new API based on HTTP/2 network protocol. Support for HTTP/2 provides many benefits, including the following,
+Apple Push Notification service (APNs) supports a new API based on HTTP/2 network protocol. Support for HTTP/2 provides many benefits, including the following:
 
-- Message length that is increased 2 - 4 KB, which enables to add extra content to notifications.
+- Message length is increased by 2 to 4 KB, which enables to add extra content to notifications.
 - Eliminates the need for multiple connections between client and server, which improves the throughput.
 - Universal Push Notification Client SSL Certificate support.
 

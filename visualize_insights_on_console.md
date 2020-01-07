@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2019
-lastupdated: "2019-11-29"
+  years: 2018, 2020
+lastupdated: "2020-01-07"
 
 keywords: mobile analytics, charts, visualize data, analytics console
 
@@ -99,4 +99,4 @@ This view provides insights into the actual interactive experience your users ar
 ## Custom Charts
 {: #custom_charts}
 
-This view extends {{site.data.keyword.mobileanalytics_short}} to custom cases where **App owners** and **Developers** would like to build their own, application-specific analytics. Using this facility that you can build your own analytics views (charts, tables, and others) around standard analytics data that is captured by the Client SDK and also custom data or application-specific data that is logged. For more information about extended analytics facility, see [here](/docs/services/mobilefoundation?topic=mobilefoundation-build_custom_charts#build_custom_charts).
+This view extends {{site.data.keyword.mobileanalytics_short}} to custom cases where **App owners** and **Developers** would like to build their own, application-specific analytics. Using this facility, you can build your own analytics views (charts, tables, and others) around standard analytics data that is captured by the Client SDK and also custom data or application-specific data that is logged. For more information about extended analytics facility, see [here](/docs/services/mobilefoundation?topic=mobilefoundation-build_custom_charts#build_custom_charts).

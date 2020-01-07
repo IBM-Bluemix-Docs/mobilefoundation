@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2016, 2019
-lastupdated: "2019-11-29"
+  years: 2016, 2020
+lastupdated: "2020-01-07"
 
 keywords: getting started, mobile foundation, plans, configure mobile foundation server, sample app, setup
 
@@ -96,12 +96,12 @@ After you create an instance of the {{site.data.keyword.mobilefoundation_short}}
 
    * For **{{site.data.keyword.Db2_on_Cloud_short}}** database service:
 
-      + Select the {{site.data.keyword.cloud_notm}} `Organization`, `Space`, `Service Name`, and `Credentials`. where the {{site.data.keyword.Db2_on_Cloud_short}} service instance exits.
+      + Select the {{site.data.keyword.cloud_notm}} `Organization`, `Space`, `Service Name`, and `Credentials`. where the {{site.data.keyword.Db2_on_Cloud_short}} service instance exists.
       + Test the connection to the selected {{site.data.keyword.Db2_on_Cloud_short}} service instance by clicking **Test Connection**.
       + Click **Connect**.
       + Click **Save** on the pop-up window that asks for confirmation on the selected {{site.data.keyword.Db2_on_Cloud_short}} service instance. This action creates the required tables in the configured {{site.data.keyword.Db2_on_Cloud_short}} service instance.
 
-      Make sure you have the permissions to access the `Space` where the {{site.data.keyword.Db2_on_Cloud_short}} instance exits. After you add a {{site.data.keyword.Db2_on_Cloud_short}} instance, you will not be able to change it.
+      Make sure you have the permissions to access the `Space` where the {{site.data.keyword.Db2_on_Cloud_short}} instance exists. After you add a {{site.data.keyword.Db2_on_Cloud_short}} instance, you will not be able to change it.
       {: note}
 
    * For **{{site.data.keyword.composeForPostgreSQL}}** database service:
@@ -109,22 +109,22 @@ After you create an instance of the {{site.data.keyword.mobilefoundation_short}}
       You cannot create a new {{site.data.keyword.composeForPostgreSQL}} database now, but if you have already created one, then you can connect to that {{site.data.keyword.composeForPostgreSQL}} database instance. Use Databases for {{site.data.keyword.postgresql}} service instance going forward. Also, create a Mobile Foundation instance at the Organization level for providing access to others in your Organization.
       {: note}
 
-      + Select the {{site.data.keyword.cloud_notm}} `Organization`, `Space`, `Service Name`, and `Credentials`. where the {{site.data.keyword.composeForPostgreSQL}} service instance exits.
+      + Select the {{site.data.keyword.cloud_notm}} `Organization`, `Space`, `Service Name`, and `Credentials`. where the {{site.data.keyword.composeForPostgreSQL}} service instance exists.
       + Test the connection to the selected {{site.data.keyword.composeForPostgreSQL}} service instance by clicking **Test Connection**.
       + Click **Connect**.
       + Click **Save** on the pop-up window that asks for confirmation on the selected {{site.data.keyword.composeForPostgreSQL}} service instance. This action creates the required tables in the configured {{site.data.keyword.composeForPostgreSQL}} service instance.
 
-      Make sure you have the permissions to access the `Space` where the {{site.data.keyword.composeForPostgreSQL}} instance exits. After you add a {{site.data.keyword.composeForPostgreSQL}} instance, you'll not be able to change it.
+      Make sure you have the permissions to access the `Space` where the {{site.data.keyword.composeForPostgreSQL}} instance exists. After you add a {{site.data.keyword.composeForPostgreSQL}} instance, you'll not be able to change it.
       {: note}
 
    * For **Databases for {{site.data.keyword.postgresql}}** database service:
 
-      + Select the `Resource Group`, `Service Name`, and `Credentials`. where the Databases for {{site.data.keyword.postgresql}} service instance exits.
+      + Select the `Resource Group`, `Service Name`, and `Credentials`. where the Databases for {{site.data.keyword.postgresql}} service instance exists.
       + Test the connection to the selected Databases for {{site.data.keyword.postgresql}} service instance by clicking **Test Connection**.
       + Click **Connect**.
       + Click **Save** on the pop-up window that asks for confirmation on the selected Databases for {{site.data.keyword.postgresql}} service instance. This action creates the required tables in the configured Databases for {{site.data.keyword.postgresql}} service instance.
         
-      Make sure you have the permissions to access the `Resource Group` where the Databases for {{site.data.keyword.postgresql}} instance exits. After you add a Databases for {{site.data.keyword.postgresql}} instance, you'll not be able to change it.
+      Make sure you have the permissions to access the `Resource Group` where the Databases for {{site.data.keyword.postgresql}} instance exists. After you add a Databases for {{site.data.keyword.postgresql}} instance, you'll not be able to change it.
       {: note}
 
 1. Create and start the server.
@@ -158,12 +158,12 @@ After you create an instance of the {{site.data.keyword.mobilefoundation_short}}
 
    * For **{{site.data.keyword.Db2_on_Cloud_short}}** database service:
 
-      + Select the {{site.data.keyword.cloud_notm}} `Organization`, `Space`, `Service Name`, and `Credentials`. where the {{site.data.keyword.Db2_on_Cloud_short}} service instance exits.
+      + Select the {{site.data.keyword.cloud_notm}} `Organization`, `Space`, `Service Name`, and `Credentials`. where the {{site.data.keyword.Db2_on_Cloud_short}} service instance exists.
       + Test the connection to the selected {{site.data.keyword.Db2_on_Cloud_short}} service instance by clicking **Test Connection**.
       + Click **Connect**.
       + Click **Save** on the pop-up window that asks for confirmation on the selected {{site.data.keyword.Db2_on_Cloud_short}} service instance. This action creates the required tables in the configured {{site.data.keyword.Db2_on_Cloud_short}} service instance.
 
-      Make sure you have the permissions to access the `Space` where the {{site.data.keyword.Db2_on_Cloud_short}} instance exits. After you add a {{site.data.keyword.Db2_on_Cloud_short}} instance, you'll not be able to change it.
+      Make sure you have the permissions to access the `Space` where the {{site.data.keyword.Db2_on_Cloud_short}} instance exists. After you add a {{site.data.keyword.Db2_on_Cloud_short}} instance, you'll not be able to change it.
       {: note}
 
    * For **{{site.data.keyword.composeForPostgreSQL}}** database service:
@@ -171,22 +171,22 @@ After you create an instance of the {{site.data.keyword.mobilefoundation_short}}
       You cannot create a new {{site.data.keyword.composeForPostgreSQL}} database now, but if you have already created one, then you can connect to that {{site.data.keyword.composeForPostgreSQL}} database instance. Use Databases for {{site.data.keyword.postgresql}} service instance going forward. Also, create a Mobile Foundation instance at the Organization level for providing access to others in your Organization.
       {: note}
 
-      + Select the {{site.data.keyword.cloud_notm}} `Organization`, `Space`, `Service Name`, and `Credentials`. where the {{site.data.keyword.composeForPostgreSQL}} service instance exits.
+      + Select the {{site.data.keyword.cloud_notm}} `Organization`, `Space`, `Service Name`, and `Credentials`. where the {{site.data.keyword.composeForPostgreSQL}} service instance exists.
       + Test the connection to the selected {{site.data.keyword.composeForPostgreSQL}} service instance by clicking **Test Connection**.
       + Click **Connect**.
       + Click **Save** on the pop-up window that asks for confirmation on the selected {{site.data.keyword.composeForPostgreSQL}} service instance. This action creates the required tables in the configured {{site.data.keyword.composeForPostgreSQL}} service instance.
 
-      Make sure you have the permissions to access the `Space` where the {{site.data.keyword.composeForPostgreSQL}} instance exits. After you add a {{site.data.keyword.composeForPostgreSQL}} instance, you'll not be able to change it.
+      Make sure you have the permissions to access the `Space` where the {{site.data.keyword.composeForPostgreSQL}} instance exists. After you add a {{site.data.keyword.composeForPostgreSQL}} instance, you'll not be able to change it.
       {: note}
 
    * For **Databases for {{site.data.keyword.postgresql}}** database service:
 
-      + Select the `Resource Group`, `Service Name`, and `Credentials`. where the Databases for {{site.data.keyword.postgresql}} service instance exits.
+      + Select the `Resource Group`, `Service Name`, and `Credentials`. where the Databases for {{site.data.keyword.postgresql}} service instance exists.
       + Test the connection to the selected Databases for {{site.data.keyword.postgresql}} service instance by clicking **Test Connection**.
       + Click **Connect**.
       + Click **Save** on the pop-up window that asks for confirmation on the selected Databases for {{site.data.keyword.postgresql}} service instance. This action creates the required tables in the configured Databases for {{site.data.keyword.postgresql}} service instance.
 
-      Make sure you have the permissions to access the `Resource Group` where the Databases for {{site.data.keyword.postgresql}} instance exits. After you add a Databases for {{site.data.keyword.postgresql}} instance, you'll not be able to change it.
+      Make sure you have the permissions to access the `Resource Group` where the Databases for {{site.data.keyword.postgresql}} instance exists. After you add a Databases for {{site.data.keyword.postgresql}} instance, you'll not be able to change it.
       {: note}
 
 1. Create and start the server.

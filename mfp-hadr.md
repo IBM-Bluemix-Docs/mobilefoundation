@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019
-lastupdated: "2019-11-29"
+  years: 2019, 2020
+lastupdated: "2020-01-07"
 
 keywords: mobile foundation, high availability, disaster recovery, HA, HADR, DR
 
@@ -54,7 +54,7 @@ You can create {{site.data.keyword.mobilefoundation_short}} service in one of th
 
 As you plan your back-end connections with your {{site.data.keyword.mobilefoundation_short}} service instance, keep in mind that provisioning {{site.data.keyword.mobilefoundation_short}} service in a region that is nearest to your back-end is more likely to result in faster, more reliable connections. Choose a specific region if the users, apps, or services that connect {{site.data.keyword.mobilefoundation_short}} server are geographically concentrated.
 
-Users and services set at different regions might experience higher latency.
+The region at which users are set is different from the region at which services are set might experience higher latency.
 {: note}
 
 If you want to make your {{site.data.keyword.mobilefoundation_short}} server Highly Available, you need to follow the [HA-DR topology](https://www.ibm.com/cloud/blog/build-resilient-backend-to-your-applications-using-ibm-cloud-mobile-foundation) for {{site.data.keyword.mobilefoundation_short}}.

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019
-lastupdated: "2019-11-29"
+  years: 2019, 2020
+lastupdated: "2020-01-07"
 
 keywords: mobile foundation, logging and tracing, accessing server logs, logging, tracing
 
@@ -40,7 +40,7 @@ subcollection:  mobilefoundation
 # Logging and tracing
 {: #logging-and-tracing}
 
-{{site.data.keyword.mobilefoundation_long}} helps you with logging and tracing of your app. This section explains hot to familiarize yourself with logging and tracing of your app. 
+{{site.data.keyword.mobilefoundation_long}} helps you with logging and tracing of your app. This section explains how to familiarize yourself with logging and tracing of your app. 
 {: shortdesc}
 
 ## Accessing server logs
@@ -134,7 +134,7 @@ To enable tracing in {{site.data.keyword.mobilefoundation_short}} Cloud Foundry 
    `traceSpecification="=info:com.ibm.mfp.*=all"` 
    and save the file.
 
-   The `server.xml` or `tracespec.xml` change will be lost on a restage or restart. It is only valid for the instance you `ssh` into, so you must enable traces on all the instances of your application.
+   The `server.xml` or `tracespec.xml` change will be lost on a restage or restart. It is only valid for the instance to which you run `ssh`, so you must enable traces on all the instances of your application."
    {: note}
 
 The **trace.log** file is now available in the specified location.
