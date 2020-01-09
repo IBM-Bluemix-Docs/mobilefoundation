@@ -167,7 +167,7 @@ Following tabs details the list of {{site.data.keyword.mobilefoundation_short}} 
 |:----------------------|:----------------------|
 | mfpdev app register | Registers your app with a {{site.data.keyword.mobilefoundation_short}} Server. |
 | mfpdev app register &lt;server&gt; &lt;runtime&gt; | Use this command to register an app to a non-default server and runtime. |
-| mfpdev app register -w windows8 | For Cordova Windows&trade; platform, the `-w <platform>` argument must be added to the command. The platform argument is a comma-separated list of the windows platform to be registered. Valid values are windows, windows8 and windowsphone8. |
+| mfpdev app register -w windows8 | For Cordova Windows&trade; platform, the `-w <platform>` argument must be added to the command. The platform argument is a comma-separated list of the windows platforms to be registered. Valid values are windows, windows8 and windowsphone8. |
 | mfpdev app config | You can specify the backend server and runtime to use for your app. For Cordova apps, by using this command you can configure several more aspects such as the default language for system messages and whether to do a checksum security check. Other configuration parameters are included for Cordova apps. |
 | mfpdev app pull | Retrieves an existing app configuration from the server. |
 | mfpdev app push | Sends app configuration to the server. |
