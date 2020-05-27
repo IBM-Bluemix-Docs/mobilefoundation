@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2019
-lastupdated: "2019-11-29"
+  years: 2018, 2020
+lastupdated: "2020-05-27"
 
 keywords: mobile analytics, charts, app sessions, crashes, graph
 
@@ -82,7 +82,7 @@ Create a custom chart by using the following steps:
 ## Obtaining custom insights from custom data logs
 {: #creating_custom_chart_for_client_logs}    
 
-If you wish to gain deeper custom insights such as users trail across the application then first you are required to capture the relevant user trail information such as page chosen or option that is selected or button clicked as custom data and log them. See the topic on [instrumenting your app](/docs/services/mobilefoundation?topic=mobilefoundation-instrument_your_app#instrument_your_app), on how to log custom data.
+If you wish to gain deeper custom insights such as users trail across the application then first you are required to capture the relevant user trail information such as page chosen or option that is selected or button clicked as custom data and log them. See the topic on [instrumenting your app](/docs/mobilefoundation?topic=mobilefoundation-instrument_your_app#instrument_your_app), on how to log custom data.
 
 Next, create a custom chart definition with Custom Data as the EventType and choose a Chart Type. As you proceed to define  **Chart Properties** or **Chart Filters**, you notice the Custom Data types and values show up in the drop-down boxes. Make the relevant selections for the kind of insight you are looking for.  
 

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2019
-lastupdated: "2019-11-29"
+  years: 2018, 2020
+lastupdated: "2020-05-27"
 
 keywords: push notifications, notifications, FCM, GCM, APNS, WNS, authenticate notification
 
@@ -94,7 +94,7 @@ iOS devices use Apple's Push Notification Service (APNS) for push notifications.
 
 To set up APNS:
 
-1. Generate a push notification certificate for development or production. For detailed steps, refer the `For iOS` section [here](https://cloud.ibm.com/docs/services/mobilepush?topic=mobile-pushnotification-push_step_1#push_step_1).
+1. Generate a push notification certificate for development or production. For detailed steps, refer the `For iOS` section [here](/docs/mobilepush?topic=mobilepush-push_step_1#push_step_1).
 1. In the {{ site.data.keyword.mfp_oc_short_notm }} → **[your application] → Push → Push Settings**, select the certificate type and provide the certificate's file and password. Then, click **Save**.
 
    * For push notifications to be sent, the following servers must be accessible from a {{ site.data.keyword.mfserver_short_notm }} instance,
@@ -191,8 +191,8 @@ Subscriptions tie together a device registration and a tag. When a device is unr
 ## Tutorials to follow next
 {: #tutorials-to-follow-next }
 
-* [Send Push Notifications](/docs/services/mobilefoundation?topic=mobilefoundation-send_push_notifications#send_push_notifications)
+* [Send Push Notifications](/docs/mobilefoundation?topic=mobilefoundation-send_push_notifications#send_push_notifications)
 
 With the server-side now set-up, set up the client-side and handle received notifications.
 
-* [Handling push notifications in Client applications](/docs/services/mobilefoundation?topic=mobilefoundation-handling_push_notifications_in_client_applications#handling_push_notifications_in_client_applications)
+* [Handling push notifications in Client applications](/docs/mobilefoundation?topic=mobilefoundation-handling_push_notifications_in_client_applications#handling_push_notifications_in_client_applications)

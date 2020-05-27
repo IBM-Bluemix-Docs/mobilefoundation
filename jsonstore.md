@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2019
-lastupdated: "2019-11-29"
+  years: 2018, 2020
+lastupdated: "2020-05-27"
 
 keywords: JSONStore, offline storage, jsonstore error codes
 
@@ -241,7 +241,7 @@ To decrypt the data, you can look up the metadata in a JSONStore collection, rea
 
 This metadata can include the key, salt, Initialization Vector (IV), type of file, path to the file, and others.
 
-Learn more about [JSONStore Security Utilities](/docs/services/mobilefoundation?topic=mobilefoundation-security_utilities#security_utilities).
+Learn more about [JSONStore Security Utilities](/docs/mobilefoundation?topic=mobilefoundation-security_utilities#security_utilities).
 {: tip}
 
 ### Windows 8.1 Universal and Windows 10 UWP encryption

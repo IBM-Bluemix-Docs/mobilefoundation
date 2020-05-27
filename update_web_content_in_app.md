@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2019
-lastupdated: "2019-11-29"
+  years: 2018, 2020
+lastupdated: "2020-05-27"
 
 keywords: update web content, update apps
 
@@ -81,9 +81,9 @@ Direct Update updates only to the application’s web resources. To update nativ
 
    The `mfpdev app webupdate` command packages the updated web resources to a `.zip` file and upload it to the default {{site.data.keyword.mobilefoundation_short}} server running in developer's workstation. The packaged web resources can be found at the `[cordova-project-root-folder]/mobilefirst/` folder.
 
-For alternative steps to update web content in your app, see [here](/docs/services/mobilefoundation?topic=mobilefoundation-alternate_steps_to_update_app_web_content_in_app#alternate_steps_to_update_app_web_content_in_app).
+For alternative steps to update web content in your app, see [here](/docs/mobilefoundation?topic=mobilefoundation-alternate_steps_to_update_app_web_content_in_app#alternate_steps_to_update_app_web_content_in_app).
 
 ## Direct Update advanced configuration
 {: #direct_update_advanced_config}
 
-For advanced topics on Direct Update configuration, see [here](/docs/services/mobilefoundation?topic=mobilefoundation-advanced_direct_update_configuration#advanced_direct_update_configuration).
+For advanced topics on Direct Update configuration, see [here](/docs/mobilefoundation?topic=mobilefoundation-advanced_direct_update_configuration#advanced_direct_update_configuration).

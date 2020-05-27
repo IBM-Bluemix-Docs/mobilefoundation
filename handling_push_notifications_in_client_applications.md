@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2019
-lastupdated: "2019-11-29"
+  years: 2018, 2020
+lastupdated: "2020-05-27"
 
 keywords: push notifications, notifications, set up android app for notification, set up iOS app for notification, set up cordova app for notification, set up windows app for notification
 
@@ -64,7 +64,7 @@ Before Android applications are able to handle any received push notifications, 
 {: android}
 
 Create a new Android Studio project or use an existing one.  
-If the {{site.data.keyword.mobilefirst_notm}} Native Android SDK is not already present in the project, follow the instructions in the [Adding the {{site.data.keyword.mobilefoundation_short}} SDK to Android applications](https://cloud.ibm.com/docs/services/mobilefoundation/add_sdk_to_app.html#add_sdk_to_app) tutorial.
+If the {{site.data.keyword.mobilefirst_notm}} Native Android SDK is not already present in the project, follow the instructions in the [Adding the {{site.data.keyword.mobilefoundation_short}} SDK to Android applications](/docs/mobilefoundation?topic=mobilefoundation-add_sdk_to_app) tutorial.
 {: android}
 
 ### Project setup
@@ -465,7 +465,7 @@ After migrating to FCM, update your project to use FCM credentials instead of th
 Setting up an application in FCM is a bit different compared to the old GCM model.
 {: android}
 
-1. Obtain your notification provider credentials, create an FCM project, and add the same to your Android application. Include the package name of your application as `com.ibm.mobilefirstplatform.clientsdk.android.push`. Refer the [documentation here](https://cloud.ibm.com/docs/services/mobilepush/push_step_1.html#push_step_1_android) until the step where you have finished generating the `google-services.json` file.
+1. Obtain your notification provider credentials, create an FCM project, and add the same to your Android application. Include the package name of your application as `com.ibm.mobilefirstplatform.clientsdk.android.push`. Refer the [documentation here](/docs/mobilepush?topic=mobilepush-push_step_1#push_step_1_android) until the step where you have finished generating the `google-services.json` file.
    {: android}
 1. Configure your Gradle file. Add the following in the app's `build.gradle` file
 
@@ -575,8 +575,8 @@ Setting up an application in FCM is a bit different compared to the old GCM mode
 
 For information about Silent or Interactive notifications, see:
 
-* [Silent Notifications](/docs/services/mobilefoundation?topic=mobilefoundation-silent_notifications#silent_notifications)
-* [Interactive Notifications](/docs/services/mobilefoundation?topic=mobilefoundation-interactive_notifications#interactive_notifications)
+* [Silent Notifications](/docs/mobilefoundation?topic=mobilefoundation-silent_notifications#silent_notifications)
+* [Interactive Notifications](/docs/mobilefoundation?topic=mobilefoundation-interactive_notifications#interactive_notifications)
 {: ios}
 
 ### Prerequisites
@@ -921,8 +921,8 @@ Authenticated notifications are currently **not supported** in Cordova applicati
 For information about Silent or Interactive notifications in iOS, see:
 {: cordova}
 
-* [Silent Notifications](/docs/services/mobilefoundation?topic=mobilefoundation-silent_notifications#silent_notifications)
-* [Interactive Notifications](/docs/services/mobilefoundation?topic=mobilefoundation-interactive_notifications#interactive_notifications)
+* [Silent Notifications](/docs/mobilefoundation?topic=mobilefoundation-silent_notifications#silent_notifications)
+* [Interactive Notifications](/docs/mobilefoundation?topic=mobilefoundation-interactive_notifications#interactive_notifications)
 {: cordova}
 
 ### Prerequisites

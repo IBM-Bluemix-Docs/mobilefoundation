@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2019
-lastupdated: "2019-11-29"
+  years: 2018, 2020
+lastupdated: "2020-05-27"
 
 keywords: push notifications, sending interactive notification
 
@@ -48,7 +48,7 @@ Interactive notifications are supported on devices with iOS version 8 and higher
 ## Sending interactive push notification
 {: #sending-interactive-push-notification}
 
-Prepare the notification and send notification. For more information, see [Sending push notifications](/docs/services/mobilefoundation?topic=mobilefoundation-send_push_notifications#send_push_notifications).
+Prepare the notification and send notification. For more information, see [Sending push notifications](/docs/mobilefoundation?topic=mobilefoundation-send_push_notifications#send_push_notifications).
 
 You can set a string to indicate the category of the notification with the notification object, under **{{ site.data.keyword.mfp_oc_short_notm }} → [your application] → Push → Send Notifications → iOS custom settings**. Based on the category value, the notification action buttons are displayed. For example,
 

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2019
-lastupdated: "2019-11-29"
+  years: 2018, 2020
+lastupdated: "2020-05-27"
 
 keywords: mobile foundation, integration, cloud object storage, COS, ibm cloud
 
@@ -47,7 +47,7 @@ subcollection:  mobilefoundation
 {: #cos-prerequisites}
 
 1. Install the [mfpdev-cli](https://www.ibm.com/support/knowledgecenter/en/SSHS8R_8.0.0/com.ibm.worklight.dev.doc/dev/c_wl_cli_description.html) by running `npm install -g mfpdev-cli`. This cli is used to register the ionic app and deploy the adapter to the MF server. Alternatively these activities can be performed from the MF server dashboard.
-1. Install [{{site.data.keyword.cloud_notm}} CLI](https://cloud.ibm.com/docs/cli?topic=cloud-cli-ibmcloud-cli) on your machine.
+1. Install [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cli-install-ibmcloud-cli) on your machine.
 1. Install ionic cli by running `npm install -g ionic`
 1. Install cordova by running `npm install -g cordova`
 
@@ -176,7 +176,7 @@ To connect to your COS instance, some details of your COS instance need to be pr
 1. **endpointURL**: This field is the public endpoint url for your COS object. This URL can be found on your COS's dashboard, under **Buckets (on the menu options) -> <your-bucket-name> (`sharedgallery` in this sample) -> Configuration -> Endpoints -> Public**
 1. **AuthToken**: In this tutorial, IAM authentication is used.
 
-For the Java&trade; adapter to connect to your instance of COS, authentication that uses IAM or HMAC is needed. Following are the steps to get the IAM token. For further details on IAM and HMAC authentication processes, click [here](https://cloud.ibm.com/docs/services/cloud-object-storage/api-reference/api-reference-buckets.html#bucket-operations#AuthenticationOptions).
+For the Java&trade; adapter to connect to your instance of COS, authentication that uses IAM or HMAC is needed. Following are the steps to get the IAM token. For further details on IAM and HMAC authentication processes, click [here](/docs/cloud-object-storage/api-reference?topic=cloud-object-storage-compatibility-api-bucket-operations#bucket-operations#AuthenticationOptions).
 
 #### Obtaining IAM OAuth token by using {{site.data.keyword.cloud_notm}} CLI
 {: #obtaining-iam-oath-token-using-ibm-cloud-cli}

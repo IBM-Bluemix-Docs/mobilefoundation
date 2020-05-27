@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2020-01-07"
+lastupdated: "2020-05-27"
 
 keywords: mobile analytics, charts, visualize data, analytics console
 
@@ -44,7 +44,7 @@ To visualize insights from the analytics data that is captured and sent from you
 
 The {{site.data.keyword.mobileanalytics_short}} Console can be run in two modes:
 - `Demo Mode ON`, which is purely for demonstration purposes and shows the different analytics views (charts and tables) by using simulated data feeds.
-- `Demo Mode OFF`, which shows the various analytics views based on realtime data feeds coming from your applications that are [instrumented for {{site.data.keyword.mobileanalytics_short}}](/docs/services/mobilefoundation?topic=mobilefoundation-instrument_your_app#instrument_your_app).
+- `Demo Mode OFF`, which shows the various analytics views based on realtime data feeds coming from your applications that are [instrumented for {{site.data.keyword.mobileanalytics_short}}](/docs/mobilefoundation?topic=mobilefoundation-instrument_your_app#instrument_your_app).
 
 All analytics views can be pruned by applying filters around *application name*, *version*, *device OS*, and *time period*, thus you can obtain insights from different perspectives.
 
@@ -99,4 +99,4 @@ This view provides insights into the actual interactive experience your users ar
 ## Custom Charts
 {: #custom_charts}
 
-This view extends {{site.data.keyword.mobileanalytics_short}} to custom cases where **App owners** and **Developers** would like to build their own, application-specific analytics. Using this facility, you can build your own analytics views (charts, tables, and others) around standard analytics data that is captured by the Client SDK and also custom data or application-specific data that is logged. For more information about extended analytics facility, see [here](/docs/services/mobilefoundation?topic=mobilefoundation-build_custom_charts#build_custom_charts).
+This view extends {{site.data.keyword.mobileanalytics_short}} to custom cases where **App owners** and **Developers** would like to build their own, application-specific analytics. Using this facility, you can build your own analytics views (charts, tables, and others) around standard analytics data that is captured by the Client SDK and also custom data or application-specific data that is logged. For more information about extended analytics facility, see [here](/docs/mobilefoundation?topic=mobilefoundation-build_custom_charts#build_custom_charts).

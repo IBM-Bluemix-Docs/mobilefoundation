@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2020-01-08"
+lastupdated: "2020-05-27"
 
 keywords: push notifications, notifications, sending notification, HTTP/2
 
@@ -247,4 +247,4 @@ You can make use proxy settings to set the optional proxy through which notifica
 
 With the server-side set up completed, now set up the client-side and handle the received notifications by using the following tutorial.
 
-- [Handling push notifications in Client applications](/docs/services/mobilefoundation?topic=mobilefoundation-handling_push_notifications_in_client_applications#handling_push_notifications_in_client_applications)
+- [Handling push notifications in Client applications](/docs/mobilefoundation?topic=mobilefoundation-handling_push_notifications_in_client_applications#handling_push_notifications_in_client_applications)

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2016, 2020
-lastupdated: "2020-01-07"
+  years: 2018, 2020
+lastupdated: "2020-05-27"
 
 keywords: getting started, mobile foundation, plans, configure mobile foundation server, sample app, setup
 
@@ -78,7 +78,7 @@ After you create an instance of the {{site.data.keyword.mobilefoundation_short}}
   * 1 GB of memory. This size is enough for development and light testing activities.
   * To access the Mobile Foundation Server by using CLI you need the credentials, which are available when you click **Service credentials** from the navigation pane of the {{site.data.keyword.cloud_notm}} console.
 
-The Developer plan does not offer a persistent database, as such be sure to backup your configuration as explained in the [FAQ section](/docs/services/mobilefoundation?topic=mobilefoundation-mfp-faq#persistentdatabase).
+The Developer plan does not offer a persistent database, as such be sure to backup your configuration as explained in the [FAQ section](/docs/mobilefoundation?topic=mobilefoundation-mfp-faq#persistentdatabase).
 {: important}
 
 {{site.data.keyword.mobilefoundation_short}} Server might be stopped by default. It is important to make sure that the server is running at the time of application testing.
@@ -143,7 +143,7 @@ After you create an instance of the {{site.data.keyword.mobilefoundation_short}}
 
       + Click **Launch Operation console** to open the {{site.data.keyword.mfp_oc_short_notm}}.      
 
-      To create a {{site.data.keyword.mobilefirst_notm}} server instance with advanced configuration for topology, security, and other server configuration, click **Start Server with Advanced Configuration**. For more information, see [Setting up advanced configuration](/docs/services/mobilefoundation?topic=mobilefoundation-using_mobilefoundation_p5#using_mfs_advanced_p5).
+      To create a {{site.data.keyword.mobilefirst_notm}} server instance with advanced configuration for topology, security, and other server configuration, click **Start Server with Advanced Configuration**. For more information, see [Setting up advanced configuration](/docs/mobilefoundation?topic=mobilefoundation-using_mobilefoundation_p5#using_mfs_advanced_p5).
       {: tip}
 
 ### For {{site.data.keyword.mobilefoundation_short}}: Professional 1 Application plan
@@ -205,7 +205,7 @@ After you create an instance of the {{site.data.keyword.mobilefoundation_short}}
 
       + Click **Launch Operation console** to open the {{site.data.keyword.mfp_oc_short_notm}}.      
 
-      To create a {{site.data.keyword.mobilefirst_notm}} server instance with advanced configuration for topology, security, and other server configuration, click **Start Server with Advanced Configuration**. For more information, see [Setting up advanced configuration](/docs/services/mobilefoundation?topic=mobilefoundation-using_mobilefoundation_p2#using_mfs_advanced_p2).
+      To create a {{site.data.keyword.mobilefirst_notm}} server instance with advanced configuration for topology, security, and other server configuration, click **Start Server with Advanced Configuration**. For more information, see [Setting up advanced configuration](/docs/mobilefoundation?topic=mobilefoundation-using_mobilefoundation_p2#using_mfs_advanced_p2).
       {: tip}
 
 Go to [Using the Mobile Foundation service to set up Mobile Foundation Server](https://mobilefirstplatform.ibmcloud.com/tutorials/en/foundation/8.0/ibmcloud/using-mobile-foundation/){: external} to learn more about getting started with {{site.data.keyword.mobilefoundation_short}}.

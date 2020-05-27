@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-01-07"
+lastupdated: "2020-05-27"
 
 keywords: mobile foundation, logging and tracing, accessing server logs, logging, tracing
 

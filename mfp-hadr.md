@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-01-07"
+lastupdated: "2020-05-27"
 
 keywords: mobile foundation, high availability, disaster recovery, HA, HADR, DR
 
@@ -67,7 +67,7 @@ IBM {{site.data.keyword.mobilefoundation_short}} for {{site.data.keyword.cloud_n
 If you have not setup [HA-DR topology](https://www.ibm.com/cloud/blog/build-resilient-backend-to-your-applications-using-ibm-cloud-mobile-foundation), do following steps to recover disaster.
 
 * In a disaster incident, declared by these databases, follow the backup and recovery procedures as documented:
-   * The **{{site.data.keyword.composeForPostgreSQL}}** has scheduled backups available. In a disaster, follow the instructions as documented [here](https://cloud.ibm.com/docs/services/ComposeForPostgreSQL?topic=compose-for-postgresql-dashboard-backups).
-   * **IBM® Cloud Databases for PostgreSQL** offers Point-In-Time Recovery (PITR). Follow the instructions as documented [here](https://cloud.ibm.com/docs/services/databases-for-postgresql?topic=databases-for-postgresql-pitr).
-   * **Db2 on IBM Cloud** offers backup and recovery process as documented [here](https://cloud.ibm.com/docs/services/Db2onCloud?topic=Db2onCloud-bnr).
+   * The **{{site.data.keyword.composeForPostgreSQL}}** has scheduled backups available. In a disaster, follow the instructions as documented [here](/docs/ComposeForPostgreSQL?topic=ComposeForPostgreSQL-dashboard-backups).
+   * **IBM® Cloud Databases for PostgreSQL** offers Point-In-Time Recovery (PITR). Follow the instructions as documented [here](/docs/databases-for-postgresql?topic=databases-for-postgresql-pitr).
+   * **Db2 on IBM Cloud** offers backup and recovery process as documented [here](/docs/Db2onCloud?topic=Db2onCloud-bnr).
 * In an incident of a disaster, create a new instance of {{site.data.keyword.mobilefoundation_short}} service on {{site.data.keyword.cloud_notm}} in an alternative region and restore your database backups that are exported from the old instances of DB2/PostgresSQL.

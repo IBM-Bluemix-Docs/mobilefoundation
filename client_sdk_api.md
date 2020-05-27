@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2019
-lastupdated: "2019-11-29"
+  years: 2018, 2020
+lastupdated: "2020-05-27"
 
 keywords: mobile foundation, client sdk, sdk api, javascript api, java api, react native api, objective-c api, csharp api
 

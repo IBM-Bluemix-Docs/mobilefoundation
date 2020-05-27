@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2019
-lastupdated: "2019-11-29"
+  years: 2018, 2020
+lastupdated: "2020-05-27"
 
 keywords: mobile foundation security, MIM attack, certificate pinning
 
@@ -215,5 +215,5 @@ The certificate pinning method returns a promise:
 
 Later, if a secured request is made to a server whose certificate is not pinned, the `onFailure` callback of the specific request (for example, `obtainAccessToken` or `WLResourceRequest`) is called.
 
-Learn more about the certificate pinning API method in the [API Reference](/docs/services/mobilefoundation?topic=mobilefoundation-client_sdks#client_sdks).
+Learn more about the certificate pinning API method in the [API Reference](/docs/mobilefoundation?topic=mobilefoundation-client_sdks#client_sdks).
 {: note}

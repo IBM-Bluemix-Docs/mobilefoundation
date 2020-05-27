@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019
-lastupdated: "2019-12-16"
+  years: 2019, 2020
+lastupdated: "2020-05-27"
 
 keywords: mobile analytics, updating mobile foundation service instances, updating instances, latest level
 

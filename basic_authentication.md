@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2019
-lastupdated: "2019-11-29"
+  years: 2018, 2020
+lastupdated: "2020-05-27"
 
 keywords: security, basic authentication, protecting resources, tokens, scopemapping
 
@@ -346,7 +346,7 @@ You can also push updated configurations to remote servers.
 #### Protecting adapter resources
 {: #protectadapterres}
 
-In your adapter, you can specify the protecting scope for a Java method or JavaScript resource procedure, or for an entire Java resource class. A scope is defined as a string of one or more space-separated scope elements (`scopeElement1 scopeElement2 …`), or null to apply the default scope. For more information on protecting adapter resources, see [Protecting Adapters](/docs/services/mobilefoundation?topic=mobilefoundation-protecting_adapters#protecting_adapters).
+In your adapter, you can specify the protecting scope for a Java method or JavaScript resource procedure, or for an entire Java resource class. A scope is defined as a string of one or more space-separated scope elements (`scopeElement1 scopeElement2 …`), or null to apply the default scope. For more information on protecting adapter resources, see [Protecting Adapters](/docs/mobilefoundation?topic=mobilefoundation-protecting_adapters#protecting_adapters).
 
 ### Disabling resource protection
 {: #disablingresprotection}

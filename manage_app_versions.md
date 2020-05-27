@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2019
-lastupdated: "2019-11-29"
+  years: 2018, 2020
+lastupdated: "2020-05-27"
 
 keywords: app versions, disabling apps
 
@@ -60,6 +60,6 @@ Using the {{site.data.keyword.mobilefoundation_short}} Operations console, you c
    * Clone version
    * Export version
 
-For more information about managing devices, see [Managing devices](/docs/services/mobilefoundation?topic=mobilefoundation-manage_devices#manage_devices).
-For more information about remotely disabling an app version, see [Remotely disable an app version](/docs/services/mobilefoundation?topic=mobilefoundation-remotely_disable_an_app_version#remotely_disable_an_app_version).
+For more information about managing devices, see [Managing devices](/docs/mobilefoundation?topic=mobilefoundation-manage_devices#manage_devices).
+For more information about remotely disabling an app version, see [Remotely disable an app version](/docs/mobilefoundation?topic=mobilefoundation-remotely_disable_an_app_version#remotely_disable_an_app_version).
 {: note}

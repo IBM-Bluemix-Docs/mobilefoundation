@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2019
-lastupdated: "2019-11-29"
+  years: 2018, 2020
+lastupdated: "2020-05-27"
 
 keywords: mobile foundation faq, updates to mobile foundation, custom domain
 
@@ -73,7 +73,7 @@ On applying the update, the version of the server, as seen in the {{site.data.ke
 
 * Users cannot apply their own fixes and updates to their {{site.data.keyword.mobilefoundation_short}} service instance.
 
-See [Re-creating server in Professional Per Device plan](/docs/services/mobilefoundation?topic=mobilefoundation-using_mobilefoundation_p5#recreate_mobilefoundation_p5) and [Re-creating server in Professional 1 Application plan](/docs/services/mobilefoundation?topic=mobilefoundation-using_mobilefoundation_p2#recreate_mobilefoundation_p2) to understand the difference in behavior across the plans when **Recreate** is clicked.
+See [Re-creating server in Professional Per Device plan](/docs/mobilefoundation?topic=mobilefoundation-using_mobilefoundation_p5#recreate_mobilefoundation_p5) and [Re-creating server in Professional 1 Application plan](/docs/mobilefoundation?topic=mobilefoundation-using_mobilefoundation_p2#recreate_mobilefoundation_p2) to understand the difference in behavior across the plans when **Recreate** is clicked.
 {: note}
 
 ## How do I configure custom domain for my {{site.data.keyword.mobilefoundation_short}} server instance?

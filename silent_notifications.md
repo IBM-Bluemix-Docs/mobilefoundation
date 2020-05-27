@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2019
-lastupdated: "2019-11-29"
+  years: 2018, 2020
+lastupdated: "2020-05-27"
 
 keywords: push notifications, notification, sending silent notifications
 
@@ -46,7 +46,7 @@ Silent notifications are notifications that do not display alerts or otherwise d
 ## Sending silent push notifications
 {: #sending-silent-push-notifications}
 
-Prepare the notification and send notification. For more information, see [Sending push notifications](/docs/services/mobilefoundation?topic=mobilefoundation-send_push_notifications#send_push_notifications).
+Prepare the notification and send notification. For more information, see [Sending push notifications](/docs/mobilefoundation?topic=mobilefoundation-send_push_notifications#send_push_notifications).
 
 The three types of notifications that are supported for iOS are represented by constants `DEFAULT`, `SILENT`, and `MIXED`. When the type is not explicitly specified, the `DEFAULT` type is assumed.
 

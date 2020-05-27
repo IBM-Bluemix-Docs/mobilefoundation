@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2016, 2019
-lastupdated: "2019-11-29"
+  years: 2018, 2020
+lastupdated: "2020-05-27"
 
 keywords: mobile foundation, mobile analytics, professional plan, configure database
 
@@ -134,4 +134,4 @@ Use the **Start Server with Advanced Configuration** from the `Overview` page to
 
 * Launch the {{site.data.keyword.mobileanalytics_short}} Console from the {{site.data.keyword.mfp_oc_short_notm}}.
 
-For more information on Mobile Analytics, see [here](/docs/services/mobilefoundation?topic=mobilefoundation-instrument_your_app#instrument_your_app).
+For more information on Mobile Analytics, see [here](/docs/mobilefoundation?topic=mobilefoundation-instrument_your_app#instrument_your_app).

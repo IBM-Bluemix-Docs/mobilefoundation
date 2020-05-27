@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019
-lastupdated: "2019-11-29"
+  years: 2019, 2020
+lastupdated: "2020-05-27"
 
 keywords: mobile foundation service, notifications, activity tracker events, activity tracker, mobile-foundation.server-db.connect, mobile-foundation.server-properties.updated, mobile-foundation.server.create, mobile-foundation.server.delete
 
@@ -42,7 +42,7 @@ subcollection:  mobilefoundation
 
 The {{site.data.keyword.cloudaccesstrailfull}} service monitors a user's interaction with the {{site.data.keyword.cloud_notm}} services. You can search and analyze how your users and applications interact with {{site.data.keyword.cloud_notm}} services.
 
-Refer to the [Activity Tracker Page](https://cloud.ibm.com/docs/services/Activity-Tracker-with-LogDNA?topic=logdnaat-getting-started#getting-started) for details.
+Refer to the [Activity Tracker Page](/docs/Activity-Tracker-with-LogDNA?topic=Activity-Tracker-with-LogDNA-getting-started#getting-started) for details.
 
 ## List of events by {{site.data.keyword.mobilefoundation_short}}
 {: #actions}

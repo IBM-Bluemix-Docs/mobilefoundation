@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2019
-lastupdated: "2019-11-29"
+  years: 2018, 2020
+lastupdated: "2020-05-27"
 
 keywords: integration, {{site.data.keyword.mobilefoundation_short}}, secure gateway
 
@@ -142,7 +142,7 @@ From the {{site.data.keyword.mobilefoundation_short}} service console, create th
 
 In this tutorial, connection to the Secure Gateway endpoint is done by using a {{site.data.keyword.mobilefoundation_short}} adapter. [Download](https://github.com/MobileFirst-Platform-Developer-Center/Adapters/tree/release80/JavaHTTP) the {{site.data.keyword.mobilefoundation_short}} JavaHTTP adapter.
 
-Build and deploy the adapter in {{site.data.keyword.mobilefoundation_short}} Operations console by using [mfpdev-cli](/docs/services/mobilefoundation?topic=mobilefoundation-mobile_foundation_cli#mobile_foundation_cli) commands.
+Build and deploy the adapter in {{site.data.keyword.mobilefoundation_short}} Operations console by using [mfpdev-cli](/docs/mobilefoundation?topic=mobilefoundation-mobile_foundation_cli#mobile_foundation_cli) commands.
 ```bash
 mfpdev adapter build
 mfpdev adapter deploy
@@ -169,7 +169,7 @@ Run the app, provide credentials to log in, and click the *Login* button. Click 
 
 ![App receives on-premises data](images/AcmePublishersApp.gif "Sample app receiving data")
 
-You can connect to multiple on-premises endpoints by configuring multiple destinations on the Secure Gateway service and by deploying {{site.data.keyword.mobilefoundation_short}} adapters to connect to the respective cloud host of the endpoint. You can also configure the Secure Gateway service with extra security to ensure that the communication to the endpoint happens over HTTPS and application-side security. You can find the [details here](/docs/services/SecureGateway?topic=securegateway-getting-started-with-sg#getting-started-with-sg).
+You can connect to multiple on-premises endpoints by configuring multiple destinations on the Secure Gateway service and by deploying {{site.data.keyword.mobilefoundation_short}} adapters to connect to the respective cloud host of the endpoint. You can also configure the Secure Gateway service with extra security to ensure that the communication to the endpoint happens over HTTPS and application-side security. You can find the [details here](/docs/SecureGateway?topic=securegateway-getting-started-with-sg#getting-started-with-sg).
 
 ## Summary
 {: #summary_int_sec_gw}

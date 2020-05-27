@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2019
-lastupdated: "2019-11-29"
+  years: 2018, 2020
+lastupdated: "2020-05-27"
 
 keywords: Push Notifications, notifications, unicast notifications, tag notifications, interactive notifications, silent notifications, configure DataPower, frontside settings, backside settings
 
@@ -91,14 +91,14 @@ Unicast notifications, or User Authenticated Notifications are secured with OAut
 
 With interactive notification, when a notification arrives, users can act without opening the application. When an interactive notification arrives, the device shows action buttons along with the notification message. Currently, interactive notifications are supported on devices with iOS version 8 onwards. If an interactive notification is sent to an iOS device with version earlier than 8, the notification actions are not displayed.
 
-Learn how to handle [Interactive notifications](/docs/services/mobilefoundation?topic=mobilefoundation-interactive_notifications#interactive_notifications).
+Learn how to handle [Interactive notifications](/docs/mobilefoundation?topic=mobilefoundation-interactive_notifications#interactive_notifications).
 
 ### Silent notifications
 {: #silent-notifications-overview}
 
 Silent notifications are notifications that do not display alerts or otherwise disturb the user. When a silent notification arrives, the application handing code runs in background without bringing the application to foreground. Currently, the silent notifications are supported on iOS devices with version 7 onwards. If the silent notification is sent to iOS devices with version lesser than 7, the notification is ignored if the application is running in background. If the application is running in the foreground, then the notification callback method is invoked.
 
-Learn how to handle [Silent notifications](/docs/services/mobilefoundation?topic=mobilefoundation-silent_notifications#silent_notifications).
+Learn how to handle [Silent notifications](/docs/mobilefoundation?topic=mobilefoundation-silent_notifications#silent_notifications).
 
 Unicast notifications do not contain any tag in the payload. The notification message can target multiple devices or users by specifying multiple deviceIDs or userIDs respectively, in the target block of the POST message API.
 {: note}
@@ -287,8 +287,8 @@ To generate certificate, choose any of the following options:
 
 Follow through the required setup of the server-side and client-side in order to send and receive push notifications:
 
-* [Configure Push Notifications](/docs/services/mobilefoundation?topic=mobilefoundation-configure_push_notifications#configure_push_notifications)
-* [Send Push Notifications](/docs/services/mobilefoundation?topic=mobilefoundation-send_push_notifications#send_push_notifications)
-* [Handling push notifications in Client applications](/docs/services/mobilefoundation?topic=mobilefoundation-handling_push_notifications_in_client_applications#handling_push_notifications_in_client_applications)
-* [Silent Notifications](/docs/services/mobilefoundation?topic=mobilefoundation-silent_notifications#silent_notifications)
-* [Interactive Notifications](/docs/services/mobilefoundation?topic=mobilefoundation-interactive_notifications#interactive_notifications)
+* [Configure Push Notifications](/docs/mobilefoundation?topic=mobilefoundation-configure_push_notifications#configure_push_notifications)
+* [Send Push Notifications](/docs/mobilefoundation?topic=mobilefoundation-send_push_notifications#send_push_notifications)
+* [Handling push notifications in Client applications](/docs/mobilefoundation?topic=mobilefoundation-handling_push_notifications_in_client_applications#handling_push_notifications_in_client_applications)
+* [Silent Notifications](/docs/mobilefoundation?topic=mobilefoundation-silent_notifications#silent_notifications)
+* [Interactive Notifications](/docs/mobilefoundation?topic=mobilefoundation-interactive_notifications#interactive_notifications)
