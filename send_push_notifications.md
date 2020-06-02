@@ -160,7 +160,7 @@ The notification can be sent by using different tools. For testing purposes, **P
 
 1. [Create an access token](https://mobilefirstplatform.ibmcloud.com/tutorials/en/foundation/8.0/authentication-and-security/confidential-clients#obtaining-an-access-token){: external}.  
 
-1. Make a **POST** request to **http://localhost:9080/imfpush/v1/apps/com.sample.PushNotificationsAndroid/messages**
+1. Make a **POST** request to `http://localhost:9080/imfpush/v1/apps/com.sample.PushNotificationsAndroid/messages`
    - If you are using a remote {{site.data.keyword.mobilefirst_notm}}, replace the `hostname` and `port` values with your own.
    - Update the application identifier value with your own.
 

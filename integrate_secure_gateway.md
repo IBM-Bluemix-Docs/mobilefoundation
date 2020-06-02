@@ -169,7 +169,7 @@ Run the app, provide credentials to log in, and click the *Login* button. Click 
 
 ![App receives on-premises data](images/AcmePublishersApp.gif "Sample app receiving data")
 
-You can connect to multiple on-premises endpoints by configuring multiple destinations on the Secure Gateway service and by deploying {{site.data.keyword.mobilefoundation_short}} adapters to connect to the respective cloud host of the endpoint. You can also configure the Secure Gateway service with extra security to ensure that the communication to the endpoint happens over HTTPS and application-side security. You can find the [details here](/docs/SecureGateway?topic=securegateway-getting-started-with-sg#getting-started-with-sg).
+You can connect to multiple on-premises endpoints by configuring multiple destinations on the Secure Gateway service and by deploying {{site.data.keyword.mobilefoundation_short}} adapters to connect to the respective cloud host of the endpoint. You can also configure the Secure Gateway service with extra security to ensure that the communication to the endpoint happens over HTTPS and application-side security. You can find the [details here](/docs/SecureGateway?topic=SecureGateway-getting-started-with-sg#getting-started-with-sg).
 
 ## Summary
 {: #summary_int_sec_gw}
