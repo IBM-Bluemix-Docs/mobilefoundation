@@ -176,7 +176,7 @@ To connect to your COS instance, some details of your COS instance need to be pr
 1. **endpointURL**: This field is the public endpoint url for your COS object. This URL can be found on your COS's dashboard, under **Buckets (on the menu options) -> <your-bucket-name> (`sharedgallery` in this sample) -> Configuration -> Endpoints -> Public**
 1. **AuthToken**: In this tutorial, IAM authentication is used.
 
-For the Java&trade; adapter to connect to your instance of COS, authentication that uses IAM or HMAC is needed. Following are the steps to get the IAM token. For further details on IAM and HMAC authentication processes, click [here](https://cloud.ibm.com/docs/cloud-object-storage/api-reference?topic=cloud-object-storage-compatibility-api-bucket-operations#bucket-operations#AuthenticationOptions).
+For the Java&trade; adapter to connect to your instance of COS, authentication that uses IAM or HMAC is needed. Following are the steps to get the IAM token. For further details on IAM and HMAC authentication processes, click [here](/docs/cloud-object-storage/api-reference?topic=cloud-object-storage-compatibility-api-bucket-operations).
 
 #### Obtaining IAM OAuth token by using {{site.data.keyword.cloud_notm}} CLI
 {: #obtaining-iam-oath-token-using-ibm-cloud-cli}
