@@ -45,6 +45,8 @@ Mobile Foundation
 	    handling_push_notifications_in_client_applications.md
 		silent_notifications.md
 		interactive_notifications.md
+        mf-configuring-webpush-notifications.md
+        mf-sending-webpush-notifications.md
 
 	{: .topicgroup}
     Secure an app end-to-end
