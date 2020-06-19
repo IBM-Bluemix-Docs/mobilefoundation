@@ -2,11 +2,12 @@
 {: navgroup: .navgroup}
 {: topicgroup: .topicgroup}
 
-{: .toc subcollection="mobilefoundation" category="mobile" audience="service" arm="3663370" href="/docs/mobilefoundation?topic=mobilefoundation-getting-started" path="mobilefoundation"}
+{: .toc subcollection="mobilefoundation" category="mobile" audience="service" arm="3663370" href="/docs/mobilefoundation?topic=mobilefoundation-getting-started" console-page="/catalog/services/mobile-foundation" product-page="https://www.ibm.com/cloud/mobile-foundation"  path="mobilefoundation"}
 Mobile Foundation
 
     {: .navgroup id="learn"}
     getting-started.md
+    [What is mobile foundation?](https://www.ibm.com/cloud/mobile-foundation)
 
     {: .topicgroup}
     About
