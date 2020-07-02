@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2020-05-27"
+lastupdated: "2020-07-01"
 
 keywords: getting started, mobile foundation, plans, configure mobile foundation server, sample app, setup
 
@@ -36,6 +36,10 @@ subcollection:  mobilefoundation
 {:android: .ph data-hd-programlang='Android'}
 {:cordova: .ph data-hd-programlang='Cordova'}
 {:xml: .ph data-hd-programlang='xml'}
+{:deprecated: .deprecated}
+
+{{site.data.keyword.mobilefoundation_long}} is deprecated. As of 31 July 2020, you cannot provision new {{site.data.keyword.mobilefoundation_short}} instances. Existing instances are supported until 31 July 2021. Any instance that is still provisioned as of 31 July 2021 will be deleted. For more information, see the [deprecation announcement blog](https://www.ibm.com/cloud/blog/announcements/service-deprecation-mobile-foundation-on-ibm-public-cloud){: external}.
+{: deprecated}
 
 # Getting started tutorial
 {: #getting-started}
