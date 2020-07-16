@@ -4,7 +4,7 @@ copyright:
   years: 2020
 lastupdated: "2020-06-11"
 
-keywords: Push Notifications, notifications, web push notification, sending web push notifications
+keywords: mobile foundation, Push Notifications, notifications, web push notification, sending web push notifications
 
 subcollection:  mobilefoundation
 
