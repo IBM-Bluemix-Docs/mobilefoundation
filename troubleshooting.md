@@ -128,4 +128,4 @@ If you have technical questions about developing or deploying an app with {{site
 
 For questions about the service and getting started instructions, use the [IBM IBM Developer dW Answers](https://developer.ibm.com/answers/topics/mobilefirst/){: external} forum. Include the `bluemix` and  `mobilefirst` tags.
 
-For more information on opening an IBM support ticket or on support levels and ticket severities, see [Contacting support](https://cloud.ibm.com/docs/get-support?topic=get-support-getting-customer-support){: external}.
+For more information on opening an IBM support ticket or on support levels and ticket severities, see [Contacting support](https://cloud.ibm.com/docs/get-support?topic=get-support-using-avatar){: external}.
