@@ -59,5 +59,5 @@ and meets the following ISO requirements:
 
 The GDPR seeks to create a harmonized data protection law framework across the EU and aims to give citizens back the control of their personal data, while imposing strict rules on those hostings and ‘processing’ this data, anywhere in the world. The Regulation also introduces rules relating to the free movement of personal data within and outside the EU. 
 
-With the [General Data Protection Regulation](https://www.eugdpr.org/){: external}, {{site.data.keyword.mobilefoundation_short}} customers can rely on 
+With the [General Data Protection Regulation](https://www.gdpr.org/){: external}, {{site.data.keyword.mobilefoundation_short}} customers can rely on 
 the {{site.data.keyword.mobilefoundation_short}} Service team's understanding and compliance with emerging data privacy standards and legislation and also in {{site.data.keyword.IBM}}'s wider ability to provide a comprehensive suite of solutions to assist businesses of all sizes with their own internal data governance requirements.
