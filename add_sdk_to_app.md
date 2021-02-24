@@ -22,29 +22,14 @@ subcollection:  mobilefoundation
 {:important: .important}
 {:note: .note}
 {:download: .download}
-{:java: .ph data-hd-programlang='java'}
-{:ruby: .ph data-hd-programlang='ruby'}
-{:c#: .ph data-hd-programlang='c#'}
-{:objectc: .ph data-hd-programlang='Objective C'}
-{:python: .ph data-hd-programlang='python'}
-{:javascript: .ph data-hd-programlang='javascript'}
-{:php: .ph data-hd-programlang='PHP'}
-{:swift: .ph data-hd-programlang='swift'}
-{:reactnative: .ph data-hd-programlang='React Native'}
-{:csharp: .ph data-hd-programlang='csharp'}
-{:ios: .ph data-hd-programlang='iOS'}
-{:android: .ph data-hd-programlang='Android'}
-{:cordova: .ph data-hd-programlang='Cordova'}
-{:xml: .ph data-hd-programlang='xml'}
+
 
 # Add Mobile Foundation SDK to an app
 {: #add_sdk_to_app}
 
 ## Adding the Android SDK to your app
-{: android}
 
 Open Android Studio, choose the Android view and choose **Gradle Scripts**. Select the `build.gradle (Module: app)` file, then perform the following steps to add the Android SDK to your android application.
-{: android}
 
 1. Add the following line to the `dependencies` section.
 
@@ -52,7 +37,6 @@ Open Android Studio, choose the Android view and choose **Gradle Scripts**. Sele
    compile 'com.ibm.mobile.foundation:ibmmobilefirstplatformfoundation:8.0.+'
    ```
    {: codeblock}
-   {: android}
 
 1. Add the following line to the `android` section.
 
@@ -64,7 +48,6 @@ Open Android Studio, choose the Android view and choose **Gradle Scripts**. Sele
     }
    ```
    {: codeblock}
-   {: android}
 
 1. In the Android view, open **app → manifests → AndroidManifest.xml** file. Add the following permissions before the `application` element.
 
@@ -73,7 +56,6 @@ Open Android Studio, choose the Android view and choose **Gradle Scripts**. Sele
    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
    ```
    {: codeblock}
-   {: android}
 
 1. Add the MobileFirst UI activity next to the existing `activity` element.
 
@@ -81,13 +63,12 @@ Open Android Studio, choose the Android view and choose **Gradle Scripts**. Sele
    <activity android:name="com.worklight.wlclient.ui.UIActivity" />
    ```
    {: codeblock}
-   {: android}
+
 
 ## Adding the iOS SDK to your app
-{: ios}
+{: ios-sdk}
 
 This SDK is the Core SDK for {{site.data.keyword.IBM_notm}} {{site.data.keyword.mobilefoundation_short}} consisting of APIs for implementing {{site.data.keyword.mobilefoundation_short}} security, authorization, logging, calling adapters and other core functions. Perform the following steps to add the iOS SDK to your iOS application.
-{: ios}
 
 1. Go to root folder of your iOS app, run the following command to create a Podfile.
 
@@ -95,7 +76,6 @@ This SDK is the Core SDK for {{site.data.keyword.IBM_notm}} {{site.data.keyword.
    pod init
    ```
    {: codeblock}
-   {: ios}
 
 1. Using your favorite code editor, open the Podfile.
 
@@ -107,7 +87,6 @@ This SDK is the Core SDK for {{site.data.keyword.IBM_notm}} {{site.data.keyword.
    end
    ```
    {: codeblock}
-   {: ios}
 
 1. Update pod by using following command.
 
@@ -115,7 +94,6 @@ This SDK is the Core SDK for {{site.data.keyword.IBM_notm}} {{site.data.keyword.
    pod update
    ```
    {: codeblock}
-   {: ios}
 
 1. Install pod by using following command.
 
@@ -123,7 +101,6 @@ This SDK is the Core SDK for {{site.data.keyword.IBM_notm}} {{site.data.keyword.
    pod install
    ```
    {: codeblock}
-   {: ios}
 
 1. Open [ProjectName].xcworkspace to open the project in Xcode.
 1. Add the `mfpclient.plist` file to Xcode workspace.
@@ -133,13 +110,11 @@ This SDK is the Core SDK for {{site.data.keyword.IBM_notm}} {{site.data.keyword.
    mfpdev app register
    ```
    {: codeblock}
-   {: ios}
 
 ## Adding the Cordova SDK to your app
-{: cordova}
+{: cordova-sdk}
 
 This SDK is the Core SDK for {{site.data.keyword.IBM_notm}} {{site.data.keyword.mobilefoundation_short}} consisting of APIs for implementing {{site.data.keyword.mobilefoundation_short}} security, authorization, logging, calling adapters and other core functions. Perform the following steps to add the Cordova SDK to your application.
-{: cordova}
 
 1. Create a Cordova project.
 
@@ -147,14 +122,12 @@ This SDK is the Core SDK for {{site.data.keyword.IBM_notm}} {{site.data.keyword.
    cordova create Hello com.example.helloworld HelloWorld
    ```
    {: codeblock}
-   {: cordova}
 
 1. Change directory to the root of the Cordova project.
    ```bash
    cd Hello
    ```
    {: codeblock}
-   {: cordova}
 
 1. Add one or more supported platforms to the Cordova project by using the Cordova CLI.
 
@@ -162,7 +135,6 @@ This SDK is the Core SDK for {{site.data.keyword.IBM_notm}} {{site.data.keyword.
    cordova platform add ios|android|windows
    ```
    {: codeblock}
-   {: cordova}
 
 1. Add the {{site.data.keyword.mobilefoundation_short}} core Cordova plug-in.
 
@@ -170,7 +142,6 @@ This SDK is the Core SDK for {{site.data.keyword.IBM_notm}} {{site.data.keyword.
    cordova plugin add cordova-plugin-mfp
    ```
    {: codeblock}
-   {: cordova}
 
 1. Prepare the application resources by running the following command.
 
@@ -178,7 +149,6 @@ This SDK is the Core SDK for {{site.data.keyword.IBM_notm}} {{site.data.keyword.
    cordova prepare
    ```
    {: codeblock}
-   {: cordova}
 
 1. Register the application to {{site.data.keyword.mobilefoundation_short}} server.
 
@@ -186,13 +156,11 @@ This SDK is the Core SDK for {{site.data.keyword.IBM_notm}} {{site.data.keyword.
    mfpdev app register
    ```
    {: codeblock}
-   {: cordova}
 
 ## Adding the React Native SDK plug-in to your app
 {: reactnative}
 
 To add {{site.data.keyword.mobilefoundation_short}} capabilities to an existing React Native app, you need to add the `react-native-ibm-mobilefirst` plug-in to your app. The `react-native-ibm-mobilefirst` plug-in contains {{site.data.keyword.mobilefoundation_short}} SDK. Perform the following steps to add the React Native plug-in to your React Native application.
-{: reactnative}
 
 1. Add this plug-in in the same way that you add any other `npm` plug-in to your app.
 
@@ -200,7 +168,6 @@ To add {{site.data.keyword.mobilefoundation_short}} capabilities to an existing 
    npm install react-native-ibm-mobilefirst --save
    ```
    {: codeblock}
-   {: reactnative}
 
 1. The first step is to create a React Native project, for example, *MobileFirstApp*. Use the React Native CLI to create a new project.
 
@@ -208,7 +175,6 @@ To add {{site.data.keyword.mobilefoundation_short}} capabilities to an existing 
    react-native init MobileFirstApp
    ```
    {: codeblock}
-   {: reactnative}
 
 1. Next, add the react native plug-in to your app.
 
@@ -217,7 +183,6 @@ To add {{site.data.keyword.mobilefoundation_short}} capabilities to an existing 
    npm install react-native-ibm-mobilefirst --save
    ```
    {: codeblock}
-   {: reactnative}
 
 1. Link your project so that all native dependencies are added to your React Native project.
 
@@ -225,7 +190,6 @@ To add {{site.data.keyword.mobilefoundation_short}} capabilities to an existing 
    react-native link
    ```
    {: codeblock}
-   {: reactnative}
 
 1. For Android, make the following changes to `AndroidManifest.xml` (`<PROJECT_ROOT>/android/app/src/main/`).
 
@@ -236,7 +200,6 @@ To add {{site.data.keyword.mobilefoundation_short}} capabilities to an existing 
           package="com.mobilefirstapp">
    ```
    {: codeblock}
-   {: reactnative}
 
 1. Add **tools:replace='android:allowBackup'** to the `application` tag.
 
@@ -250,7 +213,5 @@ To add {{site.data.keyword.mobilefoundation_short}} capabilities to an existing 
             tools:replace="android:allowBackup">
    ```
    {: codeblock}
-   {: reactnative}
 
 1. For iOS, open XCode, in the project navigator, drag and drop `mfpclient.plist` from `ios` folder. This step is applicable only for iOS platform.
-{: reactnative}
